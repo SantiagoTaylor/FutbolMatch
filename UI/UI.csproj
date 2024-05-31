@@ -70,6 +70,7 @@
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
     <Content Include="Webforms\frmLogin.aspx" />
+    <Content Include="Webforms\frmRegister.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +80,13 @@
     </Compile>
     <Compile Include="Webforms\frmLogin.aspx.designer.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmRegister.aspx.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmRegister.aspx.designer.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
