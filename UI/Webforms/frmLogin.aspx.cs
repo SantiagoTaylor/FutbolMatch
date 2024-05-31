@@ -6,7 +6,7 @@ namespace UI.Webforms
 {
     public partial class frmLogin : System.Web.UI.Page
     {
-        private int _failedLogins = 0;
+        private static int _failedLogins = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -17,10 +17,12 @@ namespace UI.Webforms
             if (BLL_Login.IsValidCredentials(txtUser.Text, txtPassword.Text))
             {
                 WebformMessage.ShowMessage("Bienvenido!", this);
+                _failedLogins = 0;
+                Response.Redirect("index.aspx");
             }
             else
             {
-                WebformMessage.ShowMessage("El usuario o la contraseña son incorrectos", this);
+                WebformMessage.ShowMessage("El usuario o la contraseña son incorrectos" + _failedLogins, this);
                 _failedLogins++;
             }
         }
