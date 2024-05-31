@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\login-background.jpg" />
+    <Content Include="Styles\style-login.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
     <Content Include="Webforms\frmLogin.aspx" />
