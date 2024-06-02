@@ -1,14 +1,14 @@
-﻿using System.Data;
-using System.Data.SqlClient;
+﻿using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace DAL
 {
     public  class DAL_DB_Connection
     {
-        private  readonly SqlConnection _connection = new SqlConnection(@"Server=DESKTOP-RT3PVPT\SQLEXPRESS;Database=db_PruebaLogin;Trusted_Connection=True;");
+        private  readonly MySqlConnection _connection = new MySqlConnection(@"Server=sql10.freesqldatabase.com;Database=sql10710948;User ID=sql10710948;Password=wasQWU7Y4l;");
 
-        public SqlConnection Connection => _connection;
-        public SqlConnection OpenConnection()
+        public MySqlConnection Connection => _connection;
+        public MySqlConnection OpenConnection()
         {
             if (Connection.State == ConnectionState.Closed)
             {
@@ -17,7 +17,7 @@ namespace DAL
             return Connection;
         }
 
-        public SqlConnection CloseConnection()
+        public MySqlConnection CloseConnection()
         {
             if (Connection.State == ConnectionState.Open)
             {
