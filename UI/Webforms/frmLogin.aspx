@@ -27,9 +27,6 @@
             </div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:Button ID="btnLogin" class="login__button" runat="server" Text="INICIAR SESIÓN" OnClick="btnLogin_Click" />
-            <div class="register__container">
-                <p>¿No tenés cuenta?<a href="https://www.google.com.ar/"> Registrate</a></p>
-            </div>
         </form>
     </div>
 </body>
