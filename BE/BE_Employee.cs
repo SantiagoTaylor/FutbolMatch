@@ -29,7 +29,7 @@ namespace BE
             this._email = email;
             this._username = username;
             this._password = password;
-            this.Phone = phone;
+            this._phone = phone;
         }
 
 
@@ -39,6 +39,6 @@ namespace BE
         public string Email { get => _email; set => _email = value; }
         public string Username { get => _username; set => _username = value; }
         public string Password { get => _password; set => _password = value; }
-        public int Phone { get => _phone; set =>     _phone = value; }
+        public int Phone { get => _phone; set => _phone = value; }
     }
 }

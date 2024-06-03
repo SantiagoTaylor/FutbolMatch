@@ -21,7 +21,7 @@
                 <asp:TextBox ID="TextBoxUsername" runat="server"></asp:TextBox>
             </div>
             <div>
-                <asp:Label runat="server">Contraseña</asp:Label>
+                <asp:Label runat="server" ID="LabelPassword">Contraseña</asp:Label>
                 
                 <asp:TextBox ID="TextBoxPassword" runat="server"></asp:TextBox>
             </div>
@@ -38,7 +38,7 @@
                 <asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
             </div>
 
-            <asp:Button ID="ButtonRegister" runat="server" Text="Button" OnClick="ButtonRegister_Click" />
+            <asp:Button ID="ButtonRegister" runat="server" Text="Registrar" OnClick="ButtonRegister_Click" />
         </form>
     </main>
 

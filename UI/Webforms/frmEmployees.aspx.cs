@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,20 +14,35 @@ namespace UI.Webforms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            foreach (DataRow row in BLL_Employee.GetEmployees().Rows) {
-                TableRow tr = new TableRow();
-                foreach (var item in row.ItemArray) { 
-                    TableCell cell = new TableCell();
-                    cell.Text=item.ToString();
-                    tr.Cells.Add(cell);
-                }
-                TableEmployees.Rows.Add(tr);
-            }
+            UpdateGV();
         }
 
         protected void ButtonRegisterEmployee_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmRegister.aspx");
+        }
+        protected void ButtonEdit_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            string idEmploye = btn.CommandArgument;
+            
+            Response.Redirect($"frmRegister.aspx?idEmploye={idEmploye}");
+        }
+        protected void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            if (BLL_Employee.DeleteEmployee(btn.CommandArgument))
+            {
+                UpdateGV();
+            }
+            else {
+                
+            }
+
+        }
+        private void UpdateGV() {
+            GridView1.DataSource = BLL_Employee.GetEmployees();
+            GridView1.DataBind();
         }
     }
 }

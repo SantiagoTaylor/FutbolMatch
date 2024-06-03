@@ -14,7 +14,23 @@ namespace UI.Webforms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            TextBoxPassword.Visible = true;
+            LabelPassword.Visible = true;
+            if (!Page.IsPostBack)//
+            {
+                if (Request.QueryString["idEmploye"] != null)
+                {
+                    BE_Employee emp = BLL_Employee.GetEmployee(Request.QueryString["idEmploye"].ToString());
+                    TextBoxName.Text = emp.Name;
+                    TextBoxSurname.Text = emp.Surname;
+                    TextBoxUsername.Text = emp.Username;
+                    TextBoxPhone.Text = emp.Phone.ToString();
+                    TextBoxPassword.Visible = false;
+                    LabelPassword.Visible = false;
+                    TextBoxEmail.Text = emp.Email;
+                    ButtonRegister.Text = "Modificar";
+                }
+            }
         }
 
         protected void ButtonRegister_Click(object sender, EventArgs e)
@@ -27,12 +43,20 @@ namespace UI.Webforms
                 Encrpyt.HashPassword(TextBoxPassword.Text),
                 int.Parse(TextBoxPhone.Text));
 
-
-            if (BLL_Employee.SaveEmployee(emp))
+            if (Request.QueryString["idEmploye"] != null)
             {
-                
+                BLL_Employee.UpdateEmployee(Request.QueryString["idEmploye"].ToString(), emp);
+                Response.Redirect("frmEmployees.aspx");
             }
-            else { }
+            else
+            {
+                if (BLL_Employee.SaveEmployee(emp))
+                {
+
+                }
+                else {
+                }
+            }
         }
     }
 }
