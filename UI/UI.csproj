@@ -70,14 +70,32 @@
     <Content Include="Images\index-background.jpg" />
     <Content Include="Images\login-background.jpg" />
     <Content Include="Images\logotype.png" />
+    <Content Include="Styles\style-employees.css" />
     <Content Include="Styles\style-login.css" />
+    <Content Include="Styles\style-register.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
+    <Content Include="Webforms\frmEmployees.aspx" />
     <Content Include="Webforms\frmLogin.aspx" />
+    <Content Include="Webforms\frmRegister.aspx" />
     <Content Include="Webforms\index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Webforms\frmEmployees.aspx.cs">
+      <DependentUpon>frmEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmEmployees.aspx.designer.cs">
+      <DependentUpon>frmEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmRegister.aspx.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmRegister.aspx.designer.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webforms\masterPage.Master.cs">
       <DependentUpon>masterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
