@@ -30,15 +30,17 @@ namespace DAL
             cmd.Parameters.AddWithValue("@Id", id);
             conn.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read()) { 
-                BE_Employee emp = new BE_Employee();
-                emp.Id=Convert.ToInt32(reader["idEmploye"]);
-                emp.Name=reader["name"].ToString();
-                emp.Surname = reader["surname"].ToString();
-                emp.Email=reader["email"].ToString();
-                emp.Username=reader["username"].ToString();
-                emp.Password = reader["password"].ToString();
-                emp.Phone = reader["phone"] != DBNull.Value ? Convert.ToInt32(reader["phone"]) : 0;
+            if (reader.Read()) {
+                BE_Employee emp = new BE_Employee
+                {
+                    Id = Convert.ToInt32(reader["idEmploye"]),
+                    Name = reader["name"].ToString(),
+                    Surname = reader["surname"].ToString(),
+                    Email = reader["email"].ToString(),
+                    Username = reader["username"].ToString(),
+                    Password = reader["password"].ToString(),
+                    Phone = reader["phone"] != DBNull.Value ? Convert.ToInt32(reader["phone"]) : 0
+                };
                 conn.Close();
                 return emp;
             }
@@ -60,6 +62,7 @@ namespace DAL
             _dt.Columns.Remove("password");
             return _dt;
         }
+
         public static bool SaveEmployee(BE_Employee emp)
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();

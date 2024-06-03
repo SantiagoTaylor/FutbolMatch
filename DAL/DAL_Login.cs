@@ -1,11 +1,8 @@
 ﻿using BE;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace DAL
 {
@@ -14,13 +11,13 @@ namespace DAL
         public static DataTable GetUsers()
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
-            SqlCommand command = new SqlCommand();
+            MySqlCommand command = new MySqlCommand();
             DataTable table = new DataTable();
             command.Connection = connection.OpenConnection();
             command.CommandText = "SELECT * FROM tb_User";
             command.CommandType = CommandType.Text;
             command.ExecuteNonQuery();
-            SqlDataReader reader = command.ExecuteReader();
+            MySqlDataReader reader = command.ExecuteReader();
             table.Load(reader);
             command.Connection = connection.CloseConnection();
             return table;
@@ -33,12 +30,12 @@ namespace DAL
             BE_Login login = new BE_Login();
             command.Connection = connection.OpenConnection();
             command.CommandText = "sp_UserExist";
-            command.Parameters.AddWithValue("@username", user);
-            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@username1", user);
+            command.Parameters.AddWithValue("@pass1", password);
             command.CommandType = CommandType.StoredProcedure;
-            int result = (int)command.ExecuteScalar();
+            int result = Convert.ToInt32(command.ExecuteScalar());
             command.Connection = connection.CloseConnection();
-            return result == 1;
+            return result >= 1;
         }
     }
 }
