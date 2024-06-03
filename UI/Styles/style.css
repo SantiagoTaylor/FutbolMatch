@@ -1,1 +1,85 @@
-﻿
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --padding-container: 100px 0;
+}
+
+html, body{
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr;
+    color: #fff;
+}
+
+.nav {
+    --padding-container: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: forestgreen;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.nav__menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 2em;
+    padding: 0px;
+    margin-left: auto;
+    height: 100%;
+}
+
+.nav__item {
+    list-style: none;
+    height: 100%;
+    padding:0;
+    margin:0;
+}
+
+.nav__item a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.nav__item:hover{
+    background-color: white;
+}
+
+.nav__item:hover a {
+    color: forestgreen;
+}
+
+.nav__logo {
+    width: 100%;
+    max-width: 8em;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__logo img {
+    max-width: 100%;
+    height: auto;
+}
