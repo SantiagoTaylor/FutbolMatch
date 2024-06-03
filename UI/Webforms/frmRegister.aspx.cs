@@ -12,6 +12,7 @@ namespace UI.Webforms
 {
     public partial class frmRegister : System.Web.UI.Page
     {
+        //Validad Campos
         protected void Page_Load(object sender, EventArgs e)
         {
             TextBoxPassword.Visible = true;
@@ -55,6 +56,7 @@ namespace UI.Webforms
 
                 }
                 else {
+
                 }
             }
         }
