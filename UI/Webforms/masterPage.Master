@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masterPage.Master.cs" Inherits="UI.Webforms.a" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="../Styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="../Images/logotype.png" alt="logotype" />
+            </div>
+            <div class="nav__menu">
+                <div class="nav__item"><a href="#">Mi cuenta</a></div>
+                <div class="nav__item"><a href="#">Reservas</a></div>
+                <div class="nav__item"><a href="#">Mi cancha</a></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </main>
+</body>
+</html>

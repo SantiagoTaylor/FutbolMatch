@@ -11,6 +11,21 @@ namespace DAL
 {
     public class DAL_Login
     {
+        public static DataTable GetUsers()
+        {
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            SqlCommand command = new SqlCommand();
+            DataTable table = new DataTable();
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "SELECT * FROM tb_User";
+            command.CommandType = CommandType.Text;
+            command.ExecuteNonQuery();
+            SqlDataReader reader = command.ExecuteReader();
+            table.Load(reader);
+            command.Connection = connection.CloseConnection();
+            return table;
+        }
+
         public static bool UserExist(string user, string password)
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
