@@ -1,8 +1,8 @@
 ﻿using BE;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +29,7 @@ namespace DAL
         public static bool UserExist(string user, string password)
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
-            SqlCommand command = new SqlCommand();
+            MySqlCommand command = new MySqlCommand();
             BE_Login login = new BE_Login();
             command.Connection = connection.OpenConnection();
             command.CommandText = "sp_UserExist";
