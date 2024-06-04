@@ -80,18 +80,18 @@
     <Content Include="Styles\style-register.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
-    <Content Include="Webforms\frmEmployees.aspx" />
+    <Content Include="Webforms\frmUsers.aspx" />
     <Content Include="Webforms\frmLogin.aspx" />
     <Content Include="Webforms\frmRegister.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Webforms\frmEmployees.aspx.cs">
-      <DependentUpon>frmEmployees.aspx</DependentUpon>
+    <Compile Include="Webforms\frmUsers.aspx.cs">
+      <DependentUpon>frmUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webforms\frmEmployees.aspx.designer.cs">
-      <DependentUpon>frmEmployees.aspx</DependentUpon>
+    <Compile Include="Webforms\frmUsers.aspx.designer.cs">
+      <DependentUpon>frmUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmRegister.aspx.cs">
       <DependentUpon>frmRegister.aspx</DependentUpon>

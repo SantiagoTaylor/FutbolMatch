@@ -21,11 +21,16 @@
         </div>
         <div>
             <asp:Label runat="server">Apellido</asp:Label>
-            <asp:TextBox ID="TextBoxSurname" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxLastname" runat="server"></asp:TextBox>
         </div>
         <div>
             <asp:Label runat="server">Celular</asp:Label>
             <asp:TextBox ID="TextBoxPhone" runat="server"></asp:TextBox>
+        </div>
+        <div>
+            <asp:Label ID="Label1" runat="server" Text="Rol"></asp:Label>
+            <asp:DropDownList ID="DropDownListRoles" AutoPostBack="true" runat="server">
+            </asp:DropDownList>
         </div>
 
         <asp:Button ID="ButtonRegister" runat="server" Text="Registrar" OnClick="ButtonRegister_Click" />

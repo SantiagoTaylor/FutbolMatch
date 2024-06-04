@@ -24,14 +24,14 @@ namespace UI.Webforms
         protected void ButtonEdit_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
-            string idEmploye = btn.CommandArgument;
+            string username = btn.CommandArgument;
             
-            Response.Redirect($"frmRegister.aspx?idEmploye={idEmploye}");
+            Response.Redirect($"frmRegister.aspx?username={username}");
         }
         protected void ButtonDelete_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
-            if (BLL_Employee.DeleteEmployee(btn.CommandArgument))
+            if (BLL_User.DeleteUser(btn.CommandArgument))
             {
                 UpdateGV();
             }
@@ -41,7 +41,7 @@ namespace UI.Webforms
 
         }
         private void UpdateGV() {
-            GridView1.DataSource = BLL_Employee.GetEmployees();
+            GridView1.DataSource = BLL_User.GetUsers();
             GridView1.DataBind();
         }
     }
