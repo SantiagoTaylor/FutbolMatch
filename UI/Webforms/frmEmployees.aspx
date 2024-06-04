@@ -1,14 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmEmployees.aspx.cs" Inherits="UI.Webforms.frmEmployees" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Webforms/masterPage.Master" AutoEventWireup="true" CodeBehind="frmEmployees.aspx.cs" Inherits="UI.Webforms.frmEmployees" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>FutbolMatch</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-</head>
-<body>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <form runat="server">
         <section class="container-listEmployees">
 
@@ -27,5 +20,4 @@
         </section>
         <asp:Button ID="ButtonRegisterEmployee" runat="server" Text="Registrar Empleado" OnClick="ButtonRegisterEmployee_Click" />
     </form>
-</body>
-</html>
+</asp:Content>

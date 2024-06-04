@@ -32,3 +32,4 @@ namespace DAL
             return Connection;
         }
     }
+}
