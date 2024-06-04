@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,47 +16,62 @@ namespace UI.Webforms
         //Validad Campos
         protected void Page_Load(object sender, EventArgs e)
         {
-            TextBoxPassword.Visible = true;
-            LabelPassword.Visible = true;
-            if (!Page.IsPostBack)//
+            //TextBoxPassword.Visible = true;
+            //LabelPassword.Visible = true;
+            if (!Page.IsPostBack)
             {
-                if (Request.QueryString["idEmploye"] != null)
+                RolesLoad();
+                if (Request.QueryString["username"] != null)
                 {
-                    BE_Employee emp = BLL_Employee.GetEmployee(Request.QueryString["idEmploye"].ToString());
-                    TextBoxName.Text = emp.Name;
-                    TextBoxSurname.Text = emp.Surname;
-                    TextBoxUsername.Text = emp.Username;
-                    TextBoxPhone.Text = emp.Phone.ToString();
+                    BE_User user = BLL_User.GetUser(Request.QueryString["username"].ToString());
+                    TextBoxName.Text = user.Name;
+                    TextBoxLastname.Text = user.Lastname;
+                    TextBoxUsername.Text = user.Username;
+                    TextBoxUsername.ReadOnly = true;
+                    TextBoxPhone.Text = user.Phone.ToString();
                     TextBoxPassword.Visible = false;
                     LabelPassword.Visible = false;
-                    TextBoxEmail.Text = emp.Email;
+                    TextBoxEmail.Text = user.Email;
+                    DropDownListRoles.SelectedValue = user.Role;
                     ButtonRegister.Text = "Modificar";
                 }
             }
         }
 
+        private void RolesLoad()
+        {
+            DropDownListRoles.DataTextField = "roleName";
+            DropDownListRoles.DataValueField = "idRole";
+            DropDownListRoles.DataSource = BLL_Role.GetRoles();
+            DropDownListRoles.DataBind();
+        }
+
         protected void ButtonRegister_Click(object sender, EventArgs e)
         {
-            BE_Employee emp = new BE_Employee(0,
-                TextBoxName.Text,
-                TextBoxSurname.Text,
-                TextBoxEmail.Text,
+            BE_User user = new BE_User(
                 TextBoxUsername.Text,
                 Encrpyt.HashPassword(TextBoxPassword.Text),
-                int.Parse(TextBoxPhone.Text));
+                TextBoxName.Text,
+                TextBoxLastname.Text,
+                TextBoxEmail.Text,
+                Convert.ToInt32(TextBoxPhone.Text),
+                DropDownListRoles.SelectedItem.Text);
 
-            if (Request.QueryString["idEmploye"] != null)
+            if (Request.QueryString["username"] != null)
             {
-                BLL_Employee.UpdateEmployee(Request.QueryString["idEmploye"].ToString(), emp);
-                Response.Redirect("frmEmployees.aspx");
+                BLL_User.UpdateUser(user);
+                Response.Redirect("frmUsers.aspx");
             }
             else
             {
-                if (BLL_Employee.SaveEmployee(emp))
+                if (BLL_User.SaveUser(user))
                 {
-
+                    Response.Redirect("frmUsers.aspx");
                 }
-                else {
+                else
+                {
+                    WebformMessage.ShowMessage("Complete todos los campos", this);
+                    //FALSA VALIDACION!!! HACER VALIDACION
 
                 }
             }
