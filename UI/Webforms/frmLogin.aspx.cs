@@ -31,23 +31,17 @@ namespace UI.Webforms
 
         private void CookieLogin(string user)
         {
-            // Crear el ticket de autenticación
             FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
-                1,                             // Versión del ticket
-                user,                      // Nombre de usuario
-                DateTime.Now,                  // Fecha y hora de emisión
-                DateTime.Now.AddMinutes(30),   // Fecha y hora de expiración
-                false,    // Persistir la cookie de autenticación
-                ""                             // Información adicional (puedes añadir roles u otra información)
+                1,                             
+                user,
+                DateTime.Now,
+                DateTime.Now.AddMinutes(30),
+                false,// Persistir la cookie de autenticación
+                ""//rol?
             );
 
-            // Encriptar el ticket
             string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
-
-            // Crear la cookie de autenticación
             HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-
-            // Añadir la cookie de autenticación a la respuesta
             Response.Cookies.Add(authCookie);
         }
     }

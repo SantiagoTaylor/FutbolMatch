@@ -17,6 +17,7 @@ namespace BLL
             string encyptedPassword = Encrpyt.HashPassword(password);
             if (DAL_Login.UserExist(user, encyptedPassword))
             {
+                SessionManager.Login(DAL_Login.GetUserByUsername(user));
                 //DAR PERMISOS
                 //REGISTRAR BITACORA
                 return true;
