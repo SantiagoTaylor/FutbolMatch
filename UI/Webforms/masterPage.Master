@@ -12,12 +12,12 @@
     <header>
         <nav class="nav container">
             <div class="nav__logo">
-                <img src="../Images/logotype.png" alt="logotype" />
+                <img src="../Images/logotype.png" alt="logotype" onclick="window.location.href = 'index.aspx'" />
             </div>
             <div class="nav__menu">
                 <div class="nav__item"><a href="#">Mi cuenta</a></div>
                 <div class="nav__item"><a href="#">Reservas</a></div>
-                <div class="nav__item"><a href="#">Mi cancha</a></div>
+                <div class="nav__item"><a href="frmEmployees.aspx">Mis empleados</a></div>
             </div>
         </nav>
     </header>
