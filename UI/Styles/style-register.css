@@ -1,13 +1,37 @@
-﻿body {
-    box-sizing:border-box;
-    margin:0;
+﻿
+
+form {
+    width: 50vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255,255,255,0.6);
+    border-radius: 20px;
 }
 
-main {
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.item-input {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
 }
 
+.btn-register {
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in;
+}
+
+    .btn-register:hover {
+        box-shadow: 3px 3px 10px;
+    }
+
+    .btn-register:active {
+        box-shadow: none;
+    }
