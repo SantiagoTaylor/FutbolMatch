@@ -1,0 +1,95 @@
+﻿form {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255,255,255,0.6);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+}
+
+.container-listUsers {
+    width:70%;
+    height:50%;
+    
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Estilo general para el GridView */
+.gv-users {
+    width: 100%;
+    /*this will be the color of the odd row*/
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+}
+
+    /*data elements*/
+    .gv-users td {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+        color: #717171;
+    }
+
+    /*header elements*/
+    .gv-users th {
+        padding: 4px 2px;
+        color: #fff;
+        background: #424242;
+        border-left: solid 1px #525252;
+        font-size: 0.9em;
+    }
+
+    /*his will be the color of even row*/
+    .gv-users ItemTemplate {
+        background: #fcfcfc repeat-x top;
+    }
+
+    /*and finally, we style the pager on the bottom*/
+    .gv-users .myPagerClass {
+        background: #424242;
+    }
+
+        .gv-users .myPagerClass table {
+            margin: 5px 0;
+        }
+
+        .gv-users .myPagerClass td {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #fff;
+            line-height: 12px;
+        }
+
+        .gv-users .myPagerClass a {
+            color: #666;
+            text-decoration: none;
+        }
+
+            .gv-users .myPagerClass a:hover {
+                color: #000;
+                text-decoration: none;
+            }
+
+
+.btn-register {
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in;
+}
+    .btn-register:hover {
+        box-shadow: 3px 3px 10px;
+    }
+    .btn-register:active {
+        box-shadow: none;
+    }
