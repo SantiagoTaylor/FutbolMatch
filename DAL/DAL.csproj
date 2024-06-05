@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL_DB_Connection.cs" />
+    <Compile Include="DAL_EventLog.cs" />
     <Compile Include="DAL_User.cs" />
     <Compile Include="DAL_Login.cs" />
     <Compile Include="DAL_Role.cs" />
