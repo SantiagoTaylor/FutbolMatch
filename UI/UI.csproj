@@ -75,7 +75,7 @@
     <Content Include="Images\index-background.jpg" />
     <Content Include="Images\login-background.jpg" />
     <Content Include="Images\logotype.png" />
-    <Content Include="Styles\style-employees.css" />
+    <Content Include="Styles\style-users.css" />
     <Content Include="Styles\style-login.css" />
     <Content Include="Styles\style-register.css" />
     <Content Include="Styles\style.css" />
