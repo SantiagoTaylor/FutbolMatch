@@ -11,7 +11,7 @@ namespace UI.Webforms
 {
 
 
-    public partial class frmEmployees
+    public partial class frmUsers
     {
 
         /// <summary>
