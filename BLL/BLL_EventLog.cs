@@ -14,8 +14,8 @@ namespace BLL
         public static void RegisterEventLog()
         {
             //FALTA CREAR BE EVENT LOG Y LOS PARAMETROS DE ESTE METODO
-            BE_EventLog eventLog = new BE_EventLog();
-            DAL_EventLog.RegisterEventLog(eventLog);
+            //BE_EventLog eventLog = new BE_EventLog();
+            //DAL_EventLog.RegisterEventLog(eventLog);
         }
 
         public static DataTable TraerBitacora()
