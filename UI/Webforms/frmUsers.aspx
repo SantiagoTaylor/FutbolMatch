@@ -7,7 +7,7 @@
 
     <form runat="server">
         <section class="container-listUsers">
-            <asp:GridView ID="GridView1" CssClass="gv-users" runat="server">
+            <asp:GridView ID="gvUsers" CssClass="gv-users" runat="server">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>

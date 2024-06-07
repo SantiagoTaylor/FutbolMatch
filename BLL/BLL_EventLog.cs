@@ -18,7 +18,7 @@ namespace BLL
             //DAL_EventLog.RegisterEventLog(eventLog);
         }
 
-        public static DataTable TraerBitacora()
+        public static DataTable GetEventLog()
         {
             return DAL_EventLog.GetEventLog();
         }

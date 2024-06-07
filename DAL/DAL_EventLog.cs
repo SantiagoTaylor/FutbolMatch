@@ -43,6 +43,9 @@ namespace DAL
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection.OpenConnection();
             //FALTA SP!!!
+            //SESION MANAGER -> USUARIO -> IDIOMA
+            //IDIOMA = PARAMETRO
+            // 1 POR DEFAULT??
             command.CommandText = "FALTA SP!!!";
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();

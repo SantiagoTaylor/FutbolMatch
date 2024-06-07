@@ -15,13 +15,14 @@ namespace BE
         private string _password;
         private int _phone;
         private string _role;
+        private string _language;
 
         public BE_User()
         {
 
         }
 
-        public BE_User(string username, string password, string name, string lastname, string email, int phone, string role)
+        public BE_User(string username, string password, string name, string lastname, string email, int phone, string role, string language)
         {
             this._username = username;
             this._password = password;
@@ -30,6 +31,7 @@ namespace BE
             this._email = email;
             this._phone = phone;
             this._role = role;
+            this._language = language;
         }
 
         public string Name { get => _name; set => _name = value; }
@@ -39,5 +41,6 @@ namespace BE
         public string Password { get => _password; set => _password = value; }
         public int Phone { get => _phone; set => _phone = value; }
         public string Role { get => _role; set => _role = value; }
+        public string Language { get => _language; set => _language = value; }
     }
 }
