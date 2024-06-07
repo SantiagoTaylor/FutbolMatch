@@ -6,8 +6,8 @@ namespace SERVICES
     public class SessionManager
     {
         #region Atributos
-        private BE_Login _userLogin;
-        public BE_Login UserLogin { get => _userLogin; set => _userLogin = value; }
+        private BE_User _user;
+        public BE_User User { get => _user; set => _user = value; }
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -26,19 +26,21 @@ namespace SERVICES
             }
         }
 
-        private static object _sessionLock = new object();
+        private static readonly object _sessionLock = new object();
         #endregion
 
         #region Métodos
-        public static void Login(BE_Login login)
+        public static void Login(BE_User user)
         {
             lock (_sessionLock)
             {
                 if (_session == null)
                 {
-                    _session = new SessionManager();
-                    _session._userLogin = login;
-                    _session.StartDate = DateTime.Now;
+                    _session = new SessionManager
+                    {
+                        _user = user,
+                        StartDate = DateTime.Now
+                    };
                 }
                 else
                 {

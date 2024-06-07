@@ -18,9 +18,11 @@ namespace UI.Webforms
         {
             if (BLL_Login.IsValidCredentials(txtUser.Text, txtPassword.Text))
             {
+                //tiene que ser distinto y guardar un seguimiento de usuarios -> intentos
+                //diccionario por ej, key = username, value = intentos
                 _failedLogins = 0;
-                Response.Redirect("index.aspx");
                 CookieLogin(txtUser.Text);
+                Response.Redirect("index.aspx");
             }
             else
             {

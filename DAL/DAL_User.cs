@@ -8,6 +8,40 @@ namespace DAL
 {
     public class DAL_User
     {
+        public static BE_User GetUserByUsername(string username)
+        {
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "sp_GetUserByUsername";
+            command.Parameters.AddWithValue("@p_username", username);
+            command.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                BE_User user = new BE_User
+                {
+                    Username = reader["username"].ToString(),
+                    Password = reader["password"].ToString(),
+                    Name = reader["name"].ToString(),
+                    Lastname = reader["lastname"].ToString(),
+                    Email = reader["email"].ToString(),
+                    Phone = reader["phone"] != DBNull.Value ? Convert.ToInt32(reader["phone"]) : 0,
+                    Role = reader["roleName"].ToString(),
+                    Language = reader["languageName"].ToString()
+                };
+                command.Connection = connection.CloseConnection();
+                return user;
+            }
+            else
+            {
+                command.Connection = connection.CloseConnection();
+                return null;
+            }
+        }
+
+        #region Métodos ABML
+
         public static bool DeleteUser(string username)
         {
             DAL_DB_Connection dbC = new DAL_DB_Connection();
@@ -21,35 +55,6 @@ namespace DAL
             return rowsAffected > 0;
         }
 
-        public static BE_User GetUser(string username)
-        {
-            DAL_DB_Connection dbC = new DAL_DB_Connection();
-            MySqlConnection conn = dbC.Connection;
-            string query = "SELECT * FROM tb_User WHERE username = @username";//SP CON EL ROL!!
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@username", username);
-            conn.Open();
-            MySqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
-            {
-                BE_User user = new BE_User
-                {
-                    Username = reader["username"].ToString(),
-                    Name = reader["name"].ToString(),
-                    Lastname = reader["lastname"].ToString(),
-                    Email = reader["email"].ToString(),
-                    Phone = reader["phone"] != DBNull.Value ? Convert.ToInt32(reader["phone"]) : 0
-                };
-                conn.Close();
-                return user;
-            }
-            else
-            {
-                conn.Close();
-                return null;
-            }
-
-        }
 
         public static DataTable GetUsers()
         {
@@ -126,6 +131,6 @@ namespace DAL
                     conn.Close();
             }
         }
-
+        #endregion
     }
 }

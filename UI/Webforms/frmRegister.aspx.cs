@@ -23,7 +23,7 @@ namespace UI.Webforms
                 RolesLoad();
                 if (Request.QueryString["username"] != null)
                 {
-                    BE_User user = BLL_User.GetUser(Request.QueryString["username"].ToString());
+                    BE_User user = BLL_User.GetUserByUsername(Request.QueryString["username"].ToString());
                     TextBoxName.Text = user.Name;
                     TextBoxLastname.Text = user.Lastname;
                     TextBoxUsername.Text = user.Username;
@@ -55,7 +55,8 @@ namespace UI.Webforms
                 TextBoxLastname.Text,
                 TextBoxEmail.Text,
                 Convert.ToInt32(TextBoxPhone.Text),
-                DropDownListRoles.SelectedItem.Text);
+                DropDownListRoles.SelectedItem.Text,
+                "Español");//FALTA combo box de idioma, esta hardcodeado!!!
 
             if (Request.QueryString["username"] != null)
             {

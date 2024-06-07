@@ -41,8 +41,8 @@ namespace UI.Webforms
 
         }
         private void UpdateGV() {
-            GridView1.DataSource = BLL_User.GetUsers();
-            GridView1.DataBind();
+            gvUsers.DataSource = BLL_User.GetUsers();
+            gvUsers.DataBind();
         }
     }
 }
