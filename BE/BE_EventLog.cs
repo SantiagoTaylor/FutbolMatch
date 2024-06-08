@@ -14,12 +14,12 @@ namespace BE
         private DateTime _eventDate;
         private TimeSpan _eventTime;
 
-        public string Username { get => _username; set => _username = value; }
-        public string Activity { get => _activity; set => _activity = value; }
-        public DateTime EventDate { get => _eventDate; set => _eventDate = value; }
-        public TimeSpan EventTime { get => _eventTime; set => _eventTime = value; }
+        public string Username { get => _username; }
+        public string Activity { get => _activity; }
+        public DateTime EventDate { get => _eventDate; }
+        public TimeSpan EventTime { get => _eventTime; }
 
-        public BE_EventLog(string username, string activity, string message)
+        public BE_EventLog(string username, string activity)
         {
             _username = username;
             _activity = activity;

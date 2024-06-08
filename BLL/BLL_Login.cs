@@ -13,8 +13,8 @@ namespace BLL
             if (DAL_Login.UserExist(user, encyptedPassword))
             {
                 SessionManager.Login(DAL_User.GetUserByUsername(user));
+                BLL_EventLog.RegisterEventLog(SessionManager.GetInstance.User.Username, "Login");
                 //DAR PERMISOS
-                //REGISTRAR BITACORA
                 return true;
             }
             return false;

@@ -1,5 +1,6 @@
 ﻿using BE;
 using DAL;
+using SERVICES;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,16 +12,16 @@ namespace BLL
 {
     public class BLL_EventLog
     {
-        public static void RegisterEventLog()
+        public static void RegisterEventLog(string username, string activity)
         {
-            //FALTA CREAR BE EVENT LOG Y LOS PARAMETROS DE ESTE METODO
-            //BE_EventLog eventLog = new BE_EventLog();
-            //DAL_EventLog.RegisterEventLog(eventLog);
+            //HACE FALTA CREARLO ACA??? O ANTES??? USERNAME -> SESSION MANAGER ¿?desde BE???
+            BE_EventLog eventlog = new BE_EventLog(username, activity);
+            DAL_EventLog.RegisterEventLog(eventlog);
         }
 
         public static DataTable GetEventLog()
         {
-            return DAL_EventLog.GetEventLog();
+            return DAL_EventLog.GetEventLog(SessionManager.GetInstance.User.Language);
         }
 
         public static DataTable GetActivityLevel()
