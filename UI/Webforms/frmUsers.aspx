@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Webforms/masterPage.Master" AutoEventWireup="true" CodeBehind="frmUsers.aspx.cs" Inherits="UI.Webforms.frmEmployees" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Webforms/masterPage.Master" AutoEventWireup="true" CodeBehind="frmUsers.aspx.cs" Inherits="UI.Webforms.frmUsers" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -7,7 +7,7 @@
 
     <form runat="server">
         <section class="container-listUsers">
-            <asp:GridView ID="GridView1" CssClass="gv-users" runat="server">
+            <asp:GridView ID="gvUsers" CssClass="gv-users" runat="server">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>

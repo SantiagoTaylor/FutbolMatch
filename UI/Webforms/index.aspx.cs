@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BE;
+using SERVICES;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,24 @@ namespace UI.Webforms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+			try
+			{
+                if (SessionManager.GetInstance != null)
+                {
+                    BE_User user = SessionManager.GetInstance.User;
+                    prueba.Text = user.Username +
+                        user.Password +
+                        user.Name +
+                        user.Lastname +
+                        user.Email +
+                        user.Phone +
+                        user.Role +
+                        user.Language;
+                }
+            }
+			catch (Exception)
+			{
+			}
         }
     }
 }

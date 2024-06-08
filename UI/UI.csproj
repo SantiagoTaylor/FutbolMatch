@@ -107,12 +107,20 @@
     <Content Include="Styles\style-register.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
+    <Content Include="Webforms\frmEventLog.aspx" />
     <Content Include="Webforms\frmUsers.aspx" />
     <Content Include="Webforms\frmLogin.aspx" />
     <Content Include="Webforms\frmRegister.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Webforms\frmEventLog.aspx.cs">
+      <DependentUpon>frmEventLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmEventLog.aspx.designer.cs">
+      <DependentUpon>frmEventLog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webforms\frmUsers.aspx.cs">
       <DependentUpon>frmUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

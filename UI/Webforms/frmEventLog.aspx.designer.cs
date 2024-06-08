@@ -11,16 +11,16 @@ namespace UI.Webforms
 {
 
 
-    public partial class index
+    public partial class frmEventLog
     {
 
         /// <summary>
-        /// Control prueba.
+        /// Control gvEventLog.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label prueba;
+        protected global::System.Web.UI.WebControls.GridView gvEventLog;
     }
 }
