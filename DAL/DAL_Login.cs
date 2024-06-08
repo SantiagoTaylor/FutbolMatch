@@ -14,8 +14,8 @@ namespace DAL
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection.OpenConnection();
             command.CommandText = "sp_UserExist";
-            command.Parameters.AddWithValue("@user1", user);
-            command.Parameters.AddWithValue("@pass1", password);
+            command.Parameters.AddWithValue("@p_username", user);
+            command.Parameters.AddWithValue("@p_password", password);
             command.CommandType = CommandType.StoredProcedure;
             int result = Convert.ToInt32(command.ExecuteScalar());
             command.Connection = connection.CloseConnection();

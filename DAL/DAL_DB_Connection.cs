@@ -1,4 +1,4 @@
-
+    
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -11,7 +11,7 @@ namespace DAL
 {
     public class DAL_DB_Connection
     {
-        private readonly MySqlConnection _connection = new MySqlConnection(@"Server=sql10.freesqldatabase.com;Database=sql10710948;User ID=sql10710948;Password=wasQWU7Y4l");
+        private readonly MySqlConnection _connection = new MySqlConnection(@"Server=fm-db.c9s4ay4c0uqw.us-east-2.rds.amazonaws.com;Database=db_FutbolMatch;User ID=admin;Password=wasQWU7Y4l");
 
         public MySqlConnection Connection => _connection;
         public MySqlConnection OpenConnection()
