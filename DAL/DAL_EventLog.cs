@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE;
+﻿using BE;
 using MySql.Data.MySqlClient;
+using System;
+using System.Data;
 
 namespace DAL
 {
@@ -19,14 +14,11 @@ namespace DAL
                 DAL_DB_Connection connection = new DAL_DB_Connection();
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = connection.OpenConnection();
-                //FALTA SP!!!
-                command.CommandText = @"FALTA SP!!";
-                //command.Parameters.AddWithValue("@fecha", eventLog.Fecha);
-                //command.Parameters.AddWithValue("@hora", eventLog.Hora);
-                //command.Parameters.AddWithValue("@usuario", eventLog.Usuario.Usuario);
-                //command.Parameters.AddWithValue("@modulo", eventLog.Modulo);
-                //command.Parameters.AddWithValue("@actividad", eventLog.Actividad);
-                //command.Parameters.AddWithValue("@criticidad", eventLog.Criticidad);
+                command.CommandText = @"sp_InsertEventLog";
+                command.Parameters.AddWithValue("@p_username", eventLog.Username);
+                command.Parameters.AddWithValue("@p_activity", eventLog.Activity);
+                command.Parameters.AddWithValue("@p_eventDate", eventLog.EventDate);
+                command.Parameters.AddWithValue("@p_eventTime", eventLog.EventTime);
                 command.CommandType = CommandType.StoredProcedure;
                 command.ExecuteNonQuery();
                 command.Connection = connection.CloseConnection();
@@ -36,22 +28,14 @@ namespace DAL
             }
         }
 
-        public static DataTable GetEventLog()
+        public static DataTable GetEventLog(string language = "English")
         {
-            DataTable table = new DataTable();
             DAL_DB_Connection connection = new DAL_DB_Connection();
-            MySqlCommand command = new MySqlCommand();
-            command.Connection = connection.OpenConnection();
-            //FALTA SP!!!
-            //SESION MANAGER -> USUARIO -> IDIOMA
-            //IDIOMA = PARAMETRO
-            // 1 POR DEFAULT??
-            command.CommandText = "FALTA SP!!!";
-            command.CommandType = CommandType.StoredProcedure;
-            command.ExecuteNonQuery();
-            MySqlDataReader _reader = command.ExecuteReader();
-            table.Load(_reader);
-            command.Connection = connection.CloseConnection();
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter("sp_GetEventLog", connection.Connection);
+            adapter.SelectCommand.Parameters.AddWithValue("p_languageName", language);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adapter.Fill(table);
             return table;
         }
 

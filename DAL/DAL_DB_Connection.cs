@@ -1,17 +1,12 @@
-
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace DAL
 {
     public class DAL_DB_Connection
     {
-        private readonly MySqlConnection _connection = new MySqlConnection(@"Server=sql10.freesqldatabase.com;Database=sql10710948;User ID=sql10710948;Password=wasQWU7Y4l");
+        //ACTUALIZAR CONNECTION STRING !!!
+        private readonly MySqlConnection _connection = new MySqlConnection(@"Server=fm-db.c9s4ay4c0uqw.us-east-2.rds.amazonaws.com;Database=db_FutbolMatch;User ID=admin;Password=wasQWU7Y4l;Port=3306;SslMode=none;");
 
         public MySqlConnection Connection => _connection;
         public MySqlConnection OpenConnection()

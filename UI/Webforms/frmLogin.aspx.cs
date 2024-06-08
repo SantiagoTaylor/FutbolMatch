@@ -21,6 +21,7 @@ namespace UI.Webforms
                 //tiene que ser distinto y guardar un seguimiento de usuarios -> intentos
                 //diccionario por ej, key = username, value = intentos
                 _failedLogins = 0;
+                //LO TIENE QUE CREAR ACA O EN LA BLL?
                 CookieLogin(txtUser.Text);
                 Response.Redirect("index.aspx");
             }
