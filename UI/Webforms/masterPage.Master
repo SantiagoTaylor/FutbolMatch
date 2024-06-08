@@ -13,14 +13,23 @@
 </head>
 <body>
     <header>
-        <nav class="nav container ">
+        <nav class="navbar">
             <div class="nav__logo">
                 <img src="../Images/logotype.png" alt="logotype" onclick="window.location.href = 'index.aspx'" />
             </div>
             <div class="nav__menu">
                 <div class="nav__item"><a href="#">Mi cuenta</a></div>
                 <div class="nav__item"><a href="#">Reservas</a></div>
-                <div class="nav__item"><a href="frmUsers.aspx">Mis empleados</a></div>
+                <section class="nav__user">
+                </section>
+                <section class="nav__admin">
+                    <div class="nav__item"><a href="frmUsers.aspx">Mis empleados</a></div>
+                </section>
+                <section class="nav__webmaster">
+                    <div class="nav__item"><a href="#">Empleados</a></div>
+                    <div class="nav__item"><a href="#">Bitacora</a></div>
+                    <div class="nav__item"><a href="#">Backup y Restore</a></div>
+                </section>
             </div>
         </nav>
     </header>
