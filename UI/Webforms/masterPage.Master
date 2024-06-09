@@ -27,7 +27,7 @@
                 </section>
                 <section class="nav__webmaster">
                     <div class="nav__item"><a href="#">Empleados</a></div>
-                    <div class="nav__item"><a href="#">Bitacora</a></div>
+                    <div class="nav__item"><a href="frmEventLog.aspx">Bitacora</a></div>
                     <div class="nav__item"><a href="#">Backup y Restore</a></div>
                 </section>
             </div>

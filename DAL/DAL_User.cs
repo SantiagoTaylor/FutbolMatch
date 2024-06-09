@@ -25,7 +25,7 @@ namespace DAL
                     Name = reader["name"].ToString(),
                     Lastname = reader["lastname"].ToString(),
                     Email = reader["email"].ToString(),
-                    Phone = reader["phone"] != DBNull.Value ? Convert.ToInt32(reader["phone"]) : 0,
+                    Phone = reader["phone"] != DBNull.Value ? reader["phone"].ToString() : "",
                     Role = reader["roleName"].ToString(),
                     Language = reader["languageName"].ToString()
                 };
