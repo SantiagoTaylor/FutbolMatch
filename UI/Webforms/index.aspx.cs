@@ -1,9 +1,11 @@
 ﻿using BE;
+using BLL;
 using SERVICES;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -31,6 +33,16 @@ namespace UI.Webforms
 			catch (Exception)
 			{
 			}
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            BLL_Login.Logout();
+            FormsAuthentication.SignOut();
+            HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+            authCookie.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(authCookie);
+            Response.Redirect(FormsAuthentication.LoginUrl);
         }
     }
 }

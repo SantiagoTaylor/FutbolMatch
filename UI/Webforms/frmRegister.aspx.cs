@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using BE;
+﻿using BE;
 using BLL;
 using SERVICES;
+using System;
+using System.Web.UI;
 
 namespace UI.Webforms
 {
@@ -21,6 +16,7 @@ namespace UI.Webforms
             if (!Page.IsPostBack)
             {
                 RolesLoad();
+                LanguageLoad();
                 if (Request.QueryString["username"] != null)
                 {
                     BE_User user = BLL_User.GetUserByUsername(Request.QueryString["username"].ToString());
@@ -28,7 +24,7 @@ namespace UI.Webforms
                     TextBoxLastname.Text = user.Lastname;
                     TextBoxUsername.Text = user.Username;
                     TextBoxUsername.ReadOnly = true;
-                    TextBoxPhone.Text = user.Phone.ToString();
+                    TextBoxPhone.Text = user.Phone;
                     TextBoxPassword.Visible = false;
                     LabelPassword.Visible = false;
                     TextBoxEmail.Text = user.Email;
@@ -36,6 +32,14 @@ namespace UI.Webforms
                     ButtonRegister.Text = "Modificar";
                 }
             }
+        }
+
+        private void LanguageLoad()
+        {
+            DropDownListLanguage.DataTextField = "languageName";
+            DropDownListLanguage.DataValueField = "idLanguage";
+            DropDownListLanguage.DataSource = BLL_Language.GetLanguages();
+            DropDownListLanguage.DataBind();
         }
 
         private void RolesLoad()
@@ -54,7 +58,7 @@ namespace UI.Webforms
                 TextBoxName.Text,
                 TextBoxLastname.Text,
                 TextBoxEmail.Text,
-                Convert.ToInt32(TextBoxPhone.Text),
+                TextBoxPhone.Text,
                 DropDownListRoles.SelectedItem.Text,
                 "Español");//FALTA combo box de idioma, esta hardcodeado!!!
 
