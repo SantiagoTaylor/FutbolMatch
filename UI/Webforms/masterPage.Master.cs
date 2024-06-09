@@ -41,5 +41,10 @@ namespace UI.Webforms
 
 
         }
+
+        protected void ButtonLogout_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

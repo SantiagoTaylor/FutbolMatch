@@ -47,7 +47,6 @@ header {
     }
 
         header .container-logout:hover {
-            
             background-color: #cccccc;
             transform: scale(1.1);
         }
