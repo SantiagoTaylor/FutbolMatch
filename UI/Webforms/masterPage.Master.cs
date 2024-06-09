@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-﻿using BLL;
-=======
+using BLL;
 ﻿using BE;
 using SERVICES;
->>>>>>> abel
 using System;
 using System.Collections.Generic;
 using System.Linq;
