@@ -6,12 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System;
 
 namespace DAL
 {
     public class DAL_DB_Connection
     {
-        private readonly MySqlConnection _connection = new MySqlConnection(@"Server=fm-db.c9s4ay4c0uqw.us-east-2.rds.amazonaws.com;Database=db_FutbolMatch;User ID=admin;Password=wasQWU7Y4l");
+        private static string connectionString = Environment.GetEnvironmentVariable("MY_CONNECTION_STRING");
+
+        private readonly MySqlConnection _connection = new MySqlConnection(connectionString);
 
         public MySqlConnection Connection => _connection;
         public MySqlConnection OpenConnection()
