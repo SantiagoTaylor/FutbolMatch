@@ -14,7 +14,15 @@ namespace UI
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            var prueba = DatabaseIntegrity.HorizontalIntegrity();
+            foreach (var item in prueba)
+            {
+                if (item.Value == false)
+                {
+                    Response.Redirect("frmDatabaseIntegrity");
+                    break;
+                }
+            }
         }
 
         protected void Session_Start(object sender, EventArgs e)
