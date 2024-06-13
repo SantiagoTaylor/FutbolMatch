@@ -1,28 +1,15 @@
-﻿using BLL;
-using SERVICES;
+﻿using SERVICES;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Security;
-using System.Web.SessionState;
 
 namespace UI
 {
     public class Global : System.Web.HttpApplication
     {
-
         protected void Application_Start(object sender, EventArgs e)
         {
-            var prueba = DatabaseIntegrity.HorizontalIntegrity();
-            foreach (var item in prueba)
-            {
-                if (item.Value == false)
-                {
-                    Response.Redirect("frmDatabaseIntegrity");
-                    break;
-                }
-            }
+            
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -46,7 +33,7 @@ namespace UI
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
@@ -68,5 +55,11 @@ namespace UI
         {
 
         }
+
+        void Application_AcquireRequestState(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }

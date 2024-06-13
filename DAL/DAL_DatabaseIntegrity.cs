@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MySqlConnector;
 using System;
 using System.Data;
 
@@ -101,12 +101,21 @@ namespace DAL
                 command.CommandText = $"DELETE FROM {tablePairs.Item2}";
                 command.CommandType = CommandType.Text;
                 command.ExecuteNonQuery();
-                DataTable table = GetHashedTable(tablePairs.Item1);
+                BulkCopy(tablePairs);
                 command.Connection = connection.CloseConnection();
             }
             catch (Exception)
             {
             }
+        }
+
+        private static void BulkCopy((string, string) tablePairs)
+        {
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            MySqlBulkCopy bulk = new MySqlBulkCopy(connection.OpenConnection());
+            bulk.DestinationTableName = tablePairs.Item2;
+            DataTable hashTable = GetHashedTable(tablePairs.Item1);
+            bulk.WriteToServer(hashTable);
         }
     }
 }
