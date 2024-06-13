@@ -10,7 +10,7 @@ namespace BLL
     {
         public static bool IsValidCredentials(string user, string password)
         {
-            string encyptedPassword = Encrpyt.HashPassword(password);
+            string encyptedPassword = Encrpyt.HashValue(password);
             if (DAL_Login.UserExist(user, encyptedPassword))
             {
                 SessionManager.Login(DAL_User.GetUserByUsername(user));

@@ -54,7 +54,7 @@ namespace UI.Webforms
         {
             BE_User user = new BE_User(
                 TextBoxUsername.Text,
-                Encrpyt.HashPassword(TextBoxPassword.Text),
+                Encrpyt.HashValue(TextBoxPassword.Text),
                 TextBoxName.Text,
                 TextBoxLastname.Text,
                 TextBoxEmail.Text,
@@ -69,7 +69,7 @@ namespace UI.Webforms
             }
             else
             {
-                if (BLL_User.SaveUser(user))
+                if (BLL_User.InsertUser(user))
                 {
                     Response.Redirect("frmUsers.aspx");
                 }

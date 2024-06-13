@@ -5,7 +5,7 @@ namespace SERVICES
 {
     public class Encrpyt
     {
-        public static string HashPassword(string password)
+        public static string HashValue(string password)
         {
             SHA256 encryptor = SHA256.Create();
             ASCIIEncoding encoding = new ASCIIEncoding();
@@ -18,7 +18,7 @@ namespace SERVICES
 
         public static bool CompareHash(string toHash, string hashed)
         {
-            return hashed.Equals(HashPassword(toHash));
+            return hashed.Equals(HashValue(toHash));
         }
     }
 }

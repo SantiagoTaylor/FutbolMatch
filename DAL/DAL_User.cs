@@ -1,5 +1,5 @@
 ﻿using BE;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using System;
 using System.Data;
 
@@ -65,7 +65,7 @@ namespace DAL
             return table;
         }
 
-        public static bool SaveUser(BE_User user)
+        public static bool InsertUser(BE_User user)
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();

@@ -1,5 +1,6 @@
 ﻿using BE;
 using DAL;
+using SERVICES;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,14 +27,24 @@ namespace BLL
             return DAL_User.GetUsers();
         }
 
-        public static bool SaveUser(BE_User user)
+        public static bool InsertUser(BE_User user)
         {
-            return DAL_User.SaveUser(user);
+            bool result = DAL_User.InsertUser(user);
+            if (result)
+            {
+                DatabaseIntegrity.InsertDV(user.Username);
+            }
+            return result;
         }
 
         public static bool UpdateUser(BE_User user)
         {
-            return DAL_User.UpdateUser(user);
+            bool result = DAL_User.UpdateUser(user);
+            if (result)
+            {
+                DatabaseIntegrity.UpdateDV(user.Username);
+            }
+            return result;
         }
     }
 }
