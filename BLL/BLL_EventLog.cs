@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,7 @@ namespace BLL
 {
     public class BLL_EventLog
     {
+        
         public static void RegisterEventLog(string username, string activity)
         {
             //HACE FALTA CREARLO ACA??? O ANTES??? USERNAME -> SESSION MANAGER ¿?desde BE???
@@ -19,14 +21,18 @@ namespace BLL
             DAL_EventLog.RegisterEventLog(eventlog);
         }
 
-        public static DataTable GetEventLog()
+        public static DataTable GetEventLog(int filter)
         {
-            return DAL_EventLog.GetEventLog(SessionManager.GetInstance.User.Language);
+            DataTable dt = DAL_EventLog.GetEventLog(SessionManager.GetInstance.User.Language);
+            switch (filter) { 
+            
+            }
+            return dt;
         }
 
-        public static DataTable GetActivityLevel()
+        public static DataTable GetActivityLevel(string language)
         {
-            return DAL_EventLog.GetActivityLevel();
+            return DAL_EventLog.GetActivityLevel(language);
         }
     }
 }

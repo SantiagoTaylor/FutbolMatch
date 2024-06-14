@@ -2,6 +2,7 @@
 using MySqlConnector;
 using System;
 using System.Data;
+using System.Diagnostics;
 
 namespace DAL
 {
@@ -39,14 +40,14 @@ namespace DAL
             return table;
         }
 
-        public static DataTable GetActivityLevel()
+        public static DataTable GetActivityLevel(string language)
         {
             DataTable table = new DataTable();
             DAL_DB_Connection connection = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection.OpenConnection();
-            //FALTA SP!!!
-            command.CommandText = "FALTA SP!!!";
+            command.CommandText = "sp_GetActivityLevels";
+            command.Parameters.AddWithValue("@p_Language", language);
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();
             MySqlDataReader _reader = command.ExecuteReader();
