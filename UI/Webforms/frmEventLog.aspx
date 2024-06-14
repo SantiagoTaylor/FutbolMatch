@@ -6,7 +6,8 @@
 
     <form runat="server">
         <section class="container-eventLog">
-            <asp:GridView ID="gvEventLog" CssClass="gv-users" runat="server">
+            <asp:GridView ID="gvEventLog" CssClass="gv-users" runat="server" AllowPaging="True" PageSize="10" OnSelectedIndexChanging="gvEventLog_SelectedIndexChanging">
+                <PagerSettings Mode="Numeric" PageButtonCount="4" />
             </asp:GridView>
         </section>
     </form>

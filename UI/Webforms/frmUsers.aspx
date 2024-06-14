@@ -7,7 +7,7 @@
 
     <form runat="server">
         <section class="container-listUsers">
-            <asp:GridView ID="gvUsers" CssClass="gv-users" runat="server">
+            <asp:GridView ID="gvUsers" CssClass="gv-users" runat="server" AllowPaging="True" PageSize="10" OnPageIndexChanging="gvUsers_PageIndexChanging">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
@@ -18,6 +18,8 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                <PagerSettings Mode="Numeric" PageButtonCount="4" /> 
+                <PagerStyle BorderStyle="Groove" />
             </asp:GridView>
         </section>
         <asp:Button ID="ButtonRegisterEmployee" CssClass="btn-register" runat="server" Text="Registrar Empleado" OnClick="ButtonRegisterEmployee_Click" />
