@@ -44,5 +44,11 @@ namespace UI.Webforms
             gvUsers.DataSource = BLL_User.GetUsers();
             gvUsers.DataBind();
         }
+
+        protected void gvUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvUsers.PageIndex = e.NewPageIndex;
+            UpdateGV();
+        }
     }
 }

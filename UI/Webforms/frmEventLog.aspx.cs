@@ -19,5 +19,10 @@ namespace UI.Webforms
             gvEventLog.DataSource = BLL_EventLog.GetEventLog();
             gvEventLog.DataBind();
         }
+        protected void gvEventLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvEventLog.PageIndex = e.NewPageIndex;
+            UpdateGV();
+        }
     }
 }
