@@ -30,35 +30,6 @@ namespace SERVICES
             return tables;
         }
 
-        //ESTE SOLO SIRVE PARA USUARIO... HABRIA QUE VER COMO "LIMPIAR" EL CÓDIGO
-        public static void InsertDV(string username)
-        {
-            // UN MÉTODO HORIZONTAL Y OTRO VERTICAL...
-            DataTable table = DAL_DatabaseIntegrity.HashedRowUser(username);
-            DAL_DatabaseIntegrity.InsertDV(table);
-
-        }
-
-        public static void RecalculateDigits()
-        {
-            //PODRIA OPTIMIZAR PASANDO EL RESULTADO COMO PARAMETRO
-            //PORQUE YA LO HICE ANTES...
-            var prueba = HorizontalIntegrity();
-            foreach (var item in prueba)
-            {
-                if (item.Value == false)
-                {
-                    DAL_DatabaseIntegrity.RecalculateDigits(item.Key);
-                }
-            }
-        }
-
-        public static void UpdateDV(string username)
-        {
-            DataTable table = DAL_DatabaseIntegrity.HashedRowUser(username);
-            DAL_DatabaseIntegrity.UpdateDV(table);
-        }
-
         private static bool CompareTables(DataTable table1, DataTable table2)
         {
             if (table1.Rows.Count != table2.Rows.Count)
@@ -77,6 +48,18 @@ namespace SERVICES
                 }
             }
             return true;
+        }
+
+        public static void RecalculateDigits()
+        {
+            var results = HorizontalIntegrity();
+            foreach (var tablePair in results)
+            {
+                if (tablePair.Value == false)//false = falla de integridad
+                {
+                    DAL_DatabaseIntegrity.RecalculateDigits(tablePair.Key);
+                }
+            }
         }
         #endregion
     }

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL_DV_User.cs" />
     <Compile Include="BLL_EventLog.cs" />
     <Compile Include="BLL_Language.cs" />
     <Compile Include="BLL_Role.cs" />
