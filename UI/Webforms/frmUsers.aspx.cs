@@ -31,7 +31,7 @@ namespace UI.Webforms
         protected void ButtonDelete_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
-            if (BLL_User.DeleteUser(btn.CommandArgument))
+            if (BLL_User.DeleteUser(btn.CommandArgument))//cambiar, borrado = 1
             {
                 UpdateGV();
             }
