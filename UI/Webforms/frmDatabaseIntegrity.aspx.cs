@@ -24,5 +24,18 @@ namespace UI.Webforms
         {
             DatabaseIntegrity.RecalculateDigits();
         }
+
+        protected void ButtonVerify_Click(object sender, EventArgs e)
+        {
+            var prueba = DatabaseIntegrity.HorizontalIntegrity();
+            foreach (var item in prueba)
+            {
+                if (item.Value == false)
+                {
+                    WebformMessage.ShowMessage($"Error en la tabla {item.Key.Item1}", this);
+                    break;
+                }
+            }
+        }
     }
 }

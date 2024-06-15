@@ -21,13 +21,10 @@ namespace BLL
             DAL_EventLog.RegisterEventLog(eventlog);
         }
 
-        public static DataTable GetEventLog(int filter)
+        public static DataTable GetEventLog()
         {
-            DataTable dt = DAL_EventLog.GetEventLog(SessionManager.GetInstance.User.Language);
-            switch (filter) { 
-            
-            }
-            return dt;
+            DataTable table = DAL_EventLog.GetEventLog(SessionManager.GetInstance.User.Language);
+            return table;
         }
 
         public static DataTable GetActivityLevel(string language)

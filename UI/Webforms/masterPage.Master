@@ -30,7 +30,7 @@
                 <section runat="server" id="nav__webmaster" class="nav__webmaster" visible="False">
                     <div class="nav__item"><a href="frmUsers.aspx">Empleados</a></div>
                     <div class="nav__item"><a href="frmEventLog.aspx">Bitacora</a></div>
-                    <div class="nav__item"><a href="#">Backup y Restore</a></div>
+                    <div class="nav__item"><a href="frmDatabaseIntegrity.aspx">Backup y Restore</a></div>
                 </section>
             </div>
         </nav>
