@@ -21,8 +21,5 @@
                 <PagerSettings Mode="Numeric" PageButtonCount="4" />
             </asp:GridView>
         </section>
-
-
     </form>
-
 </asp:Content>

@@ -28,14 +28,19 @@ namespace UI.Webforms
         protected void ButtonVerify_Click(object sender, EventArgs e)
         {
             var prueba = DatabaseIntegrity.HorizontalIntegrity();
+            string errorMessage = "";
             foreach (var item in prueba)
             {
                 if (item.Value == false)
                 {
-                    WebformMessage.ShowMessage($"Error en la tabla {item.Key.Item1}", this);
-                    break;
+                    errorMessage += $"Error en la tabla {item.Key.Item1}\n";
                 }
             }
+            if (errorMessage == "")
+            {
+                errorMessage = "No hay errores en la base de datos.";
+            }
+            WebformMessage.ShowMessage(errorMessage, this);
         }
     }
 }

@@ -8,11 +8,9 @@ namespace UI.Webforms
 {
     public partial class frmRegister : System.Web.UI.Page
     {
-        //Validad Campos
+        //Validar Campos
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TextBoxPassword.Visible = true;
-            //LabelPassword.Visible = true;
             if (!Page.IsPostBack)
             {
                 RolesLoad();
@@ -23,12 +21,18 @@ namespace UI.Webforms
                     TextBoxName.Text = user.Name;
                     TextBoxLastname.Text = user.Lastname;
                     TextBoxUsername.Text = user.Username;
-                    TextBoxUsername.ReadOnly = true;
                     TextBoxPhone.Text = user.Phone;
-                    TextBoxPassword.Visible = false;
-                    LabelPassword.Visible = false;
                     TextBoxEmail.Text = user.Email;
                     DropDownListRoles.SelectedValue = user.Role;
+                    CheckBoxBlocked.Checked = user.Blocked;
+                    CheckBoxRemoved.Checked = user.Removed;
+                    TextBoxUsername.ReadOnly = true;
+                    TextBoxPassword.Visible = false;
+                    LabelPassword.Visible = false;
+                    LabelBlocked.Visible = true;
+                    LabelRemoved.Visible = true;
+                    CheckBoxBlocked.Visible = true;
+                    CheckBoxRemoved.Visible = true;
                     ButtonRegister.Text = "Modificar";
                 }
             }
@@ -60,7 +64,9 @@ namespace UI.Webforms
                 TextBoxEmail.Text,
                 TextBoxPhone.Text,
                 DropDownListRoles.SelectedItem.Text,
-                "Español");//FALTA combo box de idioma, esta hardcodeado!!!
+                DropDownListLanguage.SelectedItem.Text,
+                CheckBoxBlocked.Checked,
+                CheckBoxRemoved.Checked);
 
             if (Request.QueryString["username"] != null)
             {
@@ -77,7 +83,6 @@ namespace UI.Webforms
                 {
                     WebformMessage.ShowMessage("Complete todos los campos", this);
                     //FALSA VALIDACION!!! HACER VALIDACION
-
                 }
             }
         }

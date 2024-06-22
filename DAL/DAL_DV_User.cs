@@ -16,7 +16,7 @@ namespace DAL
             DAL_DB_Connection connection = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection.OpenConnection();
-            command.CommandText = $"sp_HashedRowUser";
+            command.CommandText = "sp_HashedRowUser";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("p_username", username);
             MySqlDataReader reader = command.ExecuteReader();

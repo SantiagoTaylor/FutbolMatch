@@ -31,13 +31,9 @@ namespace UI.Webforms
         protected void ButtonDelete_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
-            if (BLL_User.DeleteUser(btn.CommandArgument))//cambiar, borrado = 1
-            {
-                UpdateGV();
-            }
-            else {
-                
-            }
+            string username = btn.CommandArgument;
+            BLL_User.DeleteUser(username);
+            UpdateGV();
 
         }
         private void UpdateGV() {
@@ -48,7 +44,7 @@ namespace UI.Webforms
         protected void gvUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvUsers.PageIndex = e.NewPageIndex;
-            UpdateGV();
+            //UpdateGV();
         }
     }
 }

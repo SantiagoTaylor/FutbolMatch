@@ -17,6 +17,11 @@ namespace BLL
             return DAL_User.DeleteUser(username);
         }
 
+        public static bool BlockUser(string username)
+        {
+            return DAL_User.BlockUser(username);
+        }
+
         public static BE_User GetUserByUsername(string username)
         {
             return DAL_User.GetUserByUsername(username);
