@@ -19,7 +19,7 @@
                 <img src="../Images/logotype.png" alt="logotype" onclick="window.location.href = 'index.aspx'" />
             </div>
             <div runat="server" id="nav__menu" class="nav__menu">
-                <div class="nav__item"><a href="#">Mi cuenta</a></div>
+                <div class="nav__item"><a href="frmMyAccount.aspx">Mi cuenta</a></div>
 
                 <section runat="server" id="nav__user__admin" class="nav__user__admin" visible="False">
                     <div class="nav__item"><a href="#">Reservas</a></div>

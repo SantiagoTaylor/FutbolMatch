@@ -1,19 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmDatabaseIntegrity.aspx.cs" Inherits="UI.Webforms.frmDatabaseIntegrity" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Webforms/masterPage.Master" CodeBehind="frmDatabaseIntegrity.aspx.cs" Inherits="UI.Webforms.frmDatabaseIntegrity" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" href="../Styles/style-users.css">
     <form id="form1" runat="server">
         <div>
             <asp:Button ID="ButtonRestore" runat="server" Text="Restaurar" OnClick="ButtonRestore_Click" />
             <asp:Button ID="ButtonRecalculate" runat="server" Text="Recalcular" OnClick="ButtonRecalculate_Click" />
-            <asp:Button ID="ButtonVerify" runat="server" Text="Verificar" OnClick="ButtonVerify_Click" style="height: 29px" />
+            <asp:Button ID="ButtonVerify" runat="server" Text="Verificar" OnClick="ButtonVerify_Click" Style="height: 29px" />
         </div>
     </form>
-</body>
-</html>
+</asp:Content>

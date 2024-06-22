@@ -1,25 +1,23 @@
 ﻿form {
+    width: 90%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: rgba(255,255,255,0.6);
-    border-radius:20px;
-    backdrop-filter:blur(10px);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
 }
 
 .container-listUsers {
-    width:70%;
-    height:50%;
-    
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Estilo general para el GridView */
 .gv-users {
-    width: 100%;
+    width: 90%;
     /*this will be the color of the odd row*/
     background-color: #fff;
     margin: 5px 0 10px 0;
@@ -85,9 +83,11 @@
     cursor: pointer;
     transition: box-shadow 0.2s ease-in;
 }
+
     .btn-register:hover {
         box-shadow: 3px 3px 10px;
     }
+
     .btn-register:active {
         box-shadow: none;
     }

@@ -13,12 +13,12 @@
                         <ItemTemplate>
                             <asp:LinkButton runat="server" CommandArgument='<%#  (((DataRowView)Container.DataItem)[0]) %>'
                                 OnClick="ButtonEdit_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton>
-                            <asp:LinkButton runat="server" CommandArgument='<%#  (((DataRowView)Container.DataItem)[0]) %>' OnClick="ButtonDelete_Click" OnClientClick="return confirm('Desea eliminar?')"><i class="bi bi-trash3-fill"></i></asp:LinkButton>
+                            <asp:LinkButton runat="server" CommandArgument='<%#  (((DataRowView)Container.DataItem)[0]) %>' OnClick="ButtonDelete_Click" ForeColor="Red"><i class="bi bi-trash3-fill"></i></asp:LinkButton>
 
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-                <PagerSettings Mode="Numeric" PageButtonCount="4" /> 
+                <PagerSettings Mode="Numeric" PageButtonCount="4" />
                 <PagerStyle BorderStyle="Groove" />
             </asp:GridView>
         </section>

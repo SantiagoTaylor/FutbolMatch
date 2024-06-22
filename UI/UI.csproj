@@ -110,6 +110,7 @@
     <Content Include="Web.config" />
     <Content Include="Webforms\frmDatabaseIntegrity.aspx" />
     <Content Include="Webforms\frmEventLog.aspx" />
+    <Content Include="Webforms\frmMyAccount.aspx" />
     <Content Include="Webforms\frmUsers.aspx" />
     <Content Include="Webforms\frmLogin.aspx" />
     <Content Include="Webforms\frmRegister.aspx" />
@@ -132,6 +133,13 @@
     </Compile>
     <Compile Include="Webforms\frmEventLog.aspx.designer.cs">
       <DependentUpon>frmEventLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmMyAccount.aspx.cs">
+      <DependentUpon>frmMyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmMyAccount.aspx.designer.cs">
+      <DependentUpon>frmMyAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmUsers.aspx.cs">
       <DependentUpon>frmUsers.aspx</DependentUpon>
