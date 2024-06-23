@@ -123,6 +123,42 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.DropDownList DropDownListLanguage;
 
         /// <summary>
+        /// Control LabelBlocked.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelBlocked;
+
+        /// <summary>
+        /// Control CheckBoxBlocked.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxBlocked;
+
+        /// <summary>
+        /// Control LabelRemoved.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelRemoved;
+
+        /// <summary>
+        /// Control CheckBoxRemoved.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxRemoved;
+
+        /// <summary>
         /// Control ButtonRegister.
         /// </summary>
         /// <remarks>

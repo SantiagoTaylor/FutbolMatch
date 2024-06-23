@@ -27,7 +27,9 @@ namespace DAL
                     Email = reader["email"].ToString(),
                     Phone = reader["phone"] != DBNull.Value ? reader["phone"].ToString() : "",
                     Role = reader["roleName"].ToString(),
-                    Language = reader["languageName"].ToString()
+                    Language = reader["languageName"].ToString(),
+                    Blocked = Convert.ToBoolean(reader["blocked"]),
+                    Removed = Convert.ToBoolean(reader["removed"])
                 };
                 command.Connection = connection.CloseConnection();
                 return user;
@@ -46,14 +48,26 @@ namespace DAL
             DAL_DB_Connection connection = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection.OpenConnection();
-            command.CommandText = "DELETE FROM tb_User WHERE username = @username";
+            command.CommandText = @"UPDATE tb_User SET removed = 1 WHERE username = @p_username;";
             command.CommandType= CommandType.Text;
-            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@p_username", username);
             int rowsAffected = command.ExecuteNonQuery();
             command.Connection = connection.CloseConnection();
             return rowsAffected > 0;
         }
 
+        public static bool BlockUser(string username)
+        {
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection.OpenConnection();
+            command.CommandText = @"UPDATE tb_User SET blocked = 1 WHERE username = @p_username;";
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@p_username", username);
+            int rowsAffected = command.ExecuteNonQuery();
+            command.Connection = connection.CloseConnection();
+            return rowsAffected > 0;
+        }
 
         public static DataTable GetUsers()
         {
@@ -100,6 +114,8 @@ namespace DAL
             command.Parameters.AddWithValue("@p_phone", user.Phone);
             command.Parameters.AddWithValue("@p_roleName", user.Role);
             command.Parameters.AddWithValue("@p_languageName", user.Language);
+            command.Parameters.AddWithValue("@p_blocked", user.Blocked);
+            command.Parameters.AddWithValue("@p_removed", user.Removed);
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();
             command.Connection = connection.CloseConnection();

@@ -19,7 +19,6 @@ namespace UI.Webforms
         {
             if (BLL_Login.IsValidCredentials(txtUser.Text, txtPassword.Text))
             {
-                //LO TIENE QUE CREAR ACA O EN LA BLL?
                 CookieLogin(txtUser.Text);
                 Response.Redirect("index.aspx");
             }
@@ -33,6 +32,7 @@ namespace UI.Webforms
                     if (_failedLogins[txtUser.Text] >= 3)
                     {
                         //bloquear cuenta
+                        BLL_User.BlockUser(txtUser.Text);
                         WebformMessage.ShowMessage("Tu cuenta ha sido bloqueada.", this);
                     }
                 }

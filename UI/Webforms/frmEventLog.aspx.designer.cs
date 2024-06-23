@@ -15,49 +15,49 @@ namespace UI.Webforms
     {
 
         /// <summary>
-        /// Control LabelDL.
+        /// Control CheckBoxUsername.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelDL;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxUsername;
 
         /// <summary>
-        /// Control DropDownListFilters.
+        /// Control TextBoxUsername.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListFilters;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxUsername;
 
         /// <summary>
-        /// Control DropDownList2.
+        /// Control CheckBoxActivity.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxActivity;
 
         /// <summary>
-        /// Control TextBoxUser.
+        /// Control DropDownListActivity.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxUser;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListActivity;
 
         /// <summary>
-        /// Control TextBoxDate.
+        /// Control CheckBoxActivityLevel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxDate;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxActivityLevel;
 
         /// <summary>
         /// Control DropDownListActivityLevels.
@@ -67,6 +67,33 @@ namespace UI.Webforms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListActivityLevels;
+
+        /// <summary>
+        /// Control CheckBoxDate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxDate;
+
+        /// <summary>
+        /// Control DateTimeStart.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DateTimeStart;
+
+        /// <summary>
+        /// Control DateTimeEnd.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DateTimeEnd;
 
         /// <summary>
         /// Control gvEventLog.

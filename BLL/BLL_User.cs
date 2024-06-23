@@ -17,6 +17,11 @@ namespace BLL
             return DAL_User.DeleteUser(username);
         }
 
+        public static bool BlockUser(string username)
+        {
+            return DAL_User.BlockUser(username);
+        }
+
         public static BE_User GetUserByUsername(string username)
         {
             return DAL_User.GetUserByUsername(username);
@@ -29,22 +34,22 @@ namespace BLL
 
         public static bool InsertUser(BE_User user)
         {
-            bool result = DAL_User.InsertUser(user);
-            if (result)
+            if (DAL_User.InsertUser(user))// si todo ok:
             {
-                DatabaseIntegrity.InsertDV(user.Username);
+                BLL_DV_User.InsertDV(user.Username);
+                return true;
             }
-            return result;
+            return false;
         }
 
         public static bool UpdateUser(BE_User user)
         {
-            bool result = DAL_User.UpdateUser(user);
-            if (result)
+            if (DAL_User.UpdateUser(user))// si todo ok:
             {
-                DatabaseIntegrity.UpdateDV(user.Username);
+                BLL_DV_User.UpdateDV(user.Username);
+                return true;
             }
-            return result;
+            return false;
         }
     }
 }

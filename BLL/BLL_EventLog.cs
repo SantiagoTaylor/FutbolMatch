@@ -24,8 +24,13 @@ namespace BLL
 
         public static DataTable GetEventLog()
         {
+<<<<<<< HEAD
             _dt = DAL_EventLog.GetEventLog(SessionManager.GetInstance.User.Language);
             return _dt;
+=======
+            DataTable table = DAL_EventLog.GetEventLog(SessionManager.GetInstance.User.Language);
+            return table;
+>>>>>>> master
         }
 
         public static DataTable GetActivityLevel(string language)
