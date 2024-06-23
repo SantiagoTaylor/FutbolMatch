@@ -17,8 +17,8 @@
                         <asp:ListItem>Inicio de Sesión</asp:ListItem>
                         <asp:ListItem>Cierre de Sesión</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:TextBox ID="TextBoxUser" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBoxDate" TextMode="Date" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxUser" runat="server" OnTextChanged="TextBoxUser_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxDate" TextMode="Date" runat="server" OnTextChanged="TextBoxDate_TextChanged"></asp:TextBox>
                     <asp:DropDownList ID="DropDownListActivityLevels" runat="server"></asp:DropDownList>
                 </asp:Label>
             </div>

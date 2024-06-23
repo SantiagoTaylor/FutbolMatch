@@ -14,27 +14,56 @@ namespace UI.Webforms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UpdateGV();
-            foreach (DataRow item in BLL_EventLog.GetActivityLevel(SessionManager.GetInstance.User.Language).Rows) {
+            UpdateGV(null);
+            foreach (DataRow item in BLL_EventLog.GetActivityLevel(SessionManager.GetInstance.User.Language).Rows)
+            {
                 DropDownListActivityLevels.Items.Add(item["levelName"].ToString());
             }
         }
-        private void UpdateGV()
+        private void UpdateGV(DataTable dt)
         {
-            gvEventLog.DataSource = BLL_EventLog.GetEventLog(-1);
+            if (dt == null)
+            {
+                gvEventLog.DataSource = BLL_EventLog.GetEventLog();
+            }
+            else
+            {
+                gvEventLog.DataSource = dt;
+            }
             gvEventLog.DataBind();
         }
         protected void gvEventLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvEventLog.PageIndex = e.NewPageIndex;
-            UpdateGV();
+            UpdateGV(null);
         }
 
         protected void DropDownListFilters_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gvEventLog.DataSource=BLL_EventLog.GetEventLog(DropDownListFilters.SelectedIndex);
+            gvEventLog.DataSource = BLL_EventLog.GetEventLogFilter(0);
             gvEventLog.DataBind();
         }
 
+        protected void TextBoxUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TextBoxDate_TextChanged(object sender, EventArgs e)
+        {
+            string dateString = TextBoxDate.Text;
+            DateTime sltDate;
+            if (DateTime.TryParse(dateString, out sltDate))
+            {
+                DataRow[] fltRows = BLL_EventLog._dt.Select($"eventDate = #{sltDate.ToString("yyyy-MM-dd")}#");
+                DataTable dtFlt = BLL_EventLog._dt.Clone();
+
+                foreach (DataRow row in fltRows)
+                {
+                    dtFlt.ImportRow(row);
+                }
+                UpdateGV(dtFlt);
+            }
+        }
     }
 }
