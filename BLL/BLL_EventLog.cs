@@ -8,12 +8,12 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace BLL
 {
     public class BLL_EventLog
     {
-        
         public static void RegisterEventLog(string username, string activity)
         {
             //HACE FALTA CREARLO ACA??? O ANTES??? USERNAME -> SESSION MANAGER ¿?desde BE???
@@ -30,6 +30,36 @@ namespace BLL
         public static DataTable GetActivityLevel(string language)
         {
             return DAL_EventLog.GetActivityLevel(language);
+        }
+
+        public static DataTable GetEventLogFilter(int i)
+        {
+            
+            DataTable dt = DAL_EventLog.GetEventLog();
+            switch (i) {
+                //Por Usuario
+                case 0:
+                    string filterExpression = "Usuario = '" + HttpContext.Current.Session["Username"] +"'";
+                    DataRow[] filteredRows = dt.Select(filterExpression);
+                    DataTable filteredTable = dt.Clone();
+                    
+                    foreach (DataRow row in filteredRows)
+                    {
+                        filteredTable.ImportRow(row);
+                    }
+                    HttpContext.Current.Session["FilteredDataTable"] = filteredTable;
+                    return filteredTable;
+                //Por Actividad
+                case 1:
+
+                    break;
+                //Por Fecha
+                case 2:
+
+                    break;
+            }
+            
+            return null;
         }
     }
 }
