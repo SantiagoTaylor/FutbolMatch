@@ -1,0 +1,42 @@
+﻿.container-myaccount {
+    width: 90%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    overflow:hidden;
+}
+
+.container-accountdata {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255,255,255,0.3);
+}
+.container-bookings {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    background-color: rgba(255,255,255,0.3);
+}
+.container-extra {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}

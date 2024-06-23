@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SERVICES;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,16 @@ namespace UI.Webforms
     public partial class frmMyAccount : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack) {
+                LabelRName.Text = SessionManager.GetInstance.User.Name;
+                LabelRLastname.Text = SessionManager.GetInstance.User.Lastname;
+                LabelREmail.Text = SessionManager.GetInstance.User.Email;
+                LabelRPhone.Text = SessionManager.GetInstance.User.Phone.ToString();
+            }
+        }
+
+        protected void ButtonChangeMyData_Click(object sender, EventArgs e)
         {
 
         }
