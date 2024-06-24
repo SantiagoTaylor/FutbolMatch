@@ -14,7 +14,7 @@ namespace UI.Webforms
         {
             if (!Page.IsPostBack)
             {
-                LabelRUsername.Text =SessionManager.GetInstance.User.Username;
+                LabelRUsername.Text = SessionManager.GetInstance.User.Username;
                 LabelRName.Text = SessionManager.GetInstance.User.Name;
                 LabelRLastname.Text = SessionManager.GetInstance.User.Lastname;
                 LabelREmail.Text = SessionManager.GetInstance.User.Email;
