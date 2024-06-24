@@ -40,7 +40,7 @@ namespace DAL
             return table;
         }
 
-        public static DataTable GetActivityLevel(string language)
+        public static object GetActivityLevels(string language = "English")
         {
             DataTable table = new DataTable();
             DAL_DB_Connection connection = new DAL_DB_Connection();
