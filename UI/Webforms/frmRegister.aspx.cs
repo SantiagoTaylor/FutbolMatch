@@ -15,29 +15,47 @@ namespace UI.Webforms
             {
                 RolesLoad();
                 LanguageLoad();
-                if (Request.QueryString["username"] != null)
+                if (Request.QueryString["username"] != null && Request.QueryString["modifyUser"] == null)
                 {
-                    BE_User user = BLL_User.GetUserByUsername(Request.QueryString["username"].ToString());
-                    TextBoxName.Text = user.Name;
-                    TextBoxLastname.Text = user.Lastname;
-                    TextBoxUsername.Text = user.Username;
-                    TextBoxPhone.Text = user.Phone;
-                    TextBoxEmail.Text = user.Email;
-                    DropDownListRoles.SelectedValue = user.Role;
-                    CheckBoxBlocked.Checked = user.Blocked;
-                    CheckBoxRemoved.Checked = user.Removed;
-                    TextBoxUsername.ReadOnly = true;
                     TextBoxPassword.Visible = false;
                     LabelPassword.Visible = false;
                     LabelBlocked.Visible = true;
                     LabelRemoved.Visible = true;
                     CheckBoxBlocked.Visible = true;
                     CheckBoxRemoved.Visible = true;
+                }
+                if (Request.QueryString["modifyUser"] != null)
+                {
+                    TextBoxPassword.Visible = true;
+                    LabelPassword.Visible = true;
+                    LabelBlocked.Visible = false;
+                    LabelRemoved.Visible = false;
+                    LabelRoles.Visible = false;
+                    DropDownListRoles.Visible = false;
+                    CheckBoxBlocked.Visible = false;
+                    CheckBoxRemoved.Visible = false;
+                }
+                if (Request.QueryString["username"] != null)
+                {
+                    SetUserData(Request.QueryString["username"].ToString());
+                    TextBoxUsername.ReadOnly = true;
                     ButtonRegister.Text = "Modificar";
                 }
             }
         }
 
+        private void SetUserData(string username)
+        {
+            BE_User user = BLL_User.GetUserByUsername(username);
+            TextBoxName.Text = user.Name;
+            TextBoxLastname.Text = user.Lastname;
+            TextBoxUsername.Text = user.Username;
+            TextBoxPhone.Text = user.Phone;
+            TextBoxEmail.Text = user.Email;
+            DropDownListRoles.SelectedValue = user.Role;
+            CheckBoxBlocked.Checked = user.Blocked;
+            CheckBoxRemoved.Checked = user.Removed;
+        }
         private void LanguageLoad()
         {
             DropDownListLanguage.DataTextField = "languageName";

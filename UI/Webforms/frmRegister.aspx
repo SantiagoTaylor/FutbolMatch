@@ -30,13 +30,13 @@
         </div>
 
         <div class="item-input">
-            <asp:Label ID="Label1" runat="server" Text="Rol"></asp:Label>
+            <asp:Label ID="LabelRoles" runat="server" Text="Rol"></asp:Label>
             <asp:DropDownList ID="DropDownListRoles" AutoPostBack="true" runat="server">
             </asp:DropDownList>
         </div>
 
         <div class="item-input">
-            <asp:Label ID="Label2" runat="server" Text="Idioma"></asp:Label>
+            <asp:Label ID="LabelLanguage" runat="server" Text="Idioma"></asp:Label>
             <asp:DropDownList ID="DropDownListLanguage" AutoPostBack="true" runat="server">
             </asp:DropDownList>
         </div>
