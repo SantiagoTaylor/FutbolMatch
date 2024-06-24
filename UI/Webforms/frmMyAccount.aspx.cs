@@ -12,7 +12,9 @@ namespace UI.Webforms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) {
+            if (!Page.IsPostBack)
+            {
+                LabelRUsername.Text =SessionManager.GetInstance.User.Username;
                 LabelRName.Text = SessionManager.GetInstance.User.Name;
                 LabelRLastname.Text = SessionManager.GetInstance.User.Lastname;
                 LabelREmail.Text = SessionManager.GetInstance.User.Email;
@@ -22,7 +24,7 @@ namespace UI.Webforms
 
         protected void ButtonChangeMyData_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect($"frmRegister.aspx?modifyUser=true&username={SessionManager.GetInstance.User.Username}");
         }
     }
 }
