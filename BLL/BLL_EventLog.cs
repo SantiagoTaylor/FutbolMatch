@@ -23,43 +23,17 @@ namespace BLL
 
         public static DataTable GetEventLog()
         {
-            DataTable table = DAL_EventLog.GetEventLog(SessionManager.GetInstance.User.Language);
-            return table;
+            return DAL_EventLog.GetEventLog(SessionManager.GetInstance.User.Language);
         }
 
-        public static DataTable GetActivityLevel(string language)
+        public static object GetActivityLevels()
         {
-            return DAL_EventLog.GetActivityLevel(language);
+            return DAL_EventLog.GetActivityLevels(SessionManager.GetInstance.User.Language);
         }
 
-        public static DataTable GetEventLogFilter(int i)
+        public static object GetActivitys()
         {
-            
-            DataTable dt = DAL_EventLog.GetEventLog();
-            switch (i) {
-                //Por Usuario
-                case 0:
-                    string filterExpression = "Usuario = '" + HttpContext.Current.Session["Username"] +"'";
-                    DataRow[] filteredRows = dt.Select(filterExpression);
-                    DataTable filteredTable = dt.Clone();
-                    
-                    foreach (DataRow row in filteredRows)
-                    {
-                        filteredTable.ImportRow(row);
-                    }
-                    HttpContext.Current.Session["FilteredDataTable"] = filteredTable;
-                    return filteredTable;
-                //Por Actividad
-                case 1:
-
-                    break;
-                //Por Fecha
-                case 2:
-
-                    break;
-            }
-            
-            return null;
+            return DAL_EventLog.GetActivitys(SessionManager.GetInstance.User.Language);
         }
     }
 }

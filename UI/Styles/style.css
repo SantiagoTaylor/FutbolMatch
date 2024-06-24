@@ -29,10 +29,11 @@ header {
     width: 10%;
     height: 100vh;
     background-color: white;
-    border-radius: 0px 20px 20px 0px;
     overflow: hidden;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
 }
 
     header .container-logout {
@@ -70,7 +71,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color ease-out 0.4s, transform ease-out 0.4s;
+    text-align: center;
+    transition: right ease 0.5s;
+    position: relative;
     cursor: pointer;
 }
 
@@ -83,7 +86,7 @@ header {
 
     .nav__item:hover {
         background-color: #cccccc;
-        transform: scale(1.1);
+        right: -1rem;
     }
 
         .nav__item:hover a {
@@ -99,7 +102,7 @@ header {
 
     .nav__logo img {
         width: 150px;
-        height:3rem;
+        height: 3rem;
     }
 
 main {
