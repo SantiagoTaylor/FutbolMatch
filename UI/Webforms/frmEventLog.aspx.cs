@@ -12,44 +12,23 @@ namespace UI.Webforms
         {
             if (!IsPostBack)
             {
-                UpdateGV(null);
+                UpdateGV();
                 foreach (DataRow item in BLL_EventLog.GetActivityLevel(SessionManager.GetInstance.User.Language).Rows)
                 {
                     DropDownListActivityLevels.Items.Add(item["levelName"].ToString());
                 }
             }
         }
-        private void UpdateGV(DataTable dt)
+        private void UpdateGV()
         {
-            if (dt == null)
-            {
-                gvEventLog.DataSource = BLL_EventLog.GetEventLog();
-            }
-            else
-            {
-                gvEventLog.DataSource = dt;
-            }            
+            gvEventLog.DataSource = BLL_EventLog.GetEventLog();
             gvEventLog.DataBind();
         }
+
         protected void gvEventLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvEventLog.PageIndex = e.NewPageIndex;
-            UpdateGV(Session["FilteredDataTable"] as DataTable);
-        }
-
-        protected void DropDownListFilters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            gvEventLog.DataSource = BLL_EventLog.GetEventLogFilter(1);
-            gvEventLog.DataBind();
-        }
-
-        protected void TextBoxUsername_TextChanged(object sender, EventArgs e)
-        {
-            Session["Username"] = TextBoxUsername.Text;
-            if (CheckBoxUsername.Checked)
-            {
-                UpdateGV(BLL_EventLog.GetEventLogFilter(0));
-            }
+            UpdateGV();
         }
     }
 }

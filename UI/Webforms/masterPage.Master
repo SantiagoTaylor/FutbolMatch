@@ -33,9 +33,7 @@
                     <div class="nav__item"><a href="frmDatabaseIntegrity.aspx">Backup y Restore</a></div>
                 </section>
             </div>
-        </nav>
-
-        
+        </nav>      
 
     </header>
     <main>
