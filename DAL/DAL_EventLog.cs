@@ -55,5 +55,21 @@ namespace DAL
             command.Connection = connection.CloseConnection();
             return table;
         }
+
+        public static object GetActivitys(string language = "English")
+        {
+            DataTable table = new DataTable();
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "sp_GetActivitys";
+            command.Parameters.AddWithValue("@p_Language", language);
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+            MySqlDataReader _reader = command.ExecuteReader();
+            table.Load(_reader);
+            command.Connection = connection.CloseConnection();
+            return table;
+        }
     }
 }

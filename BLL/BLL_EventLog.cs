@@ -30,5 +30,10 @@ namespace BLL
         {
             return DAL_EventLog.GetActivityLevels(SessionManager.GetInstance.User.Language);
         }
+
+        public static object GetActivitys()
+        {
+            return DAL_EventLog.GetActivitys(SessionManager.GetInstance.User.Language);
+        }
     }
 }

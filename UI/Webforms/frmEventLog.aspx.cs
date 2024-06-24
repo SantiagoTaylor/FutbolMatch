@@ -15,6 +15,7 @@ namespace UI.Webforms
             {
                 UpdateGV();
                 ActivityLevelsLoad();
+                ActivitysLoad();
             }
         }
 
@@ -25,6 +26,15 @@ namespace UI.Webforms
             DropDownListActivityLevel.DataSource = BLL_EventLog.GetActivityLevels();
             DropDownListActivityLevel.DataBind();
         }
+
+        private void ActivitysLoad()
+        {
+            DropDownListActivity.DataTextField = "activity";
+            DropDownListActivity.DataValueField = "idActivity";
+            DropDownListActivity.DataSource = BLL_EventLog.GetActivitys();
+            DropDownListActivity.DataBind();
+        }
+
         private void UpdateGV()
         {
             gvEventLog.DataSource = BLL_EventLog.GetEventLog();
