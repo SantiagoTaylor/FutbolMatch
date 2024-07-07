@@ -44,11 +44,11 @@ namespace UI.Webforms
         protected void gvEventLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvEventLog.PageIndex = e.NewPageIndex;
-            if (ViewState["filter"] != null)
+            if (ViewState["eventLogFilter"] != null)
             {
                 DataTable table = BLL_EventLog.GetEventLog();
                 DataView view = new DataView(table);
-                string filter = ViewState["filter"].ToString();
+                string filter = ViewState["eventLogFilter"].ToString();
                 view.RowFilter = filter;
                 gvEventLog.DataSource = view;
                 gvEventLog.DataBind();
@@ -109,7 +109,7 @@ namespace UI.Webforms
                 DateTime endDate = DateTime.Parse(DateTimeEnd.Text);
                 filter += $" AND Fecha >= '{startDate:yyyy-MM-dd}' AND Fecha <= '{endDate:yyyy-MM-dd}'";
             }
-            ViewState["filter"] = filter;
+            ViewState["eventLogFilter"] = filter;
             view.RowFilter = filter;
             gvEventLog.DataSource = view;
             gvEventLog.DataBind();

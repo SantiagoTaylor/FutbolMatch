@@ -33,9 +33,9 @@ namespace UI.Webforms
             string errorMessage = "";
             foreach (var item in prueba)
             {
-                if (item.Value == false)
+                if (item.Value.Count != 0)
                 {
-                    errorMessage += $"Error en la tabla {item.Key.Item1}\n";
+                    errorMessage += $"{RowsErrorMessage(item)}\n";
                 }
             }
             if (errorMessage == "")
@@ -44,6 +44,16 @@ namespace UI.Webforms
             }
             LabelMessage.Text = errorMessage;
             WebformMessage.ShowMessage(errorMessage, this);
+        }
+
+        private string RowsErrorMessage(KeyValuePair<(string, string), List<string>> errorList)
+        {
+            string errorMessage = "";
+            foreach (var error in errorList.Value)
+            {
+                errorMessage += $"ERROR: TABLA {errorList.Key.Item1} - FILA: {error}\n";
+            }
+            return errorMessage;
         }
     }
 }

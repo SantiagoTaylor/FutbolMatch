@@ -4,6 +4,7 @@ using SERVICES;
 using System.Web.Security;
 using System.Web;
 using System.Collections.Generic;
+using System.Web.SessionState;
 
 namespace UI.Webforms
 {
@@ -20,6 +21,7 @@ namespace UI.Webforms
             if (BLL_Login.IsValidCredentials(txtUser.Text, txtPassword.Text))
             {
                 CookieLogin(txtUser.Text);
+                //Roles.AddUserToRole(txtUser.Text, SessionManager.GetInstance.User.Role);
                 Response.Redirect("index.aspx");
             }
             else
