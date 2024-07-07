@@ -37,6 +37,7 @@ namespace BLL
             if (DAL_User.InsertUser(user))// si todo ok:
             {
                 BLL_DV_User.InsertDV(user.Username);
+                //EVENT LOG
                 return true;
             }
             return false;

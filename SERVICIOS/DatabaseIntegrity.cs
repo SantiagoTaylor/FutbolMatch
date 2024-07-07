@@ -12,14 +12,14 @@ namespace SERVICES
         //false = mal
         //true = bien
         #region Horizontal integrity
-        public static Dictionary<(string, string), bool> HorizontalIntegrity()
+        public static Dictionary<(string, string), List<string>> HorizontalIntegrity()
         {
             List<Tuple<string, string>> tableList = new List<Tuple<string, string>>
             {
                 tb_User
             };
 
-            Dictionary<(string, string), bool> tables = new Dictionary<(string, string), bool>();
+            Dictionary<(string, string), List<string>> tables = new Dictionary<(string, string), List<string>>();
             foreach (var tupla in tableList)
             {
                 DataTable table1, table2;
@@ -30,12 +30,9 @@ namespace SERVICES
             return tables;
         }
 
-        private static bool CompareTables(DataTable table1, DataTable table2)
+        private static List<string> CompareTables(DataTable table1, DataTable table2)
         {
-            if (table1.Rows.Count != table2.Rows.Count)
-            {
-                return false; // Diferente número de filas
-            }
+            List<string> errors = new List<string>();
 
             for (int i = 0; i < table1.Rows.Count; i++)
             {
@@ -43,11 +40,14 @@ namespace SERVICES
                 {
                     if (!table1.Rows[i][j].Equals(table2.Rows[i][j]))
                     {
-                        return false; // Los datos en la celda no son iguales
+                        for (int k = 0; k < table2.Columns.Count - 1; k++)
+                        {
+                            errors.Add(table1.Rows[i][k].ToString());
+                        }
                     }
                 }
             }
-            return true;
+            return errors;
         }
 
         public static void RecalculateDigits()
@@ -55,7 +55,7 @@ namespace SERVICES
             var results = HorizontalIntegrity();
             foreach (var tablePair in results)
             {
-                if (tablePair.Value == false)//false = falla de integridad
+                if (tablePair.Value.Count != 0)//false = falla de integridad
                 {
                     DAL_DatabaseIntegrity.RecalculateDigits(tablePair.Key);
                 }
