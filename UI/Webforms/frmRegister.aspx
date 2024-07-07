@@ -16,6 +16,30 @@
             <asp:Label ID="LabelPassword" CssClass="form-label" runat="server" Text="Label">Contraseña</asp:Label>
             <asp:TextBox ID="TextBoxPassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
         </div>
+        <asp:Panel ID="SectionPasswordMod" runat="server" Visible="false">
+            <div class="mb-2">
+                <asp:Label ID="Label5" CssClass="form-label" runat="server" Text="Modificar contraseña:"></asp:Label>
+                <asp:CheckBox ID="CheckBoxModPass" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBoxModPass_CheckedChanged"/>
+            </div>
+
+            <asp:Panel ID="PanelReqModPass" runat="server" Visible="false">
+
+                <div class="mb-2">
+                    <asp:Label ID="Label4" CssClass="form-label" runat="server" Text="Label">Contraseña actual</asp:Label>
+                    <asp:TextBox ID="TextBoxCurrentPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                </div>
+                <div class="mb-2">
+                    <asp:Label ID="Label1" CssClass="form-label" runat="server" Text="Label">Nueva contraseña</asp:Label>
+                    <asp:TextBox ID="TextBoxNwPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                </div>
+                <div class="mb-2">
+                    <asp:Label ID="Label2" CssClass="form-label" runat="server" Text="Label">Confirmar Contraseña</asp:Label>
+                    <asp:TextBox ID="TextBoxConfirmPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                </div>
+
+            </asp:Panel>
+
+        </asp:Panel>
         <div class="mb-2">
             <label for="TextBoxName" class="form-label">Nombre</label>
             <asp:TextBox ID="TextBoxName" CssClass="form-control" runat="server"></asp:TextBox>
@@ -43,12 +67,12 @@
 
         <div class="mb-2">
             <asp:Label ID="LabelBlocked" runat="server" Text="Bloqueado" Visible="False"></asp:Label>
-            <asp:CheckBox ID="CheckBoxBlocked" runat="server" Visible="False"/>
+            <asp:CheckBox ID="CheckBoxBlocked" runat="server" Visible="False" />
         </div>
 
         <div class="mb-2">
             <asp:Label ID="LabelRemoved" runat="server" Text="Borrado" Visible="False"></asp:Label>
-            <asp:CheckBox ID="CheckBoxRemoved" runat="server" Visible="False"/>
+            <asp:CheckBox ID="CheckBoxRemoved" runat="server" Visible="False" />
         </div>
 
         <asp:Button ID="ButtonRegister" CssClass="btn-register" runat="server" Text="Registrar" OnClick="ButtonRegister_Click" />

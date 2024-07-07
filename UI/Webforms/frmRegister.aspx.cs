@@ -2,6 +2,7 @@
 using BLL;
 using SERVICES;
 using System;
+using System.ComponentModel;
 using System.Web.UI;
 
 namespace UI.Webforms
@@ -15,31 +16,44 @@ namespace UI.Webforms
             {
                 RolesLoad();
                 LanguageLoad();
+                //Modificacion de usuario seleccionado
                 if (Request.QueryString["username"] != null && Request.QueryString["modifyUser"] == null)
                 {
                     TextBoxPassword.Visible = false;
+
                     LabelPassword.Visible = false;
                     LabelBlocked.Visible = true;
                     LabelRemoved.Visible = true;
+
                     CheckBoxBlocked.Visible = true;
                     CheckBoxRemoved.Visible = true;
+
                 }
+                //Modificacion de usuario seleccionado
                 if (Request.QueryString["modifyUser"] != null)
                 {
                     TextBoxPassword.Visible = true;
+
                     LabelPassword.Visible = true;
                     LabelBlocked.Visible = false;
                     LabelRemoved.Visible = false;
                     LabelRoles.Visible = false;
+
                     DropDownListRoles.Visible = false;
+
                     CheckBoxBlocked.Visible = false;
                     CheckBoxRemoved.Visible = false;
+
                 }
+                //Modificacion mis datos
                 if (Request.QueryString["username"] != null)
                 {
                     SetUserData(Request.QueryString["username"].ToString());
-                    TextBoxUsername.ReadOnly = true;
                     ButtonRegister.Text = "Modificar";
+                    TextBoxUsername.ReadOnly = true;
+                    LabelPassword.Visible = false;
+                    TextBoxPassword.Visible = false;
+                    SectionPasswordMod.Visible = true;
                 }
             }
         }
@@ -71,10 +85,36 @@ namespace UI.Webforms
             DropDownListRoles.DataSource = BLL_Role.GetRoles();
             DropDownListRoles.DataBind();
         }
+        private bool ValidateFields()
+        {
+            if (TextBoxEmail.Text == "" || TextBoxUsername.Text == "" || TextBoxName.Text == "" || TextBoxLastname.Text == "")
+            {
+                WebformMessage.ShowMessage("Debe completar los campos solicitados", this);
+                return false;
+            }
+            return true;
+        }
+        private bool ComparePassword()
+        {
+            if (Encrpyt.HashValue(TextBoxCurrentPass.Text) == SessionManager.GetInstance.User.Password)
+            {
+                if (TextBoxNwPass.Text == TextBoxConfirmPass.Text)
+                {
+                    return true;
+                }
+                else { WebformMessage.ShowMessage("Contraseñas no coinciden", this); }
+            }
+            else { WebformMessage.ShowMessage("Contraseña Incorrecta", this); }
+
+            return false;
+        }
 
         protected void ButtonRegister_Click(object sender, EventArgs e)
         {
-            BE_User user = new BE_User(
+
+            if (ValidateFields())
+            {
+                BE_User user = new BE_User(
                 TextBoxUsername.Text,
                 Encrpyt.HashValue(TextBoxPassword.Text),
                 TextBoxName.Text,
@@ -86,23 +126,55 @@ namespace UI.Webforms
                 CheckBoxBlocked.Checked,
                 CheckBoxRemoved.Checked);
 
-            if (Request.QueryString["username"] != null)
-            {
-                BLL_User.UpdateUser(user);
-                Response.Redirect("frmUsers.aspx");
-            }
-            else
-            {
-                if (BLL_User.InsertUser(user))
+                if (Request.QueryString["username"] != null)
                 {
-                    Response.Redirect("frmUsers.aspx");
+                    if (Request.QueryString["modifyUser"] != null)
+                    {
+                        if (CheckBoxModPass.Checked)
+                        {
+                            if (ComparePassword())
+                            {
+                                user.Password = Encrpyt.HashValue(TextBoxConfirmPass.Text);
+                                BLL_User.UpdateMyAccount(user);
+                            }
+                        }
+                        else
+                        {
+                            BLL_User.UpdateUser(user);
+                        }
+                        Response.Redirect("frmMyAccount.aspx");
+                    }
+                    else
+                    {
+                        BLL_User.UpdateUser(user);
+                        Response.Redirect("frmUsers.aspx");
+                    }
+
                 }
                 else
                 {
-                    WebformMessage.ShowMessage("Complete todos los campos", this);
-                    //FALSA VALIDACION!!! HACER VALIDACION
+                    if (BLL_User.InsertUser(user))
+                    {
+                        Response.Redirect("frmUsers.aspx");
+                    }
+                    else
+                    {
+                        WebformMessage.ShowMessage("Complete todos los campos", this);
+                    }
                 }
             }
+
+
+
+        }
+
+        protected void CheckBoxModPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBoxModPass.Checked)
+            {
+                PanelReqModPass.Visible = true;
+            }
+            else { PanelReqModPass.Visible = false; }
         }
     }
 }
