@@ -25,6 +25,7 @@
                     <div class="nav__item"><a href="frmReservas.aspx">Reservas</a></div>
                     <section runat="server" id="nav__admin" class="nav__admin" visible="False">
                         <div class="nav__item"><a href="frmUsers.aspx">Mis empleados</a></div>
+                        <div class="nav__item"><a href="frmCreateField.aspx">Crear cancha</a></div>
                     </section>
                 </section>
                 <section runat="server" id="nav__webmaster" class="nav__webmaster" visible="False">
@@ -33,7 +34,7 @@
                     <div class="nav__item"><a href="frmDatabaseIntegrity.aspx">Backup y Restore</a></div>
                 </section>
             </div>
-        </nav>      
+        </nav>
 
     </header>
     <main>

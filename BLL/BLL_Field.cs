@@ -15,5 +15,10 @@ namespace BLL
         {
             DAL_Field.RegisterField(field);
         }
+
+        public static int GetFieldID(BE_Field field)
+        {
+            return DAL_Field.GetFieldID(field);
+        }
     }
 }
