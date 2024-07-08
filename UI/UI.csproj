@@ -119,6 +119,8 @@
     <Content Include="Webforms\frmMyAccount.aspx" />
     <Content Include="Webforms\frmMyEstablishment.aspx" />
     <Content Include="Webforms\frmRegisterEmployee.aspx" />
+    <Content Include="Webforms\frmMyFields.aspx" />
+    <Content Include="Webforms\frmReserveField.aspx" />
     <Content Include="Webforms\frmUsers.aspx" />
     <Content Include="Webforms\frmLogin.aspx" />
     <Content Include="Webforms\frmRegister.aspx" />
@@ -183,6 +185,20 @@
     </Compile>
     <Compile Include="Webforms\frmRegisterEmployee.aspx.designer.cs">
       <DependentUpon>frmRegisterEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmMyFields.aspx.cs">
+      <DependentUpon>frmMyFields.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmMyFields.aspx.designer.cs">
+      <DependentUpon>frmMyFields.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmReserveField.aspx.cs">
+      <DependentUpon>frmReserveField.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmReserveField.aspx.designer.cs">
+      <DependentUpon>frmReserveField.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmUsers.aspx.cs">
       <DependentUpon>frmUsers.aspx</DependentUpon>

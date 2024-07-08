@@ -11,52 +11,43 @@ namespace UI.Webforms
 {
 
 
-    public partial class frmDatabaseIntegrity
+    public partial class frmMyFields
     {
 
         /// <summary>
-        /// Control form1.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control ButtonRestore.
+        /// Control DropDownListEstablishment.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonRestore;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEstablishment;
 
         /// <summary>
-        /// Control ButtonRecalculate.
+        /// Control gvFields.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonRecalculate;
+        protected global::System.Web.UI.WebControls.GridView gvFields;
 
         /// <summary>
-        /// Control ButtonVerify.
+        /// Control ButtonCreateField.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonVerify;
-
-        /// <summary>
-        /// Control TextBoxMessage.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxMessage;
+        protected global::System.Web.UI.WebControls.Button ButtonCreateField;
     }
 }
