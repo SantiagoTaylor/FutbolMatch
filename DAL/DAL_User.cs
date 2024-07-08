@@ -122,6 +122,24 @@ namespace DAL
             //AGREGAR TRY CATCH
             return true;
         }
+        public static bool UpdateMyAccount(BE_User user) {
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection.OpenConnection();
+            command.CommandText = "sp_UpdateMyAccount";
+            command.Parameters.AddWithValue("@p_username", user.Username);
+            command.Parameters.AddWithValue("@p_name", user.Name);
+            command.Parameters.AddWithValue("@p_lastname", user.Lastname);
+            command.Parameters.AddWithValue("@p_email", user.Email);
+            command.Parameters.AddWithValue("@p_phone", user.Phone);
+            command.Parameters.AddWithValue("@p_languageName", user.Language);
+            command.Parameters.AddWithValue("@p_password", user.Password);
+            command.CommandType = CommandType.StoredProcedure;
+            command.ExecuteNonQuery();
+            command.Connection = connection.CloseConnection();
+            //AGREGAR TRY CATCH
+            return true;
+        }
         #endregion
     }
 }

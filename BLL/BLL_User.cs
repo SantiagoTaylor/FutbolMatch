@@ -52,5 +52,10 @@ namespace BLL
             }
             return false;
         }
+
+        public static void UpdateMyAccount(BE_User user)
+        {
+            DAL_User.UpdateMyAccount(user);
+        }
     }
 }

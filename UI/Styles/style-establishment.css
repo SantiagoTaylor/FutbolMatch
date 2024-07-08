@@ -1,0 +1,27 @@
+﻿.container-establishment {
+    width:90%;
+    height:90%;
+    background-color: rgb(255,255,255,0.6);
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.container-btn {
+    margin-top:1rem;
+    width:90%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.btn-register {
+    border: none;
+    height: 3rem;
+    padding: 0 10px 0 10px;
+    border-radius: 15px;
+    transition: box-shadow 0.2s ease-in;
+}
+    .btn-register:hover {
+        box-shadow:5px 5px 15px;
+    }
