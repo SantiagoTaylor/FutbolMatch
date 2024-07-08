@@ -99,14 +99,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL_Cancha.cs" />
     <Compile Include="DAL_DatabaseIntegrity.cs" />
     <Compile Include="DAL_DB_Connection.cs" />
     <Compile Include="DAL_DV_User.cs" />
+    <Compile Include="DAL_Establishment.cs" />
     <Compile Include="DAL_EventLog.cs" />
-    <Compile Include="DAL_Horario.cs" />
+    <Compile Include="DAL_Field.cs" />
     <Compile Include="DAL_Language.cs" />
-    <Compile Include="DAL_Reserva.cs" />
     <Compile Include="DAL_User.cs" />
     <Compile Include="DAL_Login.cs" />
     <Compile Include="DAL_Role.cs" />

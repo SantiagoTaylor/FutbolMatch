@@ -110,10 +110,10 @@
     <Content Include="Styles\style-register.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
+    <Content Include="Webforms\frmCreateField.aspx" />
     <Content Include="Webforms\frmDatabaseIntegrity.aspx" />
     <Content Include="Webforms\frmEventLog.aspx" />
     <Content Include="Webforms\frmMyAccount.aspx" />
-    <Content Include="Webforms\frmReservas.aspx" />
     <Content Include="Webforms\frmUsers.aspx" />
     <Content Include="Webforms\frmLogin.aspx" />
     <Content Include="Webforms\frmRegister.aspx" />
@@ -123,6 +123,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Webforms\frmCreateField.aspx.cs">
+      <DependentUpon>frmCreateField.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmCreateField.aspx.designer.cs">
+      <DependentUpon>frmCreateField.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webforms\frmDatabaseIntegrity.aspx.cs">
       <DependentUpon>frmDatabaseIntegrity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,13 +150,6 @@
     </Compile>
     <Compile Include="Webforms\frmMyAccount.aspx.designer.cs">
       <DependentUpon>frmMyAccount.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Webforms\frmReservas.aspx.cs">
-      <DependentUpon>frmReservas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Webforms\frmReservas.aspx.designer.cs">
-      <DependentUpon>frmReservas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmUsers.aspx.cs">
       <DependentUpon>frmUsers.aspx</DependentUpon>
