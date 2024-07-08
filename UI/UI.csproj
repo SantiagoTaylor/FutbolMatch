@@ -103,6 +103,7 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Styles\style-establishment.css" />
     <Content Include="Styles\style-myaccount.css" />
     <Content Include="Styles\style-reservas.css" />
     <Content Include="Styles\style-users.css" />
@@ -110,10 +111,14 @@
     <Content Include="Styles\style-register.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
+    <Content Include="Webforms\frmCreateEstablishment.aspx" />
     <Content Include="Webforms\frmCreateField.aspx" />
     <Content Include="Webforms\frmDatabaseIntegrity.aspx" />
+    <Content Include="Webforms\frmEstablishments.aspx" />
     <Content Include="Webforms\frmEventLog.aspx" />
     <Content Include="Webforms\frmMyAccount.aspx" />
+    <Content Include="Webforms\frmMyEstablishment.aspx" />
+    <Content Include="Webforms\frmRegisterEmployee.aspx" />
     <Content Include="Webforms\frmUsers.aspx" />
     <Content Include="Webforms\frmLogin.aspx" />
     <Content Include="Webforms\frmRegister.aspx" />
@@ -123,6 +128,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Webforms\frmCreateEstablishment.aspx.cs">
+      <DependentUpon>frmCreateEstablishment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmCreateEstablishment.aspx.designer.cs">
+      <DependentUpon>frmCreateEstablishment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webforms\frmCreateField.aspx.cs">
       <DependentUpon>frmCreateField.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -137,6 +149,13 @@
     <Compile Include="Webforms\frmDatabaseIntegrity.aspx.designer.cs">
       <DependentUpon>frmDatabaseIntegrity.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Webforms\frmEstablishments.aspx.cs">
+      <DependentUpon>frmEstablishments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmEstablishments.aspx.designer.cs">
+      <DependentUpon>frmEstablishments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webforms\frmEventLog.aspx.cs">
       <DependentUpon>frmEventLog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,6 +169,20 @@
     </Compile>
     <Compile Include="Webforms\frmMyAccount.aspx.designer.cs">
       <DependentUpon>frmMyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmMyEstablishment.aspx.cs">
+      <DependentUpon>frmMyEstablishment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmMyEstablishment.aspx.designer.cs">
+      <DependentUpon>frmMyEstablishment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmRegisterEmployee.aspx.cs">
+      <DependentUpon>frmRegisterEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmRegisterEmployee.aspx.designer.cs">
+      <DependentUpon>frmRegisterEmployee.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmUsers.aspx.cs">
       <DependentUpon>frmUsers.aspx</DependentUpon>

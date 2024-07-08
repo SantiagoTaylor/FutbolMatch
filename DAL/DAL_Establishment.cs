@@ -31,5 +31,35 @@ namespace DAL
             adapter.Fill(table);
             return table;
         }
+
+        public static bool RegisterEstablishment(BE_Establishment s)
+        {
+            DAL_DB_Connection con = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+
+            try
+            {
+                command.Connection = con.OpenConnection();
+
+                command.CommandText = "INSERT INTO tb_Establishment (establishmentName, direction, phone, email) VALUES (@name, @direction, @phone, @email)";
+                command.Parameters.AddWithValue("@name", s.Name);
+                command.Parameters.AddWithValue("@direction", s.Adress);
+                command.Parameters.AddWithValue("@phone", s.Phone);
+                command.Parameters.AddWithValue("@email", s.Email);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
+        }
     }
 }
