@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BE_Establishment.cs" />
     <Compile Include="BE_EventLog.cs" />
     <Compile Include="BE_Field.cs" />
     <Compile Include="BE_Reservation.cs" />

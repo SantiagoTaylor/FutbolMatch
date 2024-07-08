@@ -20,5 +20,10 @@ namespace BLL
         {
             return DAL_Establishment.GetUserEstablishments(user);
         }
+
+        public static bool RegisterEstablishment(BE_Establishment s)
+        {
+            return DAL_Establishment.RegisterEstablishment(s);
+        }
     }
 }
