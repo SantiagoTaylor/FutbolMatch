@@ -50,6 +50,8 @@
     <Compile Include="BLL_EventLog.cs" />
     <Compile Include="BLL_Field.cs" />
     <Compile Include="BLL_Language.cs" />
+    <Compile Include="BLL_Reservation.cs" />
+    <Compile Include="BLL_ReservationTimes.cs" />
     <Compile Include="BLL_Role.cs" />
     <Compile Include="BLL_User.cs" />
     <Compile Include="BLL_Login.cs" />

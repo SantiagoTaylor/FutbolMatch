@@ -15,7 +15,7 @@ namespace DAL
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
             DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM tb_Estalishment", connection.Connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM tb_Establishment", connection.Connection);
             adapter.SelectCommand.CommandType = CommandType.Text;
             adapter.Fill(table);
             return table;

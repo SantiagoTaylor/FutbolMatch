@@ -95,12 +95,19 @@
 }
 
 /*frmEventLog*/
-.container-eventLog{
-    display:grid;
+.container-eventLog {
+    display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 1rem;
 }
 
-.container-table{
+.container-table {
     padding-left: 1rem;
+}
+
+/*frmDatabaseIntegrity*/
+.txtErrors {
+    width: 80%;
+    height: 30%;
+    display:flex;
 }
