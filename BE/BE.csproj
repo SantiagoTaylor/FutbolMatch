@@ -44,10 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BE_Cancha.cs" />
     <Compile Include="BE_EventLog.cs" />
-    <Compile Include="BE_Horario.cs" />
-    <Compile Include="BE_Reserva.cs" />
+    <Compile Include="BE_Field.cs" />
     <Compile Include="BE_User.cs" />
     <Compile Include="BE_Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -45,12 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL_Cancha.cs" />
     <Compile Include="BLL_DV_User.cs" />
+    <Compile Include="BLL_Establishment.cs" />
     <Compile Include="BLL_EventLog.cs" />
-    <Compile Include="BLL_Horario.cs" />
+    <Compile Include="BLL_Field.cs" />
     <Compile Include="BLL_Language.cs" />
-    <Compile Include="BLL_Reserva.cs" />
     <Compile Include="BLL_Role.cs" />
     <Compile Include="BLL_User.cs" />
     <Compile Include="BLL_Login.cs" />
