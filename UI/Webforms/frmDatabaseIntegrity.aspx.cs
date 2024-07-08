@@ -24,7 +24,7 @@ namespace UI.Webforms
         {
             DatabaseIntegrity.RecalculateDigits();
             WebformMessage.ShowMessage("Se recalcularon todas las tablas", this);
-            LabelMessage.Text = "";
+            TextBoxMessage.Text = "";
         }
 
         protected void ButtonVerify_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace UI.Webforms
             {
                 errorMessage = "No hay errores en la base de datos.";
             }
-            LabelMessage.Text = errorMessage;
+            TextBoxMessage.Text = errorMessage;
             WebformMessage.ShowMessage(errorMessage, this);
         }
 

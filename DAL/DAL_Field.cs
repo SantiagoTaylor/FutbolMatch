@@ -12,6 +12,17 @@ namespace DAL
 {
     public static class DAL_Field
     {
+        public static DataTable GetEstablishmentFields(int establishmentID)
+        {
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter("sp_GetEstablishmentFields", connection.Connection);
+            adapter.SelectCommand.Parameters.AddWithValue("p_establishmentID", establishmentID);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adapter.Fill(table);
+            return table;
+        }
+
         public static int GetFieldID(BE_Field field)
         {
             try

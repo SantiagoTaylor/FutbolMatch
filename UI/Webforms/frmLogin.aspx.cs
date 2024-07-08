@@ -22,7 +22,7 @@ namespace UI.Webforms
             {
                 CookieLogin(txtUser.Text);
                 //Roles.AddUserToRole(txtUser.Text, SessionManager.GetInstance.User.Role);
-                Response.Redirect("index.aspx");
+                Response.Redirect("frmMyAccount.aspx");
             }
             else
             {

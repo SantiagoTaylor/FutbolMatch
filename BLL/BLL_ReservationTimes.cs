@@ -6,6 +6,11 @@ namespace BLL
 {
     public static class BLL_ReservationTimes
     {
+        public static DataTable GetAvailableTimesByDate(int fieldID, string date)
+        {
+            return DAL_ReservationTimes.GetAvailableTimesByDate(fieldID, date);
+        }
+
         public static DataTable GetReservationTimes()
         {
             return DAL_ReservationTimes.GetReservationTimes();

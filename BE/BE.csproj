@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="BE_EventLog.cs" />
     <Compile Include="BE_Field.cs" />
+    <Compile Include="BE_Reservation.cs" />
     <Compile Include="BE_User.cs" />
     <Compile Include="BE_Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

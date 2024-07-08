@@ -10,6 +10,18 @@ namespace DAL
 {
     public static class DAL_ReservationTimes
     {
+        public static DataTable GetAvailableTimesByDate(int fieldID, string date)
+        {
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter("sp_GetAvailableTimesByDate", connection.Connection);
+            adapter.SelectCommand.Parameters.AddWithValue("p_idField", fieldID);
+            adapter.SelectCommand.Parameters.AddWithValue("p_date", date);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adapter.Fill(table);
+            return table;
+        }
+
         public static DataTable GetReservationTimes()
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
