@@ -38,7 +38,6 @@
                 </div>
 
             </asp:Panel>
-
         </asp:Panel>
         <div class="mb-2">
             <label for="TextBoxName" class="form-label">Nombre</label>
