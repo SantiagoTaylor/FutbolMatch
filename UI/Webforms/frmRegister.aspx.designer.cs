@@ -249,6 +249,33 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.CheckBox CheckBoxRemoved;
 
         /// <summary>
+        /// Control PanelEstablishment.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelEstablishment;
+
+        /// <summary>
+        /// Control LabelEstablish.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelEstablish;
+
+        /// <summary>
+        /// Control DropDownListEstablishments.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEstablishments;
+
+        /// <summary>
         /// Control ButtonRegister.
         /// </summary>
         /// <remarks>

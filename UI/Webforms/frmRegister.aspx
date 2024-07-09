@@ -73,7 +73,9 @@
             <asp:Label ID="LabelRemoved" runat="server" Text="Borrado" Visible="False"></asp:Label>
             <asp:CheckBox ID="CheckBoxRemoved" runat="server" Visible="False" />
         </div>
+        <asp:Panel ID="PanelEstablishment" runat="server">
 
+        </asp:Panel>
         <asp:Button ID="ButtonRegister" CssClass="btn-register" runat="server" Text="Registrar" OnClick="ButtonRegister_Click" />
     </form>
 </asp:Content>
