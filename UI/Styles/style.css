@@ -61,6 +61,7 @@ header {
 .nav__menu {
     width: 100%;
     margin-top: 2rem;
+    position: relative;
 }
 
 .nav__item {
@@ -71,7 +72,7 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    transition: right ease 0.5s;
+    transition: right 0.5s ease-in;
     position: relative;
     cursor: pointer;
 }
@@ -85,7 +86,11 @@ header {
 
     .nav__item:hover {
         background-color: #cccccc;
-        right: -1rem;
+        right:-1rem;
+    }
+
+    .nav__item:active {
+        background-color: #656565;
     }
 
         .nav__item:hover a {

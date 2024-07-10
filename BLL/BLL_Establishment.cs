@@ -11,6 +11,11 @@ namespace BLL
 {
     public static class BLL_Establishment
     {
+        public static string GetEstablishment(string username)
+        {
+            return DAL_Establishment.GetEstablishment(username);
+        }
+
         public static DataTable GetEstablishments()
         {
             return DAL_Establishment.GetEstablishments();

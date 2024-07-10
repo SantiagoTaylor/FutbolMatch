@@ -11,6 +11,39 @@ namespace DAL
 {
     public static class DAL_Establishment
     {
+        public static string GetEstablishment(string username)
+        {
+            DAL_DB_Connection con = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+
+            try
+            {
+                command.Connection = con.OpenConnection();
+
+                command.CommandText = @"
+            SELECT e.establishmentName
+            FROM tb_Establishment e
+            INNER JOIN tb_EstablishmentUser eu ON e.idEstablishment = eu.idEstablishment
+            WHERE eu.username = @p_username";
+                command.Parameters.AddWithValue("@p_username", username);
+
+                object result = command.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    return result.ToString();
+                }
+                else
+                {
+                    return null; // O puedes retornar una cadena vacía o algún mensaje por defecto
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null; // O puedes retornar una cadena vacía o algún mensaje por defecto
+            }
+        }
+
         public static DataTable GetEstablishments()
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
