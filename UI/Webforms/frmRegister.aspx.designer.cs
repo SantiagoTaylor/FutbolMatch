@@ -195,6 +195,33 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.DropDownList DropDownListRoles;
 
         /// <summary>
+        /// Control PanelEstablishments.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelEstablishments;
+
+        /// <summary>
+        /// Control LabelEstablishment.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelEstablishment;
+
+        /// <summary>
+        /// Control DropDownListEstablisments.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEstablisments;
+
+        /// <summary>
         /// Control LabelLanguage.
         /// </summary>
         /// <remarks>
