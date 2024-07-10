@@ -125,7 +125,7 @@ namespace UI.Webforms
 
         protected void ButtonRegister_Click(object sender, EventArgs e)
         {
-
+            //Falta modificacion de establecimiento
             if (ValidateFields())
             {
                 BE_User user = new BE_User(
@@ -220,6 +220,7 @@ namespace UI.Webforms
             }
             else
             {
+                flag= false;
                 PanelEstablishments.Visible = false;
             }
         }
