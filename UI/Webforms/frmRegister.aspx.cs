@@ -11,7 +11,6 @@ namespace UI.Webforms
 {
     public partial class frmRegister : System.Web.UI.Page
     {
-        bool flag=false;
         //Validar Campos
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -103,7 +102,6 @@ namespace UI.Webforms
             {
                 WebformMessage.ShowMessage("Debe completar los campos solicitados", this);
                 return false;
-                throw new Exception("Datos incompletos");
             }
             return true;
         }
@@ -115,10 +113,10 @@ namespace UI.Webforms
                 {
                     return true;
                 }
-                else { WebformMessage.ShowMessage("Contraseñas no coinciden", this);}
+                else { WebformMessage.ShowMessage("Contraseñas no coinciden", this); }
 
             }
-            else { WebformMessage.ShowMessage("Contraseña Incorrecta", this);  }
+            else { WebformMessage.ShowMessage("Contraseña Incorrecta", this); }
 
             return false;
         }
@@ -151,9 +149,9 @@ namespace UI.Webforms
                             if (ComparePassword())
                             {
                                 user.Password = Encrpyt.HashValue(TextBoxConfirmPass.Text);
-                                BLL_User.UpdateMyAccount(user);                            
+                                BLL_User.UpdateMyAccount(user);
                                 Response.Redirect("frmMyAccount.aspx");
-                                
+
                             }
                         }
                         else
@@ -161,7 +159,7 @@ namespace UI.Webforms
                             BLL_User.UpdateUser(user);
                             Response.Redirect("frmMyAccount.aspx");
                         }
-                        
+
                     }
                     else
                     {
@@ -175,18 +173,20 @@ namespace UI.Webforms
                     if (BLL_User.InsertUser(user))
                     {
                         //asocia usuario con estableclimiento
-                        if (flag)
+                        if (DropDownListRoles.SelectedItem.Text != "WEBMASTER")
                         {
                             if (BLL_Establishment.SetUserEstablishment(user.Username, DropDownListEstablisments.SelectedItem.Text))
                             {
                                 Response.Redirect("frmUsers.aspx");
                             }
-                            else {
+                            else
+                            {
                                 WebformMessage.ShowMessage($"No se asocio el usuario {user.Username} al esteblecimiento", this);
                             }
 
                         }
-                        else { 
+                        else
+                        {
                             Response.Redirect("frmUsers.aspx");
                         }
 
@@ -214,7 +214,6 @@ namespace UI.Webforms
             //POR AHORA
             if (DropDownListRoles.SelectedItem.Text != "WEBMASTER")
             {
-                flag = true;
                 PanelEstablishments.Visible = true;
                 EstablishmentsLoad();
             }
