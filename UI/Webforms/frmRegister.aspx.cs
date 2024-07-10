@@ -2,6 +2,7 @@
 using BLL;
 using SERVICES;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Web.UI;
@@ -10,6 +11,7 @@ namespace UI.Webforms
 {
     public partial class frmRegister : System.Web.UI.Page
     {
+        bool flag=false;
         //Validar Campos
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -149,8 +151,9 @@ namespace UI.Webforms
                             if (ComparePassword())
                             {
                                 user.Password = Encrpyt.HashValue(TextBoxConfirmPass.Text);
-                                BLL_User.UpdateMyAccount(user);
+                                BLL_User.UpdateMyAccount(user);                            
                                 Response.Redirect("frmMyAccount.aspx");
+                                
                             }
                         }
                         else
@@ -171,7 +174,22 @@ namespace UI.Webforms
                 {
                     if (BLL_User.InsertUser(user))
                     {
-                        Response.Redirect("frmUsers.aspx");
+                        //asocia usuario con estableclimiento
+                        if (flag)
+                        {
+                            if (BLL_Establishment.SetUserEstablishment(user.Username, DropDownListEstablisments.SelectedItem.Text))
+                            {
+                                Response.Redirect("frmUsers.aspx");
+                            }
+                            else {
+                                WebformMessage.ShowMessage($"No se asocio el usuario {user.Username} al esteblecimiento", this);
+                            }
+
+                        }
+                        else { 
+                            Response.Redirect("frmUsers.aspx");
+                        }
+
                     }
                     else
                     {
@@ -179,8 +197,6 @@ namespace UI.Webforms
                     }
                 }
             }
-
-
 
         }
 
@@ -198,6 +214,7 @@ namespace UI.Webforms
             //POR AHORA
             if (DropDownListRoles.SelectedItem.Text != "WEBMASTER")
             {
+                flag = true;
                 PanelEstablishments.Visible = true;
                 EstablishmentsLoad();
             }

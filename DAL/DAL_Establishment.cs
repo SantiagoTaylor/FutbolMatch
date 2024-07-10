@@ -61,5 +61,32 @@ namespace DAL
                 con.CloseConnection();
             }
         }
+
+        public static bool SetUserEstablishment(object username, string establishmentName)
+        {
+            DAL_DB_Connection con = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+
+            try
+            {
+                command.Connection = con.OpenConnection();
+
+                command.CommandText = "INSERT INTO tb_EstablishmentUser (idEstablisment,username) VALUES ((SELECT idEstablishment FROM tb_Establishment WHERE establishmentName = @estName), @user) ";
+                command.Parameters.AddWithValue("@estName", establishmentName);
+                command.Parameters.AddWithValue("@user", username);
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
+        }
     }
 }
