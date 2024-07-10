@@ -14,6 +14,8 @@ namespace BE
         private string phone;
         private string adress;
         private List<BE_Field> fields;
+        private BE_User owner;
+        private List<BE_User> employees;
 
         public BE_Establishment(string name, string email, string phone, string adress)
         {
