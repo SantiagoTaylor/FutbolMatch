@@ -219,7 +219,6 @@ namespace UI.Webforms
             }
             else
             {
-                flag= false;
                 PanelEstablishments.Visible = false;
             }
         }

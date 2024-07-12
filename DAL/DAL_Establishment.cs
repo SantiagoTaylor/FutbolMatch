@@ -34,13 +34,13 @@ namespace DAL
                 }
                 else
                 {
-                    return null; // O puedes retornar una cadena vacía o algún mensaje por defecto
+                    return null; 
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return null; // O puedes retornar una cadena vacía o algún mensaje por defecto
+                return null; 
             }
         }
 
