@@ -81,11 +81,7 @@
         </div>
         <asp:Panel ID="PanelEstablishment" runat="server">
 
-<<<<<<< HEAD
         </asp:Panel>
-        <asp:Button ID="ButtonRegister" CssClass="btn-register" runat="server" Text="Registrar" OnClick="ButtonRegister_Click" />
-=======
         <asp:Button ID="ButtonRegister" CssClass="btn-register mt-2" runat="server" Text="Registrar" OnClick="ButtonRegister_Click" />
->>>>>>> abel
     </form>
 </asp:Content>
