@@ -111,15 +111,15 @@
     <Content Include="Styles\style-register.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
-    <Content Include="Webforms\frmCreateEstablishment.aspx" />
-    <Content Include="Webforms\frmCreateField.aspx" />
-    <Content Include="Webforms\frmDatabaseIntegrity.aspx" />
-    <Content Include="Webforms\frmEstablishments.aspx" />
-    <Content Include="Webforms\frmEventLog.aspx" />
+    <Content Include="Webforms\webmaster\frmCreateEstablishment.aspx" />
+    <Content Include="Webforms\admin\frmCreateField.aspx" />
+    <Content Include="Webforms\webmaster\frmDatabaseIntegrity.aspx" />
+    <Content Include="Webforms\webmaster\frmEstablishments.aspx" />
+    <Content Include="Webforms\webmaster\frmEventLog.aspx" />
     <Content Include="Webforms\frmMyAccount.aspx" />
-    <Content Include="Webforms\frmMyEstablishment.aspx" />
-    <Content Include="Webforms\frmRegisterEmployee.aspx" />
-    <Content Include="Webforms\frmMyFields.aspx" />
+    <Content Include="Webforms\admin\frmMyEstablishment.aspx" />
+    <Content Include="Webforms\admin\frmRegisterEmployee.aspx" />
+    <Content Include="Webforms\admin\frmMyFields.aspx" />
     <Content Include="Webforms\frmReserveField.aspx" />
     <Content Include="Webforms\frmUsers.aspx" />
     <Content Include="Webforms\frmLogin.aspx" />
@@ -130,39 +130,39 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Webforms\frmCreateEstablishment.aspx.cs">
+    <Compile Include="Webforms\webmaster\frmCreateEstablishment.aspx.cs">
       <DependentUpon>frmCreateEstablishment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webforms\frmCreateEstablishment.aspx.designer.cs">
+    <Compile Include="Webforms\webmaster\frmCreateEstablishment.aspx.designer.cs">
       <DependentUpon>frmCreateEstablishment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Webforms\frmCreateField.aspx.cs">
+    <Compile Include="Webforms\admin\frmCreateField.aspx.cs">
       <DependentUpon>frmCreateField.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webforms\frmCreateField.aspx.designer.cs">
+    <Compile Include="Webforms\admin\frmCreateField.aspx.designer.cs">
       <DependentUpon>frmCreateField.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Webforms\frmDatabaseIntegrity.aspx.cs">
+    <Compile Include="Webforms\webmaster\frmDatabaseIntegrity.aspx.cs">
       <DependentUpon>frmDatabaseIntegrity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webforms\frmDatabaseIntegrity.aspx.designer.cs">
+    <Compile Include="Webforms\webmaster\frmDatabaseIntegrity.aspx.designer.cs">
       <DependentUpon>frmDatabaseIntegrity.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Webforms\frmEstablishments.aspx.cs">
+    <Compile Include="Webforms\webmaster\frmEstablishments.aspx.cs">
       <DependentUpon>frmEstablishments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webforms\frmEstablishments.aspx.designer.cs">
+    <Compile Include="Webforms\webmaster\frmEstablishments.aspx.designer.cs">
       <DependentUpon>frmEstablishments.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Webforms\frmEventLog.aspx.cs">
+    <Compile Include="Webforms\webmaster\frmEventLog.aspx.cs">
       <DependentUpon>frmEventLog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webforms\frmEventLog.aspx.designer.cs">
+    <Compile Include="Webforms\webmaster\frmEventLog.aspx.designer.cs">
       <DependentUpon>frmEventLog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmMyAccount.aspx.cs">
@@ -172,25 +172,25 @@
     <Compile Include="Webforms\frmMyAccount.aspx.designer.cs">
       <DependentUpon>frmMyAccount.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Webforms\frmMyEstablishment.aspx.cs">
+    <Compile Include="Webforms\admin\frmMyEstablishment.aspx.cs">
       <DependentUpon>frmMyEstablishment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webforms\frmMyEstablishment.aspx.designer.cs">
+    <Compile Include="Webforms\admin\frmMyEstablishment.aspx.designer.cs">
       <DependentUpon>frmMyEstablishment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Webforms\frmRegisterEmployee.aspx.cs">
+    <Compile Include="Webforms\admin\frmRegisterEmployee.aspx.cs">
       <DependentUpon>frmRegisterEmployee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webforms\frmRegisterEmployee.aspx.designer.cs">
+    <Compile Include="Webforms\admin\frmRegisterEmployee.aspx.designer.cs">
       <DependentUpon>frmRegisterEmployee.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Webforms\frmMyFields.aspx.cs">
+    <Compile Include="Webforms\admin\frmMyFields.aspx.cs">
       <DependentUpon>frmMyFields.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webforms\frmMyFields.aspx.designer.cs">
+    <Compile Include="Webforms\admin\frmMyFields.aspx.designer.cs">
       <DependentUpon>frmMyFields.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmReserveField.aspx.cs">
