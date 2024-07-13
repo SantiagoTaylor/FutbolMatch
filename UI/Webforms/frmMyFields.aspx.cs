@@ -52,5 +52,10 @@ namespace UI.Webforms
         {
             Response.Redirect("frmCreateField.aspx");
         }
+
+        protected void DropDownListEstablishment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FieldsLoad();
+        }
     }
 }

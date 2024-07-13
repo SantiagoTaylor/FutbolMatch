@@ -58,7 +58,7 @@ namespace DAL
         {//cambiar...
             DAL_DB_Connection connection = new DAL_DB_Connection();
             DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(@"		SELECT 
+            MySqlDataAdapter adapter = new MySqlDataAdapter(@"SELECT 
 		u.username AS 'Usuario',
 		u.name AS 'Nombre',
 		u.lastname AS 'Apellido',
@@ -72,7 +72,7 @@ namespace DAL
 	INNER JOIN tb_Role r ON u.role = r.idRole
 	INNER JOIN tb_Language l ON u.language = l.idLanguage
     INNER JOIN tb_EstablishmentUser eu ON eu.username = u.username", connection.Connection);
-            adapter.SelectCommand.Parameters.AddWithValue("username", user.Username);
+            adapter.SelectCommand.Parameters.AddWithValue("@username", user.Username);
             adapter.SelectCommand.CommandType = CommandType.Text;
             adapter.Fill(table);
             return table;
