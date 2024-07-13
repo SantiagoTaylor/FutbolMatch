@@ -1,23 +1,15 @@
 ﻿form {
     width: 50vh;
     height: auto;
-    
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: rgb(255,255,255,0.6);
     border-radius: 20px;
-    padding-bottom:10px;
+    padding-bottom: 10px;
 }
 
-.item-input {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: .5rem;
-}
 
 .btn-register {
     width: 150px;
@@ -35,3 +27,5 @@
     .btn-register:active {
         box-shadow: none;
     }
+
+

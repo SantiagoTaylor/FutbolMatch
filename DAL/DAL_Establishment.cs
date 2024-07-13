@@ -11,6 +11,39 @@ namespace DAL
 {
     public static class DAL_Establishment
     {
+        public static string GetEstablishment(string username)
+        {
+            DAL_DB_Connection con = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+
+            try
+            {
+                command.Connection = con.OpenConnection();
+
+                command.CommandText = @"
+            SELECT e.establishmentName
+            FROM tb_Establishment e
+            INNER JOIN tb_EstablishmentUser eu ON e.idEstablishment = eu.idEstablishment
+            WHERE eu.username = @p_username";
+                command.Parameters.AddWithValue("@p_username", username);
+
+                object result = command.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    return result.ToString();
+                }
+                else
+                {
+                    return null; 
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null; 
+            }
+        }
+
         public static DataTable GetEstablishments()
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
@@ -71,6 +104,33 @@ namespace DAL
                 command.Parameters.AddWithValue("@phone", s.Phone);
                 command.Parameters.AddWithValue("@email", s.Email);
 
+                int rowsAffected = command.ExecuteNonQuery();
+
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
+        }
+
+        public static bool SetUserEstablishment(string username, string establishmentName)
+        {
+            DAL_DB_Connection con = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+
+            try
+            {
+                command.Connection = con.OpenConnection();
+                command.CommandText = "sp_SetEstablishmentUser";
+                command.Parameters.AddWithValue("@p_establishmentName", establishmentName);
+                command.Parameters.AddWithValue("@p_username", username);
+                command.CommandType = CommandType.StoredProcedure;
                 int rowsAffected = command.ExecuteNonQuery();
 
                 return rowsAffected > 0;

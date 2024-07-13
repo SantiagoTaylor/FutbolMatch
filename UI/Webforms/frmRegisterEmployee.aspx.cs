@@ -16,7 +16,6 @@ namespace UI.Webforms
         {
             if (!Page.IsPostBack)
             {
-                RolesLoad();
                 LanguageLoad();
             }
         }
@@ -30,10 +29,11 @@ namespace UI.Webforms
                 TextBoxLastname.Text,
                 TextBoxEmail.Text,
                 TextBoxPhone.Text,
-                DropDownListRoles.Text,
-                DropDownListLanguage.Text);
+                "USER",
+                DropDownListLanguage.SelectedItem.Text);
 
             BLL_User.InsertUser(user);
+            BLL_Establishment.SetUserEstablishment(user.Username, BLL_Establishment.GetEstablishment(SessionManager.GetInstance.User.Username));
         }
         private void LanguageLoad()
         {
@@ -43,12 +43,5 @@ namespace UI.Webforms
             DropDownListLanguage.DataBind();
         }
 
-        private void RolesLoad()
-        {
-            DropDownListRoles.DataTextField = "roleName";
-            DropDownListRoles.DataValueField = "idRole";
-            DropDownListRoles.DataSource = BLL_Role.GetRoles();
-            DropDownListRoles.DataBind();
-        }
     }
 }
