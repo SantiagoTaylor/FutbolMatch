@@ -9,7 +9,7 @@
         <section class="container-listUsers">
             <div>
                 <asp:Label ID="Label1" runat="server" Text="Establecimiento"></asp:Label>
-                <asp:DropDownList ID="DropDownListEstablishment" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListEstablishment" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownListEstablishment_SelectedIndexChanged"></asp:DropDownList>
             </div>
             <div class="container-table">
                 <asp:GridView ID="gvFields" CssClass="gv-users" runat="server" AllowPaging="True" PageSize="10" OnSelectedIndexChanged="gvFields_SelectedIndexChanged">

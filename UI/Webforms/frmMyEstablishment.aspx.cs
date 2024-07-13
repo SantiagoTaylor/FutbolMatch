@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using SERVICES;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,13 @@ namespace UI.Webforms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            EmployeesLoad();
+        }
 
+        private void EmployeesLoad()
+        {
+            gvEmployees.DataSource = BLL_Establishment.GetEstablishmentUsers(SessionManager.GetInstance.User);
+            gvEmployees.DataBind();
         }
 
         protected void ButtonRegister_Click(object sender, EventArgs e)

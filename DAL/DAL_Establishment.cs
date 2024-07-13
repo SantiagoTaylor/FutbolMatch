@@ -54,6 +54,30 @@ namespace DAL
             return table;
         }
 
+        public static DataTable GetEstablishmentUsers(BE_User user)
+        {//cambiar...
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(@"SELECT 
+		u.username AS 'Usuario',
+		u.name AS 'Nombre',
+		u.lastname AS 'Apellido',
+		u.email AS 'Mail',
+		u.phone AS 'Telefono',
+		r.roleName AS 'Rol',
+		l.languageName AS 'Idioma',
+        u.blocked AS 'Bloqueado',
+        u.removed AS 'Borrado'
+	FROM tb_User u
+	INNER JOIN tb_Role r ON u.role = r.idRole
+	INNER JOIN tb_Language l ON u.language = l.idLanguage
+    INNER JOIN tb_EstablishmentUser eu ON eu.username = u.username", connection.Connection);
+            adapter.SelectCommand.Parameters.AddWithValue("@username", user.Username);
+            adapter.SelectCommand.CommandType = CommandType.Text;
+            adapter.Fill(table);
+            return table;
+        }
+
         public static DataTable GetUserEstablishments(BE_User user)
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
