@@ -117,6 +117,7 @@
     <Content Include="Webforms\frmEstablishments.aspx" />
     <Content Include="Webforms\frmEventLog.aspx" />
     <Content Include="Webforms\frmMyAccount.aspx" />
+    <Content Include="Webforms\frmMyEmployees.aspx" />
     <Content Include="Webforms\frmMyEstablishment.aspx" />
     <Content Include="Webforms\frmRegisterEmployee.aspx" />
     <Content Include="Webforms\frmMyFields.aspx" />
@@ -171,6 +172,13 @@
     </Compile>
     <Compile Include="Webforms\frmMyAccount.aspx.designer.cs">
       <DependentUpon>frmMyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmMyEmployees.aspx.cs">
+      <DependentUpon>frmMyEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmMyEmployees.aspx.designer.cs">
+      <DependentUpon>frmMyEmployees.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmMyEstablishment.aspx.cs">
       <DependentUpon>frmMyEstablishment.aspx</DependentUpon>
