@@ -49,7 +49,7 @@ namespace DAL
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection.OpenConnection();
             command.CommandText = @"UPDATE tb_User SET removed = 1 WHERE username = @p_username;";
-            command.CommandType= CommandType.Text;
+            command.CommandType = CommandType.Text;
             command.Parameters.AddWithValue("@p_username", username);
             int rowsAffected = command.ExecuteNonQuery();
             command.Connection = connection.CloseConnection();
@@ -122,7 +122,9 @@ namespace DAL
             //AGREGAR TRY CATCH
             return true;
         }
-        public static bool UpdateMyAccount(BE_User user) {
+        public static bool UpdateMyAccount(BE_User user)
+        {
+            Console.WriteLine(" DAL UDPATE MY ACCOUNT");
             DAL_DB_Connection connection = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection.OpenConnection();

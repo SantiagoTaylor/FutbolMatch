@@ -2,7 +2,9 @@
 using BLL;
 using SERVICES;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Web.UI;
 
 namespace UI.Webforms
@@ -85,6 +87,15 @@ namespace UI.Webforms
             DropDownListRoles.DataSource = BLL_Role.GetRoles();
             DropDownListRoles.DataBind();
         }
+        private void EstablishmentsLoad()
+        {
+            DataTable establishments = BLL_Establishment.GetEstablishments();
+            DataTable filteredTable = establishments.DefaultView.ToTable(false, "idEstablishment", "establishmentName");
+            DropDownListEstablisments.DataTextField = "establishmentName";
+            DropDownListEstablisments.DataValueField = "idEstablishment";
+            DropDownListEstablisments.DataSource = filteredTable;
+            DropDownListEstablisments.DataBind();
+        }
         private bool ValidateFields()
         {
             if (TextBoxEmail.Text == "" || TextBoxUsername.Text == "" || TextBoxName.Text == "" || TextBoxLastname.Text == "")
@@ -103,6 +114,7 @@ namespace UI.Webforms
                     return true;
                 }
                 else { WebformMessage.ShowMessage("Contraseñas no coinciden", this); }
+
             }
             else { WebformMessage.ShowMessage("Contraseña Incorrecta", this); }
 
@@ -111,7 +123,7 @@ namespace UI.Webforms
 
         protected void ButtonRegister_Click(object sender, EventArgs e)
         {
-
+            //Falta modificacion de establecimiento
             if (ValidateFields())
             {
                 BE_User user = new BE_User(
@@ -128,21 +140,26 @@ namespace UI.Webforms
 
                 if (Request.QueryString["username"] != null)
                 {
+                    Console.WriteLine("1");
                     if (Request.QueryString["modifyUser"] != null)
                     {
+                        Console.WriteLine("2");
                         if (CheckBoxModPass.Checked)
                         {
                             if (ComparePassword())
                             {
                                 user.Password = Encrpyt.HashValue(TextBoxConfirmPass.Text);
                                 BLL_User.UpdateMyAccount(user);
+                                Response.Redirect("frmMyAccount.aspx");
+
                             }
                         }
                         else
                         {
                             BLL_User.UpdateUser(user);
+                            Response.Redirect("frmMyAccount.aspx");
                         }
-                        Response.Redirect("frmMyAccount.aspx");
+
                     }
                     else
                     {
@@ -155,7 +172,24 @@ namespace UI.Webforms
                 {
                     if (BLL_User.InsertUser(user))
                     {
-                        Response.Redirect("frmUsers.aspx");
+                        //asocia usuario con estableclimiento
+                        if (DropDownListRoles.SelectedItem.Text != "WEBMASTER")
+                        {
+                            if (BLL_Establishment.SetUserEstablishment(user.Username, DropDownListEstablisments.SelectedItem.Text))
+                            {
+                                Response.Redirect("frmUsers.aspx");
+                            }
+                            else
+                            {
+                                WebformMessage.ShowMessage($"No se asocio el usuario {user.Username} al esteblecimiento", this);
+                            }
+
+                        }
+                        else
+                        {
+                            Response.Redirect("frmUsers.aspx");
+                        }
+
                     }
                     else
                     {
@@ -163,8 +197,6 @@ namespace UI.Webforms
                     }
                 }
             }
-
-
 
         }
 
@@ -175,6 +207,20 @@ namespace UI.Webforms
                 PanelReqModPass.Visible = true;
             }
             else { PanelReqModPass.Visible = false; }
+        }
+
+        protected void DropDownListRoles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //POR AHORA
+            if (DropDownListRoles.SelectedItem.Text != "WEBMASTER")
+            {
+                PanelEstablishments.Visible = true;
+                EstablishmentsLoad();
+            }
+            else
+            {
+                PanelEstablishments.Visible = false;
+            }
         }
     }
 }
