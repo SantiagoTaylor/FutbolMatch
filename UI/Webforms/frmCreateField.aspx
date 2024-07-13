@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Webforms/masterPage.Master" CodeBehind="frmCreateField.aspx.cs" Inherits="UI.Webforms.frmCreateField" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link rel="stylesheet" href="../Styles/style-users.css">
+    <link rel="stylesheet" href="/Styles/style-users.css">
 
     <form runat="server">
         <section>

@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../Styles/style-users.css">
+    <link rel="stylesheet" href="/Styles/style-users.css">
     <%@ Import Namespace="System.Data" %>
 
     <form runat="server">
