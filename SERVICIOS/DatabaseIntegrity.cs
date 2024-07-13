@@ -9,8 +9,7 @@ namespace SERVICES
     {
         private static readonly Tuple<string, string> tb_User = new Tuple<string, string>("tb_User", "tb_DVH_User");
 
-        //false = mal
-        //true = bien
+
         #region Horizontal integrity
         public static Dictionary<(string, string), List<string>> HorizontalIntegrity()
         {
@@ -20,12 +19,12 @@ namespace SERVICES
             };
 
             Dictionary<(string, string), List<string>> tables = new Dictionary<(string, string), List<string>>();
-            foreach (var tupla in tableList)
+            foreach (var tuple in tableList)
             {
                 DataTable table1, table2;
-                table1 = DAL_DatabaseIntegrity.GetHashedTable(tupla.Item1); // la tabla "original" concatenada y hasheada
-                table2 = DAL_DatabaseIntegrity.GetDVHTable(tupla.Item2); // la correspondiente tabla de DVH
-                tables.Add((tupla.Item1, tupla.Item2), CompareTables(table1, table2)); // se comparan
+                table1 = DAL_DatabaseIntegrity.GetHashedTable(tuple.Item1); // la tabla "original" concatenada y hasheada
+                table2 = DAL_DatabaseIntegrity.GetDVHTable(tuple.Item2); // la correspondiente tabla de DVH
+                tables.Add((tuple.Item1, tuple.Item2), CompareTables(table1, table2)); // se comparan
             }
             return tables;
         }
@@ -34,20 +33,28 @@ namespace SERVICES
         {
             List<string> errors = new List<string>();
 
-            for (int i = 0; i < table1.Rows.Count; i++)
+            try
             {
-                for (int j = 0; j < table1.Columns.Count; j++)
+                for (int i = 0; i < table1.Rows.Count; i++)
                 {
-                    if (!table1.Rows[i][j].Equals(table2.Rows[i][j]))
+                    for (int j = 0; j < table1.Columns.Count; j++)
                     {
-                        for (int k = 0; k < table2.Columns.Count - 1; k++)
+                        if (!table1.Rows[i][j].Equals(table2.Rows[i][j]))
                         {
-                            errors.Add(table1.Rows[i][k].ToString());
+                            for (int k = 0; k < table2.Columns.Count - 1; k++)
+                            {
+                                //Formato PK(las que sean) - valor hasheado
+                                errors.Add(table1.Rows[i][k].ToString());
+                            }
                         }
                     }
                 }
+                return errors;
             }
-            return errors;
+            catch (Exception)
+            {
+                return errors;
+            }
         }
 
         public static void RecalculateDigits()
