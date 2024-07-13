@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link rel="stylesheet" href="../Styles/style-register.css">
+    <link rel="stylesheet" href="/Styles/style-register.css">
 
     <form id="form1" runat="server">
         <div class="mb-2">

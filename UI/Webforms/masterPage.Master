@@ -16,7 +16,7 @@
     <header runat="server">
         <nav class="navbar">
             <div class="nav__logo">
-                <img src="../Images/logotype.png" alt="logotype" onclick="window.location.href = 'index.aspx'" />
+                <img src="/Images/logotype.png" alt="logotype" onclick="window.location.href = 'index.aspx'" />
             </div>
             <div runat="server" id="nav__menu" class="nav__menu">
                 <div class="nav__item"><a href="frmMyAccount.aspx">Mi cuenta</a></div>

@@ -13,16 +13,19 @@ namespace BE
         private string email;
         private string phone;
         private string adress;
-        private List<BE_Field> fields;
         private BE_User owner;
         private List<BE_User> employees;
-
+        private List<BE_Field> fields;
+        
         public BE_Establishment(string name, string email, string phone, string adress)
         {
-            this.Name = name;
-            this.Email = email;
-            this.Phone = phone;
-            this.Adress = adress;
+            this.name = name;
+            this.email = email;
+            this.phone = phone;
+            this.adress = adress;
+        }
+        public BE_Establishment() { 
+        
         }
 
         public int Id { get => id; }

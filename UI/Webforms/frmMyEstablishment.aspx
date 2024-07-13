@@ -2,6 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <link rel="stylesheet" href="../Styles/style-establishment.css">
     <link rel="stylesheet" href="../Styles/style-users.css">
     <form runat="server" class="container-establishment">
