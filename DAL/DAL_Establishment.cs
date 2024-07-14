@@ -11,7 +11,7 @@ namespace DAL
 {
     public static class DAL_Establishment
     {
-        public static string GetEstablishment(string username)
+        public static bool DeleteEstablishment(string id)
         {
             DAL_DB_Connection con = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();
@@ -19,7 +19,60 @@ namespace DAL
             try
             {
                 command.Connection = con.OpenConnection();
+                command.CommandText = "DELETE FROM tb_Establishment WHERE idEstablishment = @p_id";
+                command.Parameters.AddWithValue("@p_id", id);
+                int rowsAffected = command.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
+        }
 
+        public static BE_Establishment GetEstablishment(string id)
+        {
+            DAL_DB_Connection con = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+            try
+            {
+                command.Connection = con.OpenConnection();
+                command.CommandText = @"SELECT * FROM tb_Establishment WHERE idEstablishment = @p_id";
+                command.Parameters.AddWithValue("@p_id", id);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new BE_Establishment(
+                            reader["establishmentName"].ToString(),
+                            reader["direction"].ToString(),
+                            reader["phone"].ToString(),
+                            reader["email"].ToString()
+                            );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
+
+        public static string GetEstablishmentName(string username)
+        {
+            DAL_DB_Connection con = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+
+            try
+            {
+                command.Connection = con.OpenConnection();
                 command.CommandText = @"
             SELECT e.establishmentName
             FROM tb_Establishment e
@@ -34,13 +87,13 @@ namespace DAL
                 }
                 else
                 {
-                    return null; 
+                    return null;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return null; 
+                return null;
             }
         }
 
@@ -69,19 +122,15 @@ namespace DAL
         {
             DAL_DB_Connection con = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();
-
             try
             {
                 command.Connection = con.OpenConnection();
-
                 command.CommandText = "INSERT INTO tb_Establishment (establishmentName, direction, phone, email) VALUES (@name, @direction, @phone, @email)";
                 command.Parameters.AddWithValue("@name", s.Name);
                 command.Parameters.AddWithValue("@direction", s.Adress);
                 command.Parameters.AddWithValue("@phone", s.Phone);
                 command.Parameters.AddWithValue("@email", s.Email);
-
                 int rowsAffected = command.ExecuteNonQuery();
-
                 return rowsAffected > 0;
             }
             catch (Exception ex)
@@ -99,7 +148,6 @@ namespace DAL
         {
             DAL_DB_Connection con = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();
-
             try
             {
                 command.Connection = con.OpenConnection();
@@ -108,7 +156,33 @@ namespace DAL
                 command.Parameters.AddWithValue("@p_username", username);
                 command.CommandType = CommandType.StoredProcedure;
                 int rowsAffected = command.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
+        }
 
+        public static bool UpdateEstablishment(BE_Establishment s)
+        {
+            DAL_DB_Connection con = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+            try
+            {
+                command.Connection = con.OpenConnection();
+                command.CommandText = "UPDATE tb_Establishment SET establishmentName = @p_name, direction = @p_direction, phone = @p_phone, email = @p_email WHERE idEstablishment=@p_id";
+                command.Parameters.AddWithValue("@p_name", s.Name);
+                command.Parameters.AddWithValue("@p_direction", s.Adress);
+                command.Parameters.AddWithValue("@p_phone", s.Phone);
+                command.Parameters.AddWithValue("@p_email", s.Email);
+                command.Parameters.AddWithValue("p_id", s.Id);
+                int rowsAffected = command.ExecuteNonQuery();
                 return rowsAffected > 0;
             }
             catch (Exception ex)

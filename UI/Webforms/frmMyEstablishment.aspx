@@ -9,7 +9,7 @@
             <asp:Button ID="ButtonRegister" runat="server" Text="Registrar empleado" OnClick="ButtonRegister_Click"/>
         </article>
         <section class="container-fields">
-            
+            <!--VER DATOS DEL ESTABLECIMIENTO, MODIFICAR DATOS , CANCHAS -->
         </section>
     </form>
 </asp:Content>

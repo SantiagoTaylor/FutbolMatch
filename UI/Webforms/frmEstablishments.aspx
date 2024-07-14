@@ -3,6 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="/Styles/style-establishment.css">
 
+    <script>
+        function confirmAction(action, establishmentName) {
+            if (confirm("Are you sure you want to " + action + " establishment " + establishmentName + "?")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+
     <form runat="server" class="container-establishment">
         <section class="menu">
 
@@ -19,11 +29,7 @@
                     <asp:TableHeaderCell Scope="Column" Text="Telefono" />
                     <asp:TableHeaderCell Scope="Column" Text="Email" />
                     <asp:TableHeaderCell Scope="Column" Text="Accion" />
-
                 </asp:TableHeaderRow>
-              <asp:TableRow CssClass="tablerow">
-                   
-                </asp:TableRow> 
             </asp:Table>
         </section>
     </form>
