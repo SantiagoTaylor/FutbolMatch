@@ -8,6 +8,7 @@ namespace SERVICES
     public static class DatabaseIntegrity
     {
         private static readonly Tuple<string, string> tb_User = new Tuple<string, string>("tb_User", "tb_DVH_User");
+        private static readonly Tuple<string, string> tb_EventLog = new Tuple<string, string>("tb_EventLog", "tb_DVH_EventLog");
 
 
         #region Horizontal integrity
@@ -15,7 +16,8 @@ namespace SERVICES
         {
             List<Tuple<string, string>> tableList = new List<Tuple<string, string>>
             {
-                tb_User
+                tb_User,
+                tb_EventLog
             };
 
             Dictionary<(string, string), List<string>> tables = new Dictionary<(string, string), List<string>>();
@@ -32,7 +34,8 @@ namespace SERVICES
         private static List<string> CompareTables(DataTable table1, DataTable table2)
         {
             List<string> errors = new List<string>();
-
+            //TABLE 1: ORIGINAL
+            //TABLE 2: DVH
             try
             {
                 for (int i = 0; i < table1.Rows.Count; i++)
@@ -45,6 +48,7 @@ namespace SERVICES
                             {
                                 //Formato PK(las que sean) - valor hasheado
                                 errors.Add(table1.Rows[i][k].ToString());
+                                j = table1.Columns.Count;
                             }
                         }
                     }
@@ -53,6 +57,8 @@ namespace SERVICES
             }
             catch (Exception)
             {
+                errors = new List<string>();
+                errors.Add("Diferente cantidad de filas. Se creó o borró una o varioas filas.");
                 return errors;
             }
         }

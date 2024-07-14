@@ -114,9 +114,11 @@
     <Content Include="Webforms\frmCreateEstablishment.aspx" />
     <Content Include="Webforms\frmCreateField.aspx" />
     <Content Include="Webforms\frmDatabaseIntegrity.aspx" />
+    <Content Include="Webforms\frmErrorPage.aspx" />
     <Content Include="Webforms\frmEstablishments.aspx" />
     <Content Include="Webforms\frmEventLog.aspx" />
     <Content Include="Webforms\frmMyAccount.aspx" />
+    <Content Include="Webforms\frmMyEmployees.aspx" />
     <Content Include="Webforms\frmMyEstablishment.aspx" />
     <Content Include="Webforms\frmRegisterEmployee.aspx" />
     <Content Include="Webforms\frmMyFields.aspx" />
@@ -151,6 +153,13 @@
     <Compile Include="Webforms\frmDatabaseIntegrity.aspx.designer.cs">
       <DependentUpon>frmDatabaseIntegrity.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Webforms\frmErrorPage.aspx.cs">
+      <DependentUpon>frmErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmErrorPage.aspx.designer.cs">
+      <DependentUpon>frmErrorPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webforms\frmEstablishments.aspx.cs">
       <DependentUpon>frmEstablishments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +180,13 @@
     </Compile>
     <Compile Include="Webforms\frmMyAccount.aspx.designer.cs">
       <DependentUpon>frmMyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmMyEmployees.aspx.cs">
+      <DependentUpon>frmMyEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmMyEmployees.aspx.designer.cs">
+      <DependentUpon>frmMyEmployees.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmMyEstablishment.aspx.cs">
       <DependentUpon>frmMyEstablishment.aspx</DependentUpon>

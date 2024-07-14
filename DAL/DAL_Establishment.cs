@@ -54,7 +54,7 @@ namespace DAL
             return table;
         }
 
-        public static DataTable GetEstablishmentUsers(BE_User user)
+        public static DataTable GetEstablishmentUsers(int idEstablishment)
         {//cambiar...
             DAL_DB_Connection connection = new DAL_DB_Connection();
             DataTable table = new DataTable();
@@ -71,8 +71,9 @@ namespace DAL
 	FROM tb_User u
 	INNER JOIN tb_Role r ON u.role = r.idRole
 	INNER JOIN tb_Language l ON u.language = l.idLanguage
-    INNER JOIN tb_EstablishmentUser eu ON eu.username = u.username", connection.Connection);
-            adapter.SelectCommand.Parameters.AddWithValue("@username", user.Username);
+    INNER JOIN tb_EstablishmentUser eu ON eu.username = u.username
+    WHERE eu.idEstablishment = @idEstablishment", connection.Connection);
+            adapter.SelectCommand.Parameters.AddWithValue("@idEstablishment", idEstablishment);
             adapter.SelectCommand.CommandType = CommandType.Text;
             adapter.Fill(table);
             return table;

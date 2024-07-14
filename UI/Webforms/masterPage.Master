@@ -25,12 +25,12 @@
                     <div class="nav__item"><a href="frmReserveField.aspx">Reservas</a></div>
                     <section runat="server" id="nav__admin" class="nav__admin" visible="False">
                         <div class="nav__item"><a href="frmMyEstablishment.aspx">Mi Establecimiento</a></div>
-                        <div class="nav__item"><a href="frmUsers.aspx">Mis empleados</a></div>
+                        <div class="nav__item"><a href="frmMyEmployees.aspx">Mis empleados</a></div>
                         <div class="nav__item"><a href="frmMyFields.aspx">Mis canchas</a></div>
                     </section>
                 </section>
                 <section runat="server" id="nav__webmaster" class="nav__webmaster" visible="False">
-                    <div class="nav__item"><a href="frmUsers.aspx">Empleados</a></div>
+                    <div class="nav__item"><a href="frmUsers.aspx">Usuarios</a></div>
                     <div class="nav__item"><a href="frmEstablishments.aspx">Establecimientos</a></div>
                     <div class="nav__item"><a href="frmEventLog.aspx">Bitacora</a></div>
                     <div class="nav__item"><a href="frmDatabaseIntegrity.aspx">Backup y Restore</a></div>
