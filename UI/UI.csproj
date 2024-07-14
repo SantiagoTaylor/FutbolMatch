@@ -89,6 +89,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\ball-sad.png" />
     <Content Include="Images\index-background.jpg" />
     <Content Include="Images\login-background.jpg" />
     <Content Include="Images\logotype.png" />

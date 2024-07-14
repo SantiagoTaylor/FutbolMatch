@@ -19,10 +19,10 @@ namespace UI.Webforms
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!VerifyIntegrity())
+            /*if (!VerifyIntegrity())
             {
                 Response.Redirect("frmErrorPage.aspx");
-            }
+            }*/
             if (BLL_Login.IsValidCredentials(txtUser.Text, txtPassword.Text))
             {
                 CookieLogin(txtUser.Text);

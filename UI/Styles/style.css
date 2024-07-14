@@ -86,16 +86,16 @@ header {
 
     .nav__item:hover {
         background-color: #cccccc;
-        right:-1rem;
+        right: -1rem;
     }
 
     .nav__item:active {
         background-color: #656565;
     }
 
-        .nav__item:hover a {
-            color: forestgreen;
-        }
+    .nav__item:hover a {
+        color: forestgreen;
+    }
 
 .nav__logo {
     width: 100%;
@@ -116,4 +116,19 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+/*frmErrorPage*/
+
+.form-error {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-img {
+    filter: drop-shadow(10px 10px 20px);
+    width: 350px;
 }
