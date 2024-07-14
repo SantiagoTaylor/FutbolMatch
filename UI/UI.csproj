@@ -114,6 +114,7 @@
     <Content Include="Webforms\frmCreateEstablishment.aspx" />
     <Content Include="Webforms\frmCreateField.aspx" />
     <Content Include="Webforms\frmDatabaseIntegrity.aspx" />
+    <Content Include="Webforms\frmErrorPage.aspx" />
     <Content Include="Webforms\frmEstablishments.aspx" />
     <Content Include="Webforms\frmEventLog.aspx" />
     <Content Include="Webforms\frmMyAccount.aspx" />
@@ -151,6 +152,13 @@
     </Compile>
     <Compile Include="Webforms\frmDatabaseIntegrity.aspx.designer.cs">
       <DependentUpon>frmDatabaseIntegrity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmErrorPage.aspx.cs">
+      <DependentUpon>frmErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmErrorPage.aspx.designer.cs">
+      <DependentUpon>frmErrorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmEstablishments.aspx.cs">
       <DependentUpon>frmEstablishments.aspx</DependentUpon>

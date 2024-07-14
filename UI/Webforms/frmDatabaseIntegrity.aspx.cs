@@ -49,9 +49,14 @@ namespace UI.Webforms
 
         protected void ButtonVerify_Click(object sender, EventArgs e)
         {
-            var prueba = DatabaseIntegrity.HorizontalIntegrity();
+            VerifyIntegrity();
+        }
+
+        private void VerifyIntegrity()
+        {
+            var tablesAndErrors = DatabaseIntegrity.HorizontalIntegrity();
             string errorMessage = "";
-            foreach (var item in prueba)
+            foreach (var item in tablesAndErrors)
             {
                 if (item.Value.Count != 0)
                 {
