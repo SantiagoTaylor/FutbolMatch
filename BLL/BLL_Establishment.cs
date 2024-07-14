@@ -31,6 +31,11 @@ namespace BLL
             return DAL_Establishment.GetEstablishments();
         }
 
+        public static DataTable GetEstablishmentUsers(int idEstablishment)
+        {
+            return DAL_Establishment.GetEstablishmentUsers(idEstablishment);
+        }
+
         public static DataTable GetUserEstablishments(BE_User user)
         {
             return DAL_Establishment.GetUserEstablishments(user);

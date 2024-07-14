@@ -11,25 +11,16 @@ namespace UI.Webforms
 {
 
 
-    public partial class frmMyEstablishment
+    public partial class frmErrorPage
     {
 
         /// <summary>
-        /// Control gvEmployees.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEmployees;
-
-        /// <summary>
-        /// Control ButtonRegister.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonRegister;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     }
 }

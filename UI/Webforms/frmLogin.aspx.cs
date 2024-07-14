@@ -11,6 +11,7 @@ namespace UI.Webforms
     public partial class frmLogin : System.Web.UI.Page
     {
         private static Dictionary<string, int> _failedLogins = new Dictionary<string, int>();
+        //usuario - intentos
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -18,6 +19,10 @@ namespace UI.Webforms
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            if (!VerifyIntegrity())
+            {
+                Response.Redirect("frmErrorPage.aspx");
+            }
             if (BLL_Login.IsValidCredentials(txtUser.Text, txtPassword.Text))
             {
                 CookieLogin(txtUser.Text);
@@ -61,6 +66,19 @@ namespace UI.Webforms
             string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
             HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
             Response.Cookies.Add(authCookie);
+        }
+
+        private bool VerifyIntegrity()
+        {
+            var tablesAndErrors = DatabaseIntegrity.HorizontalIntegrity();
+            foreach (var item in tablesAndErrors)
+            {
+                if (item.Value.Count != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
