@@ -58,6 +58,7 @@ namespace UI.Webforms
         protected void DropDownListEstablishment_SelectedIndexChanged(object sender, EventArgs e)
         {
             FieldLoad();
+            ReservesLoad();
         }
 
         private void FieldLoad()
