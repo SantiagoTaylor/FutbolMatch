@@ -13,5 +13,6 @@ namespace UI.Webforms
 
     public partial class frmErrorPage
     {
+
     }
 }
