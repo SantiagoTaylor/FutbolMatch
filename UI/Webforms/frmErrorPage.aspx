@@ -14,6 +14,9 @@
             <h1>Sitio en mantenimiento</h1>
             <p>Nos disculpamos por las molestias ocasionadas</p>
         </div>
+        <asp:TextBox ID="TextBoxUsername" runat="server" Visible="false"></asp:TextBox><br />
+        <asp:TextBox ID="TextBoxPassword" runat="server" Visible="false"></asp:TextBox><br />
+        <asp:Button ID="ButtonLogin" runat="server" Text="Iniciar sesión" Visible="false" />
     </form>
 </body>
 </html>

@@ -14,19 +14,22 @@ namespace UI.Webforms
         //usuario - intentos
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!VerifyIntegrity())
-            {
-                Response.Redirect("frmErrorPage.aspx");
-            }
             if (BLL_Login.IsValidCredentials(txtUser.Text, txtPassword.Text))
             {
                 CookieLogin(txtUser.Text);
-                //Roles.AddUserToRole(txtUser.Text, SessionManager.GetInstance.User.Role);
+                if (!VerifyIntegrity())
+                {
+                    if (SessionManager.GetInstance.User.Role.ToUpper() == "WEBMASTER")
+                    {
+                        Response.Redirect("frmDatabaseIntegrity.aspx");
+                    }
+                    Response.Redirect("frmErrorPage.aspx");
+                }
                 Response.Redirect("frmMyAccount.aspx");
             }
             else

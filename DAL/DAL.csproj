@@ -108,6 +108,7 @@
     <Compile Include="DAL_DatabaseBackup.cs" />
     <Compile Include="DAL_DatabaseIntegrity.cs" />
     <Compile Include="DAL_DB_Connection.cs" />
+    <Compile Include="DAL_DV_EventLog.cs" />
     <Compile Include="DAL_DV_User.cs" />
     <Compile Include="DAL_Establishment.cs" />
     <Compile Include="DAL_EventLog.cs" />

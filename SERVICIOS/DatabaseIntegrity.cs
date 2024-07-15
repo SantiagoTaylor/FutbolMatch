@@ -63,17 +63,24 @@ namespace SERVICES
             }
         }
 
-        public static void RecalculateDigits()
+        public static void RecalculateTables()
         {
             var results = HorizontalIntegrity();
             foreach (var tablePair in results)
             {
                 if (tablePair.Value.Count != 0)//false = falla de integridad
                 {
-                    DAL_DatabaseIntegrity.RecalculateDigits(tablePair.Key);
+                    DAL_DatabaseIntegrity.RecalculateTables(tablePair.Key);
                 }
             }
+        }
+
+        public static void RecalculateTable(string table)
+        {
+            //CORREGIR HARDCODEO
+            DAL_DatabaseIntegrity.RecalculateTables(("tb_EventLog", "tb_DVH_EventLog"));
         }
         #endregion
     }
 }
+

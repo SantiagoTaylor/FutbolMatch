@@ -35,7 +35,7 @@ namespace DAL
             return DVHTable;
         }
 
-        public static void RecalculateDigits((string, string) tablePairs)
+        public static void RecalculateTables((string, string) tablePairs)
         {
             //ITEM 1: ORIGINAL
             //ITEM 2: DVH

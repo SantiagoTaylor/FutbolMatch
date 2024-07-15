@@ -42,7 +42,7 @@ namespace UI.Webforms
 
         protected void ButtonRecalculate_Click(object sender, EventArgs e)
         {
-            DatabaseIntegrity.RecalculateDigits();
+            DatabaseIntegrity.RecalculateTables();
             WebformMessage.ShowMessage("Se recalcularon todas las tablas", this);
             TextBoxMessage.Text = "";
         }
