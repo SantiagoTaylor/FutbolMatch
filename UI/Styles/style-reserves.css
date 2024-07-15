@@ -1,0 +1,65 @@
+﻿form {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.container-registerReserve {
+    width: 25%;
+    height: 100%;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.container-form {
+    width: 80%;
+    height: 80%;
+}
+
+
+
+.container-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-register {
+    width: 10rem;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in;
+}
+
+    .btn-register:hover {
+        box-shadow: 3px 3px 10px;
+    }
+
+    .btn-register:active {
+        box-shadow: none;
+    }
+
+.container-reserves {
+    width: 75%;
+    height: 100%;
+}
+
+.table-reserves {
+    width: 100%;
+    text-align: center;
+}
+
+.tableheader {
+    background-color: white;
+}

@@ -12,6 +12,18 @@ namespace DAL
 {
     public static class DAL_Reservation
     {
+        public static DataTable GetReservations(string establishmenName)
+        {
+            Console.WriteLine(establishmenName);
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter("sp_GetReserves", connection.Connection);
+            adapter.SelectCommand.Parameters.AddWithValue("@p_estName", establishmenName);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adapter.Fill(table);
+            return table;
+        }
+
         public static DataTable GetUserReservations(string username)
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
