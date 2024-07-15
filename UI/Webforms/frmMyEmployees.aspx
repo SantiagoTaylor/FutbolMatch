@@ -14,5 +14,8 @@
                 </asp:GridView>
             </div>
         </section>
+        <article class="item-form">
+            <asp:Button ID="ButtonRegister" runat="server" Text="Registrar empleado" OnClick="ButtonRegister_Click" />
+        </article>
     </form>
 </asp:Content>

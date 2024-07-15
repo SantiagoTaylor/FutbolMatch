@@ -38,5 +38,10 @@ namespace UI.Webforms
         {
             EmployeesLoad();
         }
+
+        protected void ButtonRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmRegisterEmployee.aspx");
+        }
     }
 }

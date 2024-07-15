@@ -89,6 +89,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\ball-sad.png" />
     <Content Include="Images\index-background.jpg" />
     <Content Include="Images\login-background.jpg" />
     <Content Include="Images\logotype.png" />
@@ -103,9 +104,10 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Styles\style-establishment-register.css" />
     <Content Include="Styles\style-establishment.css" />
     <Content Include="Styles\style-myaccount.css" />
-    <Content Include="Styles\style-reservas.css" />
+    <Content Include="Styles\style-reserves.css" />
     <Content Include="Styles\style-users.css" />
     <Content Include="Styles\style-login.css" />
     <Content Include="Styles\style-register.css" />

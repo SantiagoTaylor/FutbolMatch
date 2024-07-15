@@ -33,7 +33,7 @@ namespace UI.Webforms
                 DropDownListLanguage.SelectedItem.Text);
 
             BLL_User.InsertUser(user);
-            BLL_Establishment.SetUserEstablishment(user.Username, BLL_Establishment.GetEstablishment(SessionManager.GetInstance.User.Username));
+            BLL_Establishment.SetUserEstablishment(user.Username, BLL_Establishment.GetEstablishmentName(SessionManager.GetInstance.User.Username));
         }
         private void LanguageLoad()
         {

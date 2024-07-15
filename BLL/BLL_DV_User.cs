@@ -19,7 +19,6 @@ namespace BLL
             //FALTA DVV, POR EJ:
             //DAL_DV_User.InsertDVH(table);
             //DAL_DV_User.InsertDVV(table);
-
         }
 
         public static void UpdateDV(string username)

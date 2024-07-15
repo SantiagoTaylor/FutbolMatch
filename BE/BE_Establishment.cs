@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace BE
 {
@@ -16,7 +17,7 @@ namespace BE
         private BE_User owner;
         private List<BE_User> employees;
         private List<BE_Field> fields;
-        
+
         public BE_Establishment(string name, string email, string phone, string adress)
         {
             this.name = name;
@@ -24,11 +25,12 @@ namespace BE
             this.phone = phone;
             this.adress = adress;
         }
-        public BE_Establishment() { 
-        
+        public BE_Establishment()
+        {
+
         }
 
-        public int Id { get => id; }
+        public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Email { get => email; set => email = value; }
         public string Phone { get => phone; set => phone = value; }

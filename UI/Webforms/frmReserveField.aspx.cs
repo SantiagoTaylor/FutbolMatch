@@ -3,6 +3,7 @@ using BLL;
 using SERVICES;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +19,24 @@ namespace UI.Webforms
             {
                 EstablishmentLoad();
                 FieldLoad();
+                ReservesLoad();
+            }
+        }
+        //Pruebas
+        private void RegisterClientScript(string script)
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), Guid.NewGuid().ToString(), script, true);
+        }
+        private void ReservesLoad()
+        {
+            foreach (DataRow r in BLL_Reservation.GetReservations(DropDownListEstablishment.SelectedItem.Text).Rows)
+            {
+                TableRow tr = new TableRow();
+                tr.CssClass = "tablerow";
+                tr.Cells.Add(new TableCell { Text = r["idReservation"].ToString() });
+                tr.Cells.Add(new TableCell { Text = r["fieldName"].ToString() });
+                tr.Cells.Add(new TableCell { Text = r["username"].ToString() });
+                TableReserves.Rows.Add(tr);
             }
         }
 
@@ -39,6 +58,7 @@ namespace UI.Webforms
         protected void DropDownListEstablishment_SelectedIndexChanged(object sender, EventArgs e)
         {
             FieldLoad();
+            ReservesLoad();
         }
 
         private void FieldLoad()
@@ -55,7 +75,7 @@ namespace UI.Webforms
         {
             DropDownListStartHour.DataTextField = "startHour";
             DropDownListStartHour.DataValueField = "idReservationTimes";
-            DropDownListStartHour.DataSource = BLL_ReservationTimes.GetAvailableTimesByDate(Convert.ToInt32(DropDownListField.SelectedValue),TextBoxDate.Text);
+            DropDownListStartHour.DataSource = BLL_ReservationTimes.GetAvailableTimesByDate(Convert.ToInt32(DropDownListField.SelectedValue), TextBoxDate.Text);
             DropDownListStartHour.DataBind();
         }
 

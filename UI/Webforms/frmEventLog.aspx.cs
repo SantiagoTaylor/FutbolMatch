@@ -82,7 +82,6 @@ namespace UI.Webforms
 
         protected void ButtonFilter_Click(object sender, EventArgs e)
         {
-            //CAMBIAR LA LOGICA... NO ES LO MEJOR
             UpdateGVFilter();
         }
 

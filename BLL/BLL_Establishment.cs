@@ -11,9 +11,19 @@ namespace BLL
 {
     public static class BLL_Establishment
     {
-        public static string GetEstablishment(string username)
+        public static bool DeleteEstablishment(string v)
         {
-            return DAL_Establishment.GetEstablishment(username);
+            return DAL_Establishment.DeleteEstablishment(v);
+        }
+
+        public static BE_Establishment GetEstablishment(string id)
+        {
+            return DAL_Establishment.GetEstablishment(id);
+        }
+
+        public static string GetEstablishmentName(string username)
+        {
+            return DAL_Establishment.GetEstablishmentName(username);
         }
 
         public static DataTable GetEstablishments()
@@ -39,6 +49,11 @@ namespace BLL
         public static bool SetUserEstablishment(string user, string establishmentName)
         {
             return DAL_Establishment.SetUserEstablishment(user, establishmentName);
+        }
+
+        public static bool UpdateEstablishment(BE_Establishment s)
+        {
+            return DAL_Establishment.UpdateEstablishment(s);
         }
     }
 }
