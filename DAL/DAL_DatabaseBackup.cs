@@ -7,7 +7,8 @@ namespace DAL
     {
         public static void Backup(string backupFilePath)
         {
-            string connectionString = Environment.GetEnvironmentVariable("MY_CONNECTION_STRING");
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            string connectionString = connection.Connection.ConnectionString;
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
@@ -24,7 +25,9 @@ namespace DAL
 
         public static void Restore(string backupFilePath)
         {
-            string connectionString = Environment.GetEnvironmentVariable("MY_CONNECTION_STRING");
+            //string connectionString = Environment.GetEnvironmentVariable("MY_CONNECTION_STRING");
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            string connectionString = connection.Connection.ConnectionString;
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
