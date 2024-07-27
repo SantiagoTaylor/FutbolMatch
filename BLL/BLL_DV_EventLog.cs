@@ -11,9 +11,9 @@ namespace BLL
 {
     public static class BLL_DV_EventLog
     {
-        public static void InsertDV(BE_EventLog eventlog)
+        public static void InsertDV(int idEventlog)
         {
-            DataTable table = DAL_DV_EventLog.HashedRowEventLog(eventlog);
+            DataTable table = DAL_DV_EventLog.HashedRowEventLog(idEventlog);
             DAL_DV_EventLog.InsertDV(table);
         }
     }
