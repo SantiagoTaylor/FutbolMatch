@@ -4,6 +4,8 @@
     <asp:Label ID="prueba" runat="server" Text="Label"></asp:Label>
     <asp:Label ID="LabelOnlineUsers" runat="server" Text=""></asp:Label>
     <div id="form1" runat="server">
-        <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Cerrar sesión" />
+        <form runat="server">
+            <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Cerrar sesión" />
+        </form>
     </div>
 </asp:Content>
