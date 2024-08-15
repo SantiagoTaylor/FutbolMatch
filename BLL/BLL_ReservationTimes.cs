@@ -8,6 +8,7 @@ namespace BLL
     {
         public static DataTable GetAvailableTimesByDate(int fieldID, string date)
         {
+            //Traer Horarios disponibles
             return DAL_ReservationTimes.GetAvailableTimesByDate(fieldID, date);
         }
 

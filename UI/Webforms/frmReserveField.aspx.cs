@@ -28,7 +28,7 @@ namespace UI.Webforms
             Page.ClientScript.RegisterStartupScript(this.GetType(), Guid.NewGuid().ToString(), script, true);
         }
         private void ReservesLoad()
-        {
+        {/*
             foreach (DataRow r in BLL_Reservation.GetReservations(DropDownListEstablishment.SelectedItem.Text).Rows)
             {
                 TableRow tr = new TableRow();
@@ -37,7 +37,7 @@ namespace UI.Webforms
                 tr.Cells.Add(new TableCell { Text = r["fieldName"].ToString() });
                 tr.Cells.Add(new TableCell { Text = r["username"].ToString() });
                 TableReserves.Rows.Add(tr);
-            }
+            }*/
         }
 
         private void EstablishmentLoad()
@@ -82,7 +82,12 @@ namespace UI.Webforms
         protected void ButtonReserve_Click(object sender, EventArgs e)
         {
             //hacer reserva
-            BE_Reservation reservation = new BE_Reservation(Convert.ToInt32(DropDownListField.SelectedValue), Convert.ToInt32(DropDownListStartHour.SelectedValue), SessionManager.GetInstance.User.Username, DateTime.Today);
+            BE_Reservation reservation = new BE_Reservation(
+                Convert.ToInt32(DropDownListField.SelectedValue), 
+                Convert.ToInt32(DropDownListStartHour.SelectedValue), 
+                SessionManager.GetInstance.User.Username, 
+                DateTime.Today);
+
             BLL_Reservation.RegisterReservation(reservation);
             WebformMessage.ShowMessage("Se realizó la reserva con éxito", this);
 
