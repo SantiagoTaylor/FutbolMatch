@@ -28,16 +28,19 @@ namespace UI.Webforms
             Page.ClientScript.RegisterStartupScript(this.GetType(), Guid.NewGuid().ToString(), script, true);
         }
         private void ReservesLoad()
-        {/*
+        {
             foreach (DataRow r in BLL_Reservation.GetReservations(DropDownListEstablishment.SelectedItem.Text).Rows)
             {
                 TableRow tr = new TableRow();
                 tr.CssClass = "tablerow";
                 tr.Cells.Add(new TableCell { Text = r["idReservation"].ToString() });
                 tr.Cells.Add(new TableCell { Text = r["fieldName"].ToString() });
+                DateTime date = Convert.ToDateTime(r["date"]);
+                tr.Cells.Add(new TableCell { Text = date.ToString("dd/MM/yyyy") });
+                tr.Cells.Add(new TableCell { Text = r["startHour"].ToString() });
                 tr.Cells.Add(new TableCell { Text = r["username"].ToString() });
                 TableReserves.Rows.Add(tr);
-            }*/
+            }
         }
 
         private void EstablishmentLoad()
@@ -81,16 +84,17 @@ namespace UI.Webforms
 
         protected void ButtonReserve_Click(object sender, EventArgs e)
         {
-            //hacer reserva
             BE_Reservation reservation = new BE_Reservation(
-                Convert.ToInt32(DropDownListField.SelectedValue), 
-                Convert.ToInt32(DropDownListStartHour.SelectedValue), 
-                SessionManager.GetInstance.User.Username, 
-                DateTime.Today);
+                Convert.ToInt32(DropDownListField.SelectedValue),
+                Convert.ToInt32(DropDownListStartHour.SelectedValue),
+                SessionManager.GetInstance.User.Username,
+                Convert.ToDateTime(TextBoxDate.Text));
 
-            BLL_Reservation.RegisterReservation(reservation);
-            WebformMessage.ShowMessage("Se realizó la reserva con éxito", this);
-
+            if (BLL_Reservation.RegisterReservation(reservation))
+            {
+                WebformMessage.ShowMessage("Se realizó la reserva con éxito", this, "window.location.reload();");
+            }
+            else { WebformMessage.ShowMessage("Error: No se pa podido realizar la reversa correctamente", this); }
         }
     }
 }

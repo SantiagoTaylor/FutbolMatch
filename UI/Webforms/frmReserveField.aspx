@@ -37,7 +37,9 @@
                 <asp:TableHeaderRow runat="server" CssClass="tableheader">
                     <asp:TableHeaderCell Scope="Column" Text="ID" />
                     <asp:TableHeaderCell Scope="Column" Text="Cancha" />
-                    <asp:TableHeaderCell Scope="Column" Text="Cliente" />
+                    <asp:TableHeaderCell Scope="Column" Text="Fecha" />
+                    <asp:TableHeaderCell Scope="Column" Text="Horario" />
+                    <asp:TableHeaderCell Scope="Column" Text="Empleado" />
                 </asp:TableHeaderRow>
             </asp:Table>
         </section>
