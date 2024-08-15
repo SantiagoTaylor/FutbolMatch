@@ -11,7 +11,7 @@ namespace DAL
 {
     public static class DAL_DV_EventLog
     {
-        public static DataTable HashedRowEventLog(BE_EventLog eventlog)
+        public static DataTable HashedRowEventLog(int idEventlog)
         {
             DataTable hashedTable = new DataTable();
             DAL_DB_Connection connection = new DAL_DB_Connection();
@@ -19,10 +19,7 @@ namespace DAL
             command.Connection = connection.OpenConnection();
             command.CommandText = "sp_HashedRowEventLog";
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("p_username", eventlog.Username);
-            command.Parameters.AddWithValue("p_activity", eventlog.Activity);
-            command.Parameters.AddWithValue("p_eventDate", eventlog.EventDate);
-            command.Parameters.AddWithValue("p_eventTime", eventlog.EventTime);
+            command.Parameters.AddWithValue("p_idEventLog", idEventlog);
             MySqlDataReader reader = command.ExecuteReader();
             hashedTable.Load(reader);
             command.Connection = connection.CloseConnection();

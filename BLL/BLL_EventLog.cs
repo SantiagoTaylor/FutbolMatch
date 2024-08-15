@@ -18,10 +18,8 @@ namespace BLL
         {
             //HACE FALTA CREARLO ACA??? O ANTES??? USERNAME -> SESSION MANAGER ¿?desde BE???
             BE_EventLog eventlog = new BE_EventLog(username, activity);
-            DAL_EventLog.RegisterEventLog(eventlog);
-            //BLL_DV_EventLog.InsertDV(eventlog);
-            //Esta mal, recalcula toda la tabla. solucion: la misma que con el usuario
-            DatabaseIntegrity.RecalculateTable("tb_EventLog");
+            int idEventLog = DAL_EventLog.RegisterEventLog(eventlog);
+            BLL_DV_EventLog.InsertDV(idEventLog);
         }
 
         public static DataTable GetEventLog()

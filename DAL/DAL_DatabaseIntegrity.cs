@@ -1,6 +1,8 @@
 ﻿using MySqlConnector;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Data;
+using System.Linq;
 
 namespace DAL
 {
@@ -47,8 +49,8 @@ namespace DAL
                 command.CommandText = $"DELETE FROM {tablePairs.Item2}";
                 command.CommandType = CommandType.Text;
                 command.ExecuteNonQuery();
-                BulkCopy(tablePairs);
                 command.Connection = connection.CloseConnection();
+                BulkCopy(tablePairs);
             }
             catch (Exception)
             {
@@ -57,11 +59,27 @@ namespace DAL
 
         private static void BulkCopy((string, string) tablePairs)
         {
-            DAL_DB_Connection connection = new DAL_DB_Connection();
-            MySqlBulkCopy bulk = new MySqlBulkCopy(connection.OpenConnection());
-            bulk.DestinationTableName = tablePairs.Item2;
+            //SI NO FUERA POR LA PÁGINA QUE NO DEJA UTILIZAR TABLAS EXTERNAS,
+            //UTILIZARÍA BULKCOPY QUE ES MUCHISIMO MÁS RÁPIDO
+            //PORQUE COPIA LA TABLA ENTERA EN VEZ DE FILAxFILA
             DataTable hashTable = GetHashedTable(tablePairs.Item1);
-            bulk.WriteToServer(hashTable);
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = connection.OpenConnection();
+            string columns = string.Join(", ", hashTable.Columns.Cast<DataColumn>().Select(c => c.ColumnName));
+            string values = string.Join(", ", hashTable.Columns.Cast<DataColumn>().Select(c => "@" + c.ColumnName));
+            command.CommandText = $"INSERT INTO {tablePairs.Item2} ({columns}) VALUES ({values})";
+            foreach (DataRow row in hashTable.Rows)
+            {
+                command.Parameters.Clear();
+                foreach (DataColumn column in hashTable.Columns)
+                {
+                    command.Parameters.AddWithValue("@" + column.ColumnName, row[column]);
+                }
+                command.CommandType = CommandType.Text;
+                command.ExecuteNonQuery();
+            }
+            command.Connection = connection.CloseConnection();
         }
     }
 }
