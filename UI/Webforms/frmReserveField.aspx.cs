@@ -19,8 +19,8 @@ namespace UI.Webforms
             {
                 EstablishmentLoad();
                 FieldLoad();
-                ReservesLoad();
             }
+            ReservesLoad();
         }
         //Pruebas
         private void RegisterClientScript(string script)

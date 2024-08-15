@@ -3,6 +3,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="../Styles/style-reserves.css">
 
+    <script type="text/javascript">
+        window.onload = function () {
+            var inputDate = document.getElementById('<%= TextBoxDate.ClientID %>');
+            var today = new Date().toISOString().split('T')[0];
+            inputDate.setAttribute('min', today);
+        };
+    </script>
+
     <form runat="server">
         <section class="container-registerReserve">
             <div class="container-form">
