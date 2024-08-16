@@ -92,7 +92,7 @@ namespace UI.Webforms
 
             if (BLL_Reservation.RegisterReservation(reservation))
             {
-                WebformMessage.ShowMessage("Se realizó la reserva con éxito", this, "window.location.reload();");
+                Response.Redirect(Request.RawUrl);
             }
             else { WebformMessage.ShowMessage("Error: No se pa podido realizar la reversa correctamente", this); }
         }

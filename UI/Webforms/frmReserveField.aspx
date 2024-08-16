@@ -9,6 +9,7 @@
             var today = new Date().toISOString().split('T')[0];
             inputDate.setAttribute('min', today);
         };
+
     </script>
 
     <form runat="server">
@@ -21,7 +22,9 @@
                 <asp:DropDownList CssClass="form-select" ID="DropDownListField" runat="server"></asp:DropDownList><br />
 
                 <asp:Label ID="Label4" runat="server" Text="Fecha"></asp:Label><br />
-                <asp:TextBox CssClass="form-control" ID="TextBoxDate" runat="server" TextMode="Date" OnTextChanged="TextBoxDate_TextChanged" AutoPostBack="True"></asp:TextBox><br />
+                <asp:TextBox CssClass="form-control" ID="TextBoxDate" runat="server" TextMode="Date" OnTextChanged="TextBoxDate_TextChanged" AutoPostBack="True"></asp:TextBox>
+                
+                <br />
 
                 <asp:Label ID="Label3" runat="server" Text="Horario (1 hora)"></asp:Label><br />
                 <asp:DropDownList CssClass="form-select" ID="DropDownListStartHour" runat="server"></asp:DropDownList><br />
