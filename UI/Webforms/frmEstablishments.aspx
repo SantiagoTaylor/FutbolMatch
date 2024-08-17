@@ -42,12 +42,12 @@
                         </section>
                         <section class="btn-group-vertical" role="group">
 
-                            <asp:LinkButton runat="server" ID="ButtonDelete" Text="Eliminar" CssClass="btn btn btn-outline-danger"
+                            <asp:Button runat="server" ID="ButtonDelete" Text="Eliminar" CssClass="btn btn btn-outline-danger"
                                 CommandName="Delete"
                                 CommandArgument='<%# Eval("idEstablishment") %>'
                                 OnCommand="Button_Command" />
 
-                            <asp:LinkButton runat="server" ID="ButtonModificate" Text="Modificar" CssClass="btn btn btn-outline-primary"
+                            <asp:Button runat="server" ID="ButtonModificate" Text="Modificar" CssClass="btn btn btn-outline-primary"
                                 CommandName="Modify"
                                 CommandArgument='<%# Eval("idEstablishment") %>'
                                 OnCommand="Button_Command" />

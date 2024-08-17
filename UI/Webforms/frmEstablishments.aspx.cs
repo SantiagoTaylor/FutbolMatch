@@ -38,7 +38,6 @@ namespace UI.Webforms
             else if (e.CommandName == "Modify")
             {
                 Response.Redirect($"frmCreateEstablishment.aspx?id={e.CommandArgument.ToString()}");
-                //WebformMessage.ShowMessage(e.CommandArgument.ToString(),this);
             }
         }
 
