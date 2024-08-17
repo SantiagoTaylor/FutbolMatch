@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Data;
-using DAL;
 
 namespace BLL
 {
@@ -8,46 +8,19 @@ namespace BLL
     {
         public static DataTable GetAvailableTimesByDate(int fieldID, string date)
         {
-            DataTable dtAvailableTimes = new DataTable();
+            DataTable availableTimes = DAL_ReservationTimes.GetAvailableTimesByDate(fieldID, date);
 
-            dtAvailableTimes.Columns.Add("idReservationTimes", typeof(int));
-            dtAvailableTimes.Columns.Add("startHour", typeof(DateTime));
-            dtAvailableTimes.Columns.Add("endHour", typeof(DateTime));
-
-            
-            DateTime providedDate;
-            DateTime.TryParse(date, out providedDate);
-
-            DateTime now = DateTime.Now;
-            DateTime currentDateTime = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
-
-            // Trae horarios disponibles
-            foreach (DataRow dr in DAL_ReservationTimes.GetAvailableTimesByDate(fieldID, date).Rows)
+            string today = DateTime.Now.ToString("yyyy-MM-dd");
+            if (date != today)
             {
-                DateTime startDateTime;
-                TimeSpan startTime, endTime;
-
-                if (DateTime.TryParse($"{providedDate.ToShortDateString()} {dr["startHour"]}", out startDateTime))
-                {
-                    startTime = startDateTime.TimeOfDay;
-                    if (startDateTime > currentDateTime)
-                    {
-                        DataRow newRow = dtAvailableTimes.NewRow();
-
-                        newRow["idReservationTimes"] = dr["idReservationTimes"];
-                        newRow["startHour"] = startTime.ToString(@"hh\:mm\:ss");
-                        newRow["endHour"] = dr["endHour"].ToString();
-
-                        dtAvailableTimes.Rows.Add(newRow);
-                    }
-                }
-                else
-                {
-                    throw new FormatException("Formato de hora no válido.");
-                }
+                return availableTimes;
             }
 
-            return dtAvailableTimes;
+            TimeSpan hourMinutes = DateTime.Now.TimeOfDay;
+            var filteredTimes = availableTimes.AsEnumerable().
+                Where(row => row.Field<TimeSpan>("startHour") >= hourMinutes);
+
+            return filteredTimes.CopyToDataTable();
         }
 
         public static DataTable GetReservationTimes()
