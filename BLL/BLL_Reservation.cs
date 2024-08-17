@@ -14,7 +14,10 @@ namespace BLL
 
         public static DataTable GetReservations(string establishmenName)
         {
-            return DAL_Reservation.GetReservations(establishmenName);
+            var dt= from row in DAL_Reservation.GetReservations(establishmenName).AsEnumerable()
+                    orderby row.Field<DateTime>("date"),row.Field<TimeSpan>("startHour")
+                    select row;
+            return dt.CopyToDataTable();
         }
 
         public static bool RegisterReservation(BE_Reservation reservation)

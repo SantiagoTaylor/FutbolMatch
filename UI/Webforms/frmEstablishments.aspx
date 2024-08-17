@@ -5,15 +5,6 @@
     <link rel="stylesheet" href="/Styles/style-structs.css">
     <link rel="stylesheet" href="/Styles/style-gv.css">
     <link rel="stylesheet" href="../Styles/style-establishment.css">
-    <script>
-        function confirmAction(action, establishmentName) {
-            if (confirm("Are you sure you want to " + action + " establishment " + establishmentName + "?")) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    </script>
 
     <form runat="server">
         <section class="container-controls d-flex justify-content-center align-items-center">
@@ -41,7 +32,6 @@
                                 style="width: 100px; height: 100px;" />
                         </section>
                         <section class="btn-group-vertical" role="group">
-
                             <asp:Button runat="server" ID="ButtonDelete" Text="Eliminar" CssClass="btn btn btn-outline-danger"
                                 CommandName="Delete"
                                 CommandArgument='<%# Eval("idEstablishment") %>'
