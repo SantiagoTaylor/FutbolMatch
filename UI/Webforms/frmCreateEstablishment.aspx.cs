@@ -24,24 +24,24 @@ namespace UI.Webforms
         }
         private void LoadDataEstablishment(string id)
         {
-            BE_Establishment est = BLL_Establishment.GetEstablishment(id);
-            TextBoxName.Text = est.Name;
-            TextBoxEmail.Text = est.Email;
-            TextBoxPhone.Text = est.Phone;
-            TextBoxAdress.Text = est.Adress;
+            BE_Establishment establishment = BLL_Establishment.GetEstablishment(id);
+            TextBoxName.Text = establishment.Name;
+            TextBoxEmail.Text = establishment.Email;
+            TextBoxPhone.Text = establishment.Phone;
+            TextBoxAdress.Text = establishment.Address;
         }
 
         protected void ButtonRegister_Click(object sender, EventArgs e)
         {
-            BE_Establishment s = new BE_Establishment(TextBoxName.Text, TextBoxEmail.Text, TextBoxPhone.Text, TextBoxAdress.Text);
+            BE_Establishment establishment = new BE_Establishment(TextBoxName.Text, TextBoxEmail.Text, TextBoxPhone.Text, TextBoxAdress.Text);
             if (ButtonRegister.Text == "Modificar")
             {
-                s.Id = int.Parse(Request.QueryString["id"].ToString());
-                if (BLL_Establishment.UpdateEstablishment(s)) Server.Transfer("frmEstablishments.aspx");
+                establishment.Id = int.Parse(Request.QueryString["id"].ToString());
+                if (BLL_Establishment.UpdateEstablishment(establishment)) Server.Transfer("frmEstablishments.aspx");
             }
             else
             {
-                if (BLL_Establishment.RegisterEstablishment(s)) Server.Transfer("frmEstablishments.aspx");
+                if (BLL_Establishment.RegisterEstablishment(establishment)) Server.Transfer("frmEstablishments.aspx");
             }
         }
     }
