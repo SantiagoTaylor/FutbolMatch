@@ -1,0 +1,24 @@
+﻿form {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    overflow:hidden;
+}
+
+.container-controls {
+    width: 25%;
+    height: 100%;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.container-content {
+    width: 75%;
+    height: 100%;
+}

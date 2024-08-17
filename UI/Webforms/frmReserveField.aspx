@@ -3,6 +3,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="../Styles/style-reserves.css">
 
+    <script type="text/javascript">
+        window.onload = function () {
+            var inputDate = document.getElementById('<%= TextBoxDate.ClientID %>');
+            var today = new Date().toISOString().split('T')[0];
+            inputDate.setAttribute('min', today);
+        };
+
+    </script>
+
     <form runat="server">
         <section class="container-registerReserve">
             <div class="container-form">
@@ -13,7 +22,9 @@
                 <asp:DropDownList CssClass="form-select" ID="DropDownListField" runat="server"></asp:DropDownList><br />
 
                 <asp:Label ID="Label4" runat="server" Text="Fecha"></asp:Label><br />
-                <asp:TextBox CssClass="form-control" ID="TextBoxDate" runat="server" TextMode="Date" OnTextChanged="TextBoxDate_TextChanged" AutoPostBack="True"></asp:TextBox><br />
+                <asp:TextBox CssClass="form-control" ID="TextBoxDate" runat="server" TextMode="Date" OnTextChanged="TextBoxDate_TextChanged" AutoPostBack="True"></asp:TextBox>
+                
+                <br />
 
                 <asp:Label ID="Label3" runat="server" Text="Horario (1 hora)"></asp:Label><br />
                 <asp:DropDownList CssClass="form-select" ID="DropDownListStartHour" runat="server"></asp:DropDownList><br />
@@ -29,7 +40,9 @@
                 <asp:TableHeaderRow runat="server" CssClass="tableheader">
                     <asp:TableHeaderCell Scope="Column" Text="ID" />
                     <asp:TableHeaderCell Scope="Column" Text="Cancha" />
-                    <asp:TableHeaderCell Scope="Column" Text="Cliente" />
+                    <asp:TableHeaderCell Scope="Column" Text="Fecha" />
+                    <asp:TableHeaderCell Scope="Column" Text="Horario" />
+                    <asp:TableHeaderCell Scope="Column" Text="Empleado" />
                 </asp:TableHeaderRow>
             </asp:Table>
         </section>

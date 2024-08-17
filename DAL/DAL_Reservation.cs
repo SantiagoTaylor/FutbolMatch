@@ -35,7 +35,7 @@ namespace DAL
             return table;
         }
 
-        public static void RegisterReservation(BE_Reservation reservation)
+        public static bool RegisterReservation(BE_Reservation reservation)
         {
             try
             {
@@ -50,10 +50,13 @@ namespace DAL
                 command.CommandType = CommandType.StoredProcedure;
                 command.ExecuteNonQuery();
                 command.Connection = connection.CloseConnection();
+                return true;
             }
             catch (Exception)
             {
+                return false;
             }
+            
         }
     }
 }

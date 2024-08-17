@@ -106,8 +106,10 @@
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="Styles\style-establishment-register.css" />
     <Content Include="Styles\style-establishment.css" />
+    <Content Include="Styles\style-gv.css" />
     <Content Include="Styles\style-myaccount.css" />
     <Content Include="Styles\style-reserves.css" />
+    <Content Include="Styles\style-structs.css" />
     <Content Include="Styles\style-users.css" />
     <Content Include="Styles\style-login.css" />
     <Content Include="Styles\style-register.css" />

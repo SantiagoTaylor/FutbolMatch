@@ -17,9 +17,9 @@ namespace BLL
             return DAL_Reservation.GetReservations(establishmenName);
         }
 
-        public static void RegisterReservation(BE_Reservation reservation)
+        public static bool RegisterReservation(BE_Reservation reservation)
         {
-            DAL_Reservation.RegisterReservation(reservation);
+            return DAL_Reservation.RegisterReservation(reservation);
         }
     }
 }

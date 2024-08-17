@@ -58,7 +58,7 @@ namespace SERVICES
             catch (Exception)
             {
                 errors = new List<string>();
-                errors.Add("Diferente cantidad de filas. Se creó o borró una o varioas filas.");
+                errors.Add("Diferente cantidad de filas. Se creó o borró una o varias filas.");
                 return errors;
             }
         }
