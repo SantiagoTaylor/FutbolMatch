@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Data;
+using System.Linq;
 
 namespace BLL
 {
@@ -14,9 +15,13 @@ namespace BLL
 
         public static DataTable GetReservations(string establishmenName)
         {
-            var dt= from row in DAL_Reservation.GetReservations(establishmenName).AsEnumerable()
-                    orderby row.Field<DateTime>("date"),row.Field<TimeSpan>("startHour")
-                    select row;
+            var dt = from row in DAL_Reservation.GetReservations(establishmenName).AsEnumerable()
+                     orderby row.Field<DateTime>("date"), row.Field<TimeSpan>("startHour")
+                     select row;
+            if (!dt.Any())
+            {
+                return null;
+            }
             return dt.CopyToDataTable();
         }
 

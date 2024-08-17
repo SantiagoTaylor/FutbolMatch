@@ -17,28 +17,59 @@ namespace UI.Webforms
         {
             if (!IsPostBack)
             {
+                SetupTableHeader();
                 EstablishmentLoad();
                 FieldLoad();
             }
             ReservesLoad();
         }
         //Pruebas
+        private void SetupTableHeader()
+        {
+            TableHeaderRow headerRow = new TableHeaderRow { CssClass = "tableheader" };
+
+            headerRow.Cells.Add(new TableHeaderCell { Scope = TableHeaderScope.Column, Text = "ID" });
+            headerRow.Cells.Add(new TableHeaderCell { Scope = TableHeaderScope.Column, Text = "Cancha" });
+            headerRow.Cells.Add(new TableHeaderCell { Scope = TableHeaderScope.Column, Text = "Fecha" });
+            headerRow.Cells.Add(new TableHeaderCell { Scope = TableHeaderScope.Column, Text = "Horario" });
+            headerRow.Cells.Add(new TableHeaderCell { Scope = TableHeaderScope.Column, Text = "Empleado" });
+            TableReserves.Rows.AddAt(0, headerRow); 
+        }
         private void RegisterClientScript(string script)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), Guid.NewGuid().ToString(), script, true);
         }
         private void ReservesLoad()
         {
-            foreach (DataRow r in BLL_Reservation.GetReservations(DropDownListEstablishment.SelectedItem.Text).Rows)
+            TableReserves.Rows.Clear();
+            SetupTableHeader();
+            var dtr = BLL_Reservation.GetReservations(DropDownListEstablishment.SelectedItem.Text);
+            if (dtr != null)
             {
+                foreach (DataRow r in dtr.Rows)
+                {
+                    TableRow tr = new TableRow();
+                    tr.CssClass = "tablerow";
+                    tr.Cells.Add(new TableCell { Text = r["idReservation"].ToString() });
+                    tr.Cells.Add(new TableCell { Text = r["fieldName"].ToString() });
+                    DateTime date = Convert.ToDateTime(r["date"]);
+                    tr.Cells.Add(new TableCell { Text = date.ToString("dd/MM/yyyy") });
+                    tr.Cells.Add(new TableCell { Text = r["startHour"].ToString() });
+                    tr.Cells.Add(new TableCell { Text = r["username"].ToString() });
+                    TableReserves.Rows.Add(tr);
+                }
+            }
+            else
+            {
+                TableReserves.Rows.Clear();
                 TableRow tr = new TableRow();
-                tr.CssClass = "tablerow";
-                tr.Cells.Add(new TableCell { Text = r["idReservation"].ToString() });
-                tr.Cells.Add(new TableCell { Text = r["fieldName"].ToString() });
-                DateTime date = Convert.ToDateTime(r["date"]);
-                tr.Cells.Add(new TableCell { Text = date.ToString("dd/MM/yyyy") });
-                tr.Cells.Add(new TableCell { Text = r["startHour"].ToString() });
-                tr.Cells.Add(new TableCell { Text = r["username"].ToString() });
+                TableCell tc = new TableCell
+                {
+                    ColumnSpan = 5,
+                    Text = "Aun no hay reservas hechas",
+                    CssClass = "table-reserves"
+                };
+                tr.Cells.Add(tc);
                 TableReserves.Rows.Add(tr);
             }
         }
@@ -92,7 +123,7 @@ namespace UI.Webforms
 
             if (BLL_Reservation.RegisterReservation(reservation))
             {
-                Response.Redirect(Request.RawUrl);
+                ReservesLoad();
             }
             else { WebformMessage.ShowMessage("Error: No se pa podido realizar la reversa correctamente", this); }
         }
