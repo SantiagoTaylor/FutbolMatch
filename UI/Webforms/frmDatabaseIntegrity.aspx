@@ -18,7 +18,7 @@
                 <article>
                     <asp:Label ID="Label2" runat="server" Text="Dirección del archivo"></asp:Label><br />
                     <div class="d-flex align-items-center w-auto g-3">
-                        <asp:FileUpload ID="FileUploadRestore" runat="server"/>
+                        <asp:FileUpload ID="FileUploadRestore" runat="server" CssClass="fileUploadRestore"/>
                     </div>
                     <br />
                 </article>
@@ -31,7 +31,7 @@
             </section>
 
         </div>
-        <div class="containet-content d-flex justify-content-center align-items-center">
+        <div class="container-content d-flex justify-content-center align-items-center">
             <asp:TextBox ID="TextBoxMessage" ReadOnly="true" TextMode="MultiLine" CssClass="txtErrors bg-opacity-50 w-75 h-75" runat="server"></asp:TextBox>
         </div>
     </form>
