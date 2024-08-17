@@ -82,10 +82,9 @@ namespace UI.Webforms
         protected void ButtonReserve_Click(object sender, EventArgs e)
         {
             //hacer reserva
-            BE_Reservation reservation = new BE_Reservation(Convert.ToInt32(DropDownListField.SelectedValue), Convert.ToInt32(DropDownListStartHour.SelectedValue), SessionManager.GetInstance.User.Username, DateTime.Today);
+            BE_Reservation reservation = new BE_Reservation(Convert.ToInt32(DropDownListField.SelectedValue), Convert.ToInt32(DropDownListStartHour.SelectedValue), SessionManager.GetInstance.User.Username, Convert.ToDateTime(TextBoxDate.Text));
             BLL_Reservation.RegisterReservation(reservation);
             WebformMessage.ShowMessage("Se realizó la reserva con éxito", this);
-
         }
     }
 }
