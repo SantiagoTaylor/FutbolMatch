@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Webforms/masterPage.Master" CodeBehind="frmCreateEstablishment.aspx.cs" Inherits="UI.Webforms.frmCreateEstablishment" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Webforms/masterPage.Master" CodeBehind="frmCreateEstablishment.aspx.cs" Inherits="UI.Webforms.frmCreateEstablishment"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="/Styles/style-establishment-register.css">
