@@ -8,6 +8,7 @@
     <title>Inicio Sesion | FutbolMatch</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Styles/style-login.css" />
+    <link rel="shortcut icon" href="../Images/favicon_io/favicon.ico" type="image/x-icon">
     <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
 </head>
 <body>
