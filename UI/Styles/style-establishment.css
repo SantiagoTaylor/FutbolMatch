@@ -1,56 +1,16 @@
-﻿.container-establishment {
-    width: 90%;
-    height: 90%;
-    background-color: rgb(255,255,255,0.6);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+﻿.item-establishment {
+    transition: transform 0.3s ease;
+    height: 17%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: auto;
 }
 
-.menu {
-    width: 20%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.container-content::-webkit-scrollbar {
+    width: 7px;
 }
 
-
-.container-dataestablishments {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+.container-content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #fff;
 }
-
-.tableheader {
-    background-color: white;
-}
-
-.tablerow {
-    border-bottom: 2px solid white;
-}
-
-.container-btn {
-    margin-top: 1rem;
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn-register {
-    border: none;
-    width: 30vh;
-    height: 3rem;
-    padding: 0 10px 0 10px;
-    border-radius: 15px;
-    transition: box-shadow 0.2s ease-in;
-    font-size: .9rem;
-}
-
-    .btn-register:hover {
-        box-shadow: 5px 5px 15px;
-    }
