@@ -104,6 +104,7 @@
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Styles\style-animation.css" />
     <Content Include="Styles\style-establishment-register.css" />
     <Content Include="Styles\style-establishment.css" />
     <Content Include="Styles\style-gv.css" />

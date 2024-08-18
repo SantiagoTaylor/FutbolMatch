@@ -15,6 +15,15 @@ namespace UI.Webforms
     {
 
         /// <summary>
+        /// Control HiddenFieldEstablishmentID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldEstablishmentID;
+
+        /// <summary>
         /// Control ButtonRegisterEstablishment.
         /// </summary>
         /// <remarks>
@@ -31,5 +40,14 @@ namespace UI.Webforms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RepeaterEstablishments;
+
+        /// <summary>
+        /// Control ButtonDeleteConfirm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDeleteConfirm;
     }
 }
