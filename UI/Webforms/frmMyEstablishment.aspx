@@ -2,17 +2,13 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link rel="stylesheet" href="../Styles/style-establishment.css">
-    <link rel="stylesheet" href="../Styles/style-users.css">
+    <link rel="stylesheet" href="../Styles/style-structs.css">
 
-    <form runat="server" class="container-establishment">
-        <section class="container-data-establishment">
+    <form runat="server">
+        <section class="container-controls">
             <p class="title">Establecimiento</p>
         </section>
-        <section class="container-fields">
-        </section>
-        <section class="container-fields">
-            <p>hola</p>
+        <section class="container-content">
         </section>
         
 

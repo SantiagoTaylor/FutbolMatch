@@ -15,6 +15,15 @@ namespace UI.Webforms
     {
 
         /// <summary>
+        /// Control ButtonCreateField.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCreateField;
+
+        /// <summary>
         /// Control Label1.
         /// </summary>
         /// <remarks>
@@ -40,14 +49,5 @@ namespace UI.Webforms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvFields;
-
-        /// <summary>
-        /// Control ButtonCreateField.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCreateField;
     }
 }

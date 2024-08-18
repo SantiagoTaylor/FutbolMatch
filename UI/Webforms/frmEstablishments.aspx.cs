@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -20,22 +21,17 @@ namespace UI.Webforms
             }
         }
 
+
         private void LoadEstablishments()
         {
+
             RepeaterEstablishments.DataSource = BLL_Establishment.GetEstablishments();
             RepeaterEstablishments.DataBind();
         }
 
         protected void Button_Command(object sender, CommandEventArgs e)
         {
-            string idEstablishment = e.CommandArgument.ToString();
-
-            if (e.CommandName == "Delete")
-            {
-                BLL_Establishment.DeleteEstablishment(e.CommandArgument.ToString());
-                Response.Redirect(Request.RawUrl);
-            }
-            else if (e.CommandName == "Modify")
+            if (e.CommandName == "Modify")
             {
                 Response.Redirect($"frmCreateEstablishment.aspx?id={e.CommandArgument.ToString()}");
             }
@@ -46,5 +42,11 @@ namespace UI.Webforms
             Response.Redirect("frmCreateEstablishment.aspx");
         }
 
+        protected void ButtonDeleteConfirm_Click(object sender, EventArgs e)
+        {
+            BLL_Establishment.DeleteEstablishment(HiddenFieldEstablishmentID.Value);
+            Response.Redirect(Request.RawUrl);
+
+        }
     }
 }

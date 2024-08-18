@@ -3,10 +3,42 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="/Styles/style-structs.css">
-    <link rel="stylesheet" href="/Styles/style-gv.css">
     <link rel="stylesheet" href="../Styles/style-establishment.css">
+    <link rel="stylesheet" href="../Styles/style-animation.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let confirmBox = document.querySelector('.confirmation-box');
+            let estalbishments = document.querySelector('.container-establishment');
+
+            confirmBox.style.visibility = "hidden";
+
+            function showConfirmationBox(id) {
+                document.getElementById('<%= HiddenFieldEstablishmentID.ClientID %>').value = id;
+                estalbishments.classList.add("disenable-container");
+                confirmBox.style.visibility = 'visible';
+                confirmBox.classList.remove("blur-out-contract");
+                confirmBox.classList.add("blur-in-expand"); 
+            }
+
+            function hideConfirmationBox() {
+                estalbishments.classList.remove("disenable-container");
+                confirmBox.classList.remove("blur-in-expand");
+                confirmBox.classList.add("blur-out-contract");
+
+                setTimeout(() => {
+                    confirmBox.style.visibility = 'hidden';
+                }, 300);
+            }
+
+            window.showConfirmationBox = showConfirmationBox;
+            window.hideConfirmationBox = hideConfirmationBox;
+        });
+    </script>
 
     <form runat="server">
+        <asp:HiddenField runat="server" ID="HiddenFieldEstablishmentID" />
         <section class="container-controls d-flex justify-content-center align-items-center">
 
             <section class="container-btn">
@@ -14,37 +46,43 @@
             </section>
         </section>
 
-        <section class="container-content overflow-auto">
-
-            <asp:Repeater runat="server" ID="RepeaterEstablishments">
-                <ItemTemplate>
-                    <article class="item-establishment m-3 d-flex overflow-hidden w-auto" id="<%# Eval("idEstablishment")%>">
-                        <section class="establishment-info card-body p-4">
-                            <h4><%# Eval("establishmentName") %></h4>
-                            <p class="m-0">Domicilio: <%# Eval("address") %></p>
-                            <p class="m-0">Teléfono: <%# Eval("phone") %></p>
-                            <p class="m-0">Email: <%# Eval("email") %></p>
-                        </section>
-                        <section class="d-flex align-items-center me-4">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpudfgo73PdT_gISV6TWn9i5mhcx-26ZXxn_4Oh5Qr03jwKy0_jeBwlgnh50b4IFZoF7M&usqp=CAU"
-                                alt="Imagen Establecimiento"
-                                class="img-fluid"
-                                style="width: 100px; height: 100px;" />
-                        </section>
-                        <section class="btn-group-vertical" role="group">
-                            <asp:Button runat="server" ID="ButtonDelete" Text="Eliminar" CssClass="btn btn btn-outline-danger"
-                                CommandName="Delete"
-                                CommandArgument='<%# Eval("idEstablishment") %>'
-                                OnCommand="Button_Command" />
-
-                            <asp:Button runat="server" ID="ButtonModificate" Text="Modificar" CssClass="btn btn btn-outline-primary"
-                                CommandName="Modify"
-                                CommandArgument='<%# Eval("idEstablishment") %>'
-                                OnCommand="Button_Command" />
-                        </section>
-                    </article>
-                </ItemTemplate>
-            </asp:Repeater>
+        <section class="container-content d-flex flex-column justify-content-center align-items-center overflow-auto">
+            <div class="container-establishment w-100 h-100 position-relative d-flex flex-column">
+                <asp:Repeater runat="server" ID="RepeaterEstablishments">
+                    <ItemTemplate>
+                        <article class="item-establishment m-2 d-flex" id="<%# Eval("idEstablishment")%>">
+                            <section class="establishment-info card-body p-2">
+                                <h4><%# Eval("establishmentName") %></h4>
+                                <p class="m-0"><strong>Domicilio:</strong>  <%# Eval("address") %></p>
+                                <p class="m-0"><strong>Teléfono:</strong> <%# Eval("phone") %></p>
+                                <p class="m-0"><strong>Email:</strong> <%# Eval("email") %></p>
+                            </section>
+                            <section class="d-flex align-items-center me-4">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpudfgo73PdT_gISV6TWn9i5mhcx-26ZXxn_4Oh5Qr03jwKy0_jeBwlgnh50b4IFZoF7M&usqp=CAU"
+                                    alt="Imagen Establecimiento"
+                                    class="img-fluid"
+                                    style="width: 100px; height: 100px;" />
+                            </section>
+                            <section class="btn-group-vertical" role="group">
+                                <input type="button" id="ButtonDelete" class="btn btn btn-outline-danger"
+                                    onclick="showConfirmationBox('<%# Eval("idEstablishment") %>')" value="Eliminar" />
+                                <asp:Button runat="server" ID="ButtonModificate" Text="Modificar" CssClass="btn btn btn-outline-primary"
+                                    CommandName="Modify"
+                                    CommandArgument='<%# Eval("idEstablishment") %>'
+                                    OnCommand="Button_Command" />
+                            </section>
+                        </article>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+            <div class="confirmation-box w-25 h-25 bg-light position-absolute align-self-center mx-auto rounded-3 d-flex flex-column justify-content-center align-items-center border border-2 border-secundary">
+                <p class="text-center">¿Esta seguro que desea eliminar el establecimiento?</p>
+                <section>
+                    <asp:Button runat="server" Text="Si" CssClass="btn btn-outline-danger" ID="ButtonDeleteConfirm" OnClick="ButtonDeleteConfirm_Click" />
+                    <asp:Button runat="server" Text="Cancelar" CssClass="btn btn-outline-primary" OnClientClick="hideConfirmationBox(); return false;" />
+                </section>
+            </div>
         </section>
+
     </form>
 </asp:Content>
