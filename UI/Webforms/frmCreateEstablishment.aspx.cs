@@ -37,11 +37,11 @@ namespace UI.Webforms
             if (ButtonRegister.Text == "Modificar")
             {
                 establishment.Id = int.Parse(Request.QueryString["id"].ToString());
-                if (BLL_Establishment.UpdateEstablishment(establishment)) Server.Transfer("frmEstablishments.aspx");
+                if (BLL_Establishment.UpdateEstablishment(establishment)) Response.Redirect("frmEstablishments.aspx");
             }
             else
             {
-                if (BLL_Establishment.RegisterEstablishment(establishment)) Server.Transfer("frmEstablishments.aspx");
+                if (BLL_Establishment.RegisterEstablishment(establishment)) Response.Redirect("frmEstablishments.aspx");
             }
         }
     }

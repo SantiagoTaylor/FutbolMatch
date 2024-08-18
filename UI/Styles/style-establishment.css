@@ -4,6 +4,7 @@
     background-color: #ffffff;
     border-radius: 10px;
     height: auto;
+    width:98%;
 }
 
 .container-content::-webkit-scrollbar {

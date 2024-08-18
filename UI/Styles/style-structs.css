@@ -11,7 +11,6 @@
 .container-controls {
     width: 25%;
     height: 100%;
-    padding-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;

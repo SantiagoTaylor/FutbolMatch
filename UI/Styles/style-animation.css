@@ -1,6 +1,6 @@
 ﻿
 .blur-in-expand {
-    animation: blur-in-expand 0.4s linear both
+    animation: blur-in-expand 0.3s linear both
 }
 
 @keyframes blur-in-expand {
@@ -18,7 +18,7 @@
 }
 
 .blur-out-contract {
-    animation: blur-out-contract 0.4s linear both
+    animation: blur-out-contract 0.3s linear both
 }
 
 @keyframes blur-out-contract {
@@ -33,3 +33,12 @@
         opacity: 0
     }
 }
+
+.disenable-container {
+    pointer-events: none;
+    transition: filter 0.5s ease;
+    filter:blur(5px);
+}
+
+
+

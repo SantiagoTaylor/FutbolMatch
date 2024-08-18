@@ -35,10 +35,6 @@ namespace UI.Webforms
             {
                 Response.Redirect($"frmCreateEstablishment.aspx?id={e.CommandArgument.ToString()}");
             }
-            if (e.CommandName == "Delete")
-            {
-                Session["SelectedEstablishmentId"] = e.CommandArgument.ToString();
-            }
         }
 
         protected void ButtonRegisterEstablishment_Click(object sender, EventArgs e)
