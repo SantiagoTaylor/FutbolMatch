@@ -6,6 +6,6 @@
     <asp:Label ID="prueba" runat="server" Text="Label"></asp:Label>
     <asp:Label ID="LabelOnlineUsers" runat="server" Text=""></asp:Label>
     <form id="form1" runat="server">
-        <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Cerrar sesión" />
+        <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Cerrar sesión" CssClass="btn btn-light"/>
     </form>
 </asp:Content>

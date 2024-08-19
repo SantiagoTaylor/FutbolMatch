@@ -4,8 +4,19 @@
     background-color: #ffffff;
     border-radius: 10px;
     height: auto;
-    width:98%;
+    width: 96%;
+    cursor: pointer;
 }
+
+    .item-establishment:hover {
+        transform: scale(1.02);
+        background-color: #dbdbdb;
+    }
+
+    .item-establishment:active {
+        transform: none;
+        background-color: #b1b1b1;
+    }
 
 .container-content::-webkit-scrollbar {
     width: 7px;

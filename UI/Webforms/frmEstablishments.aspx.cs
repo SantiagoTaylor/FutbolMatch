@@ -5,9 +5,15 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
+using System.Web.Services;
 using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Newtonsoft.Json;
+using System.Web.Script.Services;
+using BE;
+using System.Web.Script.Serialization;
 
 namespace UI.Webforms
 {
@@ -24,9 +30,16 @@ namespace UI.Webforms
 
         private void LoadEstablishments()
         {
-
             RepeaterEstablishments.DataSource = BLL_Establishment.GetEstablishments();
             RepeaterEstablishments.DataBind();
+        }
+
+        //Endpoint Prueba
+        [WebMethod]
+        public static string GetDataEstablishment(string a)
+        {
+            var est = BLL_Establishment.GetEstablishment(a);
+            return JsonConvert.SerializeObject(est);
         }
 
         protected void Button_Command(object sender, CommandEventArgs e)

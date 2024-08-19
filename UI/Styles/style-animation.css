@@ -1,6 +1,6 @@
 ﻿
 .blur-in-expand {
-    animation: blur-in-expand 0.3s linear both
+    animation: blur-in-expand 0.3s linear both;
 }
 
 @keyframes blur-in-expand {

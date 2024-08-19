@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="../Styles/style-reserves.css">
+    
 
     <script type="text/javascript">
         window.onload = function () {
