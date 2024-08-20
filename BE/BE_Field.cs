@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,14 @@ namespace BE
 
         public BE_Field(string fieldName, int size, string floorType, int establishmentID)
         {
+            _fieldName = fieldName;
+            _size = size;
+            _floorType = floorType;
+            _establishmentID = establishmentID;
+        }
+        public BE_Field(int id, string fieldName, int size, string floorType, int establishmentID)
+        {
+            _fieldID = id;
             _fieldName = fieldName;
             _size = size;
             _floorType = floorType;

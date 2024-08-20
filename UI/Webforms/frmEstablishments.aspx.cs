@@ -40,7 +40,7 @@ namespace UI.Webforms
         public static string GetDataEstablishment(string a)
         {
             var est = BLL_Establishment.GetEstablishment(a);
-
+            est.Id = int.Parse(a);
             est.Employees = BLL_Establishment.GetEstablishmentUsers(int.Parse(a)).Rows.Cast<DataRow>()
                 .Select(row => new BE_User
                 {
@@ -58,6 +58,7 @@ namespace UI.Webforms
 
             est.Fields = BLL_Field.GetEstablishmentFields(int.Parse(a)).Rows.Cast<DataRow>()
                 .Select(row => new BE_Field(
+                    int.Parse(row["ID"].ToString()),
                     row["Nombre"].ToString(),
                     int.Parse(row["Tamaño"].ToString()), 
                     row["Piso"].ToString(), 
@@ -84,7 +85,6 @@ namespace UI.Webforms
         {
             BLL_Establishment.DeleteEstablishment(HiddenFieldEstablishmentID.Value);
             Response.Redirect(Request.RawUrl);
-
         }
     }
 }

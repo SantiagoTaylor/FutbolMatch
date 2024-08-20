@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmEstablishments.aspx.cs" MasterPageFile="~/Webforms/masterPage.Master" Inherits="UI.Webforms.frmEstablishments" EnableEventValidation="false" Debug="true" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="/Styles/style-structs.css">
     <link rel="stylesheet" href="../Styles/style-establishment.css">
@@ -15,36 +14,21 @@
 
             confirmBox.style.visibility = "hidden";
 
-            function showConfirmationBox(id) {
-                document.getElementById('<%= HiddenFieldEstablishmentID.ClientID %>').value = id;
+            function showElement(e, id) {
+                if (id != null) {
+                    document.getElementById('<%= HiddenFieldEstablishmentID.ClientID %>').value = id;
+                }
                 estalbishments.classList.add("disenable-container");
-                confirmBox.style.visibility = 'visible';
-                confirmBox.classList.remove("blur-out-contract");
-                confirmBox.classList.add("blur-in-expand");
+                e.style.visibility = 'visible';
+                e.classList.remove("blur-out-contract");
+                e.classList.add("blur-in-expand");
             }
 
-            function hideConfirmationBox() {
+            function hideElement(e) {
                 estalbishments.classList.remove("disenable-container");
-                confirmBox.classList.remove("blur-in-expand");
-                confirmBox.classList.add("blur-out-contract");
-
-                hideElementAfterTimeout(confirmBox);
-            }
-
-            function showDestailsEstablishment(e) {
-                estalbishments.classList.add("disenable-container");
-                detailsEstablishment.style.visibility = 'visible';
-                detailsEstablishment.classList.remove("blur-out-contract");
-                detailsEstablishment.classList.add("blur-in-expand");
-
-            }
-
-            function hideDestailsEstablishment() {
-                estalbishments.classList.remove("disenable-container");
-                detailsEstablishment.classList.remove("blur-in-expand");
-                detailsEstablishment.classList.add("blur-out-contract");
-
-                hideElementAfterTimeout(detailsEstablishment);
+                e.classList.remove("blur-in-expand");
+                e.classList.add("blur-out-contract");
+                hideElementAfterTimeout(e);
             }
 
             function hideElementAfterTimeout(e) {
@@ -54,31 +38,27 @@
             }
 
             function getDataEst(x) {
-
                 var dataId = x.getAttribute('data-id');
                 PageMethods.GetDataEstablishment(dataId, onsuccess, onfailed);
                 function onsuccess(result) {
                     console.clear();
                     //console.log(result);
-                    var obj = JSON.parse(result); 
-                    console.log(obj); 
-                    /*
-                    document.querySelector("#establishment-name").innerHTML = result.Name;
-                    document.querySelector("#establishment-phone").innerHTML = result.Phone;
-                    document.querySelector("#establishment-email").innerHTML = result.Address;
-                    document.querySelector("#establishment-address").innerHTML = result.Email;
-                    document.querySelector("#establishment-owner").innerHTML = result.Email;*/
+                    var obj = JSON.parse(result);
+                    console.log(obj);
+                    $("#establishment-name").text(obj.Name);
+                    $("#establishment-phone").text(obj.Phone);
+                    $("#establishment-email").text(obj.Address);
+                    $("#establishment-address").text(obj.Email);
+                    $("#establishment-owner").text(/*result.Owner*/" Nombre del Dueño");
                 }
                 function onfailed(result) {
                     alert("Error");
                 }
             }
 
-            window.showConfirmationBox = showConfirmationBox;
-            window.hideConfirmationBox = hideConfirmationBox;
+            window.showElement = showElement;
+            window.hideElement = hideElement;
 
-            window.showDestailsEstablishment = showDestailsEstablishment;
-            window.hideDestailsEstablishment = hideDestailsEstablishment;
             window.getDataEst = getDataEst;
         });
 
@@ -97,8 +77,8 @@
         <section class="container-content d-flex flex-column justify-content-center align-items-center overflow-auto">
             <div class="container-establishment w-100 h-100 position-relative d-flex flex-column align-items-center">
                 <asp:Repeater runat="server" ID="RepeaterEstablishments">
-                    <ItemTemplate>
-                        <article class="item-establishment m-2 d-flex" data-id="<%# Eval("idEstablishment")%>" onclick="showDestailsEstablishment(this); getDataEst(this); return false;">
+                    <itemtemplate>
+                        <article class="item-establishment m-2 d-flex" data-id="<%# Eval("idEstablishment")%>" onclick="showElement(document.querySelector('.container-details-establishment')); getDataEst(this); return false;">
                             <section class="establishment-info card-body p-2 ps-4">
                                 <h4><%# Eval("establishmentName") %></h4>
                                 <p class="m-0"><strong>Domicilio:</strong>  <%# Eval("address") %></p>
@@ -113,28 +93,28 @@
                             </section>
                             <section class="btn-group-vertical" role="group">
                                 <input type="button" id="ButtonDelete" class="btn btn btn-outline-danger"
-                                    onclick="showConfirmationBox('<%# Eval("idEstablishment") %>'); event.stopPropagation();" value="Eliminar" />
+                                    onclick="showElement(document.querySelector('.confirmation-box'), '<%# Eval("idEstablishment") %>'); event.stopPropagation();" value="Eliminar" />
                                 <asp:Button runat="server" ID="ButtonModificate" Text="Modificar" CssClass="btn btn btn-outline-primary"
                                     CommandName="Modify"
                                     CommandArgument='<%# Eval("idEstablishment") %>'
                                     OnCommand="Button_Command" />
                             </section>
                         </article>
-                    </ItemTemplate>
+                    </itemtemplate>
                 </asp:Repeater>
             </div>
             <div class="confirmation-box w-25 h-25 bg-light position-absolute align-self-center mx-auto rounded-3 d-flex flex-column justify-content-center align-items-center border border-2 border-secundary">
                 <p class="text-center">¿Esta seguro que desea eliminar el establecimiento?</p>
                 <section>
-                    <asp:Button runat="server" Text="Si" CssClass="btn btn-outline-danger" ID="ButtonDeleteConfirm" OnClick="ButtonDeleteConfirm_Click" />
-                    <asp:Button runat="server" Text="Cancelar" CssClass="btn btn-outline-primary" OnClientClick="hideConfirmationBox(); return false;" />
+                    <asp:Button runat="server" Text="Si" CssClass="btn btn-outline-danger" ID="ButtonDeleteConfirm" OnClick="ButtonDeleteConfirm_Click"/>
+                    <asp:Button runat="server" Text="Cancelar" CssClass="btn btn-outline-primary" OnClientClick="hideElement(document.querySelector('.confirmation-box')); return false;" />
                 </section>
             </div>
             <div class="container-details-establishment container w-75 h-100 bg-light position-absolute border border-2 border-secundary" style="visibility: hidden;">
                 <!-- Datos del estableciemitno : canchas dueño tipo empleados-->
                 <section class="row">
                     <article class="col-auto">
-                        <button class="btn btn-light mt-3" onclick="hideDestailsEstablishment(); return false;">
+                        <button class="btn btn-light mt-3" onclick="hideElement(document.querySelector('.container-details-establishment')); return false;">
                             <i class="bi bi-arrow-left fs-3 "></i>
                         </button>
 
