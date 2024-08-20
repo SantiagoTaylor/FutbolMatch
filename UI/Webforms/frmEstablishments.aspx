@@ -58,13 +58,16 @@
                 var dataId = x.getAttribute('data-id');
                 PageMethods.GetDataEstablishment(dataId, onsuccess, onfailed);
                 function onsuccess(result) {
-                    result = JSON.parse(result)
-                    console.log(result);
+                    console.clear();
+                    //console.log(result);
+                    var obj = JSON.parse(result); 
+                    console.log(obj); 
+                    /*
                     document.querySelector("#establishment-name").innerHTML = result.Name;
                     document.querySelector("#establishment-phone").innerHTML = result.Phone;
                     document.querySelector("#establishment-email").innerHTML = result.Address;
                     document.querySelector("#establishment-address").innerHTML = result.Email;
-                    document.querySelector("#establishment-owner").innerHTML = result.Email;
+                    document.querySelector("#establishment-owner").innerHTML = result.Email;*/
                 }
                 function onfailed(result) {
                     alert("Error");
@@ -131,7 +134,7 @@
                 <!-- Datos del estableciemitno : canchas dueño tipo empleados-->
                 <section class="row">
                     <article class="col-auto">
-                        <button class="btn btn-secondary mt-3" onclick="hideDestailsEstablishment(); return false;">
+                        <button class="btn btn-light mt-3" onclick="hideDestailsEstablishment(); return false;">
                             <i class="bi bi-arrow-left fs-3 "></i>
                         </button>
 

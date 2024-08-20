@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
+    [Serializable]
     public class BE_User
     {
         private string _name;

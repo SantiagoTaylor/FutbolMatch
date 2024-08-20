@@ -30,6 +30,7 @@ namespace BE
         public string Email { get => email; set => email = value; }
         public string Phone { get => phone; set => phone = value; }
         public string Address { get => address; set => address = value; }
+        public List<BE_User> Employees { get => employees; set => employees = value; }
         public List<BE_Field> Fields { get => fields; set => fields = value; }
     }
 }

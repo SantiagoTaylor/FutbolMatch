@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace BE
 {
+    [Serializable]
     public class BE_Field
     {
+        private int _fieldID;
         private string _fieldName;
         private int _size;
         private string _floorType;
-        private int _fieldID;
         private int _establishmentID;
 
         public string FieldName { get => _fieldName; }
@@ -27,5 +28,6 @@ namespace BE
             _floorType = floorType;
             _establishmentID = establishmentID;
         }
+        public BE_Field() { }
     }
 }

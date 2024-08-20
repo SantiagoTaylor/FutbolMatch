@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using System.Web.Script.Services;
 using BE;
 using System.Web.Script.Serialization;
+using System.Drawing;
 
 namespace UI.Webforms
 {
@@ -39,7 +40,31 @@ namespace UI.Webforms
         public static string GetDataEstablishment(string a)
         {
             var est = BLL_Establishment.GetEstablishment(a);
-            return JsonConvert.SerializeObject(est);
+
+            est.Employees = BLL_Establishment.GetEstablishmentUsers(int.Parse(a)).Rows.Cast<DataRow>()
+                .Select(row => new BE_User
+                {
+                    Username = row["Usuario"].ToString(),
+                    Name = row["Nombre"].ToString(),
+                    Lastname = row["Apellido"].ToString(),
+                    Email = row["Mail"].ToString(),
+                    Phone = row["Telefono"].ToString(),
+                    Role = row["Rol"].ToString(),
+                    Language = row["Idioma"].ToString(),
+                    Blocked = Convert.ToBoolean(row["Bloqueado"]),
+                    Removed = Convert.ToBoolean(row["Borrado"])
+                })
+                .ToList();
+
+            est.Fields = BLL_Field.GetEstablishmentFields(int.Parse(a)).Rows.Cast<DataRow>()
+                .Select(row => new BE_Field(
+                    row["Nombre"].ToString(),
+                    int.Parse(row["Tamaño"].ToString()), 
+                    row["Piso"].ToString(), 
+                    int.Parse(a)))
+                .ToList();
+
+            return JsonConvert.SerializeObject(est, Formatting.Indented);
         }
 
         protected void Button_Command(object sender, CommandEventArgs e)
