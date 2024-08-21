@@ -7,12 +7,9 @@
 
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
-
-            let confirmBox = document.querySelector('.confirmation-box');
             let estalbishments = document.querySelector('.container-establishment');
-            let detailsEstablishment = document.querySelector('.container-details-establishment');
 
-            confirmBox.style.visibility = "hidden";
+            $(".lds-ring").css("visibility", "hidden");
 
             function showElement(e, id) {
                 if (id != null) {
@@ -37,12 +34,18 @@
                 }, 300);
             }
 
-            function getDataEst(x) {
+            function getDataEst(x, eDetailsEstablishment) {
+                estalbishments.classList.add("disenable-container");
+                $(".lds-ring").css("visibility", "visible");
+
                 var dataId = x.getAttribute('data-id');
                 PageMethods.GetDataEstablishment(dataId, onsuccess, onfailed);
+
                 function onsuccess(result) {
+                    $(".lds-ring").css("visibility", "hidden");
+
+                    showElement(eDetailsEstablishment);
                     console.clear();
-                    //console.log(result);
                     var obj = JSON.parse(result);
                     console.log(obj);
                     $("#establishment-name").text(obj.Name);
@@ -58,7 +61,6 @@
 
             window.showElement = showElement;
             window.hideElement = hideElement;
-
             window.getDataEst = getDataEst;
         });
 
@@ -75,10 +77,18 @@
         </section>
 
         <section class="container-content d-flex flex-column justify-content-center align-items-center overflow-auto">
+
+            <div class="lds-ring position-absolute align-self-center mx-auto d-flex flex-column justify-content-center align-items-center z-3">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
             <div class="container-establishment w-100 h-100 position-relative d-flex flex-column align-items-center">
                 <asp:Repeater runat="server" ID="RepeaterEstablishments">
-                    <itemtemplate>
-                        <article class="item-establishment m-2 d-flex" data-id="<%# Eval("idEstablishment")%>" onclick="showElement(document.querySelector('.container-details-establishment')); getDataEst(this); return false;">
+                    <ItemTemplate>
+                        <article class="item-establishment m-2 d-flex" data-id="<%# Eval("idEstablishment")%>" onclick="getDataEst(this,document.querySelector('.container-details-establishment')); return false;">
                             <section class="establishment-info card-body p-2 ps-4">
                                 <h4><%# Eval("establishmentName") %></h4>
                                 <p class="m-0"><strong>Domicilio:</strong>  <%# Eval("address") %></p>
@@ -100,13 +110,13 @@
                                     OnCommand="Button_Command" />
                             </section>
                         </article>
-                    </itemtemplate>
+                    </ItemTemplate>
                 </asp:Repeater>
             </div>
-            <div class="confirmation-box w-25 h-25 bg-light position-absolute align-self-center mx-auto rounded-3 d-flex flex-column justify-content-center align-items-center border border-2 border-secundary">
+            <div class="confirmation-box w-25 h-25 bg-light position-absolute align-self-center mx-auto rounded-3 d-flex flex-column justify-content-center align-items-center border border-2 border-secundary" style="visibility: hidden;">
                 <p class="text-center">¿Esta seguro que desea eliminar el establecimiento?</p>
                 <section>
-                    <asp:Button runat="server" Text="Si" CssClass="btn btn-outline-danger" ID="ButtonDeleteConfirm" OnClick="ButtonDeleteConfirm_Click"/>
+                    <asp:Button runat="server" Text="Si" CssClass="btn btn-outline-danger" ID="ButtonDeleteConfirm" OnClick="ButtonDeleteConfirm_Click" />
                     <asp:Button runat="server" Text="Cancelar" CssClass="btn btn-outline-primary" OnClientClick="hideElement(document.querySelector('.confirmation-box')); return false;" />
                 </section>
             </div>
