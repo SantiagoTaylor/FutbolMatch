@@ -20,7 +20,6 @@
                     document.querySelector('.container-data').innerHTML = "";
                     document.getElementById('droplist').value = "users";
                     showData(document.getElementById('droplist'));
-                    
                 }
                 estalbishments.classList.add("disenable-container");
                 e.style.visibility = 'visible';
@@ -66,63 +65,82 @@
             }
 
             function showData(e) {
-                document.querySelector('.container-data').innerHTML = "";
+                const container = $('.container-data');
+                container.empty();
                 const sltValue = e.value;
                 let objs = "";
-                if (sltValue === "users") {
-                    dataCurrentEst.Employees.forEach((emp) => {
-                        const elEmp = ` 
-                        <article class="col-md-4 mt-1 fade-in-slide">
-                             <div class="card p-0">
-                                 <div class="row g-0">
-                                     <div class="col-md-4">
-                                         <img class="bd-placeholder-img img-fluid rounded-start" src="https://media.licdn.com/dms/image/C4D03AQEH5EGs0OkeTw/profile-displayphoto-shrink_400_400/0/1544222558401?e=2147483647&v=beta&t=9J2nsw37uSb5_1q6yQ2E5Dlpzf4cr1j00uh___veQ9k"
-                                             alt="Imagen" style="width: 100%; height: 100%; object-fit: cover;">
-                                     </div>
-                                     <div class="col-md-8">
-                                         <div class="card-body">
-                                             <h5 class="card-title fs-6">${emp.Name} ${emp.Lastname}</h5>
-                                             <div class="d-flex flex-column">
-                                                 <p class="card-text mb-0" style="font-size:.8rem;"><strong>Dni:</strong> 2054237645</p>
-                                                 <p class="card-text mb-0" style="font-size:.8rem;"><strong>Telefono:</strong> ${emp.Phone}</p>
-                                                 <p class="card-text mb-0" style="font-size:.8rem;"><strong>Email:</strong> ${emp.Email}</p>
-                                                 <p class="card-text mb-0" style="font-size:.8rem;"><strong>Estado:</strong> ${emp.Blocked}</p>
+                if (sltValue == "users") {
+                    if (dataCurrentEst.Employees.length != 0) {
+                        let status = "", stColor;
+                        dataCurrentEst.Employees.forEach((emp) => {
+                            switch (emp.Blocked) {
+                                case true:
+                                    status = "Bloqueado";
+                                    stColor = "red";
+                                    break;
+                                case false:
+                                    status = "No Bloqueado";
+                                    stColor = "green";
+                                    break;
+                            }
+                            const elEmp = ` 
+                                <article class="col-md-4 mt-1">
+                                     <div class="card p-0">
+                                         <div class="row g-0">
+                                             <div class="col-md-4">
+                                                 <img class="bd-placeholder-img img-fluid rounded-start" src="https://media.licdn.com/dms/image/C4D03AQEH5EGs0OkeTw/profile-displayphoto-shrink_400_400/0/1544222558401?e=2147483647&v=beta&t=9J2nsw37uSb5_1q6yQ2E5Dlpzf4cr1j00uh___veQ9k"
+                                                     alt="Imagen" style="width: 100%; height: 100%; object-fit: cover;">
                                              </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </article>`;
-                        objs += elEmp;
-                    });
-
-                } else if (sltValue === "fields") {
-                    dataCurrentEst.Fields.forEach((field) => {
-                        const elField = ` 
-                            <article class="col-md-4 mt-1 fade-in-slide">
-                                 <div class="card p-0">
-                                     <div class="row g-0">
-                                         <div class="col-md-4">
-                                             <img class="bd-placeholder-img img-fluid rounded-start" src="https://www.hoysejuega.com/uploads/Modules/ImagenesComplejos/800_600_papi-futbol-pichus.jpg"
-                                                 alt="Imagen" style="width: 100%; height: 100%; object-fit: cover;">
-                                         </div>
-                                         <div class="col-md-8">
-                                             <div class="card-body">
-                                                 <h5 class="card-title fs-6">${field.FieldName}</h5>
-                                                 <div class="d-flex flex-column">
-                                                     <p class="card-text mb-0" style="font-size:.8rem;"><strong>Tipo:</strong> ${field.FloorType}</p>
-                                                     <p class="card-text mb-0" style="font-size:.8rem;"><strong>Tamaño:</strong> ${field.Size}</p>
+                                             <div class="col-md-8">
+                                                 <div class="card-body">
+                                                     <h5 class="card-title fs-6">${emp.Name} ${emp.Lastname}</h5>
+                                                     <div class="d-flex flex-column">
+                                                         <p class="card-text mb-0" style="font-size:.8rem; white-space: nowrap;"><strong>Dni:</strong> 2054237645</p>
+                                                         <p class="card-text mb-0" style="font-size:.8rem; white-space: nowrap;"><strong>Telefono:</strong> ${emp.Phone}</p>
+                                                         <p class="card-text mb-0" style="font-size:.8rem; white-space: nowrap;"><strong>Email:</strong> ${emp.Email}</p>
+                                                         <p class="card-text mb-0" style="font-size:.8rem; white-space: nowrap;"><strong>Estado:</strong><span style="color:${stColor};"> ${status}</span></p>
+                                                     </div>
                                                  </div>
                                              </div>
                                          </div>
                                      </div>
-                                 </div>
-                             </article>`;
-                        objs += elField;
-                    });
-
+                                 </article>`;
+                            objs += elEmp;
+                        });
+                    } else {
+                        container.append(`<p class="text-center">No hay Empleados registrados</p>`);
+                    }
+                } else if (sltValue == "fields") {
+                    if (dataCurrentEst.Fields.length != 0) {
+                        dataCurrentEst.Fields.forEach((field) => {
+                            const elField = ` 
+                                <article class="col-md-4 mt-1">
+                                     <div class="card p-0">
+                                         <div class="row g-0">
+                                             <div class="col-md-4">
+                                                 <img class="bd-placeholder-img img-fluid rounded-start" src="https://i.pinimg.com/originals/9c/76/c6/9c76c63586c831cb638e9de05f3f0748.jpg"
+                                                     alt="Imagen" style="width: 100%; height: 100%; object-fit: cover;">
+                                             </div>
+                                             <div class="col-md-8">
+                                                 <div class="card-body">
+                                                     <h5 class="card-title fs-6">${field.FieldName}</h5>
+                                                     <div class="d-flex flex-column">
+                                                         <p class="card-text mb-0" style="font-size:.8rem; white-space: nowrap;"><strong>Tipo:</strong> ${field.FloorType}</p>
+                                                         <p class="card-text mb-0" style="font-size:.8rem; white-space: nowrap;"><strong>Tamaño:</strong> ${field.Size}</p>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </article>`;
+                            objs += elField;
+                        });
+                    }
+                    else {
+                        container.append(`<p class="text-center">No hay Canchas registradas</p>`);
+                    }
                 }
-                $(".container-data").append(objs);
+                container.append(objs);
             }
 
             window.showElement = showElement;
@@ -155,7 +173,7 @@
 
             <div class="container-establishment w-100 h-100 position-relative d-flex flex-column align-items-center">
                 <asp:Repeater runat="server" ID="RepeaterEstablishments">
-                    <ItemTemplate>
+                    <itemtemplate>
                         <article class="item-establishment m-2 d-flex" data-id="<%# Eval("idEstablishment")%>" onclick="getDataEst(this,document.querySelector('.container-details-establishment')); return false;">
                             <section class="establishment-info card-body p-2 ps-4">
                                 <h4><%# Eval("establishmentName") %></h4>
@@ -178,7 +196,7 @@
                                     OnCommand="Button_Command" />
                             </section>
                         </article>
-                    </ItemTemplate>
+                    </itemtemplate>
                 </asp:Repeater>
             </div>
 
@@ -190,7 +208,7 @@
                 </section>
             </div>
 
-            <div class="container-details-establishment w-75 h-100 bg-light position-absolute">
+            <div class="container-details-establishment w-75 h-100 position-absolute border border-1 border-dark-subtle bg-light overflow-hidden" style="user-select: text;">
                 <!-- Datos del establecimiento -->
                 <header class="row mt-2" style="height: 15%; width: 100%;">
                     <article class="col-1">
@@ -219,29 +237,7 @@
 
                     <section class="w-100 ps-3">
                         <div class="container-data row">
-                            <!-- Tarjeta -->
-                            <!--
-                            <article class="col-md-4 mt-1">
-                                <div class="card p-0">
-                                    <div class="row g-0">
-                                        <div class="col-md-4">
-                                            <img class="bd-placeholder-img img-fluid rounded-start" src="https://media.licdn.com/dms/image/C4D03AQEH5EGs0OkeTw/profile-displayphoto-shrink_400_400/0/1544222558401?e=2147483647&v=beta&t=9J2nsw37uSb5_1q6yQ2E5Dlpzf4cr1j00uh___veQ9k"
-                                                alt="Imagen" style="width: 100%; height: 100%; object-fit: cover;">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Lucas Stockel</h5>
-                                                <div class="d-flex flex-column">
-                                                    <p class="card-text mb-0">Dni:</p>
-                                                    <p class="card-text mb-0">Teléfono:</p>
-                                                    <p class="card-text mb-0">Email:</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            -->
+                            <!-- Tarjetas -->
                         </div>
                     </section>
                 </main>
