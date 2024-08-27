@@ -18,6 +18,21 @@
         background-color: #b1b1b1;
     }
 
+.item-data {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: block;
+}
+
+    .item-data:hover {
+        transform: translateY(-.3rem);
+        box-shadow:0px 3px 5px #9f9e9e;
+    }
+
+    .item-data:active {
+        box-shadow:none;
+    }
+
 .container-content::-webkit-scrollbar {
     width: 7px;
 }

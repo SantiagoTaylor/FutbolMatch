@@ -112,20 +112,20 @@ namespace DAL
             DAL_DB_Connection connection = new DAL_DB_Connection();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(@"SELECT 
-		u.username AS 'Usuario',
-		u.name AS 'Nombre',
-		u.lastname AS 'Apellido',
-		u.email AS 'Mail',
-		u.phone AS 'Telefono',
-		r.roleName AS 'Rol',
-		l.languageName AS 'Idioma',
-        u.blocked AS 'Bloqueado',
-        u.removed AS 'Borrado'
-	FROM tb_User u
-	INNER JOIN tb_Role r ON u.role = r.idRole
-	INNER JOIN tb_Language l ON u.language = l.idLanguage
-    INNER JOIN tb_EstablishmentUser eu ON eu.username = u.username
-    WHERE eu.idEstablishment = @idEstablishment", connection.Connection);
+		            u.username AS 'Usuario',
+		            u.name AS 'Nombre',
+		            u.lastname AS 'Apellido',
+		            u.email AS 'Mail',
+		            u.phone AS 'Telefono',
+		            r.roleName AS 'Rol',
+		            l.languageName AS 'Idioma',
+                    u.blocked AS 'Bloqueado',
+                    u.removed AS 'Borrado'
+	            FROM tb_User u
+	            INNER JOIN tb_Role r ON u.role = r.idRole
+	            INNER JOIN tb_Language l ON u.language = l.idLanguage
+                INNER JOIN tb_EstablishmentUser eu ON eu.username = u.username
+                WHERE eu.idEstablishment = @idEstablishment", connection.Connection);
             adapter.SelectCommand.Parameters.AddWithValue("@idEstablishment", idEstablishment);
             adapter.SelectCommand.CommandType = CommandType.Text;
             adapter.Fill(table);

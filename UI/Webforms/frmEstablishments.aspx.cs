@@ -35,7 +35,7 @@ namespace UI.Webforms
             RepeaterEstablishments.DataBind();
         }
 
-        //Endpoint Prueba
+        //Endpoint
         [WebMethod]
         public static string GetDataEstablishment(string a)
         {

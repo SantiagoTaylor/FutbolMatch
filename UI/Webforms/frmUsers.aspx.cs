@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using SERVICES;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -65,18 +66,18 @@ namespace UI.Webforms
         {
             LinkButton btn = (LinkButton)sender;
             string username = btn.CommandArgument;
-            
+
             Response.Redirect($"frmRegister.aspx?username={username}");
         }
         protected void ButtonDelete_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
             string username = btn.CommandArgument;
-            BLL_User.DeleteUser(username);
+            if (BLL_User.DeleteUser(username)) WebformMessage.ShowMessage($"El usuario {username} se elimino correctamente", this);
             UpdateGV();
-
         }
-        private void UpdateGV() {
+        private void UpdateGV()
+        {
             gvUsers.DataSource = BLL_User.GetUsers();
             gvUsers.DataBind();
         }
