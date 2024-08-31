@@ -166,9 +166,15 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
         <asp:HiddenField runat="server" ID="HiddenFieldEstablishmentID" />
 
-        <section class="container-controls d-flex justify-content-center align-items-center">
+        <section class="container-controls d-flex justify-content-center align-items-center flex-column">
             <section class="container-btn">
                 <asp:Button ID="ButtonRegisterEstablishment" CssClass="btn btn-light w-auto" runat="server" OnClick="ButtonRegisterEstablishment_Click" Text="Registrar Establecimiento" />
+            </section>
+            <br />
+            <br />
+            <section class="w-75 flex justify-content-center align-items-center">
+                <label for="form-control">Nombre del Establicimiento</label>
+                <asp:TextBox runat="server" ID="TextBoxNameEstablishment" CssClass="form-control" OnTextChanged="TextBoxNameEstablishment_TextChanged" AutoPostBack="true"></asp:TextBox>
             </section>
         </section>
 
@@ -228,10 +234,10 @@
                     </article>
                     <article class="col-11">
                         <h4 id="establishment-name">Nombre establecimiento</h4>
-                        <p class="m-0" id="establishment-address">1</p>
-                        <p class="m-0" id="establishment-phone">2</p>
-                        <p class="m-0" id="establishment-email">3</p>
-                        <p class="m-0" id="establishment-owner">4</p>
+                        <p class="m-0" id="establishment-address"></p>
+                        <p class="m-0" id="establishment-phone"></p>
+                        <p class="m-0" id="establishment-email"></p>
+                        <p class="m-0" id="establishment-owner"></p>
                     </article>
                 </header>
 

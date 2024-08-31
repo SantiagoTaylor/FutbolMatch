@@ -60,8 +60,8 @@ namespace UI.Webforms
                 .Select(row => new BE_Field(
                     int.Parse(row["ID"].ToString()),
                     row["Nombre"].ToString(),
-                    int.Parse(row["Tamaño"].ToString()), 
-                    row["Piso"].ToString(), 
+                    int.Parse(row["Tamaño"].ToString()),
+                    row["Piso"].ToString(),
                     int.Parse(a)))
                 .ToList();
 
@@ -85,6 +85,29 @@ namespace UI.Webforms
         {
             BLL_Establishment.DeleteEstablishment(HiddenFieldEstablishmentID.Value);
             Response.Redirect(Request.RawUrl);
+        }
+
+        protected void TextBoxNameEstablishment_TextChanged(object sender, EventArgs e)
+        {
+            /*
+            RepeaterEstablishments.DataSource = null;
+            RepeaterEstablishments.DataBind();
+            RepeaterEstablishments.DataSource = BLL_Establishment.GetEstablishments()
+                .AsEnumerable().Where(row =>
+                row.Field<string>("establishmentName").ToLower().Contains(TextBoxNameEstablishment.Text.ToLower().ToString()));
+            RepeaterEstablishments.DataBind();*/
+            var details = BLL_Establishment.GetEstablishments()
+                .AsEnumerable().Where(row =>
+                row.Field<string>("establishmentName").ToLower().Contains(TextBoxNameEstablishment.Text.ToLower().ToString()));
+
+            DataTable newTable = details.First().Table.Clone();
+            foreach (DataRow r in details) {
+                newTable.ImportRow(r);
+            }
+            RepeaterEstablishments.DataSource = null;
+            RepeaterEstablishments.DataBind();
+            RepeaterEstablishments.DataSource = newTable;
+            RepeaterEstablishments.DataBind();
         }
     }
 }
