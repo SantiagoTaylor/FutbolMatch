@@ -4,6 +4,7 @@ using SERVICES;
 using System;
 using System.Web;
 using System.Web.Security;
+using System.Web.Services;
 
 namespace UI.Webforms
 {
@@ -30,7 +31,7 @@ namespace UI.Webforms
 			{
 			}
         }
-
+        
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             BLL_Login.Logout();
