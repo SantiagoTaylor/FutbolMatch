@@ -25,21 +25,21 @@
                 <img src="/Images/logotype.png" alt="logotype" onclick="window.location.href = 'index.aspx'" />
             </div>
             <div runat="server" id="nav__menu" class="nav__menu">
-                <div class="nav__item"><a href="frmMyAccount.aspx">Mi cuenta</a></div>
+                <div class="nav__item"><a href="frmMyAccount.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mi cuenta</a></div>
 
                 <section runat="server" id="nav__user__admin" class="nav__user__admin" visible="False">
                     <div class="nav__item"><a href="frmReserveField.aspx">Reservas</a></div>
                     <section runat="server" id="nav__admin" class="nav__admin" visible="False">
-                        <div class="nav__item"><a href="frmMyEstablishment.aspx">Mi Establecimiento</a></div>
-                        <div class="nav__item"><a href="frmMyEmployees.aspx">Mis empleados</a></div>
-                        <div class="nav__item"><a href="frmMyFields.aspx">Mis canchas</a></div>
+                        <div class="nav__item"><a href="frmMyEstablishment.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mi Establecimiento</a></div>
+                        <div class="nav__item"><a href="frmMyEmployees.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mis empleados</a></div>
+                        <div class="nav__item"><a href="frmMyFields.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mis canchas</a></div>
                     </section>
                 </section>
                 <section runat="server" id="nav__webmaster" class="nav__webmaster" visible="False">
-                    <div class="nav__item"><a href="frmUsers.aspx">Usuarios</a></div>
-                    <div class="nav__item"><a href="frmEstablishments.aspx">Establecimientos</a></div>
-                    <div class="nav__item"><a href="frmEventLog.aspx">Bitacora</a></div>
-                    <div class="nav__item"><a href="frmDatabaseIntegrity.aspx">Backup y Restore</a></div>
+                    <div class="nav__item"><a href="frmUsers.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Usuarios</a></div>
+                    <div class="nav__item"><a href="frmEstablishments.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Establecimientos</a></div>
+                    <div class="nav__item"><a href="frmEventLog.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Bitacora</a></div>
+                    <div class="nav__item"><a href="frmDatabaseIntegrity.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Backup y Restore</a></div>
                 </section>
 
                 <section class="nav__item">

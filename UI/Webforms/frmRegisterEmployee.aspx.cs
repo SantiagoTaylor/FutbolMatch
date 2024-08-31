@@ -33,6 +33,8 @@ namespace UI.Webforms
                 DropDownListLanguage.SelectedItem.Text);
 
             BLL_User.InsertUser(user);
+            /*ERROR PUEDE HABER QUE UN ADMIN QUIERA REGISTRAR UN EMPLEADO PERO ESE ADMIN TIENE MAS ESTABLECIMIENTOS. 
+             * AGREGAR UN DROPLIST DE LOS ESTABLECIMIENTOS*/
             BLL_Establishment.SetUserEstablishment(user.Username, BLL_Establishment.GetEstablishmentName(SessionManager.GetInstance.User.Username));
         }
         private void LanguageLoad()

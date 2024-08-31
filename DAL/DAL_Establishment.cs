@@ -11,7 +11,7 @@ namespace DAL
 {
     public static class DAL_Establishment
     {
-        public static bool DeleteEstablishment(string id)
+        public static bool DeleteEstablishmentById(string id)
         {
             DAL_DB_Connection con = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();
@@ -34,8 +34,8 @@ namespace DAL
                 con.CloseConnection();
             }
         }
-
-        public static BE_Establishment GetEstablishment(string id)
+        
+        public static BE_Establishment GetEstablishmentById(string id)
         {
             DAL_DB_Connection con = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();
@@ -65,6 +65,7 @@ namespace DAL
             return null;
         }
 
+
         public static string GetEstablishmentName(string username)
         {
             DAL_DB_Connection con = new DAL_DB_Connection();
@@ -74,10 +75,10 @@ namespace DAL
             {
                 command.Connection = con.OpenConnection();
                 command.CommandText = @"
-            SELECT e.establishmentName
-            FROM tb_Establishment e
-            INNER JOIN tb_EstablishmentUser eu ON e.idEstablishment = eu.idEstablishment
-            WHERE eu.username = @p_username";
+                                        SELECT e.establishmentName
+                                        FROM tb_Establishment e
+                                        INNER JOIN tb_EstablishmentUser eu ON e.idEstablishment = eu.idEstablishment
+                                        WHERE eu.username = @p_username";
                 command.Parameters.AddWithValue("@p_username", username);
 
                 object result = command.ExecuteScalar();
@@ -97,7 +98,7 @@ namespace DAL
             }
         }
 
-        public static DataTable GetEstablishments()
+        public static DataTable GetAllEstablishments()
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
             DataTable table = new DataTable();
@@ -106,7 +107,7 @@ namespace DAL
             adapter.Fill(table);
             return table;
         }
-
+        
         public static DataTable GetEstablishmentUsers(int idEstablishment)
         {//cambiar...
             DAL_DB_Connection connection = new DAL_DB_Connection();
@@ -132,16 +133,23 @@ namespace DAL
             return table;
         }
 
-        public static DataTable GetUserEstablishments(BE_User user)
+        public static DataTable GetEstablishmentsByUsername(BE_User user)
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
             DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(@"SELECT e.idEstablishment, e.establishmentName, eu.username FROM tb_EstablishmentUser eu JOIN tb_Establishment e ON e.idEstablishment = eu.idEstablishment WHERE eu.username = @username", connection.Connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(@"SELECT 
+                                                                e.idEstablishment, 
+                                                                e.establishmentName, 
+                                                                eu.username 
+                                                            FROM tb_EstablishmentUser eu 
+                                                            JOIN tb_Establishment e ON e.idEstablishment = eu.idEstablishment   
+                                                            WHERE eu.username = @username", connection.Connection);
             adapter.SelectCommand.Parameters.AddWithValue("username", user.Username);
             adapter.SelectCommand.CommandType = CommandType.Text;
             adapter.Fill(table);
             return table;
         }
+
 
         public static bool RegisterEstablishment(BE_Establishment establishment)
         {
@@ -219,6 +227,25 @@ namespace DAL
             {
                 connection.CloseConnection();
             }
+        }
+
+        public static DataTable GetEstablishmentDetailsByUsername(BE_User user)
+        {
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(@"SELECT 
+                                                                e.idEstablishment, 
+                                                                e.establishmentName, 
+                                                                e.address,
+                                                                e.phone,
+                                                                e.email
+                                                            FROM tb_EstablishmentUser eu 
+                                                            JOIN tb_Establishment e ON e.idEstablishment = eu.idEstablishment   
+                                                            WHERE eu.username = @username", connection.Connection);
+            adapter.SelectCommand.Parameters.AddWithValue("username", user.Username);
+            adapter.SelectCommand.CommandType = CommandType.Text;
+            adapter.Fill(table);
+            return table;
         }
     }
 }

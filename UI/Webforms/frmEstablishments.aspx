@@ -174,7 +174,7 @@
             <br />
             <section class="w-75 flex justify-content-center align-items-center">
                 <label for="form-control">Nombre del Establicimiento</label>
-                <asp:TextBox runat="server" ID="TextBoxNameEstablishment" CssClass="form-control" OnTextChanged="TextBoxNameEstablishment_TextChanged" AutoPostBack="true"></asp:TextBox>
+                <asp:TextBox runat="server" ID="TextBoxNameEstablishment" CssClass="form-control" OnTextChanged="TextBoxNameEstablishment_TextChanged" AutoPostBack="true" AutoComplete="Off"></asp:TextBox>
             </section>
         </section>
 
