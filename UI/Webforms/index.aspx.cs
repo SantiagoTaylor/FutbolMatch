@@ -13,7 +13,8 @@ namespace UI.Webforms
         protected void Page_Load(object sender, EventArgs e)
         {
 			try
-			{
+
+            {
                 if (SessionManager.GetInstance != null)
                 {
                     BE_User user = SessionManager.GetInstance.User;
@@ -30,6 +31,15 @@ namespace UI.Webforms
 			catch (Exception)
 			{
 			}
+
+            if (!IsPostBack)
+            {
+                string eventValue = Request.QueryString["event"];
+                if (eventValue == "logout")
+                {
+                    btnLogout_Click(this, EventArgs.Empty);
+                }
+            }
         }
         
         protected void btnLogout_Click(object sender, EventArgs e)

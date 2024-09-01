@@ -40,6 +40,11 @@ namespace BLL
         {
             return DAL_Establishment.GetEstablishmentsByUsername(user);
         }
+        /// <summary>
+        /// Retorna una lista de los establecimientos que cuenta el ADMIN mas empleados y canchas
+        /// </summary>
+        /// <param name="user">username del Admin logeado</param>
+        /// <returns>Lista de establecimientos mas empleados y canchas</returns>
         public static List<BE_Establishment> GetEstablishmentDetailsByUsername(BE_User user)
         {
             var est = DAL_Establishment.GetEstablishmentDetailsByUsername(user)
