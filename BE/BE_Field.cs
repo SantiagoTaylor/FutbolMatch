@@ -37,6 +37,13 @@ namespace BE
             _floorType = floorType;
             _establishmentID = establishmentID;
         }
+        public BE_Field(DataRow r) {
+            _fieldID = r.Field<int>("ID");
+            _fieldName = r.Field<string>("Nombre");
+            _size = r.Field<int>("Tamaño");
+            _floorType = r.Field<string>("Piso");
+            _establishmentID = 0;//por ahora 0
+        }
         public BE_Field() { }
     }
 }

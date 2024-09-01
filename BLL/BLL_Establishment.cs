@@ -11,34 +11,59 @@ namespace BLL
 {
     public static class BLL_Establishment
     {
-        public static bool DeleteEstablishment(string v)
+        public static bool DeleteEstablishment(string id)
         {
-            return DAL_Establishment.DeleteEstablishment(v);
+            return DAL_Establishment.DeleteEstablishmentById(id);
         }
-
         public static BE_Establishment GetEstablishment(string id)
         {
-            return DAL_Establishment.GetEstablishment(id);
+            return DAL_Establishment.GetEstablishmentById(id);
         }
 
+        
         public static string GetEstablishmentName(string username)
         {
             return DAL_Establishment.GetEstablishmentName(username);
         }
-
+        
         public static DataTable GetEstablishments()
         {
-            return DAL_Establishment.GetEstablishments();
+            return DAL_Establishment.GetAllEstablishments();
         }
-
+        
         public static DataTable GetEstablishmentUsers(int idEstablishment)
         {
             return DAL_Establishment.GetEstablishmentUsers(idEstablishment);
         }
-
+        
         public static DataTable GetUserEstablishments(BE_User user)
         {
-            return DAL_Establishment.GetUserEstablishments(user);
+            return DAL_Establishment.GetEstablishmentsByUsername(user);
+        }
+        /// <summary>
+        /// Retorna una lista de los establecimientos que cuenta el ADMIN mas empleados y canchas
+        /// </summary>
+        /// <param name="user">username del Admin logeado</param>
+        /// <returns>Lista de establecimientos mas empleados y canchas</returns>
+        public static List<BE_Establishment> GetEstablishmentDetailsByUsername(BE_User user)
+        {
+            var est = DAL_Establishment.GetEstablishmentDetailsByUsername(user)
+                     .AsEnumerable()
+                     .Select(r => new BE_Establishment(r))
+                     .ToList();
+            est.ForEach(e =>
+            {
+                e.Employees = DAL_Establishment.GetEstablishmentUsers(e.Id)
+                    .AsEnumerable()
+                    .Select(emp => new BE_User(emp))
+                    .ToList();
+
+                e.Fields = DAL_Field.GetEstablishmentFields(e.Id)
+                    .AsEnumerable()
+                    .Select(field => new BE_Field(field))
+                    .ToList();
+            });
+            return est;
         }
 
         public static bool RegisterEstablishment(BE_Establishment s)

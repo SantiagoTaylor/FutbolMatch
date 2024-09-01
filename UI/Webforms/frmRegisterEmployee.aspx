@@ -7,27 +7,27 @@
     <form id="form1" runat="server">
         <div class="mb-2">
             <label for="TextBoxEmail" class="form-label">Email</label>
-            <asp:TextBox ID="TextBoxEmail" CssClass="form-control" runat="server" TextMode="Email"></asp:TextBox>
+            <asp:TextBox ID="TextBoxEmail" CssClass="form-control" runat="server" TextMode="Email" AutoComplete="Off"></asp:TextBox>
         </div>
         <div class="mb-2">
             <label for="TextBoxUsername" class="form-label">Usuario</label>
-            <asp:TextBox ID="TextBoxUsername" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxUsername" CssClass="form-control" runat="server" AutoComplete="Off"></asp:TextBox>
         </div>
         <div class="mb-2">
             <asp:Label ID="LabelPassword" CssClass="form-label" runat="server" Text="Label">Contraseña</asp:Label>
-            <asp:TextBox ID="TextBoxPassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="TextBoxPassword" CssClass="form-control" runat="server" TextMode="Password" AutoComplete="Off"></asp:TextBox>
         </div>
         <div class="mb-2">
             <label for="TextBoxName" class="form-label">Nombre</label>
-            <asp:TextBox ID="TextBoxName" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxName" CssClass="form-control" runat="server" AutoComplete="Off"></asp:TextBox>
         </div>
         <div class="mb-2">
             <label for="TextBoxLastname" class="form-label">Apellido</label>
-            <asp:TextBox ID="TextBoxLastname" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxLastname" CssClass="form-control" runat="server" AutoComplete="Off"></asp:TextBox>
         </div>
         <div class="mb-2">
             <label for="TextBoxPhone" class="form-label">Teléfono</label>
-            <asp:TextBox ID="TextBoxPhone" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxPhone" CssClass="form-control" runat="server" AutoComplete="Off"></asp:TextBox>
         </div>
 
         <div class="item-input">

@@ -6,15 +6,15 @@
     <form id="form1" runat="server">
         <div class="container">
             <label for="TextBoxEmail" class="form-label">Email</label>
-            <asp:TextBox ID="TextBoxEmail" CssClass="form-control" runat="server" TextMode="Email"></asp:TextBox>
+            <asp:TextBox ID="TextBoxEmail" CssClass="form-control" runat="server" TextMode="Email" AutoComplete="Off"></asp:TextBox>
         </div>
         <div class="container">
             <label for="TextBoxUsername" class="form-label">Usuario</label>
-            <asp:TextBox ID="TextBoxUsername" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxUsername" CssClass="form-control" runat="server" AutoComplete="Off"></asp:TextBox>
         </div>
         <div class="container">
             <asp:Label ID="LabelPassword" CssClass="form-label" runat="server" Text="Label">Contraseña</asp:Label>
-            <asp:TextBox ID="TextBoxPassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="TextBoxPassword" CssClass="form-control" runat="server" TextMode="Password" AutoComplete="Off"></asp:TextBox>
         </div>
         <asp:Panel ID="SectionPasswordMod" runat="server" Visible="false">
             <div class="container">
@@ -26,30 +26,30 @@
 
                 <div class="container">
                     <asp:Label ID="Label4" CssClass="form-label" runat="server" Text="Label">Contraseña actual</asp:Label>
-                    <asp:TextBox ID="TextBoxCurrentPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxCurrentPass" CssClass="form-control" runat="server" TextMode="Password" AutoComplete="Off"></asp:TextBox>
                 </div>
                 <div class="container">
                     <asp:Label ID="Label1" CssClass="form-label" runat="server" Text="Label">Nueva contraseña</asp:Label>
-                    <asp:TextBox ID="TextBoxNwPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxNwPass" CssClass="form-control" runat="server" TextMode="Password" AutoComplete="Off"></asp:TextBox>
                 </div>
                 <div class="container">
                     <asp:Label ID="Label2" CssClass="form-label" runat="server" Text="Label">Confirmar Contraseña</asp:Label>
-                    <asp:TextBox ID="TextBoxConfirmPass" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxConfirmPass" CssClass="form-control" runat="server" TextMode="Password" AutoComplete="Off"></asp:TextBox>
                 </div>
 
             </asp:Panel>
         </asp:Panel>
         <div class="container">
             <label for="TextBoxName" class="form-label">Nombre</label>
-            <asp:TextBox ID="TextBoxName" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxName" CssClass="form-control" runat="server" AutoComplete="Off"></asp:TextBox>
         </div>
         <div class="container">
             <label for="TextBoxLastname" class="form-label">Apellido</label>
-            <asp:TextBox ID="TextBoxLastname" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxLastname" CssClass="form-control" runat="server" AutoComplete="Off"></asp:TextBox>
         </div>
         <div class="container">
             <label for="TextBoxPhone" class="form-label">Teléfono</label>
-            <asp:TextBox ID="TextBoxPhone" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxPhone" CssClass="form-control" runat="server" AutoComplete="Off"></asp:TextBox>
         </div>
 
         <div class="container">

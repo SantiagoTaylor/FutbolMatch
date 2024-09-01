@@ -28,7 +28,6 @@ namespace UI.Webforms
             }
         }
 
-
         private void LoadEstablishments()
         {
             RepeaterEstablishments.DataSource = BLL_Establishment.GetEstablishments();
@@ -60,8 +59,8 @@ namespace UI.Webforms
                 .Select(row => new BE_Field(
                     int.Parse(row["ID"].ToString()),
                     row["Nombre"].ToString(),
-                    int.Parse(row["Tamaño"].ToString()), 
-                    row["Piso"].ToString(), 
+                    int.Parse(row["Tamaño"].ToString()),
+                    row["Piso"].ToString(),
                     int.Parse(a)))
                 .ToList();
 
@@ -85,6 +84,15 @@ namespace UI.Webforms
         {
             BLL_Establishment.DeleteEstablishment(HiddenFieldEstablishmentID.Value);
             Response.Redirect(Request.RawUrl);
+        }
+
+        protected void TextBoxNameEstablishment_TextChanged(object sender, EventArgs e)
+        {
+            RepeaterEstablishments.DataSource = BLL_Establishment.GetEstablishments()
+                .AsEnumerable()
+                .Where(row => row.Field<string>("establishmentName").ToLower().Contains(TextBoxNameEstablishment.Text.ToLower().ToString()))
+                .CopyToDataTable();
+            RepeaterEstablishments.DataBind();
         }
     }
 }
