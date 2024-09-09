@@ -5,7 +5,7 @@
     <form id="form1" runat="server">
         <div class="container-controls d-flex flex-column">
 
-            <section class="container-db">
+            <section class="container-db" style="width:90%;">
                 <article>
                     <asp:Label ID="Label1" runat="server" Text="Dirección del Backup"></asp:Label><br />
                     <div class="d-flex align-items-center w-auto g-3">
@@ -17,17 +17,18 @@
 
                 <article>
                     <asp:Label ID="Label2" runat="server" Text="Dirección del archivo"></asp:Label><br />
-                    <div class="d-flex align-items-center w-auto g-3">
-                        <asp:FileUpload ID="FileUploadRestore" runat="server" CssClass="fileUploadRestore"/>
+                    <div class="input-group mb-3">
+                        <asp:FileUpload ID="FileUploadRestore"  runat="server" CssClass="form-control" type="file" SkinID="inputGroupFile02"/>
+                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
                     </div>
                     <br />
                 </article>
             </section>
 
-            <section class="btn-group rounded-3 border border-dark-subtle overflow-hidden"role="group">
-                <asp:Button cssClass="btn btn-light" ID="ButtonRestore" runat="server" Text="Restaurar" OnClick="ButtonRestore_Click" /><br />
-                <asp:Button cssClass="btn btn-light" ID="ButtonRecalculate" runat="server" Text="Recalcular" OnClick="ButtonRecalculate_Click" />
-                <asp:Button cssClass="btn btn-light" ID="ButtonVerify" runat="server" Text="Verificar" OnClick="ButtonVerify_Click" /><br />
+            <section class="btn-group rounded-3 border border-dark-subtle overflow-hidden" role="group">
+                <asp:Button CssClass="btn btn-light" ID="ButtonRestore" runat="server" Text="Restaurar" OnClick="ButtonRestore_Click" /><br />
+                <asp:Button CssClass="btn btn-light" ID="ButtonRecalculate" runat="server" Text="Recalcular" OnClick="ButtonRecalculate_Click" />
+                <asp:Button CssClass="btn btn-light" ID="ButtonVerify" runat="server" Text="Verificar" OnClick="ButtonVerify_Click" /><br />
             </section>
 
         </div>

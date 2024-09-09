@@ -2,6 +2,9 @@ using BLL;
 using BE;
 using SERVICES;
 using System;
+using System.Web.Security;
+using System.Web.Services;
+using System.Web;
 
 namespace UI.Webforms
 {
@@ -38,9 +41,5 @@ namespace UI.Webforms
 
         }
 
-        protected void ButtonLogout_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

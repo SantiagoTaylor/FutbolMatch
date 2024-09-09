@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BE
 {
+    [Serializable]
     public class BE_User
     {
         private string _name;
@@ -22,6 +26,19 @@ namespace BE
         public BE_User()
         {
 
+        }
+
+        public BE_User(DataRow r)
+        {
+            this._username = r.Field<string>("Usuario");
+            this._name = r.Field<string>("Nombre");
+            this._lastname = r.Field<string>("Apellido");
+            this._email = r.Field<string>("Mail");
+            this._phone = r.Field<string>("Telefono");
+            this._role = r.Field<string>("Rol");
+            this._language = r.Field<string>("Idioma");
+            this._blocked = Convert.ToBoolean(r["Bloqueado"]);
+            this._removed= Convert.ToBoolean(r["Borrado"]);
         }
 
         public BE_User(string username, string password, string name, string lastname, string email, string phone, string role, string language)
