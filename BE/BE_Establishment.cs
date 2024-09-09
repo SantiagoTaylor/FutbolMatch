@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.SqlServer.Server;
+using System.Collections.Generic;
+using System.Data;
 
 namespace BE
 {
@@ -20,6 +22,16 @@ namespace BE
             this.phone = phone;
             this.address = address;
         }
+        public BE_Establishment(DataRow r)
+        {
+            Id = r.Field<int>("idEstablishment");
+            Name = r.Field<string>("establishmentName");
+            Address = r.Field<string>("address");
+            Phone = r.Field<string>("phone");
+            Email = r.Field<string>("email");
+            Employees = new List<BE_User>();
+            Fields = new List<BE_Field>();
+        }
         public BE_Establishment()
         {
 
@@ -30,6 +42,7 @@ namespace BE
         public string Email { get => email; set => email = value; }
         public string Phone { get => phone; set => phone = value; }
         public string Address { get => address; set => address = value; }
+        public List<BE_User> Employees { get => employees; set => employees = value; }
         public List<BE_Field> Fields { get => fields; set => fields = value; }
     }
 }

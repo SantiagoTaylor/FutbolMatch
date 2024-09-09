@@ -35,33 +35,18 @@ header {
     padding-right: 0.2em;
 }
 
-    header .container-logout {
-        height: 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        width: 100%;
-        margin-top: auto;
-        transition: background-color ease-out 0.4s, transform ease-out 0.4s;
-    }
-
-        header .container-logout:hover {
-            background-color: #cccccc;
-            transform: scale(1.1);
-        }
-
-
-    header .nav {
+    header .navbar {
         width: 100%;
         height: 100%;
-        display: flex;
     }
 
 .nav__menu {
     width: 100%;
-    margin-top: 2rem;
     position: relative;
+    display:flex;
+    flex-direction:column;
+    
+    height:90%;
 }
 
 .nav__item {
@@ -72,7 +57,7 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    transition: right 0.5s ease-in;
+    transition: transform 0.1s ease-in;
     position: relative;
     cursor: pointer;
 }
@@ -85,8 +70,8 @@ header {
     }
 
     .nav__item:hover {
-        background-color: #cccccc;
-        right: -1rem;
+        background-color: #e2e2e2;
+        transform:translateX(1rem);
     }
 
     .nav__item:active {
