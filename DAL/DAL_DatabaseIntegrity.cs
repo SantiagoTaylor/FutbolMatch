@@ -2,6 +2,7 @@
 using MySqlX.XDevAPI.Relational;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace DAL
@@ -59,9 +60,18 @@ namespace DAL
 
         private static void BulkCopy((string, string) tablePairs)
         {
+            ////ITEM 1: ORIGINAL
+            ////ITEM 2: DVH
+            //DAL_DB_Connection connection = new DAL_DB_Connection();
+            //MySqlBulkCopy bulk = new MySqlBulkCopy(connection.OpenConnection());
+            //bulk.DestinationTableName = tablePairs.Item2;
+            //DataTable hashTable = GetHashedTable(tablePairs.Item1);
+            //bulk.WriteToServer(hashTable);
+
             //SI NO FUERA POR LA PÁGINA QUE NO DEJA UTILIZAR TABLAS EXTERNAS,
             //UTILIZARÍA BULKCOPY QUE ES MUCHISIMO MÁS RÁPIDO
             //PORQUE COPIA LA TABLA ENTERA EN VEZ DE FILAxFILA
+
             DataTable hashTable = GetHashedTable(tablePairs.Item1);
             DAL_DB_Connection connection = new DAL_DB_Connection();
             MySqlCommand command = new MySqlCommand();
