@@ -1,5 +1,6 @@
 ﻿
 var estCurrent;
+
 function showData(e, dataCurrentEst) {
     if (dataCurrentEst != null) {
         estCurrent = dataCurrentEst;

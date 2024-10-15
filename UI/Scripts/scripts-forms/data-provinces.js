@@ -12,6 +12,17 @@ fetch("https://apis.datos.gob.ar/georef/api/provincias")
         console.log(data);
         const provincias = data.provincias;
 
+        provincias.sort((a, b) => {
+            if (a.nombre < b.nombre) {
+                return -1;
+            }
+            if (a.nombre > b.nombre) {
+                return 1;
+            }
+            return 0;
+        });
+
+
         provincias.forEach((provincia) => {
             const option = document.createElement("option");
             option.value = provincia.id;
@@ -44,6 +55,16 @@ droplistProvincia.addEventListener("change", function () {
         .then((data) => {
             console.log(data);
             const minicipios = data.municipios;
+
+            minicipios.sort((a, b) => {
+                if (a.nombre < b.nombre) {
+                    return -1;
+                }
+                if (a.nombre > b.nombre) {
+                    return 1;
+                }
+                return 0;
+            });
 
             minicipios.forEach((minicipio) => {
                 const option = document.createElement("option");
