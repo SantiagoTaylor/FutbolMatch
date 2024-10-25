@@ -1,6 +1,6 @@
 ﻿form {
-    width: 50vh;
-    height: auto;
+    width: 40vw;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,5 +27,16 @@
     .btn-register:active {
         box-shadow: none;
     }
+
+.item-input {
+    width:65%;
+}
+
+.droplist {
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    height: 2.3rem;
+}
 
 

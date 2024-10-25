@@ -35,8 +35,9 @@
 
             </div>
             <article class="container w-100 d-flex justify-content-center align-items-center">
-                <asp:Button ID="ButtonFilter" runat="server" Text="Filtrar" OnClick="ButtonFilter_Click" CssClass="btn btn-light w-50" />
+                <asp:Button ID="ButtonFilter" runat="server" Text="Filtrar" OnClick="ButtonFilter_Click" CssClass="btn btn-light w-50 shadow-sm" />
             </article>
+            <asp:Button ID="ButtonRegisterEmployee" CssClass="btn btn-light w-50 btn-register p-2 rounded-2 border-0 mt-2 shadow-sm" runat="server" Text="Registrar Empleado" OnClick="ButtonRegisterEmployee_Click" />
         </section>
 
         <section class="container-content d-flex flex-column h-100 w-75">
@@ -66,7 +67,7 @@
                 
             </asp:GridView>
 
-            <asp:Button ID="ButtonRegisterEmployee" CssClass="btn-register" runat="server" Text="Registrar Empleado" OnClick="ButtonRegisterEmployee_Click" />
+            
 
         </section>
 

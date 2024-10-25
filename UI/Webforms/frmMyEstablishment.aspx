@@ -59,11 +59,36 @@
                     showData(document.getElementById('droplist'), e);
                 }
             });
-            
+
+        }
+        function changeTextBtn() {
+            let text = "Registrar ";
+            const selectElement = document.querySelector("#droplist");
+            const selectedIndex = selectElement.selectedIndex;
+            const selectedText = selectElement.options[selectedIndex].text;
+            text += selectedText.slice(0,-1).toLowerCase();
+            document.querySelector(".btn-register").innerHTML = text;;
+        }
+
+        function registerEntity() {
+            const selectElement = document.getElementById('droplist');
+            const selectedIndex = selectElement.selectedIndex;
+
+            switch (selectedIndex) {
+                case 0:
+                    window.location.href = "frmRegisterEmployee.aspx";
+                    break;
+                case 1:
+                    window.location.href = "frmCreateField..aspx";
+                    break;
+
+            }
+
         }
 
         window.onload = function () {
             getDataEst();
+            changeTextBtn();
         };
     </script>
     <form runat="server">
@@ -81,7 +106,7 @@
             </select>
         </section>
         <section class="container-content" style="filter: blur(5px);">
-            <header class="row w-100 h-25 ms-1">
+            <header class="row w-100 h-25">
                 <article class="col-12 p-3">
                     <h4 class="establishment-name"></h4>
                     <p class="m-0 establishment-address"></p>
@@ -90,14 +115,16 @@
                     <p class="m-0 establishment-owner"></p>
                 </article>
             </header>
-
             <main class="w-100 p-3 d-flex justify-content-start">
-                <section class="w-100 mb-2">
-                    <div class="p-3">
-                        <select id="droplist" class="form-select" style="width: 15%" onchange="showData(this)">
+                <section class="w-100 mb-2 d-flex gap-2">
+                    <div class="w-auto">
+                        <select id="droplist" class="form-select w-auto" onchange="showData(this); changeTextBtn();">
                             <option value="users">Usuarios</option>
                             <option value="fields">Canchas</option>
                         </select>
+                    </div>
+                    <div>
+                        <button class="btn-register btn btn-light" onclick="registerEntity(); return false;">Registrar</button>
                     </div>
                 </section>
 

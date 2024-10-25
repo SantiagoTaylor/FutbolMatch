@@ -102,25 +102,32 @@ namespace DAL
 
         public static bool UpdateUser(BE_User user)
         {
+            DAL_DB_Connection cnn = new DAL_DB_Connection();
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                cmd.Connection = cnn.OpenConnection();
+                cmd.CommandText = "sp_UpdateUser";
+                cmd.Parameters.AddWithValue("@p_username", user.Username);
+                cmd.Parameters.AddWithValue("@p_name", user.Name);
+                cmd.Parameters.AddWithValue("@p_lastname", user.Lastname);
+                cmd.Parameters.AddWithValue("@p_email", user.Email);
+                cmd.Parameters.AddWithValue("@p_phone", user.Phone);
+                cmd.Parameters.AddWithValue("@p_roleName", user.Role);
+                cmd.Parameters.AddWithValue("@p_languageName", user.Language);
+                cmd.Parameters.AddWithValue("@p_blocked", user.Blocked);
+                cmd.Parameters.AddWithValue("@p_removed", user.Removed);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+                cmd.Connection = cnn.CloseConnection();
+                return true;
 
-            DAL_DB_Connection connection = new DAL_DB_Connection();
-            MySqlCommand command = new MySqlCommand();
-            command.Connection = connection.OpenConnection();
-            command.CommandText = "sp_UpdateUser";
-            command.Parameters.AddWithValue("@p_username", user.Username);
-            command.Parameters.AddWithValue("@p_name", user.Name);
-            command.Parameters.AddWithValue("@p_lastname", user.Lastname);
-            command.Parameters.AddWithValue("@p_email", user.Email);
-            command.Parameters.AddWithValue("@p_phone", user.Phone);
-            command.Parameters.AddWithValue("@p_roleName", user.Role);
-            command.Parameters.AddWithValue("@p_languageName", user.Language);
-            command.Parameters.AddWithValue("@p_blocked", user.Blocked);
-            command.Parameters.AddWithValue("@p_removed", user.Removed);
-            command.CommandType = CommandType.StoredProcedure;
-            command.ExecuteNonQuery();
-            command.Connection = connection.CloseConnection();
-            //AGREGAR TRY CATCH
-            return true;
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
         public static bool UpdateMyAccount(BE_User user)
         {
