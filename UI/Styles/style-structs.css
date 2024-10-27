@@ -20,4 +20,16 @@
 .container-content {
     width: 75%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+    .container-content::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    .container-content::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #fff;
+    }
