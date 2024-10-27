@@ -1,20 +1,19 @@
-﻿using BLL;
-using SERVICES;
+﻿using SERVICES;
+using SERVICES.Languages;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace UI.Webforms
 {
-    public partial class frmMyAccount : System.Web.UI.Page
+    public partial class frmMyAccount : System.Web.UI.Page, IObserver
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
+                ObservableLanguage.Attach(this);
                 LabelRUsername.Text = SessionManager.GetInstance.User.Username;
                 LabelRName.Text = SessionManager.GetInstance.User.Name;
                 LabelRLastname.Text = SessionManager.GetInstance.User.Lastname;
@@ -40,6 +39,54 @@ namespace UI.Webforms
         protected void ButtonChangeMyData_Click(object sender, EventArgs e)
         {
             Response.Redirect($"frmRegister.aspx?modifyUser=true&username={SessionManager.GetInstance.User.Username}");
+        }
+
+        public List<Control> GetAllWebControls(Control parent)
+        {
+            List<Control> controls = new List<Control>();
+
+            foreach (Control control in parent.Controls)
+            {
+                if (control is WebControl)
+                {
+                    WebControl webControl = (WebControl)control;
+                    controls.Add(webControl);
+                }
+                if (control.HasControls())
+                {
+                    controls.AddRange(GetAllWebControls(control));
+                }
+            }
+            return controls;
+        }
+
+
+        public void Translate()
+        {
+            List<Control> controlList = GetAllWebControls(this);
+
+            string webform = System.IO.Path.GetFileNameWithoutExtension(Request.FilePath);
+            Dictionary<string, string> translations = Translation.GetTranslation(SessionManager.GetInstance.User.Language);
+
+            foreach (Control control in controlList)
+            {
+                string key = $"{webform}_{control.ID}";
+                if (translations.ContainsKey(key))
+                {
+                    if (control is Button)
+                    {
+                        ((Button)control).Text = translations[key];
+                    }
+                    else if (control is Label)
+                    {
+                        ((Label)control).Text = translations[key];
+                    }
+                    else if (control is Literal)
+                    {
+                        ((Literal)control).Text = translations[key];
+                    }
+                }
+            }
         }
     }
 }

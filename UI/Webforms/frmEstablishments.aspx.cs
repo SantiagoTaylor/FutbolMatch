@@ -49,7 +49,7 @@ namespace UI.Webforms
                     Email = row["Mail"].ToString(),
                     Phone = row["Telefono"].ToString(),
                     Role = row["Rol"].ToString(),
-                    Language = row["Idioma"].ToString(),
+                    Language = Convert.ToInt32(row["Idioma"]),
                     Blocked = Convert.ToBoolean(row["Bloqueado"]),
                     Removed = Convert.ToBoolean(row["Borrado"])
                 })

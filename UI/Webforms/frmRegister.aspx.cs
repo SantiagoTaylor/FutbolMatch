@@ -74,7 +74,7 @@ namespace UI.Webforms
         }
         private void LanguageLoad()
         {
-            DropDownListLanguage.DataTextField = "languageName";
+            DropDownListLanguage.DataTextField = "languageDisplay";
             DropDownListLanguage.DataValueField = "idLanguage";
             DropDownListLanguage.DataSource = BLL_Language.GetLanguages();
             DropDownListLanguage.DataBind();
@@ -134,7 +134,7 @@ namespace UI.Webforms
                 TextBoxEmail.Text,
                 TextBoxPhone.Text,
                 DropDownListRoles.SelectedItem.Text,
-                DropDownListLanguage.SelectedItem.Text,
+                Convert.ToInt32(DropDownListLanguage.SelectedValue),
                 CheckBoxBlocked.Checked,
                 CheckBoxRemoved.Checked);
 
@@ -212,7 +212,7 @@ namespace UI.Webforms
         protected void DropDownListRoles_SelectedIndexChanged(object sender, EventArgs e)
         {
             //POR AHORA
-            if (DropDownListRoles.SelectedItem.Text != "WEBMASTER")
+            if (DropDownListRoles.SelectedItem.Text == "ADMIN")
             {
                 PanelEstablishments.Visible = true;
                 EstablishmentsLoad();

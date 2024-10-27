@@ -30,7 +30,7 @@ namespace UI.Webforms
                 TextBoxEmail.Text,
                 TextBoxPhone.Text,
                 "USER",
-                DropDownListLanguage.SelectedItem.Text);
+                Convert.ToInt32(DropDownListLanguage.SelectedValue));
 
             BLL_User.InsertUser(user);
             /*ERROR PUEDE HABER QUE UN ADMIN QUIERA REGISTRAR UN EMPLEADO PERO ESE ADMIN TIENE MAS ESTABLECIMIENTOS. 
@@ -39,7 +39,7 @@ namespace UI.Webforms
         }
         private void LanguageLoad()
         {
-            DropDownListLanguage.DataTextField = "languageName";
+            DropDownListLanguage.DataTextField = "languageDisplay";
             DropDownListLanguage.DataValueField = "idLanguage";
             DropDownListLanguage.DataSource = BLL_Language.GetLanguages();
             DropDownListLanguage.DataBind();

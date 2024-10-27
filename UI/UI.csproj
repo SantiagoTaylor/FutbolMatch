@@ -134,6 +134,7 @@
     <Content Include="Webforms\frmRegisterEmployee.aspx" />
     <Content Include="Webforms\frmMyFields.aspx" />
     <Content Include="Webforms\frmReserveField.aspx" />
+    <Content Include="Webforms\frmTranslations.aspx" />
     <Content Include="Webforms\frmUsers.aspx" />
     <Content Include="Webforms\frmLogin.aspx" />
     <Content Include="Webforms\frmRegister.aspx" />
@@ -226,6 +227,13 @@
     </Compile>
     <Compile Include="Webforms\frmReserveField.aspx.designer.cs">
       <DependentUpon>frmReserveField.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\frmTranslations.aspx.cs">
+      <DependentUpon>frmTranslations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\frmTranslations.aspx.designer.cs">
+      <DependentUpon>frmTranslations.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\frmUsers.aspx.cs">
       <DependentUpon>frmUsers.aspx</DependentUpon>
