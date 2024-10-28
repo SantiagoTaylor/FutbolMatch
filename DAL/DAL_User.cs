@@ -27,7 +27,7 @@ namespace DAL
                     Email = reader["email"].ToString(),
                     Phone = reader["phone"] != DBNull.Value ? reader["phone"].ToString() : "",
                     Role = reader["roleName"].ToString(),
-                    Language = reader["languageName"].ToString(),
+                    Language = Convert.ToInt32(reader["language"]),
                     Blocked = Convert.ToBoolean(reader["blocked"]),
                     Removed = Convert.ToBoolean(reader["removed"])
                 };
@@ -92,7 +92,7 @@ namespace DAL
             command.Parameters.AddWithValue("@p_email", user.Email);
             command.Parameters.AddWithValue("@p_phone", user.Phone);
             command.Parameters.AddWithValue("@p_roleName", user.Role);
-            command.Parameters.AddWithValue("@p_languageName", user.Language);
+            command.Parameters.AddWithValue("@p_language", user.Language);
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();
             command.Connection = connection.CloseConnection();
@@ -127,7 +127,6 @@ namespace DAL
             {
                 throw new Exception(ex.Message);
             }
-
         }
         public static bool UpdateMyAccount(BE_User user)
         {

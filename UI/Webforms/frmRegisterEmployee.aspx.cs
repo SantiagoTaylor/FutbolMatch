@@ -51,7 +51,7 @@ namespace UI.Webforms
                 TextBoxEmail.Text,
                 TextBoxPhone.Text,
                 "USER",
-                DropDownListLanguage.SelectedItem.Text);
+                Convert.ToInt32(DropDownListLanguage.SelectedValue));
 
             if (Request.QueryString["username"] == null)
             {
@@ -76,7 +76,7 @@ namespace UI.Webforms
         }
         private void LanguageLoad()
         {
-            DropDownListLanguage.DataTextField = "languageName";
+            DropDownListLanguage.DataTextField = "languageDisplay";
             DropDownListLanguage.DataValueField = "idLanguage";
             DropDownListLanguage.DataSource = BLL_Language.GetLanguages();
             DropDownListLanguage.DataBind();

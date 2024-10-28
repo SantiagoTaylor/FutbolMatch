@@ -24,7 +24,7 @@
 
                 <asp:Label ID="Label4" runat="server" Text="Fecha"></asp:Label><br />
                 <asp:TextBox CssClass="form-control" ID="TextBoxDate" runat="server" TextMode="Date" OnTextChanged="TextBoxDate_TextChanged" AutoPostBack="True"></asp:TextBox>
-                
+
                 <br />
 
                 <asp:Label ID="Label3" runat="server" Text="Horario (1 hora)"></asp:Label><br />
@@ -38,7 +38,6 @@
         </section>
         <section class="container-reserves">
             <asp:Table runat="server" ID="TableReserves" CssClass="table-reserves">
-                
             </asp:Table>
         </section>
     </form>

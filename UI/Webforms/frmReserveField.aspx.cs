@@ -125,7 +125,7 @@ namespace UI.Webforms
             {
                 ReservesLoad();
             }
-            else { WebformMessage.ShowMessage("Error: No se pa podido realizar la reversa correctamente", this); }
+            else { WebformMessage.ShowMessage("Error: No se pa podido realizar la reserva correctamente", this); }
         }
     }
 }

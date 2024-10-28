@@ -55,6 +55,9 @@
     <Compile Include="DatabaseBackup.cs" />
     <Compile Include="DatabaseIntegrity.cs" />
     <Compile Include="Encrpyt.cs" />
+    <Compile Include="Languages\IObserver.cs" />
+    <Compile Include="Languages\ObservableLanguage.cs" />
+    <Compile Include="Languages\Translation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleManager.cs" />
     <Compile Include="SessionManager.cs" />

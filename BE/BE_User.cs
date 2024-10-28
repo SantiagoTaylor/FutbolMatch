@@ -19,7 +19,7 @@ namespace BE
         private string _password;
         private string _phone;
         private string _role;
-        private string _language;
+        private int _language;
         private bool _blocked;
         private bool _removed;
 
@@ -36,12 +36,12 @@ namespace BE
             this._email = r.Field<string>("Mail");
             this._phone = r.Field<string>("Telefono");
             this._role = r.Field<string>("Rol");
-            this._language = r.Field<string>("Idioma");
+            this._language = r.Field<int>("Idioma");
             this._blocked = Convert.ToBoolean(r["Bloqueado"]);
             this._removed= Convert.ToBoolean(r["Borrado"]);
         }
 
-        public BE_User(string username, string password, string name, string lastname, string email, string phone, string role, string language)
+        public BE_User(string username, string password, string name, string lastname, string email, string phone, string role, int language)
         {
             this._username = username;
             this._password = password;
@@ -53,7 +53,7 @@ namespace BE
             this._language = language;
         }
 
-        public BE_User(string username, string password, string name, string lastname, string email, string phone, string role, string language, bool blocked, bool removed)
+        public BE_User(string username, string password, string name, string lastname, string email, string phone, string role, int language, bool blocked, bool removed)
         {
             this._username = username;
             this._password = password;
@@ -74,7 +74,7 @@ namespace BE
         public string Password { get => _password; set => _password = value; }
         public string Phone { get => _phone; set => _phone = value; }
         public string Role { get => _role; set => _role = value; }
-        public string Language { get => _language; set => _language = value; }
+        public int Language { get => _language; set => _language = value; }
         public bool Blocked { get => _blocked; set => _blocked = value; }
         public bool Removed { get => _removed; set => _removed = value; }
     }

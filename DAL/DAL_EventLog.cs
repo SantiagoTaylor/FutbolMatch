@@ -38,7 +38,7 @@ namespace DAL
             }
         }
 
-        public static DataTable GetEventLog(string language = "English")
+        public static DataTable GetEventLog(int language = 1)
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();
             DataTable table = new DataTable();
@@ -49,7 +49,7 @@ namespace DAL
             return table;
         }
 
-        public static object GetActivityLevels(string language = "English")
+        public static DataTable GetActivityLevels(int language = 1)
         {
             DataTable table = new DataTable();
             DAL_DB_Connection connection = new DAL_DB_Connection();
@@ -65,7 +65,7 @@ namespace DAL
             return table;
         }
 
-        public static object GetActivitys(string language = "English")
+        public static DataTable GetActivitys(int language = 1)
         {
             DataTable table = new DataTable();
             DAL_DB_Connection connection = new DAL_DB_Connection();

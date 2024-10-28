@@ -34,13 +34,12 @@
                 <!-- Sign Up Section -->
                 <article class="text-green-600">
                     <p class="msg-init-meta">
-                        Create your account now to start booking the best football fields
-              in town.
-              <a
-                  href="#"
+                        Create your account now to start booking the best football fields in town.
+              <a href="#"
                   onclick="handleRegisterClick(event)"
                   class="text-blue-500 hover:underline">
-                  <strong>Sign Up</strong></a>
+                  <asp:Label ID="LabelSignUp" runat="server" Text="<strong>Sign Up</strong>"></asp:Label>
+              </a>
                     </p>
                 </article>
                 <img
@@ -209,8 +208,7 @@
                                 id="dni"
                                 name="dni"
                                 class="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                />
+                                placeholder=" " />
                             <label
                                 for="dni"
                                 class="left-0 absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
@@ -224,8 +222,7 @@
                                 id="email"
                                 name="email"
                                 class="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                />
+                                placeholder=" " />
                             <label
                                 for="email"
                                 class="left-0 absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
@@ -238,8 +235,7 @@
                                 id="username"
                                 name="username"
                                 class="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                />
+                                placeholder=" " />
                             <label
                                 for="username"
                                 class="left-0 absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
@@ -256,8 +252,7 @@
                                 placeholder=" "
                                 onfocus="showRequirements()"
                                 onblur="hideRequirements()"
-                                oninput="validPassoword(this.value)"
-                                />
+                                oninput="validPassoword(this.value)" />
                             <label
                                 for="password"
                                 class="left-0 absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
@@ -282,8 +277,7 @@
                                 name="confirm-password"
                                 class="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                 oninput="verificatePasswords(this)"
-                                placeholder=" "
-                                />
+                                placeholder=" " />
                             <label
                                 for="confirm-password"
                                 class="left-0 absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
@@ -297,8 +291,7 @@
                                 id="nombre"
                                 name="nombre"
                                 class="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                />
+                                placeholder=" " />
                             <label
                                 for="nombre"
                                 class="left-0 absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
@@ -312,8 +305,7 @@
                                 id="apellido"
                                 name="apellido"
                                 class="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                />
+                                placeholder=" " />
                             <label
                                 for="apellido"
                                 class="left-0 absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
@@ -327,8 +319,7 @@
                                 id="telefono"
                                 name="telefono"
                                 class="block py-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                />
+                                placeholder=" " />
                             <label
                                 for="telefono"
                                 class="left-0 absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
@@ -365,8 +356,7 @@
                                 type="checkbox"
                                 id="terms"
                                 name="terms"
-                                class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out"
-                                />
+                                class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out" />
                             <label for="terms" class="ml-2 text-sm text-gray-700">
                                 I accept the
                 <a href="#" class="text-blue-500 hover:underline">terms and conditions</a>.
@@ -404,7 +394,7 @@
             content.classList.toggle("-translate-x-full");
 
             if (isActive) {
-                
+
                 document.title = "Sign Up | FutbolMatch";
                 clearInputsForm(formLogin);
                 changeStatusForm(formLogin, formRegister);
@@ -413,7 +403,7 @@
                     .html(`Create your account now to start booking the best football fields in town.
               <a href="#" onclick="handleRegisterClick(event)" class="text-blue-500 hover:underline"><strong>Sign Up</strong></a>`);
             } else {
-                
+
                 document.title = "Sign In | FutbolMatch";
                 clearInputsForm(formRegister);
                 changeStatusForm(formRegister, formLogin);
