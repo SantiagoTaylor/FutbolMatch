@@ -1,0 +1,487 @@
+[33mcommit fb654ee6fb1dbd09533dfb1d1af25921383f6121[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mabel[m[33m, [m[1;31morigin/abel[m[33m)[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Mon Oct 28 11:42:00 2024 -0300
+
+    masterPage: Detalles del Efecto de seleccion
+
+[33mcommit 46946c5a36767fbff4d500b0e5158070796ae0a2[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Mon Oct 28 11:37:30 2024 -0300
+
+    masterPage: Efecto de Seleccion de Pagina
+
+[33mcommit b6ace50039165f97e8ca347fd93020d2a8a517e2[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Mon Oct 28 09:20:06 2024 -0300
+
+    frmReservation: Ver reservas segun por rol
+
+[33mcommit cf777158380aa128f27d01d3c6aae49f0becc489[m
+Merge: b4de713 2bd73eb
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sun Oct 27 22:23:09 2024 -0300
+
+    Merge pull request #53 from SantiagoTaylor/santi
+    
+    Cambio de lenguage y avance de multilenguaje
+
+[33mcommit 2bd73ebb42373ae83d9dbe709f0df2d9fed9ba8e[m[33m ([m[1;31morigin/santi[m[33m)[m
+Merge: 5229091 b4de713
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sun Oct 27 19:42:08 2024 -0300
+
+    Merge branch 'master' into santi
+
+[33mcommit 5229091a0295ad49231ee35e81998d41e8b518d7[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sun Oct 27 19:39:16 2024 -0300
+
+    Avance de multilenguaje
+
+[33mcommit e52ca1db98ba89936348deeccb56256aeffad33c[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sun Oct 27 19:38:59 2024 -0300
+
+    Cambio de propiedad de lenguage de string a int.
+
+[33mcommit b4de713b497dde50de39348d4f451d00adf5c7ef[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Fri Oct 25 16:36:01 2024 -0300
+
+    Modificar Usuarios desde MyEstablishment
+
+[33mcommit 69bd20679da9cea73a2ea2a607ff225baa4876e2[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Tue Oct 15 18:50:08 2024 -0300
+
+    Detalles del frmLogin, Sort API Provincia
+
+[33mcommit be2239cf367eae36c1a4338f128d27886f287092[m
+Merge: 93f8bf2 4693496
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sun Sep 8 22:24:57 2024 -0300
+
+    Merge branch 'santi' of https://github.com/SantiagoTaylor/FutbolMatch into santi
+
+[33mcommit 93f8bf29c94c0f09402f38e2a8c4fc8ae500c113[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sun Sep 8 22:24:46 2024 -0300
+
+    Comentarios
+
+[33mcommit cd4ef0b0792780a0a2e4760a1c0c5c1fb6cd4530[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sun Sep 8 22:24:40 2024 -0300
+
+    Error ortográfico
+
+[33mcommit 4693496936dcf3fa234498d997b5e37c39f6d3c6[m
+Merge: 061b6c1 35e2329
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sun Sep 8 22:23:50 2024 -0300
+
+    Merge pull request #52 from SantiagoTaylor/master
+    
+    merge
+
+[33mcommit 35e2329ee3ab4400732a6dc51cd02e6d8922d44e[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sat Sep 7 00:34:48 2024 -0300
+
+    Diseño login register
+
+[33mcommit 9c20444e9054d80f3c8375733165addde2f83496[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Fri Sep 6 22:37:49 2024 -0300
+
+    Imagenes
+
+[33mcommit c9b687463dc97116e58472c001d7d121759a099d[m
+Merge: 530ecc9 99a065a
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sun Sep 1 18:50:04 2024 -0300
+
+    Merge pull request #51 from SantiagoTaylor/abel
+    
+    Merge Abel
+
+[33mcommit 99a065a3e92f02ec29bd4077e002536fe6f38dd2[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sun Sep 1 17:38:35 2024 -0300
+
+    Datos de Mi establecimiento/s
+
+[33mcommit b95e9b0d8e3793e7db9abe3165741faa215f9ff6[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sat Aug 31 15:26:56 2024 -0300
+
+    frmMyEstablishment: Json Datos de los establecimentos(empleados, canchas)
+
+[33mcommit 9151eddb447c97747c037cc3fabfe655bfa90c52[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sat Aug 31 00:03:22 2024 -0300
+
+    Filtrar establecimiento por nombre
+
+[33mcommit 530ecc9a141ab0a64fa2bda476c4bde09c900918[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Fri Aug 30 22:50:29 2024 -0300
+
+    Hover nav master pages
+
+[33mcommit a04dcf053855fc31b5ab1886d1d173c70f905242[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Tue Aug 27 12:42:47 2024 -0300
+
+    Reorganizacion del codigo
+
+[33mcommit 061a998a12a5479635d54becb06a2b4d937f8ac3[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Wed Aug 21 20:59:03 2024 -0300
+
+    Detalles de container-destails-establishment
+
+[33mcommit 3a8db5d6e01295cf0692fe1208a4e8c83911c387[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Wed Aug 21 18:56:40 2024 -0300
+
+    Detalles de las canchas y empleados segun el establecimiento seleccionado
+
+[33mcommit 30446bd2b6c1aee48f36b7aeb140b1136e79168c[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Wed Aug 21 11:30:17 2024 -0300
+
+    Icono de Carga
+
+[33mcommit 0a48d17157f3217c25082f1b75bbcdaef9ddb649[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Tue Aug 20 16:32:44 2024 -0300
+
+    Refactorizacion JS
+
+[33mcommit 9ac36dcdd13abcb3879d94fe82732514aac1fc81[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Mon Aug 19 22:31:13 2024 -0300
+
+    Datos del Establicimiento a Json
+
+[33mcommit ed81ef148e904045b6d019681026aadaeb2ca77b[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Mon Aug 19 15:48:25 2024 -0300
+
+    Endpoint obtener datos del establecimiento
+
+[33mcommit db068a1fb116645a4c4647721ff6dd056d271667[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sun Aug 18 14:58:30 2024 -0300
+
+    Favicon y API Localidades
+
+[33mcommit 061b6c12048af20b3b0b00881fff5ec7c3f4193c[m
+Merge: e6967c1 e81901f
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sun Aug 18 14:29:28 2024 -0300
+
+    Merge pull request #50 from SantiagoTaylor/master
+    
+    Merge
+
+[33mcommit e81901ffc24f73f02a6372a74e8ba65f0ac402e4[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sun Aug 18 13:00:53 2024 -0300
+
+    Arreglo de bugs y diseño
+
+[33mcommit bfa644cbfc4451caf6b484f4ed2edd963f6d2096[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sat Aug 17 23:37:33 2024 -0300
+
+    Estilo y funcionalidades de frmEstablishments
+
+[33mcommit e6967c1a94ac32c1b70f8c2f9f11543f87a2681b[m
+Merge: 8089f17 d9b953f
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sat Aug 17 23:14:29 2024 -0300
+
+    Merge pull request #49 from SantiagoTaylor/master
+    
+    Merge pull request #46 from SantiagoTaylor/santi
+
+[33mcommit d9b953f7785bf3d1bbbb20a512e6b45ac9a915c5[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sat Aug 17 19:53:56 2024 -0300
+
+    frmReseverField: arreglo carga de reservas
+
+[33mcommit 805d0bf70d417ec7301c8df7c07c906d4ad97413[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sat Aug 17 18:51:05 2024 -0300
+
+    frmReseverField: ordenamiento por horario  y fecha (del más cercano al más lejano)
+
+[33mcommit 51f3fcdc51d301f297b6e67f882fa03435c9c975[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sat Aug 17 18:32:36 2024 -0300
+
+    scrollbar estilo frmEstablishments
+
+[33mcommit 2949094ef033985fda2f4a7b865293f4ce493420[m
+Merge: 10816f3 193c8b8
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sat Aug 17 18:17:07 2024 -0300
+
+    Estilo de establecimientos
+
+[33mcommit 10816f3f0d3e0d0839f2f567d3f7ed34a60fb135[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sat Aug 17 18:11:40 2024 -0300
+
+    Estilo de establecimientos
+
+[33mcommit 193c8b8a74a01bb015dc70d5a609220fbbfb2d05[m
+Merge: 3f4bdf4 8089f17
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sat Aug 17 16:07:06 2024 -0300
+
+    Merge pull request #48 from SantiagoTaylor/santi
+    
+    Errores ortográficos.
+
+[33mcommit 8089f17b88ea3daceecdb21552a791342ddec486[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sat Aug 17 16:03:08 2024 -0300
+
+    Errores ortográficos.
+
+[33mcommit 3f4bdf4c44a48103838d9cb6f15d0f90a0d89a76[m
+Merge: 084a189 211a44e
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sat Aug 17 15:54:05 2024 -0300
+
+    Merge pull request #47 from SantiagoTaylor/santi
+    
+    Se corrigió el error de fechas y horarios.
+
+[33mcommit 211a44e4e4f24a12c86295d8a94804d2b66ca0fe[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sat Aug 17 15:53:09 2024 -0300
+
+    Se corrigió el error de fechas y horarios. Los horarios pasados no aparecen.
+
+[33mcommit 084a1897f0d1ca7d772bca90122de8bd81dcef69[m
+Merge: 14a5f94 7e72608
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sat Aug 17 14:47:19 2024 -0300
+
+    Merge pull request #46 from SantiagoTaylor/santi
+    
+    Santi
+
+[33mcommit 7e726089d69c6670fd8aad003a1d51219d6abf5c[m
+Merge: 2ee65b4 14a5f94
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sat Aug 17 14:47:11 2024 -0300
+
+    Merge branch 'master' into santi
+
+[33mcommit 2ee65b45423e1ec5f8d30e271d01eb0500697b14[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sat Aug 17 14:42:38 2024 -0300
+
+    Se corrigió el error de la fecha en la reserva
+
+[33mcommit d9241422ba567372bd6b2ac44b7252441752ecdf[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sat Aug 17 14:42:17 2024 -0300
+
+    Se cambio el connectionString
+
+[33mcommit 712e90bf4620a7fd661cc3c3b081cb4887d83c93[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sat Aug 17 14:42:04 2024 -0300
+
+    Se cambió el connectionString
+
+[33mcommit 14a5f9466c67000d1199cd4d81e5fb5cbcc04296[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Fri Aug 16 22:21:17 2024 -0300
+
+    Estilos de tablas y forms
+
+[33mcommit aae33b619b8793d11af8b114fdfb1c9fd83167e9[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Fri Aug 16 16:09:26 2024 -0300
+
+    Estilo frmDatabaseIntegrery
+
+[33mcommit 78d3253d0f9aab9b5c9e8fae594ccec5f2632d16[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Fri Aug 16 12:13:08 2024 -0300
+
+    Reglas de Negocio: Mostrar Horarios disponibles segun reservas hechas y hora actual
+
+[33mcommit da501c548d54f1c32f4b7c2f90e3261d12caf2e8[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Thu Aug 15 16:04:47 2024 -0300
+
+    Funcionalidades del frmReserveField
+
+[33mcommit f0244339daae7b2b48e3fb1b8cf17927d570c6d8[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Thu Aug 15 11:07:49 2024 -0300
+
+    Arreglo de errores
+
+[33mcommit d39ba718c19488f03617cf0f4cd125376fbe0890[m
+Merge: f769f85 f74eaef
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Wed Aug 14 21:29:12 2024 -0300
+
+    cambios
+
+[33mcommit f769f85d0bdcbea049ebd846b3033a7f5fead5e6[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Wed Aug 14 21:28:30 2024 -0300
+
+    Timepicker
+
+[33mcommit f74eaef5fdff7dcd4f11abe211b2a729f6ab4db0[m
+Merge: 843f16c fa8d33f
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sat Jul 27 15:06:05 2024 -0300
+
+    Merge pull request #45 from SantiagoTaylor/santi
+    
+    DVV de EventLog y cambio de BB. DD..
+
+[33mcommit fa8d33fe72c2e8889908095cf3bb7d56c964e05f[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sat Jul 27 15:04:20 2024 -0300
+
+    Pruebas de permisos.
+
+[33mcommit 056c6788fd4689370876feb2667ec11ab0ca5700[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sat Jul 27 15:04:08 2024 -0300
+
+    Pruebas de diseño
+
+[33mcommit 10270bfe9b9f7e5958a33256e7d659908f990533[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sat Jul 27 15:03:53 2024 -0300
+
+    Se cambio el método de "BulkCopy" porque la nueva BB. DD. no lo permite.
+
+[33mcommit b0aa38a6636d56caf7e860b3983628ae1c5e8c43[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sat Jul 27 15:03:32 2024 -0300
+
+    Cambio de BB. DD.
+
+[33mcommit 56641b2979ebc95e7943060e295074ed3f6716f6[m
+Author: Santiago Taylor <Santiago.Taylor@alumnos.uai.edu.ar>
+Date:   Sat Jul 27 15:03:23 2024 -0300
+
+    Se agregó el DVV para EventLog
+
+[33mcommit 843f16c1c9ed435d038f593c4f5298cda72fb35d[m
+Merge: 0ab7b94 919cbb5
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Mon Jul 15 02:52:41 2024 -0300
+
+    Merge pull request #44 from SantiagoTaylor/santi
+    
+    Manejo de roles y DV EventLog
+
+[33mcommit 919cbb5e9aac18f39bf23adc032a095f087b9a9b[m
+Merge: e879608 0ab7b94
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Mon Jul 15 02:52:33 2024 -0300
+
+    Merge branch 'master' into santi
+
+[33mcommit e87960825600f0a4125ddaa68f5cc33946b3cce4[m
+Author: Santiago Taylor <santiagotaylor03@gmail.com>
+Date:   Mon Jul 15 02:47:42 2024 -0300
+
+    Manejo de roles y DV EventLog
+
+[33mcommit 0ab7b9485570afc778d6fae1cc2ddda670ff8ffd[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Mon Jul 15 01:12:45 2024 -0300
+
+    Funcionalidad cambiar Reservas por dropdownlist
+
+[33mcommit 9fd5a9681b60629935493abc5745518ed2409e7b[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Mon Jul 15 00:58:43 2024 -0300
+
+    reservas
+
+[33mcommit 29ffda5c24cc93aaa30f3a75356ed80aeaf0515d[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sun Jul 14 20:13:59 2024 -0300
+
+    Style frmErrorPage
+
+[33mcommit 32e9b0ab9cc6e6da507ccd228586db6d90ac126c[m
+Merge: 088be5e a643774
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sun Jul 14 17:53:14 2024 -0300
+
+    MASTER -> ABEL
+
+[33mcommit 088be5edf5d03fc110cba05520b504236e08744d[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sun Jul 14 17:49:52 2024 -0300
+
+    Eliminar modificar Establecimiento
+
+[33mcommit a6437741a62fa49b4cc220a4341723e3ee4ef434[m
+Merge: f4b7c00 877ea5c
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Sun Jul 14 15:51:39 2024 -0300
+
+    Merge pull request #42 from SantiagoTaylor/santi
+    
+    Error page y DV en bitacora
+
+[33mcommit 877ea5c552824a7ecc8e0be1706fa2f42a841c27[m
+Author: Santiago Taylor <santiagotaylor03@gmail.com>
+Date:   Sun Jul 14 15:49:34 2024 -0300
+
+    Error page
+
+[33mcommit 0c46ec79ae12ecaed3bacdae49471a2b1314eddb[m
+Author: Christian Claros <95495732+Clarosabel2@users.noreply.github.com>
+Date:   Sat Jul 13 19:05:58 2024 -0300
+
+    Tabla establecimientos
+
+[33mcommit 70497cde9ebae85bd4789f3798ab9d60bdf49c8a[m
+Author: Santiago Taylor <santiagotaylor03@gmail.com>
+Date:   Sat Jul 13 18:59:08 2024 -0300
+
+    Backup y restore. Corrección en "Mis Empleados".
+
+[33mcommit 955a1c21b3983b7a66fc92ff747e43e88a777605[m
+Merge: 1a028d7 f4b7c00
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Fri Jul 12 23:57:59 2024 -0300
+
+    Merge pull request #41 from SantiagoTaylor/master
+    
+    Cambios diseño
+
+[33mcommit f4b7c009ae20a6fea0b38af724d082ff0f75c361[m
+Merge: 1dc96d0 1a028d7
+Author: SantiagoTaylor <93289710+SantiagoTaylor@users.noreply.github.com>
+Date:   Fri Jul 12 23:57:50 2024 -0300
+
+    Merge branch 'santi' into master
+
+[33mcommit 1a028d74ca24ef96764db81b50ec016a1b2be8d9[m
+Author: Santiago Taylor <santiagotaylor03@gmail.com>
+Date:   Fri Jul 12 23:56:49 2024 -0300
+
+    cambios menores
