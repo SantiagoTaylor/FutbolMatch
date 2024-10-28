@@ -39,6 +39,7 @@
     });
 
     function logout() {
+        localStorage.removeItem('selectedNavItemIndex');
         window.location.href = "index.aspx?event=logout";
     }
 
