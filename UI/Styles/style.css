@@ -69,9 +69,9 @@ header {
         font-size: 1.2em;
     }
 
-    .nav__item:hover {
+    .nav__item:hover:not(.selected) {
         background-color: #e2e2e2;
-        transform:translateX(1rem);
+        transform: translateX(1rem);
     }
 
     .nav__item:active {
@@ -80,6 +80,15 @@ header {
 
     .nav__item:hover a {
         color: forestgreen;
+    }
+
+    .nav__item.selected a{
+        background-color: #8ac545;
+        transform: translateX(1.2rem);
+    }
+
+    .nav__item.selected a {
+        color: #fff
     }
 
 .nav__logo {
