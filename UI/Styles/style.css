@@ -84,7 +84,7 @@ header {
 
     .nav__item.selected a{
         background-color: #8ac545;
-        transform: translateX(1.5rem);
+        transform: translateX(1.2rem);
     }
 
     .nav__item.selected a {
