@@ -9,5 +9,9 @@ namespace BLL
         {
             return DAL_Language.GetLanguages();
         }
+        public static DataTable GetAllWebforms()
+        {
+            return DAL.DAL_Language.GetAllWebforms();
+        }
     }
 }

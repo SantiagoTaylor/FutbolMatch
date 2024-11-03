@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web.UI;
 
 namespace SERVICES.Languages
 {
@@ -18,7 +19,7 @@ namespace SERVICES.Languages
             }
         }
 
-        public static void Attach(IObserver observer)
+        public static void Attach(IObserver observer)//identificar mejor al form, porque es un objeto
         {
             if (!observers.Exists(o => o.Equals(observer)))
             {
