@@ -51,19 +51,11 @@
 
         </section>
         <section class="container-content">
-            <asp:GridView ID="gvEventLog" CssClass="gridview" runat="server" AllowPaging="True" PageSize="35" OnPageIndexChanging="gvEventLog_PageIndexChanging">
-                <HeaderStyle
-                    BackColor="white"
-                    ForeColor="black"
-                    Font-Bold="True"
-                    CssClass="gv-header" />
-                <PagerStyle
-                    BackColor="white"
-                    ForeColor="blue"
-                    HorizontalAlign="Center"
-                    />
-                <PagerSettings Mode="Numeric" PageButtonCount="10" />
-            </asp:GridView>
+            <div class="w-100 h-auto overflow-y-scroll">
+                <asp:GridView ID="gvEventLog" CssClass="table table-striped table-bordered w-100" runat="server">
+                    <HeaderStyle CssClass="table-dark sticky-header bg-black" />
+                </asp:GridView>
+            </div>
         </section>
     </form>
 </asp:Content>

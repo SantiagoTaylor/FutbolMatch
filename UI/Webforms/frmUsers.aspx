@@ -40,35 +40,23 @@
             <asp:Button ID="ButtonRegisterEmployee" CssClass="btn btn-light w-50 btn-register p-2 rounded-2 border-0 mt-2 shadow-sm" runat="server" Text="Registrar usuario" OnClick="ButtonRegisterEmployee_Click" />
         </section>
 
-        <section class="container-content d-flex flex-column h-100 w-75">
-
-            <asp:GridView ID="gvUsers" CssClass="gridview" runat="server" AllowPaging="True" PageSize="35" OnPageIndexChanging="gvUsers_PageIndexChanging">
-                <Columns>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:LinkButton runat="server" CommandArgument='<%#  (((DataRowView)Container.DataItem)[0]) %>'
-                                OnClick="ButtonEdit_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton>
-                            <asp:LinkButton runat="server" CommandArgument='<%#  (((DataRowView)Container.DataItem)[0]) %>' OnClick="ButtonDelete_Click" ForeColor="Red"><i class="bi bi-trash3-fill"></i></asp:LinkButton>
-
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <HeaderStyle
-                    BackColor="white"
-                    ForeColor="black"
-                    Font-Bold="True"
-                    CssClass="gv-header" />
-                <PagerStyle
-                    BackColor="white"
-                    ForeColor="blue"
-                    HorizontalAlign="Center" 
-                    BorderStyle="Groove"/>
-                <PagerSettings Mode="Numeric" PageButtonCount="4" />
-                
-            </asp:GridView>
-
-            
-
+        <section class="container-content d-flex flex-column h-100 w-100">
+            <div class="w-100 h-auto overflow-y-scroll">
+                <asp:GridView ID="gvUsers" CssClass="table table-striped table-bordered" runat="server">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <div class="d-flex gap-2">
+                                    <asp:LinkButton runat="server" CommandArgument='<%#  (((DataRowView)Container.DataItem)[0]) %>'
+                                        OnClick="ButtonEdit_Click"><i class="bi bi-pencil-square"></i></asp:LinkButton>
+                                    <asp:LinkButton runat="server" CommandArgument='<%#  (((DataRowView)Container.DataItem)[0]) %>' OnClick="ButtonDelete_Click" ForeColor="Red"><i class="bi bi-trash3-fill"></i></asp:LinkButton>
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <HeaderStyle CssClass="table-dark sticky-header bg-black" />
+                </asp:GridView>
+            </div>
         </section>
 
     </form>
