@@ -36,7 +36,7 @@ namespace UI.Webforms
             TextBoxPhone.Text = user.Phone;
             TextBoxEmail.Text = user.Email;
             LabelBlocked.Visible = true;
-            DropDownListLanguage.SelectedValue = user.Language;
+            //DropDownListLanguage.SelectedValue = user.Language;
             CheckBoxBlocked.Visible = true;
             CheckBoxBlocked.Checked = user.Blocked;
         }

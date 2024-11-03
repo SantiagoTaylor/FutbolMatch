@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace UI.Webforms
 {
@@ -91,12 +92,13 @@ namespace UI.Webforms
         {
             DataTable establishments = BLL_Establishment.GetEstablishments();
             DataTable filteredTable = establishments.DefaultView.ToTable(false, "idEstablishment", "establishmentName");
-            DropDownListEstablisments.DataTextField = "establishmentName";
-            DropDownListEstablisments.DataValueField = "idEstablishment";
-            DropDownListEstablisments.DataSource = filteredTable;
-            DropDownListEstablisments.DataBind();
+            CheckBoxListEstablishments.Items.Clear();
+            foreach (DataRow item in filteredTable.Rows)
+            {
+                CheckBoxListEstablishments.Items.Add(new ListItem(item["establishmentName"].ToString(), item["idEstablishment"].ToString()));
+            }
         }
-        private bool ValidateFields()
+        private bool ValidateFields()   
         {
             if (TextBoxEmail.Text == "" || TextBoxUsername.Text == "" || TextBoxName.Text == "" || TextBoxLastname.Text == "")
             {
@@ -173,15 +175,28 @@ namespace UI.Webforms
                         //asocia usuario con estableclimiento
                         if (DropDownListRoles.SelectedItem.Text != "WEBMASTER")
                         {
-                            if (BLL_Establishment.SetUserEstablishment(user.Username, DropDownListEstablisments.SelectedItem.Text))
+                            try
                             {
+                                bool isAnySelected = false;
+                                foreach (ListItem item in CheckBoxListEstablishments.Items)
+                                {
+                                    if (item.Selected)
+                                    {
+                                        isAnySelected = true;
+                                        BLL_Establishment.SetUserEstablishment(user.Username, item.Text);
+                                    }
+                                }
+                                if (!isAnySelected)
+                                {
+                                    throw new Exception("No se seleccionó ningún establecimiento.");
+                                }
                                 Response.Redirect("frmUsers.aspx");
-                            }
-                            else
-                            {
-                                WebformMessage.ShowMessage($"No se asocio el usuario {user.Username} al esteblecimiento", this);
-                            }
 
+                            }
+                            catch (Exception ex)
+                            {
+                                Response.Write(ex.Message);
+                            }
                         }
                         else
                         {
