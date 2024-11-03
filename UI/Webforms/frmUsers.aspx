@@ -17,7 +17,7 @@
                     <asp:Label ID="Label1" runat="server" Text="Usuario"></asp:Label>
                     <asp:TextBox ID="TextBoxUsername" runat="server" Enabled="false" CssClass="form-control w-auto"></asp:TextBox>
                 </article>
-                <article class="container mb-1">
+                <article class="container mb-1 d-flex align-items-center gap-1">
                     <asp:CheckBox ID="CheckBoxRole" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBoxRole_CheckedChanged" />
                     <asp:Label ID="Label4" runat="server" Text="Rol" CssClass="label-rol"></asp:Label>
 
@@ -34,10 +34,10 @@
                 </article>
 
             </div>
-            <article class="container w-100 d-flex justify-content-center align-items-center">
+            <article class="container w-100 d-flex justify-content-center align-items-center flex-column">
                 <asp:Button ID="ButtonFilter" runat="server" Text="Filtrar" OnClick="ButtonFilter_Click" CssClass="btn btn-light w-50 shadow-sm" />
+                <asp:Button ID="ButtonRegisterEmployee" CssClass="btn btn-light w-50 btn-register p-2 rounded-2 border-0 mt-2 shadow-sm" runat="server" Text="Registrar usuario" OnClick="ButtonRegisterEmployee_Click" />
             </article>
-            <asp:Button ID="ButtonRegisterEmployee" CssClass="btn btn-light w-50 btn-register p-2 rounded-2 border-0 mt-2 shadow-sm" runat="server" Text="Registrar usuario" OnClick="ButtonRegisterEmployee_Click" />
         </section>
 
         <section class="container-content d-flex flex-column h-100 w-100">

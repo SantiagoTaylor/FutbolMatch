@@ -82,7 +82,7 @@
                 <asp:UpdatePanel ID="UpdatePanelGridView" runat="server">
                     <ContentTemplate>
                         <asp:GridView ID="gvEventLog" CssClass="table table-striped table-bordered w-100" runat="server">
-                            <HeaderStyle CssClass="table-dark position-sticky" />
+                            <HeaderStyle CssClass="table-dark sticky-header" />
                         </asp:GridView>
                     </ContentTemplate>
                 </asp:UpdatePanel>

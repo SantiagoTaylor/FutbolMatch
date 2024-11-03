@@ -51,15 +51,6 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.DropDownList DropDownListToLanguage;
 
         /// <summary>
-        /// LabelNull control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelNull;
-
-        /// <summary>
         /// CheckBoxNull control.
         /// </summary>
         /// <remarks>
@@ -69,13 +60,13 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.CheckBox CheckBoxNull;
 
         /// <summary>
-        /// LabelWebform control.
+        /// LabelNull control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelWebform;
+        protected global::System.Web.UI.WebControls.Label LabelNull;
 
         /// <summary>
         /// CheckBoxWebform control.
@@ -85,6 +76,15 @@ namespace UI.Webforms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CheckBoxWebform;
+
+        /// <summary>
+        /// LabelWebform control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelWebform;
 
         /// <summary>
         /// DropDownListWebform control.
