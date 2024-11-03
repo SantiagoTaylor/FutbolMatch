@@ -33,11 +33,3 @@
         box-shadow:none;
     }
 
-.container-content::-webkit-scrollbar {
-    width: 7px;
-}
-
-.container-content::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: #fff;
-}

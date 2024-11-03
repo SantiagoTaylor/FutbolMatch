@@ -20,7 +20,6 @@ namespace BLL
             return DAL_Establishment.GetEstablishmentById(id);
         }
 
-        
         public static string GetEstablishmentName(string username)
         {
             return DAL_Establishment.GetEstablishmentName(username);

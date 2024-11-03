@@ -21,7 +21,6 @@ namespace UI.Webforms
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            WebformMessage.ShowMessage("s", this);
             if (BLL_Login.IsValidCredentials(txtUser.Text, txtPassword.Text))
             {
                 CookieLogin(txtUser.Text);

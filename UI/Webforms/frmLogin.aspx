@@ -8,17 +8,17 @@
     <title>Inicio Sesion | FutbolMatch</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Styles/style-login.css" />
-    <link rel="shortcut icon" href="../Images/favicon_io/favicon.ico" type="image/x-icon" />
-</head>
-<style>
-    .translate-x-full {
-        transform: translateX(100%);
-    }
+    <link rel="shortcut icon" href="../Images/favicon_io/favicon.ico" type="image/x-icon"/>
+    <style>
+        .translate-x-full {
+            transform: translateX(100%);
+        }
 
-    .-translate-x-full {
-        transform: translateX(-100%);
-    }
-</style>
+        .-translate-x-full {
+            transform: translateX(-100%);
+        }
+    </style>
+</head>
 <body class="select-none">
     <main>
         <!-- Container Logo -->
@@ -143,7 +143,7 @@
                         </article>
                         <article class="flex items-center justify-center">
                             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                            <asp:Button runat="server" ID="btnLogin" CssClass="btn-register w-30 h-1/2 bg-[#8ac545] text-white py-2 rounded-md hover:bg-[#669233] transition duration-200" Text="Sign Up" OnClick="btnLogin_Click" />
+                            <asp:Button runat="server" Text="Sign Up" ID="btnLogin" CssClass="btn-register w-30 h-1/2 bg-[#8ac545] text-white py-2 rounded-md hover:bg-[#669233] transition duration-200" OnClick="btnLogin_Click"/>
                         </article>
                         <article>
                             <a
@@ -197,7 +197,7 @@
                         </div>
                     </article>
                 </div>
-                <div class="form-register w-100 h-full bg-white flex items-center justify-center p-6 shadow-lg rounded-lg hidden flex-col">
+                <div class="form-register w-100 h-full bg-white flex items-center justify-center p-6 hidden flex-col">
                     <h3 class="text-2xl font-semibold text-center">Sign Up</h3>
                     <section
                         class="w-full space-y-4 flex justify-center items-center flex-col">
@@ -486,11 +486,11 @@
                     "focus:border-lime-500"
                 );
             } else if (confirmPassword === passCurrent) {
-                // Si las contraseñas no coinciden
+                // Si las contraseñas coinciden
                 pass.classList.remove("focus:border-red-600");
                 pass.classList.add("focus:border-lime-500");
             } else {
-                // Si las contraseñas coinciden y confirmPassword no está vacío
+                // Si las no contraseñas coinciden y confirmPassword no está vacío
                 pass.classList.remove("focus:border-lime-500");
                 pass.classList.add("focus:border-red-600");
             }

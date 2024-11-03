@@ -140,10 +140,8 @@ namespace UI.Webforms
 
                 if (Request.QueryString["username"] != null)
                 {
-                    Console.WriteLine("1");
                     if (Request.QueryString["modifyUser"] != null)
                     {
-                        Console.WriteLine("2");
                         if (CheckBoxModPass.Checked)
                         {
                             if (ComparePassword())
