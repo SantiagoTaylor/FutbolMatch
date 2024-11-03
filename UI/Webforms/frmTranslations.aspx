@@ -42,7 +42,7 @@
         </section>
 
         <section class="container-content">
-            <div class="w-100 h-auto overflow-y-scroll">
+            <div class="w-100 h-auto overflow-y-auto">
                 <asp:GridView ID="gvLanguage" CssClass="table table-striped table-bordered" runat="server" AllowPaging="True" PageSize="35"
                     OnRowEditing="gvLanguage_RowEditing"
                     OnRowCancelingEdit="gvLanguage_RowCancelingEdit"

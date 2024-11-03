@@ -9,6 +9,7 @@ namespace UI.Webforms
 {
     public partial class frmEventLog : System.Web.UI.Page
     {
+        private DataTable eventLogOriginal = BLL_EventLog.GetEventLog();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -37,47 +38,44 @@ namespace UI.Webforms
 
         private void UpdateGV()
         {
-            gvEventLog.DataSource = BLL_EventLog.GetEventLog();
+            gvEventLog.DataSource = eventLogOriginal;
             gvEventLog.DataBind();
         }
 
-        protected void gvEventLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvEventLog.PageIndex = e.NewPageIndex;
-            if (ViewState["eventLogFilter"] != null)
-            {
-                DataTable table = BLL_EventLog.GetEventLog();
-                DataView view = new DataView(table);
-                string filter = ViewState["eventLogFilter"].ToString();
-                view.RowFilter = filter;
-                gvEventLog.DataSource = view;
-                gvEventLog.DataBind();
-            }
-            else
-            {
-                UpdateGV();
-            }
-        }
 
         protected void CheckBoxUsername_CheckedChanged(object sender, EventArgs e)
         {
             TextBoxUsername.Enabled = CheckBoxUsername.Checked;
+            if (!CheckBoxUsername.Checked)
+            {
+                TextBoxUsername.Text = string.Empty;
+                UpdateGVFilter();
+            }
         }
 
         protected void CheckBoxActivity_CheckedChanged(object sender, EventArgs e)
         {
             DropDownListActivity.Enabled = CheckBoxActivity.Checked;
+            if(!(sender as CheckBox).Checked) UpdateGVFilter();
         }
 
         protected void CheckBoxActivityLevel_CheckedChanged(object sender, EventArgs e)
         {
             DropDownListActivityLevel.Enabled = CheckBoxActivityLevel.Checked;
+            if (!(sender as CheckBox).Checked) UpdateGVFilter();
         }
 
         protected void CheckBoxDate_CheckedChanged(object sender, EventArgs e)
         {
             DateTimeStart.Enabled = CheckBoxDate.Checked;
             DateTimeEnd.Enabled = CheckBoxDate.Checked;
+
+            if (!(sender as CheckBox).Checked)
+            {
+                DateTimeStart.Text = string.Empty;
+                DateTimeEnd.Text = string.Empty;
+                UpdateGVFilter();
+            }
         }
 
         protected void ButtonFilter_Click(object sender, EventArgs e)
@@ -87,7 +85,7 @@ namespace UI.Webforms
 
         private void UpdateGVFilter()
         {
-            DataTable table = BLL_EventLog.GetEventLog();
+            DataTable table = eventLogOriginal;
             DataView view = new DataView(table);
             string filter = "1=1";
             if (CheckBoxUsername.Checked && !string.IsNullOrEmpty(TextBoxUsername.Text))

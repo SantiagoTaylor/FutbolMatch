@@ -15,6 +15,24 @@ namespace UI.Webforms
     {
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// UpdatePanelUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelUsername;
+
+        /// <summary>
         /// CheckBoxUsername control.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,15 @@ namespace UI.Webforms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxUsername;
+
+        /// <summary>
+        /// UpdatePanelActivity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelActivity;
 
         /// <summary>
         /// CheckBoxActivity control.
@@ -69,6 +96,15 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.DropDownList DropDownListActivity;
 
         /// <summary>
+        /// UpdatePanelActivityLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelActivityLevel;
+
+        /// <summary>
         /// CheckBoxActivityLevel control.
         /// </summary>
         /// <remarks>
@@ -94,6 +130,15 @@ namespace UI.Webforms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListActivityLevel;
+
+        /// <summary>
+        /// UpdatePanelDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelDate;
 
         /// <summary>
         /// CheckBoxDate control.
@@ -139,6 +184,15 @@ namespace UI.Webforms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonFilter;
+
+        /// <summary>
+        /// UpdatePanelGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelGridView;
 
         /// <summary>
         /// gvEventLog control.

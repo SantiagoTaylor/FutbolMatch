@@ -41,7 +41,7 @@
         </section>
 
         <section class="container-content d-flex flex-column h-100 w-100">
-            <div class="w-100 h-auto overflow-y-scroll">
+            <div class="w-100 h-auto overflow-y-auto">
                 <asp:GridView ID="gvUsers" CssClass="table table-striped table-bordered" runat="server">
                     <Columns>
                         <asp:TemplateField>
