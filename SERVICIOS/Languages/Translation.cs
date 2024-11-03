@@ -27,5 +27,10 @@ namespace SERVICES.Languages
         {
             return DAL.DAL_Language.GetTranslationTable();
         }
+
+        public static void SaveTranslation(DataTable table)
+        {
+            DAL.DAL_Language.SaveTranslations(table);
+        }
     }
 }

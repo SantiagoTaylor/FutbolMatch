@@ -43,7 +43,7 @@ namespace DAL
             DAL_DB_Connection connection = new DAL_DB_Connection();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter("sp_GetEventLog", connection.Connection);
-            adapter.SelectCommand.Parameters.AddWithValue("p_languageName", language);
+            adapter.SelectCommand.Parameters.AddWithValue("p_language", language);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             adapter.Fill(table);
             return table;
@@ -56,7 +56,7 @@ namespace DAL
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection.OpenConnection();
             command.CommandText = "sp_GetActivityLevels";
-            command.Parameters.AddWithValue("@p_Language", language);
+            command.Parameters.AddWithValue("@p_language", language);
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();
             MySqlDataReader _reader = command.ExecuteReader();
@@ -72,7 +72,7 @@ namespace DAL
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection.OpenConnection();
             command.CommandText = "sp_GetActivitys";
-            command.Parameters.AddWithValue("@p_Language", language);
+            command.Parameters.AddWithValue("@p_language", language);
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();
             MySqlDataReader _reader = command.ExecuteReader();

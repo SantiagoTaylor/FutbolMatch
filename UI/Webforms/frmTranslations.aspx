@@ -24,8 +24,18 @@
                     </asp:DropDownList>
                 </article>
 
+                <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto">
+                    <asp:Label ID="LabelNull" runat="server" Text="Solo campos vacíos"></asp:Label>
+                    <asp:CheckBox ID="CheckBoxNull" AutoPostBack="True" runat="server" />
+                    <asp:Label ID="LabelWebform" runat="server" Text="Webform"></asp:Label>
+                    <asp:CheckBox ID="CheckBoxWebform" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBoxWebform_CheckedChanged" />
+                    <br />
+                    <asp:DropDownList ID="DropDownListWebform" runat="server" Enabled="false"></asp:DropDownList>
+                </article>
+
                 <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto justify-content-center align-items-center mt-4">
-                    <asp:Button ID="ButtonSave" runat="server" Text="Guardar" CssClass="btn btn-light w-75" />
+                    <asp:Button ID="ButtonFilter" runat="server" Text="Filtrar" CssClass="btn btn-light w-75" OnClick="ButtonFilter_Click" />
+                    <asp:Button ID="ButtonSave" runat="server" Text="Guardar" CssClass="btn btn-light w-75" OnClick="ButtonSave_Click" />
                 </article>
 
             </div>

@@ -11,6 +11,16 @@ namespace DAL
 {
     public static class DAL_Language
     {
+        public static DataTable GetAllWebforms()
+        {
+            DAL_DB_Connection connection = new DAL_DB_Connection();
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT DISTINCT webformName FROM tb_Translation", connection.Connection);
+            adapter.SelectCommand.CommandType = CommandType.Text;
+            adapter.Fill(table);
+            return table;
+        }
+
         public static DataTable GetLanguages()
         {
             DAL_DB_Connection connection = new DAL_DB_Connection();

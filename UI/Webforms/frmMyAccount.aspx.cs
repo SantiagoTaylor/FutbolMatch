@@ -65,7 +65,7 @@ namespace UI.Webforms
         {
             List<Control> controlList = GetAllWebControls(this);
 
-            string webform = System.IO.Path.GetFileNameWithoutExtension(Request.FilePath);
+            string webform = System.IO.Path.GetFileNameWithoutExtension(Server.MapPath(Page.AppRelativeVirtualPath));
             Dictionary<string, string> translations = Translation.GetTranslation(SessionManager.GetInstance.User.Language);
 
             foreach (Control control in controlList)
