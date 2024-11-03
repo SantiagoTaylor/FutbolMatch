@@ -20,14 +20,27 @@ namespace UI.Webforms
 
         }
         [WebMethod]
-        public static string GetDataMyEstablishment() {
-            
-            return JsonConvert.SerializeObject
-                (BLL_Establishment.GetEstablishmentDetailsByUsername(SessionManager.GetInstance.User), 
-                Formatting.Indented);
-
+        public static string GetDataMyEstablishment()
+        {
+            return JsonConvert.SerializeObject(
+            BLL_Establishment.GetEstablishmentDetailsByUsername(SessionManager.GetInstance.User)
+            .Select(est => new
+            {
+                est.Id,
+                est.Name,
+                est.Email,
+                est.Phone,
+                est.Address,
+                Employees = est.Employees.Where(emp => !emp.Removed).ToList(),
+                est.Fields
+            }).ToList(),
+            Formatting.Indented);
         }
 
-
+        [WebMethod]
+        public static void DeleteUser(string username)
+        {
+            BLL_User.DeleteUser(username);
+        }
     }
 }
