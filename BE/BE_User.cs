@@ -36,7 +36,7 @@ namespace BE
             this._email = r.Field<string>("Mail");
             this._phone = r.Field<string>("Telefono");
             this._role = r.Field<string>("Rol");
-            this._language = r.Field<int>("Idioma");
+            this._language = r["Idioma"] != DBNull.Value && int.TryParse(r["Idioma"].ToString(), out int lang) ? lang : 0;
             this._blocked = Convert.ToBoolean(r["Bloqueado"]);
             this._removed= Convert.ToBoolean(r["Borrado"]);
         }

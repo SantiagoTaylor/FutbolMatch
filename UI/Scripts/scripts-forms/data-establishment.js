@@ -32,11 +32,16 @@ function showData(e, dataCurrentEst) {
                                 <div class="row g-0">
                                     <div class="col-md-4">
                                         <img class="bd-placeholder-img img-fluid rounded-start" src="https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                                            alt="Imagen" style="width: 100%; height: 100%; object-fit: cover;">
+                                            alt="Photo User" style="width: 100%; height: 100%; object-fit: cover;">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body" onclick=()>
-                                            <h5 class="card-title fs-6 d-flex justify-content-between">${emp.Name} ${emp.Lastname}<a class="text-end" href="frmRegisterEmployee.aspx?username=${emp.Username}"><i class="bi bi-pencil-square"></i></a> </h5>
+                                            <h5 class="card-title fs-6 d-flex justify-content-between"><span style="white-space: nowrap;"> ${emp.Name} ${emp.Lastname}</span>
+                                                <div class="d-flex gap-2">
+                                                    <a class="text-end" href="frmRegisterEmployee.aspx?username=${emp.Username}"><i class="bi bi-pencil-square"></i></a> 
+                                                    <a class="text-end" href="#" onclick="deleteUser('${emp.Username}'); return false;"><i class="bi bi-trash3-fill"></i></a>
+                                                </div>
+                                            </h5>
                                                 <div class="d-flex flex-column">
                                                     <p class="card-text mb-0" style="font-size:.8rem; white-space: nowrap;"><strong>Username:</strong> ${emp.Username}</p>
                                                     <p class="card-text mb-0" style="font-size:.8rem; white-space: nowrap;"><strong>Rol:</strong> ${emp.Role}</p>
@@ -90,3 +95,18 @@ function showData(e, dataCurrentEst) {
 }
 
 window.showData = showData;
+
+
+function deleteUser(username) {
+    const userConfirm = confirm("Esta seguro que desea eliminar el usuario?");
+    if (userConfirm) {
+        PageMethods.DeleteUser(username, onSuccess, onError);
+    }
+}
+
+function onSuccess(result) { 
+    alert("Usuario eliminado con éxito.");
+}
+function onError(error) {
+    alert("Error al eliminar el usuario: " + error.get_message());
+}

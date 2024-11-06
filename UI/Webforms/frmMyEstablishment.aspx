@@ -79,7 +79,7 @@
                     window.location.href = "frmRegisterEmployee.aspx";
                     break;
                 case 1:
-                    window.location.href = "frmCreateField..aspx";
+                    window.location.href = "frmCreateField.aspx";
                     break;
 
             }
@@ -128,7 +128,7 @@
                     </div>
                 </section>
 
-                <section class="w-100 ps-3">
+                <section class="w-100 ps-3 container">
                     <div class="container-data row">
                         <!-- Tarjetas -->
                     </div>

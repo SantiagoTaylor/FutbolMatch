@@ -59,8 +59,6 @@
                     <div class="nav__item"><a href="frmReserveField.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Reservas</a></div>
                     <section runat="server" id="nav__admin" class="nav__admin" visible="False">
                         <div class="nav__item"><a href="frmMyEstablishment.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mi Establecimiento</a></div>
-                        <div class="nav__item"><a href="frmMyEmployees.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mis empleados</a></div>
-                        <div class="nav__item"><a href="frmMyFields.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mis canchas</a></div>
                     </section>
                 </section>
                 <section runat="server" id="nav__webmaster" class="nav__webmaster" visible="False">
@@ -81,6 +79,7 @@
     </header>
     <main>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
         </asp:ContentPlaceHolder>
     </main>
 </body>
