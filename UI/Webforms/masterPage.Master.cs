@@ -39,29 +39,22 @@ namespace UI.Webforms
             List<Control> controlList = GetAllWebControls(this);
 
             string webform = System.IO.Path.GetFileNameWithoutExtension(Server.MapPath("./masterPage.Master"));//mejorar
-            Dictionary<string, string> translations = Translation.GetTranslation(SessionManager.GetInstance.User.Language);
+            var translations = Translation.GetTranslation(SessionManager.GetInstance.User.Language);
 
-            foreach (Control control in controlList)
+            var controlHandlers = new Dictionary<Type, Action<Control, string>>
+            {
+                { typeof(Button), (ctrl, text) => ((Button)ctrl).Text = text },
+                { typeof(Label), (ctrl, text) => ((Label)ctrl).Text = text },
+                { typeof(Literal), (ctrl, text) => ((Literal)ctrl).Text = text },
+                { typeof(HyperLink), (ctrl, text) => ((HyperLink)ctrl).Text = text }
+            };
+
+            foreach (var control in controlList)
             {
                 string key = $"{webform}_{control.ID}";
-                if (translations.ContainsKey(key))
+                if (translations.ContainsKey(key) && controlHandlers.ContainsKey(control.GetType()))
                 {
-                    if (control is Button)
-                    {
-                        ((Button)control).Text = translations[key];
-                    }
-                    else if (control is Label)
-                    {
-                        ((Label)control).Text = translations[key];
-                    }
-                    else if (control is Literal)
-                    {
-                        ((Literal)control).Text = translations[key];
-                    }
-                    else if (control is HyperLink)
-                    {
-                        ((HyperLink)control).Text = translations[key];
-                    }
+                    controlHandlers[control.GetType()].Invoke(control, translations[key]);
                 }
             }
         }
