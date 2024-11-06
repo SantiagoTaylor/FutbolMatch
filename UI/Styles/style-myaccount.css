@@ -8,6 +8,7 @@
     border-radius: 20px;
     backdrop-filter: blur(10px);
     overflow: hidden;
+    box-shadow:0px 5px 20px white;
 }
 
 .title-container {

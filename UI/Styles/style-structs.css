@@ -1,11 +1,12 @@
 ﻿form {
-    width: 90%;
+    width:85vw;
     height: 90%;
     display: flex;
     background-color: rgba(255,255,255,0.6);
     border-radius: 20px;
     backdrop-filter: blur(10px);
-    overflow:hidden;
+    overflow: hidden;
+    box-shadow: 0px 5px 20px white;
 }
 
 .container-controls {
@@ -22,7 +23,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
     .container-content::-webkit-scrollbar {
@@ -32,4 +32,18 @@
     .container-content::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background: #fff;
+    }
+
+.droplist {
+    width: 14.4rem;
+    height: 2.2rem;
+    border-style: none;
+    border: 1px solid;
+    border-color: darkgray;
+    border-radius: 5px;
+}
+
+    .droplist:focus {
+        outline: none;
+        box-shadow: none;
     }

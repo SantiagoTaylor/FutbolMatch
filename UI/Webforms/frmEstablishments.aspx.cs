@@ -49,7 +49,7 @@ namespace UI.Webforms
                     Email = row["Mail"].ToString(),
                     Phone = row["Telefono"].ToString(),
                     Role = row["Rol"].ToString(),
-                    Language = Convert.ToInt32(row["Idioma"]),
+                    Language = row["Idioma"] != DBNull.Value && int.TryParse(row["Idioma"].ToString(), out int lang) ? lang : 0,
                     Blocked = Convert.ToBoolean(row["Bloqueado"]),
                     Removed = Convert.ToBoolean(row["Borrado"])
                 })
@@ -65,6 +65,12 @@ namespace UI.Webforms
                 .ToList();
 
             return JsonConvert.SerializeObject(est, Formatting.Indented);
+        }
+
+        [WebMethod]
+        public static void DeleteUser(string username)
+        {
+            BLL_User.DeleteUser(username);
         }
 
         protected void Button_Command(object sender, CommandEventArgs e)
