@@ -14,9 +14,35 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll('.nav__item');
+        let selectedIndex = sessionStorage.getItem('selectedNavItemIndex');
+
+        console.log(selectedIndex);
+
+        if (selectedIndex === null) {
+            selectedIndex = 0;
+            sessionStorage.setItem('selectedNavItemIndex', selectedIndex);
+        }
+
+        if (navItems[selectedIndex]) {
+            navItems[selectedIndex].classList.add("selected");
+        }
+
+        navItems.forEach((item, index) => {
+            item.addEventListener("click", function () {
+                navItems.forEach(el => el.classList.remove("selected"));
+                this.classList.add("selected");
+                sessionStorage.setItem('selectedNavItemIndex', index);
+            });
+        });
+    });
+
     function logout() {
         window.location.href = "index.aspx?event=logout";
     }
+
 </script>
 <body>
     <header runat="server">
@@ -30,7 +56,7 @@
                 </div>
 
                 <section runat="server" id="nav__user__admin" class="nav__user__admin" visible="False">
-                    <div class="nav__item"><a href="frmReserveField.aspx">Reservas</a></div>
+                    <div class="nav__item"><a href="frmReserveField.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Reservas</a></div>
                     <section runat="server" id="nav__admin" class="nav__admin" visible="False">
                         <div class="nav__item"><a href="frmMyEstablishment.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mi Establecimiento</a></div>
                         <div class="nav__item"><a href="frmMyEmployees.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mis empleados</a></div>
@@ -47,9 +73,7 @@
                 </section>
 
                 <section class="nav__item">
-
                     <button class="border-0 w-100 h-100" onclick="logout()">Logout</button>
-
                 </section>
             </div>
         </nav>
