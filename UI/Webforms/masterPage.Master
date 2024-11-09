@@ -71,7 +71,7 @@
                 </section>
 
                 <section class="nav__item">
-                    <button class="border-0 w-100 h-100" onclick="logout()">Logout</button>
+                    <button class="border-0 w-100 h-100" onclick="logout()"><i class="bi bi-box-arrow-left"></i> Logout</button>
                 </section>
             </div>
         </nav>

@@ -177,6 +177,15 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.TextBox DateTimeEnd;
 
         /// <summary>
+        /// UpdatePanelButtonFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelButtonFilter;
+
+        /// <summary>
         /// ButtonFilter control.
         /// </summary>
         /// <remarks>

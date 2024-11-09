@@ -9,11 +9,11 @@ namespace UI.Webforms
 {
     public partial class frmEventLog : System.Web.UI.Page
     {
-        private DataTable eventLogOriginal = BLL_EventLog.GetEventLog();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                ViewState["EventLogData"] = BLL_EventLog.GetEventLog();
                 UpdateGV();
                 ActivityLevelsLoad();
                 ActivitysLoad();
@@ -38,11 +38,9 @@ namespace UI.Webforms
 
         private void UpdateGV()
         {
-            gvEventLog.DataSource = eventLogOriginal;
+            gvEventLog.DataSource = ViewState["EventLogData"];
             gvEventLog.DataBind();
         }
-
-
         protected void CheckBoxUsername_CheckedChanged(object sender, EventArgs e)
         {
             TextBoxUsername.Enabled = CheckBoxUsername.Checked;
@@ -51,12 +49,12 @@ namespace UI.Webforms
                 TextBoxUsername.Text = string.Empty;
                 UpdateGVFilter();
             }
+            UpdatePanelUsername.Update();
         }
-
         protected void CheckBoxActivity_CheckedChanged(object sender, EventArgs e)
         {
             DropDownListActivity.Enabled = CheckBoxActivity.Checked;
-            if(!(sender as CheckBox).Checked) UpdateGVFilter();
+            if (!(sender as CheckBox).Checked) UpdateGVFilter();
         }
 
         protected void CheckBoxActivityLevel_CheckedChanged(object sender, EventArgs e)
@@ -85,7 +83,7 @@ namespace UI.Webforms
 
         private void UpdateGVFilter()
         {
-            DataTable table = eventLogOriginal;
+            DataTable table = ViewState["EventLogData"] as DataTable;
             DataView view = new DataView(table);
             string filter = "1=1";
             if (CheckBoxUsername.Checked && !string.IsNullOrEmpty(TextBoxUsername.Text))
@@ -110,6 +108,12 @@ namespace UI.Webforms
             view.RowFilter = filter;
             gvEventLog.DataSource = view;
             gvEventLog.DataBind();
+        }
+
+        protected void gvEventLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvEventLog.PageIndex = e.NewPageIndex;
+            UpdateGVFilter();
         }
     }
 }
