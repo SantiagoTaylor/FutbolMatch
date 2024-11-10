@@ -4,14 +4,9 @@ using SERVICES.Languages;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using System.Web.DynamicData;
-using System.Web.UI.WebControls;
-<<<<<<< HEAD
 using System.Web.UI;
-=======
+using System.Web.UI.WebControls;
 using UI.WebService;
->>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
 
 namespace UI.Webforms
 {
@@ -21,12 +16,9 @@ namespace UI.Webforms
         {
             if (!IsPostBack)
             {
-<<<<<<< HEAD
                 ObservableLanguage.Attach(this);
-=======
                 ViewState["EventLogData"] = BLL_EventLog.GetEventLog();
                 ViewState["EventLogDataFiltered"] = ViewState["EventLogData"];
->>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
                 UpdateGV();
                 ActivityLevelsLoad();
                 ActivitysLoad();
@@ -57,23 +49,16 @@ namespace UI.Webforms
         protected void CheckBoxUsername_CheckedChanged(object sender, EventArgs e)
         {
             TextBoxUsername.Enabled = CheckBoxUsername.Checked;
-<<<<<<< HEAD
-=======
             if (!CheckBoxUsername.Checked)
             {
                 TextBoxUsername.Text = string.Empty;
                 UpdateGVFilter();
             }
-            UpdatePanelUsername.Update();
->>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
         }
         protected void CheckBoxActivity_CheckedChanged(object sender, EventArgs e)
         {
             DropDownListActivity.Enabled = CheckBoxActivity.Checked;
-<<<<<<< HEAD
-=======
             if (!(sender as CheckBox).Checked) UpdateGVFilter();
->>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
         }
 
         protected void CheckBoxActivityLevel_CheckedChanged(object sender, EventArgs e)
@@ -139,7 +124,7 @@ namespace UI.Webforms
             WebServiceEventLog svc = new WebServiceEventLog();
             int startRow = gvEventLog.PageIndex * gvEventLog.PageSize;
             int endRow = startRow + gvEventLog.PageSize - 1;
-
+            //? todo
             Response.Clear();
             Response.ContentType = "application/xml";
             Response.AddHeader("Content-Disposition", "attachment; filename=eventlog.xml");
