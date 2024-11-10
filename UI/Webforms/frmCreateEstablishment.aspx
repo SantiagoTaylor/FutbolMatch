@@ -9,29 +9,29 @@
     <form runat="server" class="container-establishment">
         <div class="container-form">
             <article class="item-form">
-                <asp:Label runat="server" ID="LabelName" Text="Nombre Establecimiento"></asp:Label>
+                <asp:Label runat="server" ID="LabelEstablishmentName" Text="Nombre del establecimiento"></asp:Label>
                 <asp:TextBox runat="server" ID="TextBoxName" CssClass="form-control"></asp:TextBox>
             </article>
             <article class="item-form">
-                <asp:Label runat="server" ID="LabelEmail" Text="Email"></asp:Label>
+                <asp:Label runat="server" ID="LabelEstablishmentEmail" Text="Email"></asp:Label>
                 <asp:TextBox runat="server" ID="TextBoxEmail" CssClass="form-control"></asp:TextBox>
             </article>
             <article class="item-form">
-                <asp:Label runat="server" ID="LabelPhone" Text="Telefono"></asp:Label>
+                <asp:Label runat="server" ID="LabelEstablishmentPhone" Text="Teléfono"></asp:Label>
                 <asp:TextBox runat="server" ID="TextBoxPhone" CssClass="form-control"></asp:TextBox>
             </article>
             <div class="item-form">
-                <label for="slt-provincia">Provincia</label>
+                <asp:Label runat="server" ID="LabelProvince" Text="Provincia"></asp:Label>
                 <select class="form-select" id="slt-provincia" aria-label="Floating label select example">
                 </select>
             </div>
             <div class="item-form">
-                <label for="localidad">Localidad</label>
+                <asp:Label runat="server" ID="LabelLocality" Text="Locality"></asp:Label>
                 <select class="form-select" id="slt-minu" aria-label="Floating label select example">
                 </select>
             </div>
             <article class="item-form">
-                <asp:Label runat="server" ID="LabelAdress" Text="Direccion"></asp:Label>
+                <asp:Label runat="server" ID="LabelEstablishmentAddress" Text="Dirección"></asp:Label>
                 <asp:TextBox runat="server" ID="TextBoxAdress" CssClass="form-control"></asp:TextBox>
             </article>
             <article class="item-form-btn">

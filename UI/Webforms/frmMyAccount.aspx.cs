@@ -41,29 +41,9 @@ namespace UI.Webforms
             Response.Redirect($"frmRegister.aspx?modifyUser=true&username={SessionManager.GetInstance.User.Username}");
         }
 
-        public List<Control> GetAllWebControls(Control parent)
-        {
-            List<Control> controls = new List<Control>();
-
-            foreach (Control control in parent.Controls)
-            {
-                if (control is WebControl)
-                {
-                    WebControl webControl = (WebControl)control;
-                    controls.Add(webControl);
-                }
-                if (control.HasControls())
-                {
-                    controls.AddRange(GetAllWebControls(control));
-                }
-            }
-            return controls;
-        }
-
-
         public void Translate()
         {
-            List<Control> controlList = GetAllWebControls(this);
+            List<Control> controlList = Translation.GetAllWebControls(this);
 
             string webform = System.IO.Path.GetFileNameWithoutExtension(Server.MapPath(Page.AppRelativeVirtualPath));
             Dictionary<string, string> translations = Translation.GetTranslation(SessionManager.GetInstance.User.Language);

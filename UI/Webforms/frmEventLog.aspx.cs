@@ -1,23 +1,32 @@
 ﻿using BLL;
 using SERVICES;
+using SERVICES.Languages;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Web.DynamicData;
 using System.Web.UI.WebControls;
+<<<<<<< HEAD
+using System.Web.UI;
+=======
 using UI.WebService;
+>>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
 
 namespace UI.Webforms
 {
-    public partial class frmEventLog : System.Web.UI.Page
+    public partial class frmEventLog : System.Web.UI.Page, IObserver
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+<<<<<<< HEAD
+                ObservableLanguage.Attach(this);
+=======
                 ViewState["EventLogData"] = BLL_EventLog.GetEventLog();
                 ViewState["EventLogDataFiltered"] = ViewState["EventLogData"];
+>>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
                 UpdateGV();
                 ActivityLevelsLoad();
                 ActivitysLoad();
@@ -48,36 +57,34 @@ namespace UI.Webforms
         protected void CheckBoxUsername_CheckedChanged(object sender, EventArgs e)
         {
             TextBoxUsername.Enabled = CheckBoxUsername.Checked;
+<<<<<<< HEAD
+=======
             if (!CheckBoxUsername.Checked)
             {
                 TextBoxUsername.Text = string.Empty;
                 UpdateGVFilter();
             }
             UpdatePanelUsername.Update();
+>>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
         }
         protected void CheckBoxActivity_CheckedChanged(object sender, EventArgs e)
         {
             DropDownListActivity.Enabled = CheckBoxActivity.Checked;
+<<<<<<< HEAD
+=======
             if (!(sender as CheckBox).Checked) UpdateGVFilter();
+>>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
         }
 
         protected void CheckBoxActivityLevel_CheckedChanged(object sender, EventArgs e)
         {
             DropDownListActivityLevel.Enabled = CheckBoxActivityLevel.Checked;
-            if (!(sender as CheckBox).Checked) UpdateGVFilter();
         }
 
         protected void CheckBoxDate_CheckedChanged(object sender, EventArgs e)
         {
             DateTimeStart.Enabled = CheckBoxDate.Checked;
             DateTimeEnd.Enabled = CheckBoxDate.Checked;
-
-            if (!(sender as CheckBox).Checked)
-            {
-                DateTimeStart.Text = string.Empty;
-                DateTimeEnd.Text = string.Empty;
-                UpdateGVFilter();
-            }
         }
 
         protected void ButtonFilter_Click(object sender, EventArgs e)
@@ -138,6 +145,34 @@ namespace UI.Webforms
             Response.AddHeader("Content-Disposition", "attachment; filename=eventlog.xml");
             Response.Write(svc.ConvertDataTableToXML((DataTable)ViewState["EventLogDataFiltered"], startRow, endRow));
             Response.End();
+        }
+
+        public void Translate()
+        {
+            List<Control> controlList = Translation.GetAllWebControls(this);
+
+            string webform = System.IO.Path.GetFileNameWithoutExtension(Server.MapPath(Page.AppRelativeVirtualPath));
+            Dictionary<string, string> translations = Translation.GetTranslation(SessionManager.GetInstance.User.Language);
+
+            foreach (Control control in controlList)
+            {
+                string key = $"{webform}_{control.ID}";
+                if (translations.ContainsKey(key))
+                {
+                    if (control is Button)
+                    {
+                        ((Button)control).Text = translations[key];
+                    }
+                    else if (control is Label)
+                    {
+                        ((Label)control).Text = translations[key];
+                    }
+                    else if (control is Literal)
+                    {
+                        ((Literal)control).Text = translations[key];
+                    }
+                }
+            }
         }
     }
 }

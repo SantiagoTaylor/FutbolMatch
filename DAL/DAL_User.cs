@@ -114,7 +114,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@p_email", user.Email);
                 cmd.Parameters.AddWithValue("@p_phone", user.Phone);
                 cmd.Parameters.AddWithValue("@p_roleName", user.Role);
-                cmd.Parameters.AddWithValue("@p_languageName", user.Language);
+                cmd.Parameters.AddWithValue("@p_language", user.Language);
                 cmd.Parameters.AddWithValue("@p_blocked", user.Blocked);
                 cmd.Parameters.AddWithValue("@p_removed", user.Removed);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -140,7 +140,7 @@ namespace DAL
             command.Parameters.AddWithValue("@p_lastname", user.Lastname);
             command.Parameters.AddWithValue("@p_email", user.Email);
             command.Parameters.AddWithValue("@p_phone", user.Phone);
-            command.Parameters.AddWithValue("@p_languageName", user.Language);
+            command.Parameters.AddWithValue("@p_language", user.Language);
             command.Parameters.AddWithValue("@p_password", user.Password);
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();

@@ -87,12 +87,12 @@
 
         <section class="container-controls d-flex justify-content-center align-items-center flex-column">
             <section class="container-btn">
-                <asp:Button ID="ButtonRegisterEstablishment" CssClass="btn btn-light w-auto" runat="server" OnClick="ButtonRegisterEstablishment_Click" Text="Registrar Establecimiento" />
+                <asp:Button ID="ButtonRegisterEstablishment" CssClass="btn btn-light w-auto" runat="server" OnClick="ButtonRegisterEstablishment_Click" Text="Registrar establecimiento" />
             </section>
             <br />
             <br />
             <section class="w-75 flex justify-content-center align-items-center">
-                <label for="form-control">Nombre del Establicimiento</label>
+                <asp:Label ID="LabelEstablishmentName" Text="Nombre del establicimiento" runat="server" />
                 <asp:TextBox runat="server" ID="TextBoxNameEstablishment" CssClass="form-control" OnTextChanged="TextBoxNameEstablishment_TextChanged" AutoPostBack="true" AutoComplete="Off"></asp:TextBox>
             </section>
         </section>
@@ -112,6 +112,7 @@
                         <article class="item-establishment m-2 d-flex" data-id="<%# Eval("idEstablishment")%>" onclick="getDataEst(this,document.querySelector('.container-details-establishment')); return false;">
                             <section class="establishment-info card-body p-2 ps-4">
                                 <h4><%# Eval("establishmentName") %></h4>
+                                <%--<asp:Label ID="LabelAddress" Text='<%# "Domicilio: " + Eval("address") %>' runat="server" />--%>
                                 <p class="m-0"><strong>Domicilio:</strong>  <%# Eval("address") %></p>
                                 <p class="m-0"><strong>Teléfono:</strong> <%# Eval("phone") %></p>
                                 <p class="m-0"><strong>Email:</strong> <%# Eval("email") %></p>

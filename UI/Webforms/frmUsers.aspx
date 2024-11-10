@@ -10,27 +10,27 @@
     <form runat="server">
 
         <section class="container-controls d-flex flex-column w-25">
-            <h3>Filtros</h3>
+            <asp:Label ID="LabelFilters" Text="Filtros" runat="server" />
             <div class="d-flex flex-column align-items-center justify-content-center">
                 <article class="container d-flex align-items-center gap-1 mb-1">
                     <asp:CheckBox ID="CheckBoxUsername" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBoxUsername_CheckedChanged" />
-                    <asp:Label ID="Label1" runat="server" Text="Usuario"></asp:Label>
+                    <asp:Label ID="LabelUsername" runat="server" Text="Usuario"></asp:Label>
                     <asp:TextBox ID="TextBoxUsername" runat="server" Enabled="false" CssClass="form-control w-auto"></asp:TextBox>
                 </article>
                 <article class="container mb-1 d-flex align-items-center gap-1">
                     <asp:CheckBox ID="CheckBoxRole" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBoxRole_CheckedChanged" />
-                    <asp:Label ID="Label4" runat="server" Text="Rol" CssClass="label-rol"></asp:Label>
+                    <asp:Label ID="LabelRole" runat="server" Text="Rol" CssClass="label-rol"></asp:Label>
 
                     <asp:DropDownList ID="DropDownListRole" runat="server" Enabled="false" CssClass="dropdownlist-roles"></asp:DropDownList>
 
                 </article>
                 <article class="container mb-1">
                     <asp:CheckBox ID="CheckBoxBlocked" runat="server" AutoPostBack="True" />
-                    <asp:Label ID="Label2" runat="server" Text="Bloqueado"></asp:Label>
+                    <asp:Label ID="LabelBlocked" runat="server" Text="Bloqueado"></asp:Label>
                 </article>
                 <article class="container mb-1">
                     <asp:CheckBox ID="CheckBoxRemoved" runat="server" AutoPostBack="True" />
-                    <asp:Label ID="Label3" runat="server" Text="Borrado"></asp:Label>
+                    <asp:Label ID="LabelRemoved" runat="server" Text="Borrado"></asp:Label>
                 </article>
 
             </div>

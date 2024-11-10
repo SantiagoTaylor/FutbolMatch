@@ -15,13 +15,13 @@ namespace UI.Webforms
     {
 
         /// <summary>
-        /// Control LabelName.
+        /// Control LabelEstablishmentName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelName;
+        protected global::System.Web.UI.WebControls.Label LabelEstablishmentName;
 
         /// <summary>
         /// Control TextBoxName.
@@ -33,13 +33,13 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.TextBox TextBoxName;
 
         /// <summary>
-        /// Control LabelEmail.
+        /// Control LabelEstablishmentEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelEmail;
+        protected global::System.Web.UI.WebControls.Label LabelEstablishmentEmail;
 
         /// <summary>
         /// Control TextBoxEmail.
@@ -51,13 +51,13 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
 
         /// <summary>
-        /// Control LabelPhone.
+        /// Control LabelEstablishmentPhone.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelPhone;
+        protected global::System.Web.UI.WebControls.Label LabelEstablishmentPhone;
 
         /// <summary>
         /// Control TextBoxPhone.
@@ -69,13 +69,31 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.TextBox TextBoxPhone;
 
         /// <summary>
-        /// Control LabelAdress.
+        /// Control LabelProvince.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelAdress;
+        protected global::System.Web.UI.WebControls.Label LabelProvince;
+
+        /// <summary>
+        /// Control LabelLocality.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelLocality;
+
+        /// <summary>
+        /// Control LabelEstablishmentAddress.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelEstablishmentAddress;
 
         /// <summary>
         /// Control TextBoxAdress.

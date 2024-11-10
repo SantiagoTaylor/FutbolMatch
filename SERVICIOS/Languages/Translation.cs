@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using System.Web.UI.WebControls;
+using System.Web.UI;
 
 namespace SERVICES.Languages
 {
@@ -31,6 +33,25 @@ namespace SERVICES.Languages
         public static void SaveTranslation(DataTable table)
         {
             DAL.DAL_Language.SaveTranslations(table);
+        }
+
+        public static List<Control> GetAllWebControls(Control parent)
+        {
+            List<Control> controls = new List<Control>();
+
+            foreach (Control control in parent.Controls)
+            {
+                if (control is WebControl)
+                {
+                    WebControl webControl = (WebControl)control;
+                    controls.Add(webControl);
+                }
+                if (control.HasControls())
+                {
+                    controls.AddRange(GetAllWebControls(control));
+                }
+            }
+            return controls;
         }
     }
 }

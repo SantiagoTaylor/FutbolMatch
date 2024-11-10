@@ -19,9 +19,7 @@
                     <div class="d-flex w-100 gap-2">
                         <asp:Label ID="LabelLanguage2" runat="server" Text="Hacia"></asp:Label>
                     </div>
-                    <asp:DropDownList ID="DropDownListToLanguage" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownListToLanguage_SelectedIndexChanged" CssClass="droplist">
-                        <asp:ListItem Text="Mango" Value="1" />
-                    </asp:DropDownList>
+                    <asp:DropDownList ID="DropDownListToLanguage" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownListToLanguage_SelectedIndexChanged" CssClass="droplist">                    </asp:DropDownList>
                 </article>
 
                 <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto">
@@ -51,7 +49,8 @@
                     OnRowCancelingEdit="gvLanguage_RowCancelingEdit"
                     OnRowUpdating="gvLanguage_RowUpdating"
                     DataKeyNames="controlName,webformName"
-                    AutoGenerateEditButton="True">
+                    AutoGenerateEditButton="True" 
+                    OnRowDataBound="gvLanguage_RowDataBound">
                     <HeaderStyle CssClass="table-dark sticky-header bg-black" />
                     <PagerSettings Mode="Numeric" PageButtonCount="10" />
                 </asp:GridView>
