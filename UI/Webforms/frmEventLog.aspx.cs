@@ -17,6 +17,7 @@ namespace UI.Webforms
             if (!IsPostBack)
             {
                 ViewState["EventLogData"] = BLL_EventLog.GetEventLog();
+                ViewState["EventLogDataFiltered"] = ViewState["EventLogData"];
                 UpdateGV();
                 ActivityLevelsLoad();
                 ActivitysLoad();
