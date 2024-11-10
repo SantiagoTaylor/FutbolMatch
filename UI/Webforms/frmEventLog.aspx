@@ -9,7 +9,6 @@
 
         <section class="container-controls">
             <div class="container-filters w-100 h-50 d-flex flex-column justify-content-center">
-<<<<<<< HEAD
                 <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto">
                     <div class="d-flex w-100 gap-2">
                         <asp:CheckBox ID="CheckBoxUsername" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBoxUsername_CheckedChanged" />
@@ -41,62 +40,9 @@
                 </article>
                 <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto justify-content-center align-items-center mt-4">
                     <asp:Button ID="ButtonFilter" runat="server" Text="Filtrar" OnClick="ButtonFilter_Click" CssClass="btn btn-light w-75" />
-=======
-                <asp:UpdatePanel ID="UpdatePanelUsername" runat="server" UpdateMode="Conditional">
-                    <ContentTemplate>
-                        <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto">
-                            <div class="d-flex w-100 gap-2">
-                                <asp:CheckBox ID="CheckBoxUsername" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBoxUsername_CheckedChanged" />
-                                <asp:Label ID="Label1" runat="server" Text="Usuario"></asp:Label>
-                            </div>
-                            <asp:TextBox ID="TextBoxUsername" runat="server" Enabled="false" CssClass="form-control"></asp:TextBox>
-                        </article>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-                <asp:UpdatePanel ID="UpdatePanelActivity" runat="server">
-                    <ContentTemplate>
-                        <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto">
-                            <div class="d-flex w-100 gap-2">
-                                <asp:CheckBox ID="CheckBoxActivity" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBoxActivity_CheckedChanged" />
-                                <asp:Label ID="Label2" runat="server" Text="Actividad"></asp:Label>
-                            </div>
-                            <asp:DropDownList ID="DropDownListActivity" runat="server" Enabled="false"></asp:DropDownList>
-                        </article>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-                <asp:UpdatePanel ID="UpdatePanelActivityLevel" runat="server">
-                    <ContentTemplate>
-                        <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto">
-                            <div class="d-flex w-100 gap-2">
-                                <asp:CheckBox ID="CheckBoxActivityLevel" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBoxActivityLevel_CheckedChanged" />
-                                <asp:Label ID="Label3" runat="server" Text="Nivel"></asp:Label>
-                            </div>
-                            <asp:DropDownList ID="DropDownListActivityLevel" runat="server" Enabled="false"></asp:DropDownList>
-                        </article>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-                <asp:UpdatePanel ID="UpdatePanelDate" runat="server">
-                    <ContentTemplate>
-                        <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto">
-                            <div class="d-flex w-100 gap-2">
-                                <asp:CheckBox ID="CheckBoxDate" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBoxDate_CheckedChanged" />
-                                <asp:Label ID="Label4" runat="server" Text="Fecha"></asp:Label>
-                            </div>
-                            <asp:TextBox ID="DateTimeStart" TextMode="Date" runat="server" Enabled="false" CssClass="form-control"></asp:TextBox>
-                            <asp:TextBox ID="DateTimeEnd" TextMode="Date" runat="server" Enabled="false" CssClass="form-control"></asp:TextBox>
-                        </article>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-                <asp:UpdatePanel ID="UpdatePanelButtonFilter" runat="server">
-                    <ContentTemplate>
-                        <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto justify-content-center align-items-center mt-4">
-                            <asp:Button ID="ButtonFilter" runat="server" Text="Filtrar" OnClick="ButtonFilter_Click" CssClass="btn btn-light w-75" />
-                        </article>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                </article>
                 <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto justify-content-center align-items-center mt-1">
                     <asp:Button ID="ButtonDownloadXml" runat="server" Text="Descargar XML" OnClick="ButtonDownloadXml_Click" CssClass="btn btn-light w-75" />
->>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
                 </article>
             </div>
         </section>
