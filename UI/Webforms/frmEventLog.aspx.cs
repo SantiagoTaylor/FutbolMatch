@@ -70,21 +70,47 @@ namespace UI.Webforms
         {
             DateTimeStart.Enabled = CheckBoxDate.Checked;
             DateTimeEnd.Enabled = CheckBoxDate.Checked;
+            if (!CheckBoxDate.Checked)
+            {
+                DateTimeStart.Text = string.Empty;
+                DateTimeEnd.Text = string.Empty;
+                UpdateGVFilter();
+            }
         }
 
         protected void ButtonFilter_Click(object sender, EventArgs e)
         {
+            UpdateGVFilter(true);
+        }
+        protected void ButtonDownloadXml_Click(object sender, EventArgs e)
+        {
+            WebServiceEventLog svc = new WebServiceEventLog();
+            int startRow = gvEventLog.PageIndex * gvEventLog.PageSize;
+            int endRow = startRow + gvEventLog.PageSize - 1;
+            Response.Clear();
+            Response.ContentType = "application/xml";
+            Response.AddHeader("Content-Disposition", "attachment; filename=eventlog.xml");
+            Response.Write(svc.ConvertDataTableToXML((DataTable)ViewState["EventLogDataFiltered"], startRow, endRow));
+            Response.End();
+        }
+        protected void gvEventLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvEventLog.PageIndex = e.NewPageIndex;
             UpdateGVFilter();
         }
 
-        private void UpdateGVFilter()
+        private void UpdateGVFilter(bool flag = false)
         {
-            if (!CheckBoxUsername.Checked && !CheckBoxActivity.Checked && !CheckBoxActivityLevel.Checked && !CheckBoxDate.Checked)
+            try
             {
-                WebformMessage.ShowMessage("Por favor, seleccione al menos un filtro.", this);
-            }
-            else
-            {
+                if (flag)
+                {
+                    if (!CheckBoxUsername.Checked && !CheckBoxActivity.Checked && !CheckBoxActivityLevel.Checked && !CheckBoxDate.Checked)
+                    {
+                        throw new Exception("Por favor, seleccione al menos un filtro.");
+                    }
+                    gvEventLog.PageIndex = 0;
+                }
                 DataTable table = ViewState["EventLogData"] as DataTable;
                 DataView view = new DataView(table);
                 string filter = "1=1";
@@ -110,26 +136,12 @@ namespace UI.Webforms
                 gvEventLog.DataSource = view;
                 gvEventLog.DataBind();
                 ViewState["EventLogDataFiltered"] = view.ToTable();
+
             }
-        }
-
-        protected void gvEventLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvEventLog.PageIndex = e.NewPageIndex;
-            UpdateGVFilter();
-        }
-
-        protected void ButtonDownloadXml_Click(object sender, EventArgs e)
-        {
-            WebServiceEventLog svc = new WebServiceEventLog();
-            int startRow = gvEventLog.PageIndex * gvEventLog.PageSize;
-            int endRow = startRow + gvEventLog.PageSize - 1;
-            //? todo
-            Response.Clear();
-            Response.ContentType = "application/xml";
-            Response.AddHeader("Content-Disposition", "attachment; filename=eventlog.xml");
-            Response.Write(svc.ConvertDataTableToXML((DataTable)ViewState["EventLogDataFiltered"], startRow, endRow));
-            Response.End();
+            catch (Exception ex)
+            {
+                WebformMessage.ShowMessage(ex.Message, this);
+            }
         }
 
         public void Translate()
