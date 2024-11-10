@@ -57,24 +57,11 @@
                     </section>
                 </section>
                 <section runat="server" id="nav__webmaster" class="nav__webmaster" visible="False">
-<<<<<<< HEAD
                     <div class="nav__item"><asp:HyperLink ID="HyperLinkUsers" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmUsers.aspx">Usuarios</asp:HyperLink></div>
                     <div class="nav__item"><asp:HyperLink ID="HyperLinkEstablishments" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmEstablishments.aspx">Establecimientos</asp:HyperLink></div>
                     <div class="nav__item"><asp:HyperLink ID="HyperLinkEventLog" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmEventLog.aspx">Bitacora</asp:HyperLink></div>
                     <div class="nav__item"><asp:HyperLink ID="HyperLinkDatabaseIntegrity" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmDatabaseIntegrity.aspx">Backup y Restore</asp:HyperLink></div>
                     <div class="nav__item"><asp:HyperLink ID="HyperLinkTranslations" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmTranslations.aspx">Traducciones</asp:HyperLink></div>
-=======
-                    <asp:HyperLink ID="AMyAccount" runat="server" NavigateUrl="frmMyEstablishment.aspx">HyperLink</asp:HyperLink>
-                    <div class="nav__item"><a href="frmUsers.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Usuarios</a></div>
-                    <div class="nav__item"><a href="frmEstablishments.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Establecimientos</a></div>
-                    <div class="nav__item"><a href="frmEventLog.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Bitacora</a></div>
-                    <div class="nav__item"><a href="frmDatabaseIntegrity.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Backup y Restore</a></div>
-                    <div class="nav__item"><a href="frmTranslations.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Traducciones</a></div>
-                </section>
-
-                <section class="nav__item">
-                    <button class="border-0 w-100 h-100" onclick="logout()"><i class="bi bi-box-arrow-left"></i> Logout</button>
->>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
                 </section>
             </div>
         </nav>
