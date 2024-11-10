@@ -10,8 +10,8 @@
 <body>
     <form class="form-error" runat="server">
         <div class="container-error">
-            <h1>Sitio en mantenimiento</h1>
-            <p>Nos disculpamos por las molestias ocasionadas</p>
+            <h1 id="h1Title">Sitio en mantenimiento</h1>
+            <p id="pText">Nos disculpamos por las molestias ocasionadas</p>
         </div>
         <div class="container-img">
             <img src="../Images/ball-sad.png" class="error-img" alt="Image Error"/>

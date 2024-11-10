@@ -7,7 +7,7 @@
 
             <section class="container-db" style="width:90%;">
                 <article>
-                    <asp:Label ID="Label1" runat="server" Text="Dirección del Backup"></asp:Label><br />
+                    <asp:Label ID="LabelBackupPath" runat="server" Text="Dirección del Backup"></asp:Label><br />
                     <div class="d-flex align-items-center w-auto g-3">
                         <asp:TextBox ID="TextBoxBackup" runat="server" CssClass="form-control"></asp:TextBox>
                         <asp:Button ID="ButtonBackup" runat="server" Text="Backup" OnClick="ButtonBackup_Click" CssClass="btn btn-success" />
@@ -16,7 +16,7 @@
                 </article>
 
                 <article>
-                    <asp:Label ID="Label2" runat="server" Text="Dirección del archivo"></asp:Label><br />
+                    <asp:Label ID="LabelRestorePath" runat="server" Text="Dirección del archivo"></asp:Label><br />
                     <div class="input-group mb-3">
                         <asp:FileUpload ID="FileUploadRestore"  runat="server" CssClass="form-control" type="file" SkinID="inputGroupFile02"/>
                         <label class="input-group-text" for="inputGroupFile02">Upload</label>

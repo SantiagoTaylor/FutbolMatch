@@ -4,9 +4,7 @@ using SERVICES.Languages;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace UI.Webforms
@@ -75,6 +73,18 @@ namespace UI.Webforms
             gvLanguage.EditIndex = -1;
         }
 
+        protected void gvLanguage_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex == gvLanguage.EditIndex)
+            {
+                // solo editable la ultima
+                for (int i = 0; i < e.Row.Cells.Count - 1; i++)
+                {
+                    e.Row.Cells[i].Enabled = false;
+                }
+            }
+        }
+
         protected void gvLanguage_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             // pks de lo que voy a editar
@@ -86,7 +96,6 @@ namespace UI.Webforms
             // nuevo valor
             if (table != null)
             {
-                // Obtener el nuevo valor del TextBox en la fila editada
                 GridViewRow row = gvLanguage.Rows[e.RowIndex];
                 string newValue = ((TextBox)row.Cells[table.Columns.Count].Controls[0]).Text;//sin -1 por los 2 botones que se agregan
 
@@ -95,17 +104,14 @@ namespace UI.Webforms
 
                 if (rows.Length > 0)
                 {
-                    // Actualizar el valor de la columna correspondiente
                     rows[0][table.Columns.Count - 1] = newValue;
                 }
 
-                // Salir del modo de edición
                 gvLanguage.EditIndex = -1;
 
-                // Actualizar el ViewState con la tabla modificada
                 ViewState["languageTable"] = table;
 
-                // Volver a enlazar el GridView
+                // actualizar
                 gvLanguage.DataSource = table;
                 gvLanguage.DataBind();
             }
@@ -118,33 +124,9 @@ namespace UI.Webforms
             ObservableLanguage.CurrentLanguage = ObservableLanguage.CurrentLanguage;// trampa para actualizar los forms... corregir dps
         }
 
-        public List<Control> GetAllWebControls(Control parent)
-        {
-            List<Control> controls = new List<Control>();
-
-            foreach (Control control in parent.Controls)
-            {
-                if (control is WebControl)
-                {
-                    WebControl webControl = (WebControl)control;
-                    controls.Add(webControl);
-                }
-                if (control is HtmlControl htmlControl)
-                {
-                    controls.Add(htmlControl);
-                }
-                if (control.HasControls())
-                {
-                    controls.AddRange(GetAllWebControls(control));
-                }
-            }
-            return controls;
-        }
-
-
         public void Translate()
         {
-            List<Control> controlList = GetAllWebControls(this);
+            List<Control> controlList = Translation.GetAllWebControls(this);
 
             string webform = System.IO.Path.GetFileNameWithoutExtension(Server.MapPath(Page.AppRelativeVirtualPath));
             Dictionary<string, string> translations = Translation.GetTranslation(SessionManager.GetInstance.User.Language);

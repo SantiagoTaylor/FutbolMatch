@@ -1,21 +1,21 @@
 ﻿using BE;
 using BLL;
+using SERVICES;
+using SERVICES.Languages;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace UI.Webforms
 {
-    public partial class frmCreateEstablishment : System.Web.UI.Page
+    public partial class frmCreateEstablishment : System.Web.UI.Page, IObserver
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
+                ObservableLanguage.Attach(this);
                 if (Request.QueryString["id"] != null)
                 {
                     LoadDataEstablishment(Request.QueryString["id"].ToString());
@@ -44,6 +44,31 @@ namespace UI.Webforms
             else
             {
                 if (BLL_Establishment.RegisterEstablishment(establishment)) Response.Redirect("frmEstablishments.aspx");
+            }
+        }
+
+        public void Translate()
+        {
+            List<Control> controlList = Translation.GetAllWebControls(this);
+
+            string webform = System.IO.Path.GetFileNameWithoutExtension(Server.MapPath(Page.AppRelativeVirtualPath));
+            var translations = Translation.GetTranslation(SessionManager.GetInstance.User.Language);
+
+            var controlHandlers = new Dictionary<Type, Action<Control, string>>
+            {
+                { typeof(Button), (ctrl, text) => ((Button)ctrl).Text = text },
+                { typeof(Label), (ctrl, text) => ((Label)ctrl).Text = text },
+                { typeof(Literal), (ctrl, text) => ((Literal)ctrl).Text = text },
+                { typeof(HyperLink), (ctrl, text) => ((HyperLink)ctrl).Text = text }
+            };
+
+            foreach (var control in controlList)
+            {
+                string key = $"{webform}_{control.ID}";
+                if (translations.ContainsKey(key) && controlHandlers.ContainsKey(control.GetType()))
+                {
+                    controlHandlers[control.GetType()].Invoke(control, translations[key]);
+                }
             }
         }
     }

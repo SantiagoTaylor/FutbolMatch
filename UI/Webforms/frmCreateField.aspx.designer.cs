@@ -15,13 +15,13 @@ namespace UI.Webforms
     {
 
         /// <summary>
-        /// Control Label1.
+        /// Control LabelEstablishment.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label LabelEstablishment;
 
         /// <summary>
         /// Control DropDownListEstablishment.
@@ -33,13 +33,13 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.DropDownList DropDownListEstablishment;
 
         /// <summary>
-        /// Control Label4.
+        /// Control LabelFieldName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label LabelFieldName;
 
         /// <summary>
         /// Control TextBoxFieldName.
@@ -51,13 +51,13 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.TextBox TextBoxFieldName;
 
         /// <summary>
-        /// Control Label2.
+        /// Control LabelSize.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label LabelSize;
 
         /// <summary>
         /// Control DropDownListSize.
@@ -69,13 +69,13 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.DropDownList DropDownListSize;
 
         /// <summary>
-        /// Control Label3.
+        /// Control LabelFieldType.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label LabelFieldType;
 
         /// <summary>
         /// Control DropDownListFloorType.
@@ -87,13 +87,13 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.DropDownList DropDownListFloorType;
 
         /// <summary>
-        /// Control Label5.
+        /// Control LabelAvailability.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label LabelAvailability;
 
         /// <summary>
         /// Control DropDownListStartHour.
@@ -105,13 +105,13 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.DropDownList DropDownListStartHour;
 
         /// <summary>
-        /// Control Label6.
+        /// Control LabelTo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label LabelTo;
 
         /// <summary>
         /// Control DropDownListEndHour.

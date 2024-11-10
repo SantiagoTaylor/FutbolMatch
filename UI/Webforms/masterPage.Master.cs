@@ -1,42 +1,17 @@
-using BLL;
-using BE;
 using SERVICES;
-using System;
-using System.Web.Security;
-using System.Web.Services;
-using System.Web;
 using SERVICES.Languages;
+using System;
 using System.Collections.Generic;
-using System.Web.UI.WebControls;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace UI.Webforms
 {
     public partial class a : System.Web.UI.MasterPage, IObserver
     {
-        public List<Control> GetAllWebControls(Control parent)
-        {
-            List<Control> controls = new List<Control>();
-
-            foreach (Control control in parent.Controls)
-            {
-                if (control is WebControl)
-                {
-                    WebControl webControl = (WebControl)control;
-                    controls.Add(webControl);
-                }
-                if (control.HasControls())
-                {
-                    controls.AddRange(GetAllWebControls(control));
-                }
-            }
-            return controls;
-        }
-
-
         public void Translate()
         {
-            List<Control> controlList = GetAllWebControls(this);
+            List<Control> controlList = Translation.GetAllWebControls(this);
 
             string webform = System.IO.Path.GetFileNameWithoutExtension(Server.MapPath("./masterPage.Master"));//mejorar
             var translations = Translation.GetTranslation(SessionManager.GetInstance.User.Language);

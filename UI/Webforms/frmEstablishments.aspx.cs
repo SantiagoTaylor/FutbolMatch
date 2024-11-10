@@ -1,30 +1,54 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
+using Newtonsoft.Json;
 using SERVICES;
+using SERVICES.Languages;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
-using System.Web.Configuration;
 using System.Web.Services;
-using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Newtonsoft.Json;
-using System.Web.Script.Services;
-using BE;
-using System.Web.Script.Serialization;
-using System.Drawing;
 
 namespace UI.Webforms
 {
-    public partial class frmEstablishments : System.Web.UI.Page
+    public partial class frmEstablishments : System.Web.UI.Page, IObserver
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LoadEstablishments();
+                ObservableLanguage.Attach(this);
+            }
+        }
+
+        public void Translate()
+        {
+            List<Control> controlList = Translation.GetAllWebControls(this);
+
+            string webform = System.IO.Path.GetFileNameWithoutExtension(Server.MapPath(Page.AppRelativeVirtualPath));
+            Dictionary<string, string> translations = Translation.GetTranslation(SessionManager.GetInstance.User.Language);
+
+            foreach (Control control in controlList)
+            {
+                string key = $"{webform}_{control.ID}";
+                if (translations.ContainsKey(key))
+                {
+                    if (control is Button)
+                    {
+                        ((Button)control).Text = translations[key];
+                    }
+                    else if (control is Label)
+                    {
+                        ((Label)control).Text = translations[key];
+                    }
+                    else if (control is Literal)
+                    {
+                        ((Literal)control).Text = translations[key];
+                    }
+                }
             }
         }
 

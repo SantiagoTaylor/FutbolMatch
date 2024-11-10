@@ -38,11 +38,6 @@
             });
         });
     });
-
-    function logout() {
-        window.location.href = "index.aspx?event=logout";
-    }
-
 </script>
 <body>
     <header runat="server">
@@ -52,26 +47,21 @@
             </div>
             <div runat="server" id="nav__menu" class="nav__menu">
                 <div class="nav__item">
-                    <a href="frmMyAccount.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mi cuenta</a>
+                    <div class="nav__item"><asp:HyperLink ID="HyperLinkMyAccount" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmMyAccount.aspx">Mi cuenta</asp:HyperLink></div>
                 </div>
 
                 <section runat="server" id="nav__user__admin" class="nav__user__admin" visible="False">
-                    <div class="nav__item"><a href="frmReserveField.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Reservas</a></div>
+                    <div class="nav__item"><asp:HyperLink ID="HyperLinkReserveField" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmReserveField.aspx">Reservas</asp:HyperLink></div>
                     <section runat="server" id="nav__admin" class="nav__admin" visible="False">
-                        <div class="nav__item"><a href="frmMyEstablishment.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Mi Establecimiento</a></div>
+                        <div class="nav__item"><asp:HyperLink ID="HyperLinkMyEstablishment" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmMyEstablishment.aspx">Mi estableciemiento</asp:HyperLink></div>
                     </section>
                 </section>
                 <section runat="server" id="nav__webmaster" class="nav__webmaster" visible="False">
-                    <asp:HyperLink ID="AMyAccount" runat="server" NavigateUrl="frmMyEstablishment.aspx">HyperLink</asp:HyperLink>
-                    <div class="nav__item"><a href="frmUsers.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Usuarios</a></div>
-                    <div class="nav__item"><a href="frmEstablishments.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Establecimientos</a></div>
-                    <div class="nav__item"><a href="frmEventLog.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Bitacora</a></div>
-                    <div class="nav__item"><a href="frmDatabaseIntegrity.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Backup y Restore</a></div>
-                    <div class="nav__item"><a href="frmTranslations.aspx" class="w-100 h-100 text-center d-flex align-items-center justify-content-center">Traducciones</a></div>
-                </section>
-
-                <section class="nav__item">
-                    <button class="border-0 w-100 h-100" onclick="logout()">Logout</button>
+                    <div class="nav__item"><asp:HyperLink ID="HyperLinkUsers" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmUsers.aspx">Usuarios</asp:HyperLink></div>
+                    <div class="nav__item"><asp:HyperLink ID="HyperLinkEstablishments" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmEstablishments.aspx">Establecimientos</asp:HyperLink></div>
+                    <div class="nav__item"><asp:HyperLink ID="HyperLinkEventLog" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmEventLog.aspx">Bitacora</asp:HyperLink></div>
+                    <div class="nav__item"><asp:HyperLink ID="HyperLinkDatabaseIntegrity" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmDatabaseIntegrity.aspx">Backup y Restore</asp:HyperLink></div>
+                    <div class="nav__item"><asp:HyperLink ID="HyperLinkTranslations" class="w-100 h-100 text-center d-flex align-items-center justify-content-center" runat="server" NavigateUrl="frmTranslations.aspx">Traducciones</asp:HyperLink></div>
                 </section>
             </div>
         </nav>
