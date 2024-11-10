@@ -44,7 +44,7 @@
 
         <section class="container-content">
             <div class="w-100 h-auto overflow-y-auto">
-                <asp:GridView ID="gvLanguage" CssClass="table table-striped table-bordered" runat="server" AllowPaging="True" PageSize="35"
+                <asp:GridView ID="gvLanguage" CssClass="table table-striped table-bordered" runat="server"
                     OnRowEditing="gvLanguage_RowEditing"
                     OnRowCancelingEdit="gvLanguage_RowCancelingEdit"
                     OnRowUpdating="gvLanguage_RowUpdating"
@@ -52,10 +52,6 @@
                     AutoGenerateEditButton="True" 
                     OnRowDataBound="gvLanguage_RowDataBound">
                     <HeaderStyle CssClass="table-dark sticky-header bg-black" />
-                    <PagerStyle
-                        BackColor="white"
-                        ForeColor="blue"
-                        HorizontalAlign="Center" />
                     <PagerSettings Mode="Numeric" PageButtonCount="10" />
                 </asp:GridView>
             </div>

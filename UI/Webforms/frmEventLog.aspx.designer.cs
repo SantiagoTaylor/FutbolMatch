@@ -141,7 +141,20 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.TextBox DateTimeEnd;
 
         /// <summary>
+<<<<<<< HEAD
         /// Control ButtonFilter.
+=======
+        /// UpdatePanelButtonFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelButtonFilter;
+
+        /// <summary>
+        /// ButtonFilter control.
+>>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -150,7 +163,20 @@ namespace UI.Webforms
         protected global::System.Web.UI.WebControls.Button ButtonFilter;
 
         /// <summary>
+<<<<<<< HEAD
         /// Control UpdatePanelGridView.
+=======
+        /// ButtonDownloadXml control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDownloadXml;
+
+        /// <summary>
+        /// UpdatePanelGridView control.
+>>>>>>> 80be9a13fba6ceee3d16b928ba25d750223cd8f4
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
