@@ -60,6 +60,9 @@
                         </article>
                     </ContentTemplate>
                 </asp:UpdatePanel>
+                <article class="container d-flex flex-column gap-2 mb-1 w-75 h-auto justify-content-center align-items-center mt-1">
+                    <asp:Button ID="ButtonDownloadXml" runat="server" Text="Descargar XML" OnClick="ButtonDownloadXml_Click" CssClass="btn btn-light w-75" />
+                </article>
             </div>
 
         </section>
@@ -69,7 +72,7 @@
                     <ContentTemplate>
                         <asp:GridView ID="gvEventLog" CssClass="table table-striped table-bordered w-100" AllowPaging="true" runat="server" PageSize="20" OnPageIndexChanging="gvEventLog_PageIndexChanging">
                             <HeaderStyle CssClass="table-dark sticky-header" />
-                            <PagerStyle Width="100%" HorizontalAlign="Center" Wrap="true"/>
+                            <PagerStyle Width="100%" HorizontalAlign="Center" Wrap="true" />
                         </asp:GridView>
                     </ContentTemplate>
                 </asp:UpdatePanel>

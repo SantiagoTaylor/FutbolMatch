@@ -3,7 +3,10 @@ using SERVICES;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
+using System.Web.DynamicData;
 using System.Web.UI.WebControls;
+using UI.WebService;
 
 namespace UI.Webforms
 {
@@ -83,37 +86,57 @@ namespace UI.Webforms
 
         private void UpdateGVFilter()
         {
-            DataTable table = ViewState["EventLogData"] as DataTable;
-            DataView view = new DataView(table);
-            string filter = "1=1";
-            if (CheckBoxUsername.Checked && !string.IsNullOrEmpty(TextBoxUsername.Text))
+            if (!CheckBoxUsername.Checked && !CheckBoxActivity.Checked && !CheckBoxActivityLevel.Checked && !CheckBoxDate.Checked)
             {
-                filter += $" AND Usuario = '{TextBoxUsername.Text}'";
+                WebformMessage.ShowMessage("Por favor, seleccione al menos un filtro.", this);
             }
-            if (CheckBoxActivity.Checked)
+            else
             {
-                filter += $" AND Actividad = '{DropDownListActivity.SelectedItem.Text}'";
+                DataTable table = ViewState["EventLogData"] as DataTable;
+                DataView view = new DataView(table);
+                string filter = "1=1";
+                if (CheckBoxUsername.Checked && !string.IsNullOrEmpty(TextBoxUsername.Text))
+                {
+                    filter += $" AND Usuario = '{TextBoxUsername.Text}'";
+                }
+                if (CheckBoxActivity.Checked)
+                {
+                    filter += $" AND Actividad = '{DropDownListActivity.SelectedItem.Text}'";
+                }
+                if (CheckBoxActivityLevel.Checked)
+                {
+                    filter += $" AND Nivel = '{DropDownListActivityLevel.SelectedItem.Text}'";
+                }
+                if (CheckBoxDate.Checked && !string.IsNullOrEmpty(DateTimeStart.Text) && !string.IsNullOrEmpty(DateTimeEnd.Text))
+                {
+                    DateTime startDate = DateTime.Parse(DateTimeStart.Text);
+                    DateTime endDate = DateTime.Parse(DateTimeEnd.Text);
+                    filter += $" AND Fecha >= '{startDate:yyyy-MM-dd}' AND Fecha <= '{endDate:yyyy-MM-dd}'";
+                }
+                view.RowFilter = filter;
+                gvEventLog.DataSource = view;
+                gvEventLog.DataBind();
+                ViewState["EventLogDataFiltered"] = view.ToTable();
             }
-            if (CheckBoxActivityLevel.Checked)
-            {
-                filter += $" AND Nivel = '{DropDownListActivityLevel.SelectedItem.Text}'";
-            }
-            if (CheckBoxDate.Checked && !string.IsNullOrEmpty(DateTimeStart.Text) && !string.IsNullOrEmpty(DateTimeEnd.Text))
-            {
-                DateTime startDate = DateTime.Parse(DateTimeStart.Text);
-                DateTime endDate = DateTime.Parse(DateTimeEnd.Text);
-                filter += $" AND Fecha >= '{startDate:yyyy-MM-dd}' AND Fecha <= '{endDate:yyyy-MM-dd}'";
-            }
-            ViewState["eventLogFilter"] = filter;
-            view.RowFilter = filter;
-            gvEventLog.DataSource = view;
-            gvEventLog.DataBind();
         }
 
         protected void gvEventLog_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvEventLog.PageIndex = e.NewPageIndex;
             UpdateGVFilter();
+        }
+
+        protected void ButtonDownloadXml_Click(object sender, EventArgs e)
+        {
+            WebServiceEventLog svc = new WebServiceEventLog();
+            int startRow = gvEventLog.PageIndex * gvEventLog.PageSize;
+            int endRow = startRow + gvEventLog.PageSize - 1;
+
+            Response.Clear();
+            Response.ContentType = "application/xml";
+            Response.AddHeader("Content-Disposition", "attachment; filename=eventlog.xml");
+            Response.Write(svc.ConvertDataTableToXML((DataTable)ViewState["EventLogDataFiltered"], startRow, endRow));
+            Response.End();
         }
     }
 }
