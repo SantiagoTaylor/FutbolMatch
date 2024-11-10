@@ -91,6 +91,7 @@ namespace UI.Webforms
         protected void CheckBoxUsername_CheckedChanged(object sender, EventArgs e)
         {
             TextBoxUsername.Enabled = CheckBoxUsername.Checked;
+            if (!(sender as CheckBox).Checked) TextBoxUsername.Text = string.Empty; UpdateGVFilter();
         }
 
         protected void ButtonFilter_Click(object sender, EventArgs e)
@@ -101,6 +102,7 @@ namespace UI.Webforms
         protected void CheckBoxRole_CheckedChanged(object sender, EventArgs e)
         {
             DropDownListRole.Enabled = CheckBoxRole.Checked;
+            if (!(sender as CheckBox).Checked) UpdateGVFilter();
         }
     }
 }
