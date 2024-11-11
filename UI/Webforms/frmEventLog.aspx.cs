@@ -90,7 +90,7 @@ namespace UI.Webforms
             Response.Clear();
             Response.ContentType = "application/xml";
             Response.AddHeader("Content-Disposition", "attachment; filename=eventlog.xml");
-            Response.Write(svc.ConvertDataTableToXML((DataTable)ViewState["EventLogDataFiltered"], startRow, endRow));
+            Response.Write(svc.ConvertDataTableToXML((DataTable)ViewState["EventLogDataFiltered"]));
             Response.End();
         }
         protected void gvEventLog_PageIndexChanging(object sender, GridViewPageEventArgs e)

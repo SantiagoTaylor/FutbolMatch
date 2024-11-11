@@ -21,11 +21,11 @@ namespace UI.WebService
     {
 
         [WebMethod]
-        public string ConvertDataTableToXML(DataTable dt, int startRow, int endRow)
+        public string ConvertDataTableToXML(DataTable dt)
         {
             DataTable currentPageData = dt.Clone();
 
-            for (int i = startRow; i <= endRow && i < dt.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 currentPageData.ImportRow(dt.Rows[i]);
             }
